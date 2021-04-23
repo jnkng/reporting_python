@@ -1,0 +1,960 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Online Data &#8212; Data Visualisation and Reporting with Python</title>
+    
+  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Web Scraping" href="06_scraping.html" />
+    <link rel="prev" title="Working with Data - Pandas" href="04_data.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Data Visualisation and Reporting with Python</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01_content.html">
+   Data, Visualisation and Reporting with Python
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="02_general.html">
+   What is Python and why use it?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03_python_basics.html">
+   First steps
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03_python_basics.html#second-steps">
+   Second steps
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04_data.html">
+   Working with Data - Pandas
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Online Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06_scraping.html">
+   Web Scraping
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/05_online.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F05_online.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/05_online.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#http">
+   HTTP
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#url">
+   URL
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#html">
+   HTML
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#json">
+   JSON
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#api">
+   API
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#website-content">
+     Website content
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#back-to-apis">
+     Back to APIs
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="online-data">
+<h1>Online Data<a class="headerlink" href="#online-data" title="Permalink to this headline">¶</a></h1>
+<p>When in need for data, the internet of course is the place to begin your quest for it. In fact, every homepage you browse and every article you read is data and, as long as there is no pay wall or other security feature, free to you. Most of the data in such form is unordered and cannot easily be analysed quantitatively, like text or video clips (especially text usually does carry a lot of information). Beside this unstructured data, there are files for free to download, e.g. in a .csv format. Yet, all this has to be done by hand: either click some ‘download’ button to acquire a file or, even worse, copy a text online and paste it into a document.</p>
+<p>In the next sections, we will at first briefly introduce some basic elements of online communication and then present different ways to access data online from our computer without loading and storing it manually (we will write code manually, though).</p>
+<div class="section" id="http">
+<h2>HTTP<a class="headerlink" href="#http" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>H</strong>yper<strong>T</strong>ext <strong>T</strong>ransfer <strong>P</strong>rotocol is used for online communication in the world wide web (www). The basic operations are <em>requests</em> and <em>response</em>. In the www, when trying to open a website, you are actually sending a request to a server asking to provide the information stored under that web address. The server will then hopefully respond to your request by sending the respective information to your machine which then will be rendered in your browser. This response information does contain additional meta data, like the time of the request, status/error codes, etc which we will see later. An extension is <strong>https</strong> (<strong>s</strong>ecure).</p>
+</div>
+<div class="section" id="url">
+<h2>URL<a class="headerlink" href="#url" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>U</strong>niform <strong>R</strong>esource <strong>L</strong>ocator is the address your request is telling the server to look for information. It consists of several elements, <code class="docutils literal notranslate"><span class="pre">http://www.uni-passau.de</span></code>:</p>
+<ul class="simple">
+<li><p>the protocol: usually <code class="docutils literal notranslate"><span class="pre">http</span></code> or <code class="docutils literal notranslate"><span class="pre">https</span></code> in the www, followed by a colon and doube slash <code class="docutils literal notranslate"><span class="pre">://</span></code></p></li>
+<li><p>the hostname: <code class="docutils literal notranslate"><span class="pre">www.uni-passau.de</span></code></p></li>
+<li><p>a path/query: appended with <code class="docutils literal notranslate"><span class="pre">/</span></code> or <code class="docutils literal notranslate"><span class="pre">?</span></code> to the hostname</p></li>
+</ul>
+<p>To know about these three separate parts enables us to automate navigation in the www using python.</p>
+</div>
+<div class="section" id="html">
+<h2>HTML<a class="headerlink" href="#html" title="Permalink to this headline">¶</a></h2>
+<p>Information in the www is usually found in the <strong>H</strong>yper<strong>T</strong>ext <strong>M</strong>arkup <strong>L</strong>anguage for web browsers. HTML uses <strong>tags</strong> to structure hierarchical data, telling the browser how to display the single elements. Tags appear in pairs and are enclosed in angle brackets <code class="docutils literal notranslate"><span class="pre">&lt;tag&gt;</span></code> to open a respective section and <code class="docutils literal notranslate"><span class="pre">&lt;/tag&gt;</span></code> to close it.<br />
+Any HTML will be enclosed in the most outer <code class="docutils literal notranslate"><span class="pre">&lt;html&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;/html&gt;</span></code> tags. Inside this, the document is structured by various tags. To name just some:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;body&gt;</span></code>: the main part of a website containing the displayed information</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;div&gt;</span></code>: division, denotes a section</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code>: paragraph, simple text information</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;table&gt;</span></code>: displays data in a table, (<code class="docutils literal notranslate"><span class="pre">&lt;tr&gt;</span></code> for single rows)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;b&gt;</span></code>: bold, does not structure the page, but alters the font</p></li>
+</ul>
+<p>Beside the tag itself attributes may be included inside the brackets. With the right tools, we can exploit tags and attributes to navigate to specific elements on webpages in order to extract the element information. Very common attributes are <code class="docutils literal notranslate"><span class="pre">id</span></code> and <code class="docutils literal notranslate"><span class="pre">class</span></code>.</p>
+<p>A simple html may look like this (inside “”” and indented):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">&lt;html&gt;</span>
+<span class="sd">  &lt;body&gt;</span>
+<span class="sd">    &lt;div id=&#39;div_1&#39;&gt;</span>
+<span class="sd">      &lt;p class=&#39;section&#39; id =&#39;intro&#39;&gt;</span>
+<span class="sd">        This is a brief introduction to &lt;b&gt;HTML&lt;/b&gt;.</span>
+<span class="sd">      &lt;/p&gt;</span>
+<span class="sd">    &lt;/div&gt;</span>
+<span class="sd">  &lt;/body&gt;</span>
+<span class="sd">&lt;/html&gt;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;\n&lt;html&gt;\n  &lt;body&gt;\n    &lt;div id=&#39;div_1&#39;&gt;\n      &lt;p class=&#39;section&#39; id =&#39;intro&#39;&gt;\n        This is a brief introduction to &lt;b&gt;HTML&lt;/b&gt;.\n      &lt;/p&gt;\n    &lt;/div&gt;\n  &lt;/body&gt;\n&lt;/html&gt;\n&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since jupyter works with html, we can render the above html directly in a markdown cell:</p>
+<html> 
+  <body> 
+    <div id='div_1'> 
+      <p class='section' id ='intro'>
+        This is a brief introduction to <b>HTML</b>. 
+      </p> 
+    </div> 
+  </body>
+</html> </div>
+<div class="section" id="json">
+<h2>JSON<a class="headerlink" href="#json" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>J</strong>ava<strong>S</strong>cript <strong>O</strong>bject <strong>N</strong>otation is a type of data format which you will frequently encounter when working with online data. For one, websites that offer a .scv download often also offer a .json file to download. Moreover, the json format is often used by APIs (see next secrtion) to transfer data. Its structure looks is very similar to a python dictionary, using curly and square brackets and key-value pairs as well as enabling nesting. Data is therefore stored in such objects. There are packages which can handle json files, for example pandas to transform it into a dataframe.</p>
+<p>Let’s see what a dataframe looks like when transformed into a json format:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mi">19</span><span class="p">,</span> <span class="mi">55</span><span class="p">],</span> <span class="p">[</span><span class="mi">22</span><span class="p">,</span> <span class="mi">64</span><span class="p">]],</span>
+<span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;obj_1&quot;</span><span class="p">,</span> <span class="s2">&quot;obj_2&quot;</span><span class="p">],</span>
+<span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;length&quot;</span><span class="p">,</span> <span class="s2">&quot;height&quot;</span><span class="p">])</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>length</th>
+      <th>height</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>obj_1</th>
+      <td>19</td>
+      <td>55</td>
+    </tr>
+    <tr>
+      <th>obj_2</th>
+      <td>22</td>
+      <td>64</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>And the respective json format, created with the <code class="docutils literal notranslate"><span class="pre">to_json()</span></code> method:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">to_json</span><span class="p">())</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&quot;length&quot;:{&quot;obj_1&quot;:19,&quot;obj_2&quot;:22},&quot;height&quot;:{&quot;obj_1&quot;:55,&quot;obj_2&quot;:64}}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># back to dataframe with read_json()</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">to_json</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>length</th>
+      <th>height</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>obj_1</th>
+      <td>19</td>
+      <td>55</td>
+    </tr>
+    <tr>
+      <th>obj_2</th>
+      <td>22</td>
+      <td>64</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="api">
+<h2>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
+<p>Instead of (or in addition to) any downloadable files, data providers may offer an <strong>API</strong> (<strong>A</strong>pplication <strong>P</strong>rogramming <strong>I</strong>nterface) to access data. An API constitutes a rather convenient way to getting information as it allows direct machine to machine transaction - meaning you can log in, select and download data directly with and into python. With reliable API access, it is thus not necessary to store the data on your hard drive permanently (you must however do so temporarily). <br />
+The two most basic operations when working with an API:</p>
+<ul class="simple">
+<li><p>GET: send a request and <em>get</em> a response from the server, for example the data you asked for</p></li>
+<li><p>POST: send information to the API, for example to add data to a database remotely</p></li>
+</ul>
+<p>Many large companies offer APIs for programmers, for example the google maps API is often used on web pages where directions are explained or Twitter offers an API where tweets and meta data are provided. These APIs usually are not free. However, free APIs do exist for many topics of data, <a class="reference external" href="https://github.com/public-apis/public-apis/blob/master/README.md">see here</a> for example . <br />
+Normally, the procedure is to register an e-mail account to get an <strong>identification key</strong>. This key is needed to use the API from your computer and enables the provider to track your activity. For example, if only <em>n</em> downloads are free per day, too unrestrained a downloading business might even get you kicked or banned. In any case, to work properly with an API, one should read the documentary (or at least parts of it).</p>
+<p>In general, we will use the <a class="reference external" href="https://requests.readthedocs.io/en/master/"><code class="docutils literal notranslate"><span class="pre">requests</span></code></a> package for working with APIs.</p>
+<p>For a first and simpler example, though, we can make use of a package called <a class="reference external" href="https://pypi.org/project/Wikipedia-API/"><code class="docutils literal notranslate"><span class="pre">wikipediaapi</span></code></a> implementing the <a class="reference external" href="https://www.mediawiki.org/wiki/API:Main_page">Wikipedia API</a>. Whenever working with APIs, it is advised to look for trustworthy implementations, since the work might have been done for you already. We will then go on to produce the same result using the requests package.</p>
+<p>As usual, the first step is to import the packages (if already installed).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">wikipediaapi</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># instantiate object and call page method</span>
+<span class="n">wiki_en</span> <span class="o">=</span> <span class="n">wikipediaapi</span><span class="o">.</span><span class="n">Wikipedia</span><span class="p">(</span><span class="s1">&#39;en&#39;</span><span class="p">)</span>
+<span class="n">page</span> <span class="o">=</span> <span class="n">wiki_en</span><span class="o">.</span><span class="n">page</span><span class="p">(</span><span class="s1">&#39;University_of_Passau&#39;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;title:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">page</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">summary:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">page</span><span class="o">.</span><span class="n">summary</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>title:
+ University_of_Passau
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>summary:
+ The University of Passau (Universität Passau in German) is a public research university located in Passau, Lower Bavaria, Germany. Founded in 1973, it is the youngest university in Bavaria and consequently has the most modern campus in the state. Nevertheless, its roots as the Institute for Catholic Studies date back some hundreds of years. 
+Today it is home to four faculties and 39 different undergraduate and postgraduate degree programmes.
+</pre></div>
+</div>
+</div>
+</div>
+<p>The API from the <code class="docutils literal notranslate"><span class="pre">wikipediaapi</span></code> package returns preprocessed data from the respective article.</p>
+<p>Since APIs may come without such handy packages, we will now engage the <code class="docutils literal notranslate"><span class="pre">requests</span></code>package to perform the same tasks.<br />
+At first, we import the package under the alias <code class="docutils literal notranslate"><span class="pre">re</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span> <span class="k">as</span> <span class="nn">re</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wiki_url</span> <span class="o">=</span> <span class="s1">&#39;https://en.wikipedia.org/w/api.php&#39;</span>
+
+<span class="c1"># store parameters as dictionary to pass to function, may include key and username for authentication </span>
+<span class="c1"># the parameters are found in the documentary!</span>
+<span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;action&#39;</span><span class="p">:</span> <span class="s1">&#39;query&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;format&#39;</span><span class="p">:</span> <span class="s1">&#39;json&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;titles&#39;</span><span class="p">:</span> <span class="s1">&#39;University_of_Passau&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;prop&#39;</span><span class="p">:</span> <span class="s1">&#39;extracts&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;exintro&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+         <span class="s1">&#39;disablelimitreport&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">wiki_url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">response</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;requests.models.Response&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># check, if request was successful</span>
+<span class="n">response</span><span class="o">.</span><span class="n">status_code</span>    <span class="c1"># -&gt; 200 </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>200
+</pre></div>
+</div>
+</div>
+</div>
+<p>Having a successful request, we can now take a look at the response object’s elements. Since the format was specified as json in our request, we can use the built-in <code class="docutils literal notranslate"><span class="pre">.json()</span></code> method.<br />
+To display a json file in a more readbale manner (indents, linebreaks), we can use the <code class="docutils literal notranslate"><span class="pre">json</span></code> package and its <code class="docutils literal notranslate"><span class="pre">dumps</span></code>method.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">(),</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+    &quot;batchcomplete&quot;: &quot;&quot;,
+    &quot;warnings&quot;: {
+        &quot;main&quot;: {
+            &quot;*&quot;: &quot;Unrecognized parameter: disablelimitreport.&quot;
+        },
+        &quot;extracts&quot;: {
+            &quot;*&quot;: &quot;HTML may be malformed and/or unbalanced and may omit inline images. Use at your own risk. Known problems are listed at https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:TextExtracts#Caveats.&quot;
+        }
+    },
+    &quot;query&quot;: {
+        &quot;normalized&quot;: [
+            {
+                &quot;from&quot;: &quot;University_of_Passau&quot;,
+                &quot;to&quot;: &quot;University of Passau&quot;
+            }
+        ],
+        &quot;pages&quot;: {
+            &quot;409091&quot;: {
+                &quot;pageid&quot;: 409091,
+                &quot;ns&quot;: 0,
+                &quot;title&quot;: &quot;University of Passau&quot;,
+                &quot;extract&quot;: &quot;&lt;p&gt;The &lt;b&gt;University of Passau&lt;/b&gt; (&lt;i&gt;Universit\u00e4t Passau&lt;/i&gt; in German) is a public research university located in Passau, Lower Bavaria, Germany. Founded in 1973, it is the youngest university in Bavaria and consequently has the most modern campus in the state. Nevertheless, its roots as the Institute for Catholic Studies date back some hundreds of years. \n&lt;/p&gt;&lt;p&gt;Today it is home to four faculties and 39 different undergraduate and postgraduate degree programmes.&lt;/p&gt;\n\n&lt;!-- \nNewPP limit report\nParsed by mw1315\nCached time: 20210406070807\nCache expiry: 2592000\nDynamic content: false\nComplications: [vary\u2010revision\u2010sha1]\nCPU time usage: 0.345 seconds\nReal time usage: 0.437 seconds\nPreprocessor visited node count: 998/1000000\nPost\u2010expand include size: 15797/2097152 bytes\nTemplate argument size: 1399/2097152 bytes\nHighest expansion depth: 13/40\nExpensive parser function count: 0/500\nUnstrip recursion depth: 0/20\nUnstrip post\u2010expand size: 7236/5000000 bytes\nLua time usage: 0.216/10.000 seconds\nLua memory usage: 19014466/52428800 bytes\nNumber of Wikibase entities loaded: 0/400\n--&gt;\n&lt;!--\nTransclusion expansion time report (%,ms,calls,template)\n100.00%  420.381      1 -total\n 66.87%  281.096      1 Template:Infobox_University\n 61.89%  260.186      1 Template:Infobox\n 30.43%  127.905      1 Template:Lang-la\n 26.40%  110.968      3 Template:Cite_web\n  5.39%   22.665      2 Template:Color_box\n  4.60%   19.327     12 Template:If_empty\n  4.02%   16.896      2 Template:Br_separated_entries\n  3.93%   16.524      1 Template:URL\n  2.81%   11.811      2 Template:Greater_color_contrast_ratio\n--&gt;&quot;
+            }
+        }
+    }
+}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we can now navigate through the nested dictionaries</span>
+<span class="n">title</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;query&#39;</span><span class="p">][</span><span class="s1">&#39;pages&#39;</span><span class="p">][</span><span class="s1">&#39;409091&#39;</span><span class="p">][</span><span class="s1">&#39;title&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;title: &#39;</span><span class="p">,</span><span class="n">title</span><span class="p">)</span>
+<span class="n">summary</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;query&#39;</span><span class="p">][</span><span class="s1">&#39;pages&#39;</span><span class="p">][</span><span class="s1">&#39;409091&#39;</span><span class="p">][</span><span class="s1">&#39;extract&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">summary:&#39;</span><span class="p">,</span> <span class="n">summary</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>title:  University of Passau
+
+summary: &lt;p&gt;The &lt;b&gt;University of Passau&lt;/b&gt; (&lt;i&gt;Universität Passau&lt;/i&gt; in German) is a public research university located in Passau, Lower Bavaria, Germany. Founded in 1973, it is the youngest university in Bavaria and consequently has the most modern campus in the state. Nevertheless, its roots as the Institute for Catholic Studies date back some hundreds of years. 
+&lt;/p&gt;&lt;p&gt;Today it is home to four faculties and 39 different undergraduate and postgraduate degree programmes.&lt;/p&gt;
+
+&lt;!-- 
+NewPP limit report
+Parsed by mw1315
+Cached time: 20210406070807
+Cache expiry: 2592000
+Dynamic content: false
+Complications: [vary‐revision‐sha1]
+CPU time usage: 0.345 seconds
+Real time usage: 0.437 seconds
+Preprocessor visited node count: 998/1000000
+Post‐expand include size: 15797/2097152 bytes
+Template argument size: 1399/2097152 bytes
+Highest expansion depth: 13/40
+Expensive parser function count: 0/500
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 7236/5000000 bytes
+Lua time usage: 0.216/10.000 seconds
+Lua memory usage: 19014466/52428800 bytes
+Number of Wikibase entities loaded: 0/400
+--&gt;
+&lt;!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  420.381      1 -total
+ 66.87%  281.096      1 Template:Infobox_University
+ 61.89%  260.186      1 Template:Infobox
+ 30.43%  127.905      1 Template:Lang-la
+ 26.40%  110.968      3 Template:Cite_web
+  5.39%   22.665      2 Template:Color_box
+  4.60%   19.327     12 Template:If_empty
+  4.02%   16.896      2 Template:Br_separated_entries
+  3.93%   16.524      1 Template:URL
+  2.81%   11.811      2 Template:Greater_color_contrast_ratio
+--&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since the Text is still in html, as can be seen from tags, we are not yet finished. To convert html to normal text, one way is by using <a class="reference external" href="https://pypi.org/project/beautifulsoup4/"><strong>BeautifulSoup</strong>.</a><br />
+Let’s import it from the <code class="docutils literal notranslate"><span class="pre">bs4</span></code> package and transform the html.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+
+<span class="c1"># first instantiate object, use &#39;lxml&#39; parser (installation necessary) </span>
+<span class="n">my_soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">summary</span><span class="p">,</span> <span class="s1">&#39;lxml&#39;</span><span class="p">)</span>
+
+<span class="c1"># extract the text, i.e. remove tags</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_soup</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The University of Passau (Universität Passau in German) is a public research university located in Passau, Lower Bavaria, Germany. Founded in 1973, it is the youngest university in Bavaria and consequently has the most modern campus in the state. Nevertheless, its roots as the Institute for Catholic Studies date back some hundreds of years. 
+Today it is home to four faculties and 39 different undergraduate and postgraduate degree programmes.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="website-content">
+<h3>Website content<a class="headerlink" href="#website-content" title="Permalink to this headline">¶</a></h3>
+<p>BeautifulSoup can not only extract text from html, but, in analogy to the json <code class="docutils literal notranslate"><span class="pre">dumps()</span></code> method from before, print html files more readable. We will leverage BeautifulSoup’s functions now to extract again the same information, but now from the website directly, i.e. without an API.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># first, send request - get response from ordinary url</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://en.wikipedia.org/wiki/University_of_Passau&#39;</span><span class="p">)</span>
+
+<span class="c1"># second, extract content from the response (html)</span>
+<span class="n">html</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">content</span>
+
+<span class="c1"># third, instantiate BS onject</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+
+<span class="c1"># if necessary look at a formatted version of the html</span>
+<span class="c1"># print(soup.prettify())     # -&gt; very long output</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># finally print the text attribute from the created object</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">text</span><span class="p">[</span><span class="mi">400</span><span class="p">:</span><span class="mi">1000</span><span class="p">])</span>     <span class="c1"># only part of document for shorter output</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a, GermanyCampusUrbanColoursOrange and grey   Websitewww.uni-passau.de/en
+The University of Passau (Universität Passau in German) is a public research university located in Passau, Lower Bavaria, Germany. Founded in 1973, it is the youngest university in Bavaria and consequently has the most modern campus in the state. Nevertheless, its roots as the Institute for Catholic Studies date back some hundreds of years. 
+Today it is home to four faculties and 39 different undergraduate and postgraduate degree programmes.[3]
+
+Contents
+
+1 History
+2 Campus
+
+2.1 Library
+
+
+3 Organisation
+
+3.1 Governance
+3
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">getText</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;The University of Passau (Universität Passau in German) is a public research university located in Passau, Lower Bavaria, Germany. Founded in 1973, it is the youngest university in Bavaria and consequently has the most modern campus in the state. Nevertheless, its roots as the Institute for Catholic Studies date back some hundreds of years. \n&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see, that we loaded the whole website as raw text. One can immediately see that it is not obvious how to extract the wanted summary only. We will later see some ways to extract text and leverage repeated structure across a website for its different pages to extract text sections like this.</p>
+</div>
+<div class="section" id="back-to-apis">
+<h3>Back to APIs<a class="headerlink" href="#back-to-apis" title="Permalink to this headline">¶</a></h3>
+<p>Now, the API we will mostly use in this course is from <a class="reference external" href="https://financialmodelingprep.com/developer/docs/">financialmodelingprep.com</a>, providing financial and company data. In contrast to the Wikipedia API, a registration by e-mail is required. Please register to get your API key.</p>
+<p>To access the data, the key must be submitted in the request. We can use the params statement as before, handing it the respective statements.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># package to not reveal API key</span>
+<span class="kn">from</span> <span class="nn">getpass</span> <span class="kn">import</span> <span class="n">getpass</span>
+<span class="c1">#api_key = getpass()</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="s1">&#39;44c50c7a71efa92e8dac68f5902ea0ec&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define components of the request</span>
+<span class="n">base_url</span> <span class="o">=</span> <span class="s1">&#39;https://financialmodelingprep.com/api/v3/&#39;</span>
+<span class="n">filing</span> <span class="o">=</span> <span class="s1">&#39;profile&#39;</span>
+<span class="n">stock</span> <span class="o">=</span> <span class="s1">&#39;GOOG&#39;</span>
+<span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;apikey&#39;</span><span class="p">:</span> <span class="n">api_key</span><span class="p">}</span>
+
+<span class="c1"># send request and store reponse</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">base_url</span><span class="o">+</span><span class="n">filing</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">stock</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Without further processing, the json is already quite well structured to read</span>
+<span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;symbol&#39;: &#39;GOOG&#39;,
+  &#39;price&#39;: 2224.75,
+  &#39;beta&#39;: 1.022765,
+  &#39;volAvg&#39;: 1591743,
+  &#39;mktCap&#39;: 1494418063360,
+  &#39;lastDiv&#39;: 0.0,
+  &#39;range&#39;: &#39;1187.598-2237.51&#39;,
+  &#39;changes&#39;: -0.8,
+  &#39;companyName&#39;: &#39;Alphabet Inc.&#39;,
+  &#39;currency&#39;: &#39;USD&#39;,
+  &#39;cik&#39;: &#39;0001652044&#39;,
+  &#39;isin&#39;: &#39;US02079K1079&#39;,
+  &#39;cusip&#39;: &#39;02079K107&#39;,
+  &#39;exchange&#39;: &#39;Nasdaq Global Select&#39;,
+  &#39;exchangeShortName&#39;: &#39;NASDAQ&#39;,
+  &#39;industry&#39;: &#39;Internet Content &amp; Information&#39;,
+  &#39;website&#39;: &#39;http://www.abc.xyz&#39;,
+  &#39;description&#39;: &#39;Alphabet Inc. provides online advertising services in the United States, Europe, the Middle East, Africa, the Asia-Pacific, Canada, and Latin America. It offers performance and brand advertising services. The company operates through Google and Other Bets segments. The Google segment offers products, such as Ads, Android, Chrome, Google Cloud, Google Maps, Google Play, Hardware, Search, and YouTube, as well as technical infrastructure. It also offers digital content, cloud services, hardware devices, and other miscellaneous products and services. The Other Bets segment includes businesses, including Access, Calico, CapitalG, GV, Verily, Waymo, and X, as well as Internet and television services. The company has an agreement with Sabre Corporation to develop an artificial intelligence-driven technology platform for travel. Alphabet Inc. was founded in 1998 and is headquartered in Mountain View, California.&#39;,
+  &#39;ceo&#39;: &#39;Mr. Sundar Pichai&#39;,
+  &#39;sector&#39;: &#39;Communication Services&#39;,
+  &#39;country&#39;: &#39;US&#39;,
+  &#39;fullTimeEmployees&#39;: &#39;132121&#39;,
+  &#39;phone&#39;: &#39;650-253-0000&#39;,
+  &#39;address&#39;: &#39;1600 Amphitheatre Parkway&#39;,
+  &#39;city&#39;: &#39;Mountain View&#39;,
+  &#39;state&#39;: &#39;CA&#39;,
+  &#39;zip&#39;: &#39;94043&#39;,
+  &#39;dcfDiff&#39;: 376.88,
+  &#39;dcf&#39;: 1641.53,
+  &#39;image&#39;: &#39;https://financialmodelingprep.com/image-stock/GOOG.png&#39;,
+  &#39;ipoDate&#39;: &#39;2004-08-19&#39;,
+  &#39;defaultImage&#39;: False,
+  &#39;isEtf&#39;: False,
+  &#39;isActivelyTrading&#39;: True}]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also load symbols from all companies listed in the Dow Jones Index and then load historical stock price data from those companies using the afore acquired symbols.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filing</span> <span class="o">=</span> <span class="s1">&#39;dowjones_constituent&#39;</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">base_url</span><span class="o">+</span><span class="n">filing</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>200
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dji_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dji_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  symbol                          name              sector  \
+0    CRM            Salesforce.Com Inc          Technology   
+1    WBA  Walgreens Boots Alliance Inc          Healthcare   
+2      V                      Visa Inc  Financial Services   
+
+            subSector                headQuarter dateFirstAdded         cik  \
+0          Technology  San Francisco, CALIFORNIA     2020-08-31  0001108524   
+1          Healthcare        Deerfield, ILLINOIS     2018-06-26  0001618921   
+2  Financial Services  San Francisco, CALIFORNIA     2013-09-23  0001403161   
+
+      founded  
+0  2004-06-23  
+1  2014-12-31  
+2  2008-03-19  
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># extract symbol column and convert to list</span>
+<span class="n">dji_symbols</span> <span class="o">=</span> <span class="n">dji_df</span><span class="o">.</span><span class="n">symbol</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dji_symbols</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;CRM&#39;, &#39;WBA&#39;, &#39;V&#39;, &#39;NKE&#39;, &#39;UNH&#39;, &#39;TRV&#39;, &#39;VZ&#39;, &#39;INTC&#39;, &#39;WMT&#39;, &#39;JNJ&#39;, &#39;DIS&#39;, &#39;MCD&#39;, &#39;JPM&#39;, &#39;CAT&#39;, &#39;BA&#39;, &#39;AMGN&#39;, &#39;DOW&#39;, &#39;AAPL&#39;, &#39;GS&#39;, &#39;CSCO&#39;, &#39;MSFT&#39;, &#39;HD&#39;, &#39;PG&#39;, &#39;MRK&#39;, &#39;IBM&#39;, &#39;HON&#39;, &#39;KO&#39;, &#39;CVX&#39;, &#39;AXP&#39;, &#39;MMM&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># set the filing (from documentation)</span>
+<span class="n">filing</span> <span class="o">=</span> <span class="s1">&#39;historical-price-full&#39;</span>
+
+<span class="c1"># create empty dataframe (before loop!) to collect data for every company in loop</span>
+<span class="n">dji_hist</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+
+<span class="c1"># loop over all symbols in the list</span>
+<span class="k">for</span> <span class="n">symbol</span> <span class="ow">in</span> <span class="n">dji_symbols</span><span class="p">:</span>
+    
+    <span class="c1"># request data for every symbol </span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">base_url</span><span class="o">+</span><span class="n">filing</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">symbol</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
+    <span class="c1"># break the loop if a response error occurs</span>
+    <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Error! Aborted&#39;</span><span class="p">)</span>
+        <span class="k">break</span>
+    <span class="c1"># convert the response to json to temporary dataframe</span>
+    <span class="n">temp_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;historical&#39;</span><span class="p">],</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
+    <span class="c1"># add column with respective symbol</span>
+    <span class="n">temp_df</span><span class="p">[</span><span class="s1">&#39;symbol&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">symbol</span>
+    <span class="c1"># append temporary dataframe to collect dataframe </span>
+    <span class="n">dji_hist</span> <span class="o">=</span> <span class="n">dji_hist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp_df</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="c1"># delete temporary dataframe before next iteration</span>
+    <span class="k">del</span> <span class="n">temp_df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># just one example to show all companies&#39; data made it to the collect dataframe: variance of opening price </span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dji_hist</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;symbol&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">open</span><span class="o">.</span><span class="n">var</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AxesSubplot(0.125,0.125;0.775x0.755)
+</pre></div>
+</div>
+<img alt="_images/05_online_37_1.png" src="_images/05_online_37_1.png" />
+</div>
+</div>
+<p>We now know how to retrieve data from an API or the whole html content from a normal website. The next chapter will look at how we can extract information displayed on websites in a more directed manner than downloading just all of the website’s content.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "3.8"
+        },
+        kernelOptions: {
+            kernelName: "3.8",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = '3.8'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="04_data.html" title="previous page">Working with Data - Pandas</a>
+    <a class='right-next' id="next-link" href="06_scraping.html" title="next page">Web Scraping</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Jan König<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
