@@ -629,11 +629,6 @@ The following examples uses the <code class="docutils literal notranslate"><span
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="variables">
@@ -649,12 +644,6 @@ Note that python is case sensitive, meaning that when assigning variables a ≠ 
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>25
-twenty five
-</pre></div>
-</div>
-</div>
 </div>
 <div class="caution admonition">
 <p class="admonition-title">Caution</p>
@@ -667,11 +656,6 @@ For example:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span>
 <span class="nb">int</span>
 <span class="nb">dict</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict
 </pre></div>
 </div>
 </div>
@@ -719,13 +703,6 @@ Comparing statements may also be combined by <code class="docutils literal notra
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True False
-False
-True
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="branching">
@@ -746,11 +723,6 @@ True
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a is positive&#39;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a equals zero&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a is positive
 </pre></div>
 </div>
 </div>
@@ -802,19 +774,6 @@ Elements can be accessed by indexing with square brackets behind the list name.<
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0. the length of my list is 5 , the length of the word &quot;list&quot; 4
-1. first element from my_list: 1
-2. second element of my_tuple: b
-3. changing the third element in my_list: [1, 2, 3, 4, 5]
-4. first letter in my_str: e
-5. last element of my_tuple: c
-6. from element 3 to end of my_list: [3, 4, 5]
-7. reverse order of my_list and slice: [4, 3, 2, 1]
-8. add new element: [1, 2, 3, 4]
-</pre></div>
-</div>
-</div>
 </div>
 <p>Lists also allow for element checks using <code class="docutils literal notranslate"><span class="pre">in</span></code> (negated by <code class="docutils literal notranslate"><span class="pre">not</span></code>):</p>
 <div class="cell docutils container">
@@ -829,23 +788,12 @@ Elements can be accessed by indexing with square brackets behind the list name.<
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2 is an element of my_list
-</pre></div>
-</div>
-</div>
 </div>
 <p>Beside definition by hand, the the functions <code class="docutils literal notranslate"><span class="pre">list()</span></code> and <code class="docutils literal notranslate"><span class="pre">tuple()</span></code> can be used to transform a suitable object to a list or tuple.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">my_list</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;python&#39;</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1, 2, 3, 4)
-[&#39;p&#39;, &#39;y&#39;, &#39;t&#39;, &#39;h&#39;, &#39;o&#39;, &#39;n&#39;]
 </pre></div>
 </div>
 </div>
@@ -867,22 +815,11 @@ Dictionaries are not ordered, as can be seen from the way of accessing and addin
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
-{&#39;start&#39;: 1, &#39;end&#39;: 20, &#39;mid&#39;: 10}
-</pre></div>
-</div>
-</div>
 </div>
 <p>All <em>keys</em> and <em>value</em> can be accessed with the <code class="docutils literal notranslate"><span class="pre">.keys()</span></code> and <code class="docutils literal notranslate"><span class="pre">.values()</span></code> method (more on methods later).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">my_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="n">my_dict</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;start&#39;, &#39;end&#39;, &#39;mid&#39;]) dict_values([1, 20, 10])
 </pre></div>
 </div>
 </div>
@@ -900,12 +837,6 @@ Dictionaries are not ordered, as can be seen from the way of accessing and addin
 <span class="c1"># the asterisk assigns all surplus values on the right hand side of the equal sign to a</span>
 <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="p">,</span><span class="n">b</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>one 2 three
-[1, 2, 3] 4
 </pre></div>
 </div>
 </div>
@@ -939,27 +870,6 @@ Dictionaries are not ordered, as can be seen from the way of accessing and addin
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 squared is 0
-1 squared is 1
-2 squared is 4
-3 squared is 9
-4 squared is 16
-
-one
-2
-three
-
-one at position 0
-2 at position 1
-three at position 2
-
-key: start, value: 1 
-key: end, value: 20 
-key: mid, value: 10 
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="while-loop">
@@ -988,19 +898,6 @@ A while-loop start with <code class="docutils literal notranslate"><span class="
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
-1
-2
-3
-5 is greater zero
-4 is greater zero
-3 is greater zero
-2 is greater zero
-1 is greater zero
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -1018,12 +915,6 @@ A while-loop start with <code class="docutils literal notranslate"><span class="
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>list_1: [0, 1, 2, 3, 4]
-list_2: [[0, 0, 0, 0, 0], [0, 1, 2, 3, 4]]
-</pre></div>
-</div>
-</div>
 </div>
 <div class="section" id="break-and-continue">
 <h3>break and continue<a class="headerlink" href="#break-and-continue" title="Permalink to this headline">¶</a></h3>
@@ -1036,15 +927,6 @@ list_2: [[0, 0, 0, 0, 0], [0, 1, 2, 3, 4]]
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1"> is even&#39;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">8</span><span class="p">:</span>        <span class="c1"># when i equals 8, the loop terminates (the print statement for i == 8 is executed before)</span>
         <span class="k">break</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 is even
-2 is even
-4 is even
-6 is even
-8 is even
 </pre></div>
 </div>
 </div>
@@ -1067,12 +949,6 @@ list_2: [[0, 0, 0, 0, 0], [0, 1, 2, 3, 4]]
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;hi&#39;</span><span class="p">)</span>
     
 <span class="n">print_hi</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Greetings
-hi
 </pre></div>
 </div>
 </div>
@@ -1102,12 +978,6 @@ With branching, several return statements may appear in one function.</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.0
-4.0
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="yield">
@@ -1134,20 +1004,10 @@ With branching, several return statements may appear in one function.</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 2, 3, 4]
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">yield_list</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>   <span class="c1"># creates a generator object</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;generator object yield_list at 0x7f88f92c9eb0&gt;
 </pre></div>
 </div>
 </div>
@@ -1167,25 +1027,12 @@ With branching, several return statements may appear in one function.</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
-1
-2
-</pre></div>
-</div>
-</div>
 </div>
 <p>Since the state of the generator is remembered and we have already moved beyond 2 using <code class="docutils literal notranslate"><span class="pre">next()</span></code>, the following for loop ‘finishes’ the generator:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">gen</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
-4
 </pre></div>
 </div>
 </div>
@@ -1204,13 +1051,6 @@ With branching, several return statements may appear in one function.</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.0
-0.2
-5.0
-</pre></div>
-</div>
-</div>
 </div>
 <p>Default values for a function can be set. If an argument is not specified when calling the function, the default value will be used.</p>
 <div class="cell docutils container">
@@ -1218,11 +1058,6 @@ With branching, several return statements may appear in one function.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">divide</span><span class="p">(</span><span class="n">numer</span><span class="p">,</span> <span class="n">denom</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">numer</span> <span class="o">/</span> <span class="n">denom</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">divide</span><span class="p">(</span><span class="n">numer</span><span class="o">=</span><span class="mi">10</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10.0
 </pre></div>
 </div>
 </div>
@@ -1240,12 +1075,6 @@ With branching, several return statements may appear in one function.</p>
     
 <span class="nb">print</span><span class="p">(</span><span class="n">my_factorial</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">factorial</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>120
-120
 </pre></div>
 </div>
 </div>
@@ -1285,15 +1114,6 @@ Global variables inside functions can be defined using the <code class="docutils
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>calling f_1, x = 7
-after calling f_2: x = 7
-calling f_3: x = 10
-after calling f_3: x = 7
-after calling f_4: x = 10
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -1323,13 +1143,6 @@ Arguments are passed in parentheses as usual.</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6065306597126334
-0.6065306597126334
-0.6065306597126334
-</pre></div>
-</div>
-</div>
 </div>
 <p>Lambda functions can be easily applied in combination with list comprehension, where the can be defined in place.</p>
 <div class="cell docutils container">
@@ -1340,12 +1153,6 @@ Arguments are passed in parentheses as usual.</p>
 
 <span class="c1"># always consider doing it without a lambda function</span>
 <span class="nb">print</span><span class="p">([(</span><span class="mi">1</span><span class="o">/</span><span class="n">exp</span><span class="p">(</span><span class="n">i</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">list_1</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.0, 0.36787944117144233, 0.1353352832366127, 0.049787068367863944, 0.018315638888734182]
-[1.0, 0.36787944117144233, 0.1353352832366127, 0.049787068367863944, 0.018315638888734182]
 </pre></div>
 </div>
 </div>
@@ -1366,25 +1173,23 @@ Arguments are passed in parentheses as usual.</p>
         
 <span class="c1"># instantiate object  </span>
 <span class="n">Chris</span> <span class="o">=</span> <span class="n">Student</span>
+<span class="n">Tina</span> <span class="o">=</span> <span class="n">Student</span>
 
 <span class="c1"># get uni of student Chris</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">Chris</span><span class="o">.</span><span class="n">uni</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Uni:&#39;</span><span class="p">,</span> <span class="n">Chris</span><span class="o">.</span><span class="n">uni</span><span class="p">)</span>
 
 <span class="c1"># student changes subject</span>
-<span class="n">Chris</span><span class="o">.</span><span class="n">subject</span> <span class="o">=</span> <span class="s1">&#39;Biology&#39;</span>
+<span class="n">Chris</span><span class="o">.</span><span class="n">subject</span> <span class="o">=</span> <span class="s1">&#39;biology&#39;</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">Chris</span><span class="o">.</span><span class="n">subject</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Chris&#39; subject:&quot;</span><span class="p">,</span> <span class="n">Chris</span><span class="o">.</span><span class="n">subject</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;class name:&#39;</span><span class="p">,</span> <span class="n">Chris</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tina&#39;s subject:&quot;</span><span class="p">,</span> <span class="n">Tina</span><span class="o">.</span><span class="n">subject</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Passau
-Biology
-</pre></div>
 </div>
-</div>
-</div>
-<p>Classes can not only store values but also functions, called methods. Methods are defined just like regular functions, but inside the class body. To make a class more useful (compared to the example above), the <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> method is needed. As arguments, it takes <code class="docutils literal notranslate"><span class="pre">self</span></code> and all other arguments needed as input to build the object.</p>
+<p>Classes can not only store values but also functions, called methods. Methods are defined just like regular functions, but inside the class body. To make a class more useful (compared to the example above), the <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> method is needed. As arguments, it takes <code class="docutils literal notranslate"><span class="pre">self</span></code> and all other arguments needed as input to build the object. <code class="docutils literal notranslate"><span class="pre">self</span></code> is used for instance variables, i.e. variables that belong to an object and not the whole class.</p>
 <p>Methods and class variables are chained by a <code class="docutils literal notranslate"><span class="pre">.</span></code> to the object.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1401,7 +1206,12 @@ Biology
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">grades</span><span class="p">)</span>
      
 <span class="n">Chris</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s1">&#39;Passau&#39;</span><span class="p">,</span> <span class="s1">&#39;Art&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mf">1.3</span><span class="p">,</span> <span class="mf">1.7</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">Chris</span><span class="p">))</span>
+<span class="n">Tina</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s1">&#39;Regensburg&#39;</span><span class="p">,</span> <span class="s1">&#39;Physics&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">])</span>
+
+<span class="n">Chris</span><span class="o">.</span><span class="n">subject</span> <span class="o">=</span> <span class="s1">&#39;engineering&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Chris: </span><span class="si">{</span><span class="n">Chris</span><span class="o">.</span><span class="n">subject</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Tina: </span><span class="si">{</span><span class="n">Tina</span><span class="o">.</span><span class="n">subject</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="n">Chris</span><span class="o">.</span><span class="n">avg_grade</span><span class="p">())</span>
 
 <span class="c1"># lists have a built-in method append, which adds items given as arguments to the end of the list (see help(list))</span>
@@ -1410,34 +1220,21 @@ Biology
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;__main__.Student&#39;&gt;
-2.0
-2.75
-</pre></div>
-</div>
-</div>
 </div>
 <div class="section" id="inheritance">
 <h3>Inheritance<a class="headerlink" href="#inheritance" title="Permalink to this headline">¶</a></h3>
-<p>Classes can inherit all properties from other classes by using the <code class="docutils literal notranslate"><span class="pre">super()</span></code> function in the constructor. This should be applied, if a new class should expand the functionality of the original class without wanting to change the original class. For example if a Student is also a Person:</p>
+<p>Classes can inherit all properties from other classes by using the <code class="docutils literal notranslate"><span class="pre">super()</span></code> function in the constructor. This should be applied, if a new class should expand the functionality of the original class without wanting to change the original class. For example if a Student is also a resident:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="n">Student</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">LocalResident</span><span class="p">(</span><span class="n">Student</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uni</span><span class="p">,</span> <span class="n">subject</span><span class="p">,</span> <span class="n">grades</span><span class="p">,</span> <span class="n">address</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">uni</span><span class="p">,</span> <span class="n">subject</span><span class="p">,</span> <span class="n">grades</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">address</span> <span class="o">=</span> <span class="n">address</span>
         
-<span class="n">Chris</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s1">&#39;Passau&#39;</span><span class="p">,</span> <span class="s1">&#39;Art&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mf">1.3</span><span class="p">,</span> <span class="mf">1.7</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">],</span> <span class="s1">&#39;Innstr. 27&#39;</span><span class="p">)</span>
+<span class="n">Chris</span> <span class="o">=</span> <span class="n">LocalResident</span><span class="p">(</span><span class="s1">&#39;Passau&#39;</span><span class="p">,</span> <span class="s1">&#39;Art&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mf">1.3</span><span class="p">,</span> <span class="mf">1.7</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">],</span> <span class="s1">&#39;Innstr. 27&#39;</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">Chris</span><span class="o">.</span><span class="n">address</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; Uni and address: </span><span class="si">{</span><span class="n">Chris</span><span class="o">.</span><span class="n">uni</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">Chris</span><span class="o">.</span><span class="n">address</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">Chris</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Innstr. 27
-&lt;class &#39;__main__.Person&#39;&gt;
 </pre></div>
 </div>
 </div>
@@ -1448,7 +1245,8 @@ Biology
 <h2>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h2>
 <p>Regular python files end with <em>.py</em> and code can be written and read in any text editor. Only the suffix will tell the interpreter how to handle the file, in this case as a python script.</p>
 <p>Jupyter Notebook files end with <em>.ipynb</em>. The special cell-wise structure leads to more formatting effort which is stored in a .json format (see later chapters), meaning that when a <em>.ipynb</em> file is opened in an ordinary text editor, the structure will be very different from what is shown in this jupyter interface.</p>
-</div>
+<p>Below a jupyter notebook is shown on the left. The formatting is seen on the right, where the <em>.ipynb</em> file was openened using a text editor.</p>
+<table><tr><td><img src='graphics/struc_notebook.png' style="width: 500px;"></td><td><img src='graphics/struc_editor.png' style="width: 200px;"></td></tr></table></div>
 </div>
 <div class="section" id="second-steps">
 <h1>Second steps<a class="headerlink" href="#second-steps" title="Permalink to this headline">¶</a></h1>
@@ -1464,11 +1262,6 @@ Biology
 <span class="c1"># mathematical functions:</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;sin(pi) = &#39;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span> 
 <span class="c1"># note that the sine of the number pi is defined as zero, yet python returns a small number &gt; 0</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sin(pi) =  1.2246467991473532e-16
 </pre></div>
 </div>
 </div>
@@ -1507,26 +1300,6 @@ Biology
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0. dimension of array a (5,)
-1. sum of array a: 15
-2. variance of array a: 2.0
-3. one plus array b: [1 1 1 1 2]
-4. element-wise multiplication of arrays: [0 0 0 0 5]
-5. scalar by dot product: 5
-5.1 vector multiplication: 
- [[0 0 0 0 1]
- [0 0 0 0 2]
- [0 0 0 0 3]
- [0 0 0 0 4]
- [0 0 0 0 5]]
-5.2 transposed array: (5,) transp. matrix: (5, 1)
-6. array:     reshaped:           same result:
- [[0. 0. 0.]
- [0. 0. 0.]] [0. 0. 0. 0. 0. 0.] [0. 0. 0. 0. 0. 0.]
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1535,15 +1308,6 @@ Biology
 <span class="c1"># for a list of probability distributions, the autocomplete function can be used (press tab after the dot)</span>
 <span class="n">random_expo</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">exponential</span><span class="p">(</span><span class="n">scale</span><span class="o">=.</span><span class="mi">5</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">random_expo</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1.42149332 0.10594045 1.41035759 0.18948007 1.3925958 ]
- [1.03373949 0.48688798 0.36265823 0.45521357 0.53776865]
- [0.14013062 1.51944134 0.07772781 1.51896401 0.44462309]
- [0.48527776 0.39570615 0.49480258 1.16153273 0.48323765]
- [0.2755683  0.58518297 0.09637133 0.49261774 0.29682432]]
 </pre></div>
 </div>
 </div>
