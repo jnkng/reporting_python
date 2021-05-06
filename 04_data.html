@@ -56,6 +56,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="First steps" href="03_python_basics.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -90,7 +91,7 @@
   </a>
  </li>
 </ul>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="02_general.html">
    What is Python and why use it?
@@ -104,6 +105,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="03_python_basics.html#second-steps">
    Second steps
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Working with Data
   </a>
  </li>
 </ul>
@@ -1285,7 +1291,7 @@ Col: wday,	, Type: BIGINT
 </div>
 </div>
 </div>
-<p>After knowing all components, a query can be sent to get the required data from the database to a dataframe.
+<p>Knowing all components, a query can be sent to get the required data from the database to a dataframe.
 By convention, SQL is written in all CAPS, even though this is not required for the statement to work.</p>
 <p>To select all columns from a table, the wildcard character <code class="docutils literal notranslate"><span class="pre">*</span></code> is used. The syntax is <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">&lt;col1&gt;,</span> <span class="pre">&lt;col2&gt;</span> <span class="pre">FROM</span> <span class="pre">&lt;table&gt;</span></code>.</p>
 <div class="cell docutils container">
@@ -1310,9 +1316,7 @@ By convention, SQL is written in all CAPS, even though this is not required for 
       Adj Close     Volume                    Datetime  positive  wday  
 0  10475.490234  267400800  2020-03-10 00:00:00.000000         0     1  
 1  10438.679688  216708900  2020-03-11 00:00:00.000000         0     2  
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   index        Date          Open          High           Low         Close  \
+   index        Date          Open          High           Low         Close  \
 0      0  2020-03-10  10724.980469  11032.290039  10423.900391  10475.490234   
 1      1  2020-03-11  10601.849609  10761.429688  10390.509766  10438.679688   
 
@@ -1358,7 +1362,7 @@ only 10 rows: (10, 2)
 </div>
 </div>
 </div>
-<p>The dataset can be filtered before being loaded into a dataframe. So pose restrictions on the import of records, use <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> after the table name.</p>
+<p>The dataset can be filtered before being loaded into a dataframe. To pose restrictions on the import of records, use <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> after the table name.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># select only first 10 entries with LIMIT</span>
@@ -1421,15 +1425,15 @@ only 10 rows: (10, 2)
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculate mean</span>
-<span class="n">my_query</span> <span class="o">=</span> <span class="s1">&#39;SELECT ROUND(AVG(open),2) FROM historical_data&#39;</span>   
-<span class="n">mean_open</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">my_query</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;mean opening price:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">mean_open</span><span class="p">)</span>
+<span class="n">my_query</span> <span class="o">=</span> <span class="s1">&#39;SELECT ROUND(AVG(open),2) as mean_open FROM historical_data&#39;</span>   
+<span class="n">mean_open</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">my_query</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mean_open</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mean opening price:
- [[12488.79]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   mean_open
+0   12488.79
 </pre></div>
 </div>
 </div>
@@ -1437,14 +1441,14 @@ only 10 rows: (10, 2)
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import Variable under different name</span>
-<span class="n">my_query</span> <span class="o">=</span> <span class="s1">&#39;SELECT ROUND(open,2) as opening_price, ROUND(close, 2) as closing_price FROM historical_data&#39;</span> 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;new column names:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">to_list</span><span class="p">())</span>
+<span class="n">my_query</span> <span class="o">=</span> <span class="s1">&#39;SELECT ROUND(open,2) as opening_price, ROUND(close, 2) as closing_price FROM historical_data&#39;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">my_query</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">to_list</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>new column names:
- [&#39;Open&#39;, &#39;Close&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;opening_price&#39;, &#39;closing_price&#39;]
 </pre></div>
 </div>
 </div>
@@ -1504,6 +1508,7 @@ only 10 rows: (10, 2)
     
     <div class='prev-next-bottom'>
         
+    <a class='left-prev' id="prev-link" href="03_python_basics.html" title="previous page">First steps</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

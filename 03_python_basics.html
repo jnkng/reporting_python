@@ -45,6 +45,8 @@
     <script src="_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -54,6 +56,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Working with Data" href="04_data.html" />
     <link rel="prev" title="What is Python and why use it?" href="02_general.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -103,6 +106,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="#second-steps">
    Second steps
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04_data.html">
+   Working with Data
   </a>
  </li>
 </ul>
@@ -860,7 +868,9 @@ Dictionaries are not ordered, as can be seen from the way of accessing and addin
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
-{&#39;start&#39;: 1, &#39;end&#39;: 20, &#39;mid&#39;: 10}
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;start&#39;: 1, &#39;end&#39;: 20, &#39;mid&#39;: 10}
 </pre></div>
 </div>
 </div>
@@ -932,7 +942,9 @@ Dictionaries are not ordered, as can be seen from the way of accessing and addin
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 squared is 0
-1 squared is 1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 squared is 1
 2 squared is 4
 3 squared is 9
 4 squared is 16
@@ -1138,7 +1150,7 @@ With branching, several return statements may appear in one function.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;generator object yield_list at 0x7fbab0348ac0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;generator object yield_list at 0x7f8cf8070970&gt;
 </pre></div>
 </div>
 </div>
@@ -1461,7 +1473,8 @@ Tina: Physics
 <div class="section" id="numpy">
 <h2>NumPy<a class="headerlink" href="#numpy" title="Permalink to this headline">¶</a></h2>
 <p>One of the most useful and widely used libraries is <strong>NumPy</strong>. It makes working with arrays, and thus vectors and matrices, very efficient and includes a broad variety of mathematical tools. Because of its powerful implementations, it serves many other packages as a basis.</p>
-<p>The following cell will start with importing it under the alias <strong>np</strong>. Information will mainly be given by comments in the code.</p>
+<p>Even though this course will hardly rely on numpy itself, a short introduction is given in the following.</p>
+<p>We will start with importing as <strong>np</strong>. Information will mainly be given by comments in the code.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -1544,16 +1557,11 @@ Tina: Physics
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[3.70099605e-01 2.14514873e-02 1.48718026e-01 9.09806337e-01
-  2.64297056e-01]
- [1.37639889e-01 2.10817372e+00 8.00497031e-02 1.46413913e-01
-  1.59371960e-01]
- [9.21029584e-04 8.08454466e-01 1.04879878e-01 9.97261815e-01
-  1.01954893e-01]
- [9.03774346e-02 8.39868408e-01 3.24190781e-02 1.85405686e+00
-  3.97729780e-01]
- [1.81335115e-01 2.39683389e+00 2.44879575e-01 2.59300195e-01
-  1.77421096e-01]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.15677466 0.12718189 0.08871782 1.06010761 0.36044476]
+ [0.22536719 1.32277859 0.10707624 0.86752514 0.02462449]
+ [0.54707082 0.33946632 0.15832606 1.50148557 0.44963025]
+ [0.54074607 0.59441467 0.54664017 0.85485109 0.26295687]
+ [0.01981925 0.21804057 0.87707024 0.16294521 0.02057243]]
 </pre></div>
 </div>
 </div>
@@ -1590,6 +1598,7 @@ Tina: Physics
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="02_general.html" title="previous page">What is Python and why use it?</a>
+    <a class='right-next' id="next-link" href="04_data.html" title="next page">Working with Data</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
