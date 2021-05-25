@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Online Data &#8212; Data Visualisation and Reporting with Python</title>
     
-  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -19,14 +20,10 @@
 
     
       
-  <link rel="stylesheet"
-    href="_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -34,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
 
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -44,9 +41,7 @@
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -56,14 +51,15 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-
+    <link rel="prev" title="Working with Data" href="04_data.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
-
-
-
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -72,25 +68,25 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="index.html">
-  
-  
-  <h1 class="site-logo" id="site-title">Data Visualisation and Reporting with Python</h1>
-  
-</a>
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">Data Visualisation and Reporting with Python</h1>
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="01_content.html">
    Data, Visualisation and Reporting with Python
   </a>
  </li>
 </ul>
-<ul class="nav sidenav_l1">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="02_general.html">
    What is Python and why use it?
@@ -102,17 +98,18 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="03_python_basics.html#second-steps">
-   Second steps
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="04_data.html">
    Working with Data
   </a>
  </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Online Data
+  </a>
+ </li>
 </ul>
 
+    </div>
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
@@ -128,21 +125,21 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
@@ -160,7 +157,7 @@
     </div>
 </div>
 
-        <!-- Source interaction buttons -->
+            <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -178,14 +175,14 @@
     </div>
 </div>
 
+            <!-- Full screen (wrap in <a> to have style consistency -->
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
+            <!-- Launch buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -204,35 +201,42 @@
     </div>
 </div>
 
-    </div>
-
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
         </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#http">
-   HTTP
+  <a class="reference internal nav-link" href="#website-basics">
+   Website basics
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#url">
-   URL
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#html">
-   HTML
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#json">
-   JSON
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#http">
+     HTTP
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#url">
+     URL
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#html">
+     HTML
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#json">
+     JSON
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#api">
@@ -243,18 +247,20 @@
     <a class="reference internal nav-link" href="#website-content">
      Website content
     </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#back-to-apis">
-     Back to APIs
-    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#back-to-apis">
+       Back to APIs
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
 </ul>
 
-        </nav>
-        
+            </nav>
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -264,14 +270,16 @@
                 
   <div class="section" id="online-data">
 <h1>Online Data<a class="headerlink" href="#online-data" title="Permalink to this headline">¶</a></h1>
-<p>When in need for data, the internet of course is the place to begin your quest for it. In fact, every homepage you browse and every article you read is data and, as long as there is no pay wall or other security feature, free to you. Most of the data in such form is unordered and cannot easily be analysed quantitatively, like text or video clips (especially text usually does carry a lot of information). Beside this unstructured data, there are files for free to download, e.g. in a .csv format. Yet, all this has to be done by hand: either click some ‘download’ button to acquire a file or, even worse, copy a text online and paste it into a document.</p>
+<p>The internet is probably the most common place to seek information. In fact, every homepage you browse and every article you read is data and, as long as there is no pay wall or other security feature, free to you. Most of the data in such form is unordered and cannot easily be analysed quantitatively, like text or video clips (especially text usually does carry a lot of information). Beside this unstructured data, there are files for free to download, e.g. in a .csv format. Yet, all this has to be done by hand: either click some ‘download’ button to acquire a file or, even worse, copy a text online and paste it into a document.</p>
 <p>In the next sections, we will at first briefly introduce some basic elements of online communication and then present different ways to access data online from our computer without loading and storing it manually (we will write code manually, though).</p>
+<div class="section" id="website-basics">
+<h2>Website basics<a class="headerlink" href="#website-basics" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="http">
-<h2>HTTP<a class="headerlink" href="#http" title="Permalink to this headline">¶</a></h2>
+<h3>HTTP<a class="headerlink" href="#http" title="Permalink to this headline">¶</a></h3>
 <p>The <strong>H</strong>yper<strong>T</strong>ext <strong>T</strong>ransfer <strong>P</strong>rotocol is used for online communication in the world wide web (www). The basic operations are <em>requests</em> and <em>response</em>. In the www, when trying to open a website, you are actually sending a request to a server asking to provide the information stored under that web address. The server will then hopefully respond to your request by sending the respective information to your machine which then will be rendered in your browser. This response information does contain additional meta data, like the time of the request, status/error codes, etc which we will see later. An extension is <strong>https</strong> (<strong>s</strong>ecure).</p>
 </div>
 <div class="section" id="url">
-<h2>URL<a class="headerlink" href="#url" title="Permalink to this headline">¶</a></h2>
+<h3>URL<a class="headerlink" href="#url" title="Permalink to this headline">¶</a></h3>
 <p>The <strong>U</strong>niform <strong>R</strong>esource <strong>L</strong>ocator is the address your request is telling the server to look for information. It consists of several elements, <code class="docutils literal notranslate"><span class="pre">http://www.uni-passau.de</span></code>:</p>
 <ul class="simple">
 <li><p>the protocol: usually <code class="docutils literal notranslate"><span class="pre">http</span></code> or <code class="docutils literal notranslate"><span class="pre">https</span></code> in the www, followed by a colon and doube slash <code class="docutils literal notranslate"><span class="pre">://</span></code></p></li>
@@ -281,7 +289,7 @@
 <p>To know about these three separate parts enables us to automate navigation in the www using python.</p>
 </div>
 <div class="section" id="html">
-<h2>HTML<a class="headerlink" href="#html" title="Permalink to this headline">¶</a></h2>
+<h3>HTML<a class="headerlink" href="#html" title="Permalink to this headline">¶</a></h3>
 <p>Information in the www is usually found in the <strong>H</strong>yper<strong>T</strong>ext <strong>M</strong>arkup <strong>L</strong>anguage for web browsers. HTML uses <strong>tags</strong> to structure hierarchical data, telling the browser how to display the single elements. Tags appear in pairs and are enclosed in angle brackets <code class="docutils literal notranslate"><span class="pre">&lt;tag&gt;</span></code> to open a respective section and <code class="docutils literal notranslate"><span class="pre">&lt;/tag&gt;</span></code> to close it.<br />
 Any HTML will be enclosed in the most outer <code class="docutils literal notranslate"><span class="pre">&lt;html&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;/html&gt;</span></code> tags. Inside this, the document is structured by various tags. To name just some:</p>
 <ul class="simple">
@@ -326,7 +334,7 @@ Any HTML will be enclosed in the most outer <code class="docutils literal notran
   </body>
 </html> </div>
 <div class="section" id="json">
-<h2>JSON<a class="headerlink" href="#json" title="Permalink to this headline">¶</a></h2>
+<h3>JSON<a class="headerlink" href="#json" title="Permalink to this headline">¶</a></h3>
 <p>The <strong>J</strong>ava<strong>S</strong>cript <strong>O</strong>bject <strong>N</strong>otation is a type of data format which you will frequently encounter when working with online data. For one, websites that offer a .scv download often also offer a .json file to download. Moreover, the json format is often used by APIs (see next secrtion) to transfer data. Its structure looks is very similar to a python dictionary, using curly and square brackets and key-value pairs as well as enabling nesting. Data is therefore stored in such objects. There are packages which can handle json files, for example pandas to transform it into a dataframe.</p>
 <p>Let’s see what a dataframe looks like when transformed into a json format:</p>
 <div class="cell docutils container">
@@ -437,10 +445,11 @@ Any HTML will be enclosed in the most outer <code class="docutils literal notran
 </div></div></div>
 </div>
 </div>
+</div>
 <div class="section" id="api">
 <h2>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
 <p>Instead of (or in addition to) any downloadable files, data providers may offer an <strong>API</strong> (<strong>A</strong>pplication <strong>P</strong>rogramming <strong>I</strong>nterface) to access data. An API constitutes a rather convenient way to getting information as it allows direct machine to machine transaction - meaning you can log in, select and download data directly with and into python. With reliable API access, it is thus not necessary to store the data on your hard drive permanently (you must however do so temporarily). <br />
-The two most basic operations when working with an API:</p>
+The two most basic operations when working with an API over http:</p>
 <ul class="simple">
 <li><p>GET: send a request and <em>get</em> a response from the server, for example the data you asked for</p></li>
 <li><p>POST: send information to the API, for example to add data to a database remotely</p></li>
@@ -570,7 +579,7 @@ To display a json file in a more readbale manner (indents, linebreaks), we can u
                 &quot;pageid&quot;: 409091,
                 &quot;ns&quot;: 0,
                 &quot;title&quot;: &quot;University of Passau&quot;,
-                &quot;extract&quot;: &quot;&lt;p&gt;The &lt;b&gt;University of Passau&lt;/b&gt; (&lt;i&gt;Universit\u00e4t Passau&lt;/i&gt; in German) is a public research university located in Passau, Lower Bavaria, Germany. Founded in 1973, it is the youngest university in Bavaria and consequently has the most modern campus in the state. Nevertheless, its roots as the Institute for Catholic Studies date back some hundreds of years. \n&lt;/p&gt;&lt;p&gt;Today it is home to four faculties and 39 different undergraduate and postgraduate degree programmes.&lt;/p&gt;\n\n&lt;!-- \nNewPP limit report\nParsed by mw1406\nCached time: 20210506131812\nCache expiry: 2592000\nDynamic content: false\nComplications: [vary\u2010revision\u2010sha1]\nCPU time usage: 0.317 seconds\nReal time usage: 0.395 seconds\nPreprocessor visited node count: 998/1000000\nPost\u2010expand include size: 15797/2097152 bytes\nTemplate argument size: 1399/2097152 bytes\nHighest expansion depth: 13/40\nExpensive parser function count: 0/500\nUnstrip recursion depth: 0/20\nUnstrip post\u2010expand size: 7236/5000000 bytes\nLua time usage: 0.204/10.000 seconds\nLua memory usage: 18652311/52428800 bytes\nNumber of Wikibase entities loaded: 0/400\n--&gt;\n&lt;!--\nTransclusion expansion time report (%,ms,calls,template)\n100.00%  384.067      1 -total\n 70.69%  271.504      1 Template:Infobox_University\n 66.18%  254.184      1 Template:Infobox\n 31.81%  122.161      1 Template:Lang-la\n 25.38%   97.466      3 Template:Cite_web\n  7.20%   27.650      2 Template:Color_box\n  5.54%   21.296      1 Template:URL\n  4.75%   18.233     12 Template:If_empty\n  4.32%   16.606      2 Template:Br_separated_entries\n  3.06%   11.762      2 Template:Greater_color_contrast_ratio\n--&gt;&quot;
+                &quot;extract&quot;: &quot;&lt;p&gt;The &lt;b&gt;University of Passau&lt;/b&gt; (&lt;i&gt;Universit\u00e4t Passau&lt;/i&gt; in German) is a public research university located in Passau, Lower Bavaria, Germany. Founded in 1973, it is the youngest university in Bavaria and consequently has the most modern campus in the state. Nevertheless, its roots as the Institute for Catholic Studies date back some hundreds of years. \n&lt;/p&gt;&lt;p&gt;Today it is home to four faculties and 39 different undergraduate and postgraduate degree programmes.&lt;/p&gt;\n\n&lt;!-- \nNewPP limit report\nParsed by mw1404\nCached time: 20210525061736\nCache expiry: 2592000\nReduced expiry: false\nComplications: [vary\u2010revision\u2010sha1]\nCPU time usage: 0.360 seconds\nReal time usage: 0.443 seconds\nPreprocessor visited node count: 998/1000000\nPost\u2010expand include size: 15797/2097152 bytes\nTemplate argument size: 1399/2097152 bytes\nHighest expansion depth: 13/40\nExpensive parser function count: 0/500\nUnstrip recursion depth: 0/20\nUnstrip post\u2010expand size: 7236/5000000 bytes\nLua time usage: 0.235/10.000 seconds\nLua memory usage: 18652307/52428800 bytes\nNumber of Wikibase entities loaded: 0/400\n--&gt;\n&lt;!--\nTransclusion expansion time report (%,ms,calls,template)\n100.00%  426.719      1 -total\n 75.94%  324.049      1 Template:Infobox_University\n 71.01%  302.995      1 Template:Infobox\n 36.29%  154.850      1 Template:Lang-la\n 21.23%   90.604      3 Template:Cite_web\n  7.90%   33.691      2 Template:Color_box\n  5.36%   22.868     12 Template:If_empty\n  5.16%   22.024      2 Template:Br_separated_entries\n  3.95%   16.869      1 Template:URL\n  3.47%   14.800      2 Template:Greater_color_contrast_ratio\n--&gt;&quot;
             }
         }
     }
@@ -597,13 +606,13 @@ summary: &lt;p&gt;The &lt;b&gt;University of Passau&lt;/b&gt; (&lt;i&gt;Universi
 
 &lt;!-- 
 NewPP limit report
-Parsed by mw1406
-Cached time: 20210506131812
+Parsed by mw1404
+Cached time: 20210525061736
 Cache expiry: 2592000
-Dynamic content: false
+Reduced expiry: false
 Complications: [vary‐revision‐sha1]
-CPU time usage: 0.317 seconds
-Real time usage: 0.395 seconds
+CPU time usage: 0.360 seconds
+Real time usage: 0.443 seconds
 Preprocessor visited node count: 998/1000000
 Post‐expand include size: 15797/2097152 bytes
 Template argument size: 1399/2097152 bytes
@@ -611,22 +620,22 @@ Highest expansion depth: 13/40
 Expensive parser function count: 0/500
 Unstrip recursion depth: 0/20
 Unstrip post‐expand size: 7236/5000000 bytes
-Lua time usage: 0.204/10.000 seconds
-Lua memory usage: 18652311/52428800 bytes
+Lua time usage: 0.235/10.000 seconds
+Lua memory usage: 18652307/52428800 bytes
 Number of Wikibase entities loaded: 0/400
 --&gt;
 &lt;!--
 Transclusion expansion time report (%,ms,calls,template)
-100.00%  384.067      1 -total
- 70.69%  271.504      1 Template:Infobox_University
- 66.18%  254.184      1 Template:Infobox
- 31.81%  122.161      1 Template:Lang-la
- 25.38%   97.466      3 Template:Cite_web
-  7.20%   27.650      2 Template:Color_box
-  5.54%   21.296      1 Template:URL
-  4.75%   18.233     12 Template:If_empty
-  4.32%   16.606      2 Template:Br_separated_entries
-  3.06%   11.762      2 Template:Greater_color_contrast_ratio
+100.00%  426.719      1 -total
+ 75.94%  324.049      1 Template:Infobox_University
+ 71.01%  302.995      1 Template:Infobox
+ 36.29%  154.850      1 Template:Lang-la
+ 21.23%   90.604      3 Template:Cite_web
+  7.90%   33.691      2 Template:Color_box
+  5.36%   22.868     12 Template:If_empty
+  5.16%   22.024      2 Template:Br_separated_entries
+  3.95%   16.869      1 Template:URL
+  3.47%   14.800      2 Template:Greater_color_contrast_ratio
 --&gt;
 </pre></div>
 </div>
@@ -714,21 +723,11 @@ Contents
 </div>
 </div>
 <p>We can see, that we loaded the whole website as raw text. One can immediately see that it is not obvious how to extract the wanted summary only. We will later see some ways to extract text and leverage repeated structure across a website for its different pages to extract text sections like this.</p>
-</div>
 <div class="section" id="back-to-apis">
-<h3>Back to APIs<a class="headerlink" href="#back-to-apis" title="Permalink to this headline">¶</a></h3>
+<h4>Back to APIs<a class="headerlink" href="#back-to-apis" title="Permalink to this headline">¶</a></h4>
 <p>Now, the API we will mostly use in this course is from <a class="reference external" href="https://financialmodelingprep.com/developer/docs/">financialmodelingprep.com</a>, providing financial and company data. In contrast to the Wikipedia API, a registration by e-mail is required. Please register to get your API key.</p>
 <p>To access the data, the key must be submitted in the request. We can use the params statement as before, handing it the respective statements.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># package to not reveal API key</span>
-<span class="kn">from</span> <span class="nn">getpass</span> <span class="kn">import</span> <span class="n">getpass</span>
-<span class="c1">#api_key = getpass()</span>
-<span class="n">api_key</span> <span class="o">=</span> <span class="s1">&#39;44c50c7a71efa92e8dac68f5902ea0ec&#39;</span>
-</pre></div>
-</div>
-</div>
-</div>
+<p>(Note that the API key is already saved in “api_key”)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define components of the request</span>
@@ -752,13 +751,13 @@ Contents
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;symbol&#39;: &#39;GOOG&#39;,
-  &#39;price&#39;: 2356.74,
+  &#39;price&#39;: 2406.67,
   &#39;beta&#39;: 0.995587,
-  &#39;volAvg&#39;: 1444280,
-  &#39;mktCap&#39;: 1564856549376,
+  &#39;volAvg&#39;: 1452993,
+  &#39;mktCap&#39;: 1594734018560,
   &#39;lastDiv&#39;: 0.0,
-  &#39;range&#39;: &#39;1323.91-2452.378&#39;,
-  &#39;changes&#39;: 2.49,
+  &#39;range&#39;: &#39;1347.01-2452.378&#39;,
+  &#39;changes&#39;: 61.57,
   &#39;companyName&#39;: &#39;Alphabet Inc.&#39;,
   &#39;currency&#39;: &#39;USD&#39;,
   &#39;cik&#39;: &#39;0001652044&#39;,
@@ -779,7 +778,7 @@ Contents
   &#39;state&#39;: &#39;CA&#39;,
   &#39;zip&#39;: &#39;94043&#39;,
   &#39;dcfDiff&#39;: 376.88,
-  &#39;dcf&#39;: 1641.53,
+  &#39;dcf&#39;: 2426.68,
   &#39;image&#39;: &#39;https://financialmodelingprep.com/image-stock/GOOG.png&#39;,
   &#39;ipoDate&#39;: &#39;2004-08-19&#39;,
   &#39;defaultImage&#39;: False,
@@ -852,8 +851,8 @@ Contents
 <span class="c1"># create empty dataframe (before loop!) to collect data for every company in loop</span>
 <span class="n">dji_hist</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
 
-<span class="c1"># loop over all symbols in the list</span>
-<span class="k">for</span> <span class="n">symbol</span> <span class="ow">in</span> <span class="n">dji_symbols</span><span class="p">:</span>
+<span class="c1"># loop over first 5 symbols in the list</span>
+<span class="k">for</span> <span class="n">symbol</span> <span class="ow">in</span> <span class="n">dji_symbols</span><span class="p">[:</span><span class="mi">5</span><span class="p">]:</span>
     
     <span class="c1"># request data for every symbol </span>
     <span class="n">response</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">base_url</span><span class="o">+</span><span class="n">filing</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">symbol</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
@@ -869,120 +868,6 @@ Contents
     <span class="n">dji_hist</span> <span class="o">=</span> <span class="n">dji_hist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp_df</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="c1"># delete temporary dataframe before next iteration</span>
     <span class="k">del</span> <span class="n">temp_df</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">24</span><span class="o">-</span><span class="mi">807</span><span class="n">a7d1e406d</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> 
-<span class="g g-Whitespace">     </span><span class="mi">10</span>     <span class="c1"># request data for every symbol</span>
-<span class="ne">---&gt; </span><span class="mi">11</span>     <span class="n">response</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">base_url</span><span class="o">+</span><span class="n">filing</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">symbol</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span>     <span class="c1"># break the loop if a response error occurs</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span>     <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
-
-<span class="nn">/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/requests/api.py</span> in <span class="ni">get</span><span class="nt">(url, params, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">74</span> 
-<span class="g g-Whitespace">     </span><span class="mi">75</span>     <span class="n">kwargs</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">&#39;allow_redirects&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">76</span>     <span class="k">return</span> <span class="n">request</span><span class="p">(</span><span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">77</span> 
-<span class="g g-Whitespace">     </span><span class="mi">78</span> 
-
-<span class="nn">/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/requests/api.py</span> in <span class="ni">request</span><span class="nt">(method, url, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">59</span>     <span class="c1"># cases, and look like a memory leak in others.</span>
-<span class="g g-Whitespace">     </span><span class="mi">60</span>     <span class="k">with</span> <span class="n">sessions</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">61</span>         <span class="k">return</span> <span class="n">session</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">62</span> 
-<span class="g g-Whitespace">     </span><span class="mi">63</span> 
-
-<span class="nn">/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/requests/sessions.py</span> in <span class="ni">request</span><span class="nt">(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)</span>
-<span class="g g-Whitespace">    </span><span class="mi">528</span>         <span class="p">}</span>
-<span class="g g-Whitespace">    </span><span class="mi">529</span>         <span class="n">send_kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">530</span>         <span class="n">resp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">prep</span><span class="p">,</span> <span class="o">**</span><span class="n">send_kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">531</span> 
-<span class="g g-Whitespace">    </span><span class="mi">532</span>         <span class="k">return</span> <span class="n">resp</span>
-
-<span class="nn">/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/requests/sessions.py</span> in <span class="ni">send</span><span class="nt">(self, request, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">641</span> 
-<span class="g g-Whitespace">    </span><span class="mi">642</span>         <span class="c1"># Send the request</span>
-<span class="ne">--&gt; </span><span class="mi">643</span>         <span class="n">r</span> <span class="o">=</span> <span class="n">adapter</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">644</span> 
-<span class="g g-Whitespace">    </span><span class="mi">645</span>         <span class="c1"># Total elapsed time of the request (approximately)</span>
-
-<span class="nn">/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/requests/adapters.py</span> in <span class="ni">send</span><span class="nt">(self, request, stream, timeout, verify, cert, proxies)</span>
-<span class="g g-Whitespace">    </span><span class="mi">437</span>         <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">438</span>             <span class="k">if</span> <span class="ow">not</span> <span class="n">chunked</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">439</span>                 <span class="n">resp</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">440</span>                     <span class="n">method</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">method</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">441</span>                     <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span>
-
-<span class="nn">/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/urllib3/connectionpool.py</span> in <span class="ni">urlopen</span><span class="nt">(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, **response_kw)</span>
-<span class="g g-Whitespace">    </span><span class="mi">668</span> 
-<span class="g g-Whitespace">    </span><span class="mi">669</span>             <span class="c1"># Make the request on the httplib connection object.</span>
-<span class="ne">--&gt; </span><span class="mi">670</span>             <span class="n">httplib_response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_request</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">671</span>                 <span class="n">conn</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">672</span>                 <span class="n">method</span><span class="p">,</span>
-
-<span class="nn">/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/urllib3/connectionpool.py</span> in <span class="ni">_make_request</span><span class="nt">(self, conn, method, url, timeout, chunked, **httplib_request_kw)</span>
-<span class="g g-Whitespace">    </span><span class="mi">424</span>                     <span class="c1"># Python 3 (including for exceptions like SystemExit).</span>
-<span class="g g-Whitespace">    </span><span class="mi">425</span>                     <span class="c1"># Otherwise it looks like a bug in the code.</span>
-<span class="ne">--&gt; </span><span class="mi">426</span>                     <span class="n">six</span><span class="o">.</span><span class="n">raise_from</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">427</span>         <span class="k">except</span> <span class="p">(</span><span class="n">SocketTimeout</span><span class="p">,</span> <span class="n">BaseSSLError</span><span class="p">,</span> <span class="n">SocketError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">428</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_raise_timeout</span><span class="p">(</span><span class="n">err</span><span class="o">=</span><span class="n">e</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">timeout_value</span><span class="o">=</span><span class="n">read_timeout</span><span class="p">)</span>
-
-<span class="nn">/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/urllib3/packages/six.py</span> in <span class="ni">raise_from</span><span class="nt">(value, from_value)</span>
-
-<span class="nn">/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/urllib3/connectionpool.py</span> in <span class="ni">_make_request</span><span class="nt">(self, conn, method, url, timeout, chunked, **httplib_request_kw)</span>
-<span class="g g-Whitespace">    </span><span class="mi">419</span>                 <span class="c1"># Python 3</span>
-<span class="g g-Whitespace">    </span><span class="mi">420</span>                 <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">421</span>                     <span class="n">httplib_response</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">getresponse</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">422</span>                 <span class="k">except</span> <span class="ne">BaseException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">423</span>                     <span class="c1"># Remove the TypeError from the exception chain in</span>
-
-<span class="nn">/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py</span> in <span class="ni">getresponse</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1345</span>         <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1346</span>             <span class="k">try</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1347</span>                 <span class="n">response</span><span class="o">.</span><span class="n">begin</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1348</span>             <span class="k">except</span> <span class="ne">ConnectionError</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1349</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
-<span class="nn">/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py</span> in <span class="ni">begin</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">305</span>         <span class="c1"># read until we get a non-100 response</span>
-<span class="g g-Whitespace">    </span><span class="mi">306</span>         <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">307</span>             <span class="n">version</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">reason</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read_status</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">308</span>             <span class="k">if</span> <span class="n">status</span> <span class="o">!=</span> <span class="n">CONTINUE</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">309</span>                 <span class="k">break</span>
-
-<span class="nn">/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py</span> in <span class="ni">_read_status</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">266</span> 
-<span class="g g-Whitespace">    </span><span class="mi">267</span>     <span class="k">def</span> <span class="nf">_read_status</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">268</span>         <span class="n">line</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">readline</span><span class="p">(</span><span class="n">_MAXLINE</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;iso-8859-1&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">269</span>         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">_MAXLINE</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">270</span>             <span class="k">raise</span> <span class="n">LineTooLong</span><span class="p">(</span><span class="s2">&quot;status line&quot;</span><span class="p">)</span>
-
-<span class="nn">/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/socket.py</span> in <span class="ni">readinto</span><span class="nt">(self, b)</span>
-<span class="g g-Whitespace">    </span><span class="mi">667</span>         <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">668</span>             <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">669</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sock</span><span class="o">.</span><span class="n">recv_into</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">670</span>             <span class="k">except</span> <span class="n">timeout</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">671</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">_timeout_occurred</span> <span class="o">=</span> <span class="kc">True</span>
-
-<span class="nn">/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/ssl.py</span> in <span class="ni">recv_into</span><span class="nt">(self, buffer, nbytes, flags)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1239</span>                   <span class="s2">&quot;non-zero flags not allowed in calls to recv_into() on </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span>
-<span class="g g-Whitespace">   </span><span class="mi">1240</span>                   <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1241</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">nbytes</span><span class="p">,</span> <span class="n">buffer</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1242</span>         <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1243</span>             <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">recv_into</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">nbytes</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span>
-
-<span class="nn">/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/ssl.py</span> in <span class="ni">read</span><span class="nt">(self, len, buffer)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1097</span>         <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1098</span>             <span class="k">if</span> <span class="n">buffer</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1099</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sslobj</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="nb">len</span><span class="p">,</span> <span class="n">buffer</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1100</span>             <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1101</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sslobj</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="nb">len</span><span class="p">)</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>
@@ -1005,6 +890,7 @@ Contents
 </div>
 </div>
 </div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -1015,26 +901,27 @@ Contents
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "3.8"
+            mode: "python"
         },
         kernelOptions: {
-            kernelName: "3.8",
+            kernelName: "python3",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = '3.8'</script>
+    <script>kernelName = 'python3'</script>
 
               </div>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
         
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="04_data.html" title="previous page">Working with Data</a>
 
+        </div>
+        
+        </div>
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
@@ -1051,11 +938,9 @@ Contents
 
       </div>
     </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-    
-  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
-
-
-    
+  
   </body>
 </html>
