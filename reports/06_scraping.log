@@ -1,40 +1,62 @@
 Traceback (most recent call last):
-  File "/Users/jan/anaconda3/lib/python3.8/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+  File "/Users/jan/Desktop/Promotion/python_class/venv/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
     executenb(
-  File "/Users/jan/anaconda3/lib/python3.8/site-packages/nbclient/client.py", line 1112, in execute
+  File "/Users/jan/Desktop/Promotion/python_class/venv/lib/python3.9/site-packages/nbclient/client.py", line 1112, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-  File "/Users/jan/anaconda3/lib/python3.8/site-packages/nbclient/util.py", line 74, in wrapped
+  File "/Users/jan/Desktop/Promotion/python_class/venv/lib/python3.9/site-packages/nbclient/util.py", line 74, in wrapped
     return just_run(coro(*args, **kwargs))
-  File "/Users/jan/anaconda3/lib/python3.8/site-packages/nbclient/util.py", line 53, in just_run
+  File "/Users/jan/Desktop/Promotion/python_class/venv/lib/python3.9/site-packages/nbclient/util.py", line 53, in just_run
     return loop.run_until_complete(coro)
-  File "/Users/jan/anaconda3/lib/python3.8/asyncio/base_events.py", line 616, in run_until_complete
+  File "/usr/local/Cellar/python@3.9/3.9.5/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py", line 642, in run_until_complete
     return future.result()
-  File "/Users/jan/anaconda3/lib/python3.8/site-packages/nbclient/client.py", line 553, in async_execute
+  File "/Users/jan/Desktop/Promotion/python_class/venv/lib/python3.9/site-packages/nbclient/client.py", line 553, in async_execute
     await self.async_execute_cell(
-  File "/Users/jan/anaconda3/lib/python3.8/site-packages/nbclient/client.py", line 857, in async_execute_cell
+  File "/Users/jan/Desktop/Promotion/python_class/venv/lib/python3.9/site-packages/nbclient/client.py", line 857, in async_execute_cell
     self._check_raise_for_error(cell, exec_reply)
-  File "/Users/jan/anaconda3/lib/python3.8/site-packages/nbclient/client.py", line 760, in _check_raise_for_error
+  File "/Users/jan/Desktop/Promotion/python_class/venv/lib/python3.9/site-packages/nbclient/client.py", line 760, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# select by id
-print('by id:\n',soup.find_all('div', id='div_1'))
-
-# select by class 
-print('\n by class:\n',soup.find_all('p', class_='parag-1'))    # note class_ (not class)
-
-# by s
+proc = CrawlerProcess()
+proc.crawl(followSpider)
+proc.start()
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mNameError[0m                                 Traceback (most recent call last)
-[0;32m<ipython-input-16-e130270c08aa>[0m in [0;36m<module>[0;34m[0m
-[1;32m      1[0m [0;31m# select by id[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
-[0;32m----> 2[0;31m [0mprint[0m[0;34m([0m[0;34m'by id:\n'[0m[0;34m,[0m[0msoup[0m[0;34m.[0m[0mfind_all[0m[0;34m([0m[0;34m'div'[0m[0;34m,[0m [0mid[0m[0;34m=[0m[0;34m'div_1'[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m      3[0m [0;34m[0m[0m
-[1;32m      4[0m [0;31m# select by class[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      5[0m [0mprint[0m[0;34m([0m[0;34m'\n by class:\n'[0m[0;34m,[0m[0msoup[0m[0;34m.[0m[0mfind_all[0m[0;34m([0m[0;34m'p'[0m[0;34m,[0m [0mclass_[0m[0;34m=[0m[0;34m'parag-1'[0m[0;34m)[0m[0;34m)[0m    [0;31m# note class_ (not class)[0m[0;34m[0m[0;34m[0m[0m
+[0;31mReactorNotRestartable[0m                     Traceback (most recent call last)
+[0;32m<ipython-input-30-e9e37d33cc67>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0mproc[0m [0;34m=[0m [0mCrawlerProcess[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mproc[0m[0;34m.[0m[0mcrawl[0m[0;34m([0m[0mfollowSpider[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0mproc[0m[0;34m.[0m[0mstart[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m~/Desktop/Promotion/python_class/venv/lib/python3.9/site-packages/scrapy/crawler.py[0m in [0;36mstart[0;34m(self, stop_after_crawl)[0m
+[1;32m    325[0m         [0mtp[0m[0;34m.[0m[0madjustPoolsize[0m[0;34m([0m[0mmaxthreads[0m[0;34m=[0m[0mself[0m[0;34m.[0m[0msettings[0m[0;34m.[0m[0mgetint[0m[0;34m([0m[0;34m'REACTOR_THREADPOOL_MAXSIZE'[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    326[0m         [0mreactor[0m[0;34m.[0m[0maddSystemEventTrigger[0m[0;34m([0m[0;34m'before'[0m[0;34m,[0m [0;34m'shutdown'[0m[0;34m,[0m [0mself[0m[0;34m.[0m[0mstop[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 327[0;31m         [0mreactor[0m[0;34m.[0m[0mrun[0m[0;34m([0m[0minstallSignalHandlers[0m[0;34m=[0m[0;32mFalse[0m[0;34m)[0m  [0;31m# blocking call[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    328[0m [0;34m[0m[0m
+[1;32m    329[0m     [0;32mdef[0m [0m_graceful_stop_reactor[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
 
-[0;31mNameError[0m: name 'soup' is not defined
-NameError: name 'soup' is not defined
+[0;32m~/Desktop/Promotion/python_class/venv/lib/python3.9/site-packages/twisted/internet/base.py[0m in [0;36mrun[0;34m(self, installSignalHandlers)[0m
+[1;32m   1420[0m [0;34m[0m[0m
+[1;32m   1421[0m     [0;32mdef[0m [0mrun[0m[0;34m([0m[0mself[0m[0;34m,[0m [0minstallSignalHandlers[0m[0;34m:[0m [0mbool[0m [0;34m=[0m [0;32mTrue[0m[0;34m)[0m [0;34m->[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1422[0;31m         [0mself[0m[0;34m.[0m[0mstartRunning[0m[0;34m([0m[0minstallSignalHandlers[0m[0;34m=[0m[0minstallSignalHandlers[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1423[0m         [0mself[0m[0;34m.[0m[0mmainLoop[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1424[0m [0;34m[0m[0m
+
+[0;32m~/Desktop/Promotion/python_class/venv/lib/python3.9/site-packages/twisted/internet/base.py[0m in [0;36mstartRunning[0;34m(self, installSignalHandlers)[0m
+[1;32m   1402[0m         """
+[1;32m   1403[0m         [0mself[0m[0;34m.[0m[0m_installSignalHandlers[0m [0;34m=[0m [0minstallSignalHandlers[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1404[0;31m         [0mReactorBase[0m[0;34m.[0m[0mstartRunning[0m[0;34m([0m[0mcast[0m[0;34m([0m[0mReactorBase[0m[0;34m,[0m [0mself[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1405[0m [0;34m[0m[0m
+[1;32m   1406[0m     [0;32mdef[0m [0m_reallyStartRunning[0m[0;34m([0m[0mself[0m[0;34m)[0m [0;34m->[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/Desktop/Promotion/python_class/venv/lib/python3.9/site-packages/twisted/internet/base.py[0m in [0;36mstartRunning[0;34m(self)[0m
+[1;32m    841[0m             [0;32mraise[0m [0merror[0m[0;34m.[0m[0mReactorAlreadyRunning[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    842[0m         [0;32mif[0m [0mself[0m[0;34m.[0m[0m_startedBefore[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 843[0;31m             [0;32mraise[0m [0merror[0m[0;34m.[0m[0mReactorNotRestartable[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    844[0m         [0mself[0m[0;34m.[0m[0m_started[0m [0;34m=[0m [0;32mTrue[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    845[0m         [0mself[0m[0;34m.[0m[0m_stopped[0m [0;34m=[0m [0;32mFalse[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mReactorNotRestartable[0m: 
+ReactorNotRestartable: 
 

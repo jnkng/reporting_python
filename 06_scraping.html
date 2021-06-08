@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Web Scraping &#8212; Data Visualisation and Reporting with Python</title>
     
-  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -19,14 +20,10 @@
 
     
       
-  <link rel="stylesheet"
-    href="_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -34,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
 
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -44,7 +41,7 @@
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
@@ -56,14 +53,14 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
-
-
-
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -72,25 +69,25 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="index.html">
-  
-  
-  <h1 class="site-logo" id="site-title">Data Visualisation and Reporting with Python</h1>
-  
-</a>
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">Data Visualisation and Reporting with Python</h1>
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="01_content.html">
    Data, Visualisation and Reporting with Python
   </a>
  </li>
 </ul>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="02_general.html">
    What is Python and why use it?
@@ -102,17 +99,18 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="03_python_basics.html#second-steps">
-   Second steps
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="04_data.html">
    Working with Data
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05_online.html">
+   Online Data
+  </a>
+ </li>
 </ul>
 
+    </div>
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
@@ -128,21 +126,21 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
@@ -160,7 +158,7 @@
     </div>
 </div>
 
-        <!-- Source interaction buttons -->
+            <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -178,14 +176,14 @@
     </div>
 </div>
 
+            <!-- Full screen (wrap in <a> to have style consistency -->
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
+            <!-- Launch buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -204,16 +202,16 @@
     </div>
 </div>
 
-    </div>
-
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
         </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#xpath">
    Xpath
@@ -241,10 +239,22 @@
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#webcrawler">
+   Webcrawler
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#callback">
+     callback
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
-        </nav>
-        
+            </nav>
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -580,7 +590,9 @@ select by id:
 <p>Lastly, let’s look at BeautifulSoup again. It offers basically the same functionality to address and select any element based on its tag or attributes, but can make life easier with its prewritten methods. Keep in mind however, that BeautifulSoup is a python package, while the xpath and css syntax is standalone and will thus transfer to other software, e.g. <strong>R</strong>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># select by id</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">my_html</span><span class="p">)</span>
+<span class="c1"># select by id</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;by id:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;div_1&#39;</span><span class="p">))</span>
 
 <span class="c1"># select by class </span>
@@ -591,16 +603,12 @@ select by id:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">16</span><span class="o">-</span><span class="n">e130270c08aa</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># select by id</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;by id:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;div_1&#39;</span><span class="p">))</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> 
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># select by class</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> by class:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;parag-1&#39;</span><span class="p">))</span>    <span class="c1"># note class_ (not class)</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>by id:
+ [&lt;div id=&quot;div_1&quot;&gt;&lt;p class=&quot;parag-1&quot; id=&quot;intro&quot;&gt;This is a brief introduction to &lt;b&gt;HTML&lt;/b&gt;.&lt;/p&gt;
+&lt;p class=&quot;parag-1-1&quot; id=&quot;main&quot;&gt;Part 2.&lt;/p&gt;&lt;/div&gt;]
 
-<span class="ne">NameError</span>: name &#39;soup&#39; is not defined
+ by class:
+ [&lt;p class=&quot;parag-1&quot; id=&quot;intro&quot;&gt;This is a brief introduction to &lt;b&gt;HTML&lt;/b&gt;.&lt;/p&gt;]
 </pre></div>
 </div>
 </div>
@@ -645,7 +653,7 @@ select by id:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Earnings Estimate&#39;, &#39;Current Qtr.&#39;, &#39; (&#39;, &#39;Mar&#39;, &#39; 2021)&#39;, &#39;Next Qtr.&#39;, &#39; (&#39;, &#39;Jun&#39;, &#39; 2021)&#39;, &#39;Current Year&#39;, &#39; (2021)&#39;, &#39;Next Year&#39;, &#39; (2022)&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Earnings Estimate&#39;, &#39;Current Qtr.&#39;, &#39; (&#39;, &#39;Jun&#39;, &#39; 2021)&#39;, &#39;Next Qtr.&#39;, &#39; (&#39;, &#39;Sep&#39;, &#39; 2021)&#39;, &#39;Current Year&#39;, &#39; (2021)&#39;, &#39;Next Year&#39;, &#39; (2022)&#39;]
 </pre></div>
 </div>
 </div>
@@ -674,7 +682,7 @@ select by id:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;No. of Analysts&#39;, &#39;30&#39;, &#39;28&#39;, &#39;40&#39;, &#39;39&#39;, &#39;Avg. Estimate&#39;, &#39;0.98&#39;, &#39;0.82&#39;, &#39;4.45&#39;, &#39;4.7&#39;, &#39;Low Estimate&#39;, &#39;0.85&#39;, &#39;0.7&#39;, &#39;4.1&#39;, &#39;3.74&#39;, &#39;High Estimate&#39;, &#39;1.09&#39;, &#39;0.98&#39;, &#39;4.89&#39;, &#39;5.5&#39;, &#39;Year Ago EPS&#39;, &#39;0.64&#39;, &#39;0.64&#39;, &#39;3.28&#39;, &#39;4.45&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;No. of Analysts&#39;, &#39;28&#39;, &#39;27&#39;, &#39;40&#39;, &#39;40&#39;, &#39;Avg. Estimate&#39;, &#39;0.99&#39;, &#39;1.11&#39;, &#39;5.19&#39;, &#39;5.35&#39;, &#39;Low Estimate&#39;, &#39;0.82&#39;, &#39;0.83&#39;, &#39;4.74&#39;, &#39;4.77&#39;, &#39;High Estimate&#39;, &#39;1.16&#39;, &#39;1.27&#39;, &#39;6.44&#39;, &#39;6.13&#39;, &#39;Year Ago EPS&#39;, &#39;0.64&#39;, &#39;0.73&#39;, &#39;3.28&#39;, &#39;5.19&#39;]
 </pre></div>
 </div>
 </div>
@@ -698,11 +706,11 @@ select by id:
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                Current Qtr. Next Qtr. Current Year Next Year
-No. of Analysts           30        28           40        39
-Avg. Estimate             28        40           39      0.98
-Low Estimate              40        39         0.98      0.82
-High Estimate             39      0.98         0.82      4.45
-Year Ago EPS            0.98      0.82         4.45       4.7
+No. of Analysts           28        27           40        40
+Avg. Estimate             27        40           40      0.99
+Low Estimate              40        40         0.99      1.11
+High Estimate             40      0.99         1.11      5.19
+Year Ago EPS            0.99      1.11         5.19      5.35
 </pre></div>
 </div>
 </div>
@@ -750,8 +758,8 @@ Year Ago EPS            0.98      0.82         4.45       4.7
     <tr style="text-align: right;">
       <th></th>
       <th>Earnings Estimate</th>
-      <th>Current Qtr. (Mar 2021)</th>
-      <th>Next Qtr. (Jun 2021)</th>
+      <th>Current Qtr. (Jun 2021)</th>
+      <th>Next Qtr. (Sep 2021)</th>
       <th>Current Year (2021)</th>
       <th>Next Year (2022)</th>
     </tr>
@@ -760,47 +768,322 @@ Year Ago EPS            0.98      0.82         4.45       4.7
     <tr>
       <th>0</th>
       <td>No. of Analysts</td>
-      <td>30.00</td>
       <td>28.00</td>
+      <td>27.00</td>
       <td>40.00</td>
-      <td>39.00</td>
+      <td>40.00</td>
     </tr>
     <tr>
       <th>1</th>
       <td>Avg. Estimate</td>
-      <td>0.98</td>
-      <td>0.82</td>
-      <td>4.45</td>
-      <td>4.70</td>
+      <td>0.99</td>
+      <td>1.11</td>
+      <td>5.19</td>
+      <td>5.35</td>
     </tr>
     <tr>
       <th>2</th>
       <td>Low Estimate</td>
-      <td>0.85</td>
-      <td>0.70</td>
-      <td>4.10</td>
-      <td>3.74</td>
+      <td>0.82</td>
+      <td>0.83</td>
+      <td>4.74</td>
+      <td>4.77</td>
     </tr>
     <tr>
       <th>3</th>
       <td>High Estimate</td>
-      <td>1.09</td>
-      <td>0.98</td>
-      <td>4.89</td>
-      <td>5.50</td>
+      <td>1.16</td>
+      <td>1.27</td>
+      <td>6.44</td>
+      <td>6.13</td>
     </tr>
     <tr>
       <th>4</th>
       <td>Year Ago EPS</td>
       <td>0.64</td>
-      <td>0.64</td>
+      <td>0.73</td>
       <td>3.28</td>
-      <td>4.45</td>
+      <td>5.19</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
+</div>
+</div>
+<div class="section" id="webcrawler">
+<h2>Webcrawler<a class="headerlink" href="#webcrawler" title="Permalink to this headline">¶</a></h2>
+<p>A webcrawler or spider will automatically ‘crawl’ the web in order to collect data. Once set up, it can be run every day in the morning, every couple of hours, etc.
+Such rugular scraping is used to build a database, e..g with newspaper articles. Commonly, for this kind of data collection, the webcrawler is deployed using cloud computing which is not part of this course.</p>
+<p>We will, however, take a look at a very basic spider not diving in too deep.
+In scrapy, spiders are defined as <strong>classes</strong> including the respective methods for scraping:</p>
+<ul class="simple">
+<li><p>providing the seed pages to start</p></li>
+<li><p>parsing and storing the data</p></li>
+</ul>
+<p>It is important to note that scrapy spiders make use of <strong>callbacks</strong>. A callback is a function, which is run as soon as some criterion is met, usually when some other task is finished. In a scrapy spider, the parsing function is used as callback for the request method: The request must be complete so that the parsing may commence.</p>
+<div class="section" id="callback">
+<h3>callback<a class="headerlink" href="#callback" title="Permalink to this headline">¶</a></h3>
+<p>The following is a basic example for a callback. The function will print the string and the callback will print the length of the string.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">enter_string</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+    <span class="n">callback</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+    
+<span class="k">def</span> <span class="nf">print_len</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    
+<span class="n">enter_string</span><span class="p">(</span><span class="s1">&#39;onomatopoeia&#39;</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">print_len</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>onomatopoeia
+12
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s take a look at the basic structure of a spider, found in the <a class="reference external" href="https://docs.scrapy.org/en/latest/intro/tutorial.html">scrapy docs</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scrapy</span>
+
+<span class="k">class</span> <span class="nc">mySpider</span><span class="p">(</span><span class="n">scrapy</span><span class="o">.</span><span class="n">Spider</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;my_first&quot;</span>
+
+    <span class="k">def</span> <span class="nf">start_requests</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">urls</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s1">&#39;http://www.example.com&#39;</span>
+        <span class="p">]</span>
+        <span class="k">for</span> <span class="n">url</span> <span class="ow">in</span> <span class="n">urls</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">scrapy</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parse</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s1">&#39;p::text&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">start_requests</span></code> method provides the start or url or seed. For every url in this starting list, we send a <code class="docutils literal notranslate"><span class="pre">Request</span></code> using the respective function. We provide to this function the callback to be the <code class="docutils literal notranslate"><span class="pre">parse</span></code> method defined subsequently. It is important to use <code class="docutils literal notranslate"><span class="pre">yield</span></code>, i.e. to create a generator, as this is required by scrapy.</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">parse()</span></code>, we use the already familiar <code class="docutils literal notranslate"><span class="pre">css</span></code> method to extract all text found in p elements from the website.</p>
+<p>In order to let the spider crawl, we need to import <code class="docutils literal notranslate"><span class="pre">CrawlerProcess</span></code> instantiate an according object, link the spider to it and start the process.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scrapy.crawler</span> <span class="kn">import</span> <span class="n">CrawlerProcess</span>
+<span class="n">proc</span> <span class="o">=</span> <span class="n">CrawlerProcess</span><span class="p">()</span>
+<span class="n">proc</span><span class="o">.</span><span class="n">crawl</span><span class="p">(</span><span class="n">mySpider</span><span class="p">)</span>
+<span class="n">proc</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2021-06-08 15:45:59 [scrapy.utils.log] INFO: Scrapy 2.5.0 started (bot: scrapybot)
+2021-06-08 15:45:59 [scrapy.utils.log] INFO: Versions: lxml 4.6.3.0, libxml2 2.9.10, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 21.2.0, Python 3.9.5 (default, May  4 2021, 03:36:27) - [Clang 12.0.0 (clang-1200.0.32.29)], pyOpenSSL 20.0.1 (OpenSSL 1.1.1k  25 Mar 2021), cryptography 3.4.7, Platform macOS-11.4-x86_64-i386-64bit
+2021-06-08 15:45:59 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2021-06-08 15:45:59 [scrapy.crawler] INFO: Overridden settings:
+{}
+2021-06-08 15:45:59 [scrapy.extensions.telnet] INFO: Telnet Password: 3b763dddf9a3eca3
+2021-06-08 15:45:59 [scrapy.middleware] INFO: Enabled extensions:
+[&#39;scrapy.extensions.corestats.CoreStats&#39;,
+ &#39;scrapy.extensions.telnet.TelnetConsole&#39;,
+ &#39;scrapy.extensions.memusage.MemoryUsage&#39;,
+ &#39;scrapy.extensions.logstats.LogStats&#39;]
+2021-06-08 15:45:59 [scrapy.middleware] INFO: Enabled downloader middlewares:
+[&#39;scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware&#39;,
+ &#39;scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware&#39;,
+ &#39;scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware&#39;,
+ &#39;scrapy.downloadermiddlewares.useragent.UserAgentMiddleware&#39;,
+ &#39;scrapy.downloadermiddlewares.retry.RetryMiddleware&#39;,
+ &#39;scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware&#39;,
+ &#39;scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware&#39;,
+ &#39;scrapy.downloadermiddlewares.redirect.RedirectMiddleware&#39;,
+ &#39;scrapy.downloadermiddlewares.cookies.CookiesMiddleware&#39;,
+ &#39;scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware&#39;,
+ &#39;scrapy.downloadermiddlewares.stats.DownloaderStats&#39;]
+2021-06-08 15:45:59 [scrapy.middleware] INFO: Enabled spider middlewares:
+[&#39;scrapy.spidermiddlewares.httperror.HttpErrorMiddleware&#39;,
+ &#39;scrapy.spidermiddlewares.offsite.OffsiteMiddleware&#39;,
+ &#39;scrapy.spidermiddlewares.referer.RefererMiddleware&#39;,
+ &#39;scrapy.spidermiddlewares.urllength.UrlLengthMiddleware&#39;,
+ &#39;scrapy.spidermiddlewares.depth.DepthMiddleware&#39;]
+2021-06-08 15:45:59 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2021-06-08 15:45:59 [scrapy.core.engine] INFO: Spider opened
+2021-06-08 15:45:59 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2021-06-08 15:45:59 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2021-06-08 15:45:59 [scrapy.core.engine] DEBUG: Crawled (200) &lt;GET http://www.example.com&gt; (referer: None)
+2021-06-08 15:45:59 [scrapy.core.engine] INFO: Closing spider (finished)
+2021-06-08 15:45:59 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{&#39;downloader/request_bytes&#39;: 215,
+ &#39;downloader/request_count&#39;: 1,
+ &#39;downloader/request_method_count/GET&#39;: 1,
+ &#39;downloader/response_bytes&#39;: 1022,
+ &#39;downloader/response_count&#39;: 1,
+ &#39;downloader/response_status_count/200&#39;: 1,
+ &#39;elapsed_time_seconds&#39;: 0.324208,
+ &#39;finish_reason&#39;: &#39;finished&#39;,
+ &#39;finish_time&#39;: datetime.datetime(2021, 6, 8, 13, 45, 59, 788445),
+ &#39;httpcompression/response_bytes&#39;: 1256,
+ &#39;httpcompression/response_count&#39;: 1,
+ &#39;log_count/DEBUG&#39;: 1,
+ &#39;log_count/INFO&#39;: 10,
+ &#39;memusage/max&#39;: 78602240,
+ &#39;memusage/startup&#39;: 78598144,
+ &#39;response_received_count&#39;: 1,
+ &#39;scheduler/dequeued&#39;: 1,
+ &#39;scheduler/dequeued/memory&#39;: 1,
+ &#39;scheduler/enqueued&#39;: 1,
+ &#39;scheduler/enqueued/memory&#39;: 1,
+ &#39;start_time&#39;: datetime.datetime(2021, 6, 8, 13, 45, 59, 464237)}
+2021-06-08 15:45:59 [scrapy.core.engine] INFO: Spider closed (finished)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;This domain is for use in illustrative examples in documents. You may use this\n    domain in literature without prior coordination or asking for permission.&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>After some output (red window), we see the text from the website.</p>
+<p>In order to really crawl the web, we would need to extend the spider:</p>
+<ol class="simple">
+<li><p>find all links on the starting page</p></li>
+<li><p>parse all text on the starting page</p></li>
+<li><p>find all links on the pages found the step before</p></li>
+<li><p>parse all text from the pages found the step before</p></li>
+</ol>
+<p>then repeat steps 3 and 4.</p>
+<p>We will now expand the spider from above to print the text from the starting page, then follow the provided links to the next page and print that text.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scrapy.crawler</span> <span class="kn">import</span> <span class="n">CrawlerProcess</span>
+<span class="kn">import</span> <span class="nn">scrapy</span>
+
+<span class="k">class</span> <span class="nc">followSpider</span><span class="p">(</span><span class="n">scrapy</span><span class="o">.</span><span class="n">Spider</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;my_second&quot;</span>
+
+    <span class="k">def</span> <span class="nf">start_requests</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">urls</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s1">&#39;http://www.example.com&#39;</span>
+        <span class="p">]</span>
+        <span class="k">for</span> <span class="n">url</span> <span class="ow">in</span> <span class="n">urls</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">scrapy</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parse_links</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">parse_links</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+        <span class="n">links</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s1">&#39;a::attr(href)&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;//p/text()&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract</span><span class="p">()))</span>
+        <span class="k">for</span> <span class="n">link</span> <span class="ow">in</span> <span class="n">links</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">response</span><span class="o">.</span><span class="n">follow</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">link</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parse</span><span class="p">)</span>
+            
+    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;//p/text()&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">proc</span> <span class="o">=</span> <span class="n">CrawlerProcess</span><span class="p">()</span>
+<span class="n">proc</span><span class="o">.</span><span class="n">crawl</span><span class="p">(</span><span class="n">followSpider</span><span class="p">)</span>
+<span class="n">proc</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2021-06-08 15:46:12 [scrapy.utils.log] INFO: Scrapy 2.5.0 started (bot: scrapybot)
+2021-06-08 15:46:12 [scrapy.utils.log] INFO: Versions: lxml 4.6.3.0, libxml2 2.9.10, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 21.2.0, Python 3.9.5 (default, May  4 2021, 03:36:27) - [Clang 12.0.0 (clang-1200.0.32.29)], pyOpenSSL 20.0.1 (OpenSSL 1.1.1k  25 Mar 2021), cryptography 3.4.7, Platform macOS-11.4-x86_64-i386-64bit
+2021-06-08 15:46:12 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2021-06-08 15:46:12 [scrapy.crawler] INFO: Overridden settings:
+{}
+2021-06-08 15:46:12 [scrapy.extensions.telnet] INFO: Telnet Password: 9a2eff7734e36d23
+2021-06-08 15:46:12 [scrapy.middleware] INFO: Enabled extensions:
+[&#39;scrapy.extensions.corestats.CoreStats&#39;,
+ &#39;scrapy.extensions.telnet.TelnetConsole&#39;,
+ &#39;scrapy.extensions.memusage.MemoryUsage&#39;,
+ &#39;scrapy.extensions.logstats.LogStats&#39;]
+2021-06-08 15:46:12 [scrapy.middleware] INFO: Enabled downloader middlewares:
+[&#39;scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware&#39;,
+ &#39;scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware&#39;,
+ &#39;scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware&#39;,
+ &#39;scrapy.downloadermiddlewares.useragent.UserAgentMiddleware&#39;,
+ &#39;scrapy.downloadermiddlewares.retry.RetryMiddleware&#39;,
+ &#39;scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware&#39;,
+ &#39;scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware&#39;,
+ &#39;scrapy.downloadermiddlewares.redirect.RedirectMiddleware&#39;,
+ &#39;scrapy.downloadermiddlewares.cookies.CookiesMiddleware&#39;,
+ &#39;scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware&#39;,
+ &#39;scrapy.downloadermiddlewares.stats.DownloaderStats&#39;]
+2021-06-08 15:46:12 [scrapy.middleware] INFO: Enabled spider middlewares:
+[&#39;scrapy.spidermiddlewares.httperror.HttpErrorMiddleware&#39;,
+ &#39;scrapy.spidermiddlewares.offsite.OffsiteMiddleware&#39;,
+ &#39;scrapy.spidermiddlewares.referer.RefererMiddleware&#39;,
+ &#39;scrapy.spidermiddlewares.urllength.UrlLengthMiddleware&#39;,
+ &#39;scrapy.spidermiddlewares.depth.DepthMiddleware&#39;]
+2021-06-08 15:46:12 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2021-06-08 15:46:12 [scrapy.core.engine] INFO: Spider opened
+2021-06-08 15:46:12 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2021-06-08 15:46:12 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2021-06-08 15:46:12 [scrapy.core.engine] DEBUG: Crawled (200) &lt;GET http://www.example.com&gt; (referer: None)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This domain is for use in illustrative examples in documents. You may use this
+    domain in literature without prior coordination or asking for permission.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2021-06-08 15:46:13 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (301) to &lt;GET http://www.iana.org/domains/reserved&gt; from &lt;GET https://www.iana.org/domains/example&gt;
+2021-06-08 15:46:13 [scrapy.core.engine] DEBUG: Crawled (200) &lt;GET http://www.iana.org/domains/reserved&gt; (referer: http://www.example.com)
+2021-06-08 15:46:13 [scrapy.core.engine] INFO: Closing spider (finished)
+2021-06-08 15:46:13 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{&#39;downloader/request_bytes&#39;: 736,
+ &#39;downloader/request_count&#39;: 3,
+ &#39;downloader/request_method_count/GET&#39;: 3,
+ &#39;downloader/response_bytes&#39;: 6745,
+ &#39;downloader/response_count&#39;: 3,
+ &#39;downloader/response_status_count/200&#39;: 2,
+ &#39;downloader/response_status_count/301&#39;: 1,
+ &#39;elapsed_time_seconds&#39;: 1.228366,
+ &#39;finish_reason&#39;: &#39;finished&#39;,
+ &#39;finish_time&#39;: datetime.datetime(2021, 6, 8, 13, 46, 13, 767486),
+ &#39;httpcompression/response_bytes&#39;: 11606,
+ &#39;httpcompression/response_count&#39;: 2,
+ &#39;log_count/DEBUG&#39;: 3,
+ &#39;log_count/INFO&#39;: 10,
+ &#39;memusage/max&#39;: 78090240,
+ &#39;memusage/startup&#39;: 78090240,
+ &#39;request_depth_max&#39;: 1,
+ &#39;response_received_count&#39;: 2,
+ &#39;scheduler/dequeued&#39;: 3,
+ &#39;scheduler/dequeued/memory&#39;: 3,
+ &#39;scheduler/enqueued&#39;: 3,
+ &#39;scheduler/enqueued/memory&#39;: 3,
+ &#39;start_time&#39;: datetime.datetime(2021, 6, 8, 13, 46, 12, 539120)}
+2021-06-08 15:46:13 [scrapy.core.engine] INFO: Spider closed (finished)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>http://www.iana.org/domains/reserved
+Certain domains are set aside, and nominally registered to “IANA”, for specific
+		policy or technical purposes.As described in  and ,
+	a number of domains such as  and 
+	are maintained for documentation purposes. These domains may be used as illustrative
+	examples in documents without prior coordination with us. They are 
+	not available for registration or transfer.These domains were temporarily delegated by IANA for the  being conducted by .We act as both the registrant and registrar for a select number of domains
+		which have been reserved under policy grounds. These exclusions are
+		typically indicated in either technical standards (RFC documents),
+		or .Domains which are described as registered to IANA or ICANN on policy
+		grounds are not available for registration or transfer, with the exception
+		of  domains. These domains are available for release
+		by the ICANN Governmental Advisory Committee Secretariat.There is additionally a  registry documenting special-use domains designated by technical standards. For further information, see  (RFC 6761).The IANA functions coordinate the Internet’s globally unique identifiers, and
+                    are provided by , an affiliate of
+                    .
+</pre></div>
+</div>
+</div>
+</div>
+<p>Writing several parse functions may also be necessary when dealing with ‘nested’ websites: One parse function may extract a specific block from an overview page, the other from all children of the overview pages.</p>
+<p>We used the <code class="docutils literal notranslate"><span class="pre">scrapy.follow</span></code> method, to go to the next link. Using this method enables us to write the <code class="docutils literal notranslate"><span class="pre">parse</span></code> method recursively, i.e. the spider would not stop until arriving at a page with no links. Thus, in order to set up a functional spider, not only the webpages must be selected accordingly, but one should always include some filters before starting the spider and storing the scraped data.</p>
 </div>
 </div>
 </div>
@@ -814,26 +1097,26 @@ Year Ago EPS            0.98      0.82         4.45       4.7
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "3.8"
+            mode: "python"
         },
         kernelOptions: {
-            kernelName: "3.8",
+            kernelName: "python3",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = '3.8'</script>
+    <script>kernelName = 'python3'</script>
 
               </div>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
         
+        <div class='prev-next-bottom'>
+            
 
+        </div>
+        
+        </div>
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
@@ -850,11 +1133,9 @@ Year Ago EPS            0.98      0.82         4.45       4.7
 
       </div>
     </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-    
-  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
-
-
-    
+  
   </body>
 </html>
