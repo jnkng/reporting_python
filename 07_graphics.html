@@ -53,6 +53,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Web Scraping" href="06_scraping.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -87,7 +88,7 @@
   </a>
  </li>
 </ul>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="02_general.html">
    What is Python and why use it?
@@ -111,6 +112,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="06_scraping.html">
    Web Scraping
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Graphics
   </a>
  </li>
 </ul>
@@ -237,6 +243,11 @@
        Histograms
       </a>
      </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#subplots">
+       Subplots
+      </a>
+     </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -289,50 +300,51 @@
   <div class="section" id="graphics">
 <h1>Graphics<a class="headerlink" href="#graphics" title="Permalink to this headline">¶</a></h1>
 <p><span style="font-family:Apple Chancery"><font size="4"> - A graph is worth a thousand records (and more) -</font></span></p>
-<p>Graphics can provide an easy way to display information extracted from data to the beholder. While graphics are a major tool for reporting purposes, reporting may already mark the endpoint of your journey with the data. Instead of creating graphics only as a final step, they should also be considered at the very beginning of a project: when exploring a dataset for the first time. While creating different plots for a dataset, we will therefor try to explain any oddities we find.</p>
+<p>Graphics provide an easy way to display information extracted from data to the beholder. While graphics are a major tool for reporting purposes, reporting may already mark the endpoint of your journey with the data. Instead of creating graphics only as a final step, they should also be considered at the very beginning of a project: when exploring a dataset for the first time. While creating different plots for a dataset, we will therefor try to explain any oddities we find.</p>
 <p>Python offers several packages, which allow a quick look at your data using basic plot types. The respective functions to build these plots in a basic fashion using the default preferences are highly customizable.</p>
 <div class="section" id="matplotlib">
 <h2>Matplotlib<a class="headerlink" href="#matplotlib" title="Permalink to this headline">¶</a></h2>
-<p>Maybe the most popular library for graphics in python is <span class="xref myst">matplotlib</span>. Its functionality is accessed by importing its <strong>API</strong> (commonly under the alias <em>plt</em>) <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span> <span class="pre">as</span> <span class="pre">plt</span></code>. It works seamlessly with numpy arrays and pandas objects, making it the library of choice here.</p>
-<p>In general, when creating a plot, we create a <em>figure</em>. Subsequent <code class="docutils literal notranslate"><span class="pre">pyplot</span></code> functions then specify which part of the figure is adressed. Such parts include for example the axes, title or drawing area. In order to customize a plot, you can stack these function calls, since the invoked states will be preserved until the concluding <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code> statement creates the graph.</p>
+<p>A popular library for graphics in python is <span class="xref myst">matplotlib</span>. Its functionality is accessed by importing its <strong>API</strong> (commonly under the alias <em>plt</em>) <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span> <span class="pre">as</span> <span class="pre">plt</span></code>. It works seamlessly with numpy arrays and pandas objects, making it the library of choice here.</p>
+<p>In general, when creating a plot, we create a <em>figure</em> to which we add <em>axes</em> objects.</p>
+<p><code class="docutils literal notranslate"><span class="pre">pyplot</span></code> functions then specify which part of the figure is adressed and adds objects to it. Such parts include for example the axes, title or drawing area. In order to customize a plot, you can stack these function calls, since the invoked states will be preserved until the concluding <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code> statement creates the graph.</p>
 <p>In the following, we will look at basic examples of different plots and learn the more specific syntax on the fly. For an overview of plots and how to create them, look at <a class="reference external" href="https://matplotlib.org/stable/gallery/index.html">this gallery of plots</a> from matplotlib.</p>
 <p>We will use some modified credit card data from <a class="reference external" href="https://www.kaggle.com/sakshigoyal7/credit-card-customers">this kaggle page</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-<span class="c1">#df = pd.read_csv(&#39;/Users/jan/Desktop/Promotion/python_class/testbook/data/BankChurners_mod2.csv&#39;)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/Users/jan/Desktop/Promotion/python_class/testbook/data/BankChurners_mod.csv&#39;</span><span class="p">)</span>
 
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://www.dropbox.com/s/sbqezclbr7qkx5r/BankChurners_mod.csv?dl=1&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="c1">#df = pd.read_csv(&#39;https://www.dropbox.com/s/sbqezclbr7qkx5r/BankChurners_mod.csv?dl=1&#39;, index_col=0)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   CLIENTNUM     Attrition_Flag  Customer_Age Gender  Dependent_count  \
-0  768805383  Existing Customer            45      M                3   
-1  818770008  Existing Customer            49      F                5   
-2  713982108  Existing Customer            51      M                3   
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Unnamed: 0  CLIENTNUM     Attrition_Flag  Customer_Age Gender  \
+0           0  768805383  Existing Customer            45      M   
+1           1  818770008  Existing Customer            49      F   
+2           2  713982108  Existing Customer            51      M   
 
-  Education_Level Marital_Status Income_Category Card_Category  \
-0     High School        Married     $60K - $80K          Blue   
-1        Graduate         Single  Less than $40K          Blue   
-2        Graduate        Married    $80K - $120K          Blue   
+   Dependent_count Education_Level Marital_Status Income_Category  \
+0                3     High School        Married     $60K - $80K   
+1                5        Graduate         Single  Less than $40K   
+2                3        Graduate        Married    $80K - $120K   
 
-   Months_on_book  Total_Relationship_Count  Months_Inactive_12_mon  \
-0              39                         5                       1   
-1              44                         6                       1   
-2              36                         4                       1   
+  Card_Category  Months_on_book  Total_Relationship_Count  \
+0          Blue              39                         5   
+1          Blue              44                         6   
+2          Blue              36                         4   
 
-   Contacts_Count_12_mon  Credit_Limit  Total_Revolving_Bal  Avg_Open_To_Buy  \
-0                      3       12691.0                  777          11914.0   
-1                      2        8256.0                  864           7392.0   
-2                      0        3418.0                    0           3418.0   
+   Months_Inactive_12_mon  Contacts_Count_12_mon  Credit_Limit  \
+0                       1                      3       12691.0   
+1                       1                      2        8256.0   
+2                       1                      0        3418.0   
 
-   Avg_Utilization_Ratio  
-0                  0.061  
-1                  0.105  
-2                  0.000  
+   Total_Revolving_Bal  Avg_Open_To_Buy  Avg_Utilization_Ratio  
+0                  777          11914.0                  0.061  
+1                  864           7392.0                  0.105  
+2                    0           3418.0                  0.000  
 </pre></div>
 </div>
 </div>
@@ -346,28 +358,29 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-Int64Index: 10127 entries, 0 to 10126
-Data columns (total 17 columns):
+RangeIndex: 10127 entries, 0 to 10126
+Data columns (total 18 columns):
  #   Column                    Non-Null Count  Dtype  
 ---  ------                    --------------  -----  
- 0   CLIENTNUM                 10127 non-null  int64  
- 1   Attrition_Flag            10127 non-null  object 
- 2   Customer_Age              10127 non-null  int64  
- 3   Gender                    10127 non-null  object 
- 4   Dependent_count           10127 non-null  int64  
- 5   Education_Level           10127 non-null  object 
- 6   Marital_Status            10127 non-null  object 
- 7   Income_Category           10127 non-null  object 
- 8   Card_Category             10127 non-null  object 
- 9   Months_on_book            10127 non-null  int64  
- 10  Total_Relationship_Count  10127 non-null  int64  
- 11  Months_Inactive_12_mon    10127 non-null  int64  
- 12  Contacts_Count_12_mon     10127 non-null  int64  
- 13  Credit_Limit              10127 non-null  float64
- 14  Total_Revolving_Bal       10127 non-null  int64  
- 15  Avg_Open_To_Buy           10127 non-null  float64
- 16  Avg_Utilization_Ratio     10127 non-null  float64
-dtypes: float64(3), int64(8), object(6)
+ 0   Unnamed: 0                10127 non-null  int64  
+ 1   CLIENTNUM                 10127 non-null  int64  
+ 2   Attrition_Flag            10127 non-null  object 
+ 3   Customer_Age              10127 non-null  int64  
+ 4   Gender                    10127 non-null  object 
+ 5   Dependent_count           10127 non-null  int64  
+ 6   Education_Level           10127 non-null  object 
+ 7   Marital_Status            10127 non-null  object 
+ 8   Income_Category           10127 non-null  object 
+ 9   Card_Category             10127 non-null  object 
+ 10  Months_on_book            10127 non-null  int64  
+ 11  Total_Relationship_Count  10127 non-null  int64  
+ 12  Months_Inactive_12_mon    10127 non-null  int64  
+ 13  Contacts_Count_12_mon     10127 non-null  int64  
+ 14  Credit_Limit              10127 non-null  float64
+ 15  Total_Revolving_Bal       10127 non-null  int64  
+ 16  Avg_Open_To_Buy           10127 non-null  float64
+ 17  Avg_Utilization_Ratio     10127 non-null  float64
+dtypes: float64(3), int64(9), object(6)
 memory usage: 1.4+ MB
 </pre></div>
 </div>
@@ -377,15 +390,15 @@ memory usage: 1.4+ MB
 <div class="section" id="categories">
 <h3>Categories<a class="headerlink" href="#categories" title="Permalink to this headline">¶</a></h3>
 <p>Such variables are usually (but not necessarily) of type string. After identifying a variable to be categorical, one must decide whether it is of ordinal - the levels can be ranked - or nominal scale - they cannot be ranked. Examples from our dataset are <strong>Income_Category</strong> for ordinal and <strong>Martial_Status</strong> for nominal scale.</p>
-<p>For categorical variables, bar charts or histograms are maybe the first plot type you should consider. The difference lies in how binning is possbile: ordinal data uses histograms, nominal data barcharts. To build the standard plots, we need not do more than call the <code class="docutils literal notranslate"><span class="pre">hist()</span></code> or <code class="docutils literal notranslate"><span class="pre">bar</span></code> function with the respective data.</p>
+<p>For categorical variables, bar charts and histograms are maybe the first plot type you should consider. The difference however, is only the order and visualisation: ordinal data uses histograms, which appear column to column in a defined order, nominal data uses barcharts iwth spacing between the columns and no specific order. To build the standard plots, we need not do more than call the <code class="docutils literal notranslate"><span class="pre">hist()</span></code> or <code class="docutils literal notranslate"><span class="pre">bar</span></code> function with the respective data.</p>
 <div class="section" id="bar-charts">
 <h4>Bar Charts<a class="headerlink" href="#bar-charts" title="Permalink to this headline">¶</a></h4>
-<p>We need to provide an index and the height of the variable. with the <code class="docutils literal notranslate"><span class="pre">.unique()</span></code> method, we get all levels present in the variable.</p>
+<p>We need to provide the categories and the height of the variable. With the <code class="docutils literal notranslate"><span class="pre">.unique()</span></code> method, we get all levels present in the variable, with <code class="docutils literal notranslate"><span class="pre">.calue_counts()</span></code> we get the number of occurrences.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Marital_Status</span><span class="o">.</span><span class="n">unique</span><span class="p">())),</span> <span class="n">df</span><span class="o">.</span><span class="n">Marital_Status</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>  <span class="c1">#create object</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Marital_Status</span><span class="o">.</span><span class="n">unique</span><span class="p">(),</span> <span class="n">df</span><span class="o">.</span><span class="n">Marital_Status</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>  <span class="c1">#create object</span>
 </pre></div>
 </div>
 </div>
@@ -403,8 +416,7 @@ memory usage: 1.4+ MB
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Marital_Status</span><span class="o">.</span><span class="n">unique</span><span class="p">())),</span> <span class="n">df</span><span class="o">.</span><span class="n">Marital_Status</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(),</span>
-        <span class="n">tick_label</span><span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Marital_Status</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>    <span class="c1"># modify tick labels </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Marital_Status</span><span class="o">.</span><span class="n">unique</span><span class="p">(),</span> <span class="n">df</span><span class="o">.</span><span class="n">Marital_Status</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>    <span class="c1"># show image</span>
 </pre></div>
 </div>
@@ -416,8 +428,8 @@ memory usage: 1.4+ MB
 </div>
 <div class="section" id="histograms">
 <h4>Histograms<a class="headerlink" href="#histograms" title="Permalink to this headline">¶</a></h4>
-<p>Histograms are used, when the distribution of a numerical variable should be displayed.</p>
-<p>The default number of bins is 10 with equal spacing. For a more detailed look, we can use the hist function to get the number of samples in each bin, the borders of the bins and the patches, i.e. parts of the histogram.</p>
+<p>Histograms are used, when the distribution of a numerical variable should be displayed</p>
+<p>The default number of bins in matplotlib is 10 with equal spacing. For a more detailed look or further processing, we can use the <code class="docutils literal notranslate"><span class="pre">hist()</span></code> function to get the number of samples in each bin, the borders of the bins and the patches, i.e.the displayed parts of the histogram.</p>
 <p>Let’s change the number of bins to 5 and view these unpacked parts. (Note that jupyter will print the plot any way)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -437,11 +449,29 @@ patches: Rectangle(xy=(1934.47, 0), width=5623.21, height=6735, angle=0) Rectang
 </div>
 </div>
 <p>We see that the ticks are not automatically matching the bars. To solve this, we can use the bin borders, <code class="docutils literal notranslate"><span class="pre">bins</span></code> from above, to set the ticks and labels on the x axis.</p>
-<p>Furthermore, we can compare the two results side by side, using the <code class="docutils literal notranslate"><span class="pre">subplot(nrow,</span> <span class="pre">ncol,</span> <span class="pre">index)</span></code> function. We specify how many plots to show by the number of rows and columns in the parentheses. To make one cell of the figure the current subplot, call the subplot function before.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Credit_Limit</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="n">bins</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">65</span><span class="p">)</span>    <span class="c1"># set xticks at bin border</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>   
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/07_graphics_15_0.png" src="_images/07_graphics_15_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="subplots">
+<h4>Subplots<a class="headerlink" href="#subplots" title="Permalink to this headline">¶</a></h4>
+<p>We can compare two results side by side, using the <code class="docutils literal notranslate"><span class="pre">subplot(nrow,</span> <span class="pre">ncol,</span> <span class="pre">index)</span></code> function.
+We specify how many plots to show by the number of rows and columns in the parentheses. To make one cell of the figure the current subplot, call the subplot function before.</p>
 <ul class="simple">
 <li><p>At first, we specify a larger figure size.</p></li>
 <li><p>We choose 15 bins</p></li>
-<li><p>We also add titles and change the colours to better differentiate between the plot from above and the modified one. For colours, <em>matplotlib</em> automatically recognizes RGB and RGBA when a 3- or 4-tuple is provided.</p></li>
+<li><p>For colours, <em>matplotlib</em> automatically recognizes RGB and RGBA when a 3- or 4-tuple is provided to <code class="docutils literal notranslate"><span class="pre">color</span></code></p></li>
+<li><p>We also add titles and change the colours to better differentiate between the plot from above and the modified one. Nore the state based approach of calling these functions subsequently</p></li>
 <li><p>Since the tick labels in the right plot are too long and would overlap, we rotate them</p></li>
 </ul>
 <div class="cell docutils container">
@@ -449,23 +479,23 @@ patches: Rectangle(xy=(1934.47, 0), width=5623.21, height=6735, angle=0) Rectang
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>    <span class="c1"># this will stretch/compress the plots to fit the figsize</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>    <span class="c1"># first subplot of two in one row</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Credit_Limit</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">rwidth</span><span class="o">=</span><span class="mf">.85</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">137</span><span class="o">/</span><span class="mi">255</span><span class="p">,</span><span class="mi">147</span><span class="o">/</span><span class="mi">255</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Credit_Limit</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">137</span><span class="o">/</span><span class="mi">255</span><span class="p">,</span><span class="mi">147</span><span class="o">/</span><span class="mi">255</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;default ticks&#39;</span><span class="p">)</span>    <span class="c1"># add title</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>    <span class="c1"># second subplot</span>
-<span class="n">n</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Credit_Limit</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">rwidth</span><span class="o">=</span><span class="mf">.90</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mf">.9</span><span class="p">,</span><span class="mf">.1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">n</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Credit_Limit</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mf">.9</span><span class="p">,</span><span class="mf">.1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;modified ticks&#39;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Credit Limit ($)&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="n">bins</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">65</span><span class="p">)</span>    <span class="c1"># set xticks at bin border</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>   <span class="c1"># only after all sunplots have been defined</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>   <span class="c1"># only after all subplots have been defined</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/07_graphics_15_0.png" src="_images/07_graphics_15_0.png" />
+<img alt="_images/07_graphics_17_0.png" src="_images/07_graphics_17_0.png" />
 </div>
 </div>
 <p>The rightmost bar strikes the eye as it interrupts the decreasing trend seen towards higher values. If we check for the occurence of the maximum value by <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">len(df[df.Credit_Limit</span> <span class="pre">==</span> <span class="pre">max(df.Credit_Limit)])</span></code>, we find it occurs 508 times. This is in indication, that the dataset has been clipped. Meaning that values higher or lower than some critical values are overwritten by these values.</p>
@@ -483,8 +513,9 @@ patches: Rectangle(xy=(1934.47, 0), width=5623.21, height=6735, angle=0) Rectang
 </div>
 </div>
 </div>
-<p>A more special case arises for the variable <strong>Income_Category</strong> which is already binned to categories but can be ranked. We would want to order the bars accordingly. While the default <code class="docutils literal notranslate"><span class="pre">plt.bar()</span></code> would only make a random order of the categories, we can specify this order by providing the tick positions and labels. Another easy way to to this is by mapping the values to integers, according to their rank. Either way, some work by hand is required to reorder the bars.</p>
-<p>We have to define a dictionary contatining the pairs for mapping and then use pandas’ <code class="docutils literal notranslate"><span class="pre">map()</span></code> function.</p>
+<p>A more special case arises for the variable <strong>Income_Category</strong> which is already binned to categories but can be ranked. We would want to order the bars accordingly.</p>
+<p>While the default <code class="docutils literal notranslate"><span class="pre">plt.bar()</span></code> would only make a random order of the categories, we can specify this order by providing the tick positions and labels. Another way to do this is by mapping the values to integers, according to their rank. Either way, some work by hand is required to reorder the bars.</p>
+<p>We will define a dictionary containing k-v pairs for mapping and then use pandas’ <code class="docutils literal notranslate"><span class="pre">map()</span></code> function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Income_Category</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>    <span class="c1"># get unique values to biuld dict in next step</span>
@@ -519,7 +550,7 @@ patches: Rectangle(xy=(1934.47, 0), width=5623.21, height=6735, angle=0) Rectang
 <p>Note that for the second plot, we could have used a list in the desired order. The dict, i.e. the values of the dict, are only used for the histogram.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">ax3</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>     <span class="c1"># unpacking into figure and 2 axes objects</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">ax3</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>     <span class="c1"># unpacking into figure and 3 axes objects</span>
 
 <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Bar Charts and Histograms&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
 
@@ -545,33 +576,45 @@ patches: Rectangle(xy=(1934.47, 0), width=5623.21, height=6735, angle=0) Rectang
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/07_graphics_22_0.png" src="_images/07_graphics_22_0.png" />
+<img alt="_images/07_graphics_24_0.png" src="_images/07_graphics_24_0.png" />
 </div>
 </div>
 <p>We can see that we basically built the same plot (middle and right) by using a bar plot and a histogram.</p>
-<p>Now, there are many more options on how to build histograms. One last example is to display two variables in the same plot. It should be noted, that the values should lie in the same range approximately.</p>
+<p>Now, there are many more options on how to build histograms. One last example is to display two variables in the same plot: a grouped and stacked histogram</p>
+<p>It should be noted, that the values should lie in the same range approximately.</p>
 <p>For the first plot, we provide the variables as a list to the <code class="docutils literal notranslate"><span class="pre">hist()</span></code> function. For the second plot, we use the state based approach and create two plots which we display in the same graphic.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>     <span class="c1"># unpacking into figure and 2 axes objects</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>     <span class="c1"># unpacking into figure and 2 axes objects</span>
 
-<span class="n">n</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">([</span><span class="n">df</span><span class="o">.</span><span class="n">Credit_Limit</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">Avg_Open_To_Buy</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">rwidth</span><span class="o">=</span><span class="mf">.8</span><span class="p">,</span> 
+<span class="n">n</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">hist</span><span class="p">([</span><span class="n">df</span><span class="o">.</span><span class="n">Credit_Limit</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">Avg_Open_To_Buy</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> 
                      <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">142</span><span class="o">/</span><span class="mi">255</span><span class="p">,</span><span class="mi">142</span><span class="o">/</span><span class="mi">255</span><span class="p">,</span> <span class="mi">141</span><span class="o">/</span><span class="mi">255</span><span class="p">,</span> <span class="mf">.6</span><span class="p">)])</span>
 <span class="n">bin_width</span> <span class="o">=</span> <span class="p">(</span><span class="n">bins</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">bins</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span>    <span class="c1"># calculate half bin width for centered tickmarks</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">bins</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>  
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">b</span><span class="o">/</span><span class="mi">1000</span><span class="p">)</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">bins</span><span class="p">[</span><span class="mi">1</span><span class="p">:]],</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">65</span><span class="p">)</span> 
-<span class="n">ax</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="s1">&#39;a title&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">set_fontsize</span><span class="p">(</span><span class="mi">18</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;Credit Limit&#39;</span><span class="p">,</span> <span class="s1">&#39;Avg Open to Buy&#39;</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;large&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;thousands of dollars&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">13</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">13</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">bins</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>  
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">b</span><span class="o">/</span><span class="mi">1000</span><span class="p">)</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">bins</span><span class="p">[</span><span class="mi">1</span><span class="p">:]],</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">65</span><span class="p">)</span> 
+<span class="n">ax1</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="s1">&#39;grouped&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">set_fontsize</span><span class="p">(</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;Credit Limit&#39;</span><span class="p">,</span> <span class="s1">&#39;Avg Open to Buy&#39;</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;large&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;thousands of dollars&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">13</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">13</span><span class="p">)</span>
+
+<span class="n">n</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">hist</span><span class="p">([</span><span class="n">df</span><span class="o">.</span><span class="n">Credit_Limit</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">Avg_Open_To_Buy</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
+                     <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">142</span><span class="o">/</span><span class="mi">255</span><span class="p">,</span><span class="mi">142</span><span class="o">/</span><span class="mi">255</span><span class="p">,</span> <span class="mi">141</span><span class="o">/</span><span class="mi">255</span><span class="p">,</span> <span class="mf">.6</span><span class="p">)],</span> <span class="n">stacked</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">bins</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>  
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">b</span><span class="o">/</span><span class="mi">1000</span><span class="p">)</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">bins</span><span class="p">[</span><span class="mi">1</span><span class="p">:]],</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">65</span><span class="p">)</span> 
+<span class="n">ax2</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="s1">&#39;stacked&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">set_fontsize</span><span class="p">(</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;Credit Limit&#39;</span><span class="p">,</span> <span class="s1">&#39;Avg Open to Buy&#39;</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;large&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;thousands of dollars&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">13</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">13</span><span class="p">)</span>
+
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/07_graphics_24_0.png" src="_images/07_graphics_24_0.png" />
+<img alt="_images/07_graphics_26_0.png" src="_images/07_graphics_26_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -589,7 +632,7 @@ patches: Rectangle(xy=(1934.47, 0), width=5623.21, height=6735, angle=0) Rectang
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/07_graphics_25_0.png" src="_images/07_graphics_25_0.png" />
+<img alt="_images/07_graphics_27_0.png" src="_images/07_graphics_27_0.png" />
 </div>
 </div>
 <p>The basic framework stays the same for all other plots that can be created using matplotlib. We will have a look at two more examples before switching to a different library more specific for statistical plots.</p>
@@ -603,18 +646,18 @@ patches: Rectangle(xy=(1934.47, 0), width=5623.21, height=6735, angle=0) Rectang
 <p>This kind of plot uses uses variables from the dataset on both axes, unlike before where we saw the count on the y-axis. Scatter plots are particularly useful for checking relationships between two variables. To create a scatterplot, use <code class="docutils literal notranslate"><span class="pre">plt.scatter()</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Customer_Age</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">Months_on_book</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/07_graphics_28_0.png" src="_images/07_graphics_28_0.png" />
+<img alt="_images/07_graphics_30_0.png" src="_images/07_graphics_30_0.png" />
 </div>
 </div>
 <p>We clearly see a positive linear correlation between the two variables. We also see, that one value of Months_on_Book appears throughout all ages. This is likely from imputing missing values, i.e. if this information is not available, the system instantly or some data engineer later set the value to the mean or some other statistical indicator.</p>
-<p>Let’s verify the high correlation between the variables and then see if we can find out more about the meaning of this number.</p>
+<p>Let’s quantify the high correlation between the variables and then see if we can find out more about the value appearing almost as horizontal line.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Customer_Age</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">Months_on_book</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
@@ -657,10 +700,10 @@ mean without 36 months at all: 35.905401878914404
 </div>
 </div>
 <p>Another way to make your scatterplots more fancy and more informative, is through grouping by some third variable and display these groups using different colours. This is particularly interesting for categorical variables, where the markers are coloured according to the single levels.</p>
+<p>Note the dictionary containing the colour codes for the categories and the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop used to create axes objects. We could have used the <code class="docutils literal notranslate"><span class="pre">c=df.Card_Categories.map(card_col)</span></code>, but then we would not get a legend.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-<span class="c1">#ax.scatter(df.Customer_Age, df.Months_on_book, marker=&#39;.&#39;, alpha=.1, c=df.Marital_Status.unique())</span>
 
 <span class="c1"># use only rows in upper half of total revolving balance for less data points</span>
 <span class="n">groups</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">Total_Revolving_Bal</span> <span class="o">&gt;</span> <span class="n">df</span><span class="o">.</span><span class="n">Total_Revolving_Bal</span><span class="o">.</span><span class="n">mean</span><span class="p">()]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Card_Category</span><span class="p">)</span>
@@ -673,13 +716,13 @@ mean without 36 months at all: 35.905401878914404
     <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">group</span><span class="o">.</span><span class="n">Customer_Age</span><span class="p">,</span> <span class="n">group</span><span class="o">.</span><span class="n">Months_on_book</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">card_col</span><span class="p">[</span><span class="n">name</span><span class="p">])</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">prop</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">})</span>
 
-<span class="c1">#show in same pot</span>
+<span class="c1">#show in same plot</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/07_graphics_34_0.png" src="_images/07_graphics_34_0.png" />
+<img alt="_images/07_graphics_36_0.png" src="_images/07_graphics_36_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -698,7 +741,8 @@ silver
 </div>
 </div>
 </div>
-<p>Beside the colour, the <strong>marker size</strong> can also be customized to display a relative difference between values in a variable. Note that the size parameter <code class="docutils literal notranslate"><span class="pre">s</span></code> needs an numerical input, which could refer to categories, e.g. through mapping.</p>
+<p>Beside the colour, the <strong>marker size</strong> can also be customized to display a relative difference between third variables of the observations.</p>
+<p>Note that the size parameter <code class="docutils literal notranslate"><span class="pre">s</span></code> needs an numerical input, which could refer to categories, e.g. through mapping.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
@@ -713,14 +757,12 @@ silver
                <span class="n">s</span><span class="o">=</span><span class="p">(</span><span class="n">group</span><span class="o">.</span><span class="n">Dependent_count</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>   <span class="c1"># resizing might be necessary</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 
-<span class="c1">#show in same pot</span>
-
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/07_graphics_37_0.png" src="_images/07_graphics_37_0.png" />
+<img alt="_images/07_graphics_39_0.png" src="_images/07_graphics_39_0.png" />
 </div>
 </div>
 </div>
@@ -762,7 +804,7 @@ silver
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/07_graphics_39_0.png" src="_images/07_graphics_39_0.png" />
+<img alt="_images/07_graphics_41_0.png" src="_images/07_graphics_41_0.png" />
 </div>
 </div>
 <p>Matplotlib includes many useful shortcuts in customizing the graphics: colors (simply ‘blue’ instead of an rgb code), the markers (e.g. ‘^’ for triangles) and the linestyle (‘–’ for a dashed line). They can be found in the documentation of the respective function. In general, it is always useful to check the documentation when creating a graph that should be beyond the standard, because of the mutltitude of built-in keywords.</p>
@@ -818,7 +860,7 @@ silver
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/07_graphics_46_0.png" src="_images/07_graphics_46_0.png" />
+<img alt="_images/07_graphics_48_0.png" src="_images/07_graphics_48_0.png" />
 </div>
 </div>
 <p>For histograms additional functionality is readily available. The <code class="docutils literal notranslate"><span class="pre">displot()</span></code> function builds the basic histogram. In seaborn, we only need single keywords to build more advanced plots:</p>
@@ -844,9 +886,9 @@ silver
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/07_graphics_48_0.png" src="_images/07_graphics_48_0.png" />
-<img alt="_images/07_graphics_48_1.png" src="_images/07_graphics_48_1.png" />
-<img alt="_images/07_graphics_48_2.png" src="_images/07_graphics_48_2.png" />
+<img alt="_images/07_graphics_50_0.png" src="_images/07_graphics_50_0.png" />
+<img alt="_images/07_graphics_50_1.png" src="_images/07_graphics_50_1.png" />
+<img alt="_images/07_graphics_50_2.png" src="_images/07_graphics_50_2.png" />
 </div>
 </div>
 <p>At this point, we will no longer repeat the plot types we have seen in the previous chapter. However, you are advised to check how to create them using seaborn and learn about the additional possibilities.</p>
@@ -884,6 +926,7 @@ silver
   <thead>
     <tr style="text-align: right;">
       <th></th>
+      <th>Unnamed: 0</th>
       <th>Customer_Age</th>
       <th>Dependent_count</th>
       <th>Months_on_book</th>
@@ -895,7 +938,19 @@ silver
   </thead>
   <tbody>
     <tr>
+      <th>Unnamed: 0</th>
+      <td>1.000000</td>
+      <td>-0.010781</td>
+      <td>0.084230</td>
+      <td>-0.008814</td>
+      <td>-0.420573</td>
+      <td>0.041096</td>
+      <td>-0.112528</td>
+      <td>-0.057366</td>
+    </tr>
+    <tr>
       <th>Customer_Age</th>
+      <td>-0.010781</td>
       <td>1.000000</td>
       <td>-0.122254</td>
       <td>0.788912</td>
@@ -906,6 +961,7 @@ silver
     </tr>
     <tr>
       <th>Dependent_count</th>
+      <td>0.084230</td>
       <td>-0.122254</td>
       <td>1.000000</td>
       <td>-0.103062</td>
@@ -916,6 +972,7 @@ silver
     </tr>
     <tr>
       <th>Months_on_book</th>
+      <td>-0.008814</td>
       <td>0.788912</td>
       <td>-0.103062</td>
       <td>1.000000</td>
@@ -926,6 +983,7 @@ silver
     </tr>
     <tr>
       <th>Total_Relationship_Count</th>
+      <td>-0.420573</td>
       <td>-0.010931</td>
       <td>-0.039076</td>
       <td>-0.009203</td>
@@ -936,6 +994,7 @@ silver
     </tr>
     <tr>
       <th>Months_Inactive_12_mon</th>
+      <td>0.041096</td>
       <td>0.054361</td>
       <td>-0.010768</td>
       <td>0.074164</td>
@@ -946,6 +1005,7 @@ silver
     </tr>
     <tr>
       <th>Contacts_Count_12_mon</th>
+      <td>-0.112528</td>
       <td>-0.018452</td>
       <td>-0.040505</td>
       <td>-0.010774</td>
@@ -956,6 +1016,7 @@ silver
     </tr>
     <tr>
       <th>Total_Revolving_Bal</th>
+      <td>-0.057366</td>
       <td>0.014780</td>
       <td>-0.002688</td>
       <td>0.008623</td>
@@ -979,7 +1040,7 @@ silver
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
-<img alt="_images/07_graphics_53_1.png" src="_images/07_graphics_53_1.png" />
+<img alt="_images/07_graphics_55_1.png" src="_images/07_graphics_55_1.png" />
 </div>
 </div>
 <p>The high correlation between ‘Months_on_Book’ and ‘Customer_Age’ we found earlier can now clearly be seen by the light field corresponding to a high correlation.</p>
@@ -1001,7 +1062,7 @@ At last, we use a custom colour map to try and get a better contrast for the low
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/07_graphics_55_0.png" src="_images/07_graphics_55_0.png" />
+<img alt="_images/07_graphics_57_0.png" src="_images/07_graphics_57_0.png" />
 </div>
 </div>
 <p>With Jupyter notebook, the colours can even be chosen from an interactive interface.</p>
@@ -1013,7 +1074,7 @@ At last, we use a custom colour map to try and get a better contrast for the low
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "d2f2b0fd491941a28bf29e97e5bcfd53", "version_major": 2, "version_minor": 0}
+{"model_id": "483fbd99179b4a68935dd6714e09aa93", "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
 <div class="cell docutils container">
@@ -1025,7 +1086,7 @@ At last, we use a custom colour map to try and get a better contrast for the low
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/07_graphics_58_0.png" src="_images/07_graphics_58_0.png" />
+<img alt="_images/07_graphics_60_0.png" src="_images/07_graphics_60_0.png" />
 </div>
 </div>
 </div>
@@ -1059,14 +1120,12 @@ In this configuration, outliers, i.e. data points above or beyond the respective
 
 <span class="c1"># lower whisker -&gt; min value inside (Q_25 - 1.5 IQR)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x_val</span><span class="p">,</span><span class="nb">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Credit_Limit</span><span class="p">,</span><span class="mf">.25</span><span class="p">)</span><span class="o">-</span><span class="mf">1.5</span><span class="o">*</span><span class="n">iqr</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Credit_Limit</span><span class="p">)),</span><span class="s1">&#39;$min$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.17, 1438.3, &#39;$min$&#39;)
-</pre></div>
-</div>
-<img alt="_images/07_graphics_60_1.png" src="_images/07_graphics_60_1.png" />
+<img alt="_images/07_graphics_62_0.png" src="_images/07_graphics_62_0.png" />
 </div>
 </div>
 <p>A plot showing similar information (and is maybe more aesthetic) is the violin plot. It includes a kernel density estimation which is shown on both sides of the middle axis. This adds visual information beyond the quartiles and outliers, by displaying the distribution of values.</p>
@@ -1081,7 +1140,7 @@ In this configuration, outliers, i.e. data points above or beyond the respective
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
-<img alt="_images/07_graphics_62_1.png" src="_images/07_graphics_62_1.png" />
+<img alt="_images/07_graphics_64_1.png" src="_images/07_graphics_64_1.png" />
 </div>
 </div>
 <p>We can display the distribution of one variable with respect to the (customized order) levels of a second variable. Furthermore, we can also use a ‘hue’ for a third variable. For dichotomous variables, setting <code class="docutils literal notranslate"><span class="pre">split=True</span></code> makes use of both sides of a violinplot, instead of creating sets of two violinplots.</p>
@@ -1106,7 +1165,7 @@ In this configuration, outliers, i.e. data points above or beyond the respective
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/07_graphics_64_0.png" src="_images/07_graphics_64_0.png" />
+<img alt="_images/07_graphics_66_0.png" src="_images/07_graphics_66_0.png" />
 </div>
 </div>
 </div>
@@ -1115,7 +1174,7 @@ In this configuration, outliers, i.e. data points above or beyond the respective
 
 
 <script type="application/vnd.jupyter.widget-state+json">
-{"state": {"09f9e99468e846b39b17e5687f46f461": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_8cae82546a14494dac5282a5212a4f7f", "msg_id": "", "outputs": [{"data": {"image/png": "iVBORw0KGgoAAAANSUhEUgAAAggAAABICAYAAACTOw0mAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90bGliIHZlcnNpb24zLjQuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8rg+JYAAAACXBIWXMAAAsTAAALEwEAmpwYAAACRklEQVR4nO3aP2pUURjG4e9KIjFYhGAKBbW2MFVW4iLcgZtxQzYWMf6BLMBOsBASM0KOrfAm4kAOZ+b4PO0dhu9lmh/cWVprBQDwp3ujDwAANo9AAACCQAAAgkAAAIJAAACCQAAAws46H97df9j2Dg573TLc/v3d0Sd09cC+rTXztqqq68ufo0/oql1cjD6hqzb573d9cTn6hG6+Xl3W91+r5aZnawXC3sFhnbx+czdXbaDjZ49Hn9DVy8n3HT+dd9+LJ0ejT+hq9eV89AldrT58HH1CV1enn0af0NXq7PPoE7p5dfru1mdeMQAAQSAAAEEgAABBIAAAQSAAAEEgAABBIAAAQSAAAEEgAABBIAAAQSAAAEEgAABBIAAAQSAAAEEgAABBIAAAQSAAAEEgAABBIAAAQSAAAEEgAABBIAAAQSAAAEEgAABBIAAAQSAAAEEgAABBIAAAQSAAAEEgAABBIAAAQSAAAEEgAABBIAAAQSAAAEEgAABBIAAAQSAAAEEgAABBIAAAQSAAAEEgAABBIAAAQSAAAEEgAABBIAAAQSAAAEEgAABBIAAAQSAAAEEgAABBIAAAYWmt/fuHl+VHVZ33O2e4R1X1bfQRncy8rcq+bWff9pp5W9X8+5631o5uerCz5hedt9ZO7uCgjbQsy/tZ9828rcq+bWff9pp5W9X8+/7GKwYAIAgEACCsGwhvu1yxOWbeN/O2Kvu2nX3ba+ZtVfPvu9Vaf1IEAP4PXjEAAEEgAABBIAAAQSAAAEEgAADhN8nhYisz5qb4AAAAAElFTkSuQmCC\n", "text/plain": "<Figure size 648x72 with 1 Axes>"}, "metadata": {"needs_background": "light"}, "output_type": "display_data"}]}}, "119a4fd76de149689234ff6436252d52": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "IntSliderModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "IntSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "IntSliderView", "continuous_update": true, "description": "sep", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_fbcf9885340348bb9c671daeca2018ab", "max": 50, "min": 1, "orientation": "horizontal", "readout": true, "readout_format": "d", "step": 1, "style": "IPY_MODEL_e69ad7f9bfed4d078e98498c40acb91e", "value": 10}}, "13cdf0c5113241559f5abd39df021bf4": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "1e77de1785b24f718186167f36db76bb": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "SliderStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "2ce7213dc64b42b6ae94d9fbf985761d": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "490522729e5541148258ece4fd6bdaff": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "IntSliderModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "IntSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "IntSliderView", "continuous_update": true, "description": "h_pos", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_13cdf0c5113241559f5abd39df021bf4", "max": 359, "min": 0, "orientation": "horizontal", "readout": true, "readout_format": "d", "step": 1, "style": "IPY_MODEL_1e77de1785b24f718186167f36db76bb", "value": 10}}, "5a1f6ec716db40a0bca0c0cfce57d321": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "74d723bd44c44507b8d25d1734e11035": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "SliderStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "82dcf5c01e624f56bf3d160209099817": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "SliderStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "88c34234b5b2451ebaf0f98e69cce8d2": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "8cae82546a14494dac5282a5212a4f7f": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "8ea0d1f8e0704288982b181b8ab05ae3": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "IntSliderModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "IntSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "IntSliderView", "continuous_update": true, "description": "n", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_5a1f6ec716db40a0bca0c0cfce57d321", "max": 16, "min": 2, "orientation": "horizontal", "readout": true, "readout_format": "d", "step": 1, "style": "IPY_MODEL_74d723bd44c44507b8d25d1734e11035", "value": 9}}, "90f13ea524e24361a40925b721cab02a": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "IntSliderModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "IntSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "IntSliderView", "continuous_update": true, "description": "h_neg", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_2ce7213dc64b42b6ae94d9fbf985761d", "max": 359, "min": 0, "orientation": "horizontal", "readout": true, "readout_format": "d", "step": 1, "style": "IPY_MODEL_b81063463d624d25a339cdf2211b9b2d", "value": 220}}, "94ef2b16a58a4355b0b08bf72e327bdf": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "9964dcac88fa42afa6e9722e4facc986": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DropdownModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DropdownModel", "_options_labels": ["light", "dark"], "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "DropdownView", "description": "center", "description_tooltip": null, "disabled": false, "index": 0, "layout": "IPY_MODEL_ed7a8d77fad44c318d4502ef52bb5823", "style": "IPY_MODEL_94ef2b16a58a4355b0b08bf72e327bdf"}}, "b81063463d624d25a339cdf2211b9b2d": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "SliderStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "c0e7cb0afd6c43da95a93300cc3dc6c3": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "cbe704407a134d6eb26e6f08b5f2078e": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "IntSliderModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "IntSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "IntSliderView", "continuous_update": true, "description": "s", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_88c34234b5b2451ebaf0f98e69cce8d2", "max": 99, "min": 0, "orientation": "horizontal", "readout": true, "readout_format": "d", "step": 1, "style": "IPY_MODEL_d547c130a22249e99d85793362ba304a", "value": 74}}, "d21e16d562b34e20a5ae7eabf10f259f": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "IntSliderModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "IntSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "IntSliderView", "continuous_update": true, "description": "l", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_f7b409ecbd094cd0bc146026c5149ee2", "max": 99, "min": 0, "orientation": "horizontal", "readout": true, "readout_format": "d", "step": 1, "style": "IPY_MODEL_82dcf5c01e624f56bf3d160209099817", "value": 50}}, "d2f2b0fd491941a28bf29e97e5bcfd53": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "VBoxModel", "state": {"_dom_classes": ["widget-interact"], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "VBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "VBoxView", "box_style": "", "children": ["IPY_MODEL_90f13ea524e24361a40925b721cab02a", "IPY_MODEL_490522729e5541148258ece4fd6bdaff", "IPY_MODEL_cbe704407a134d6eb26e6f08b5f2078e", "IPY_MODEL_d21e16d562b34e20a5ae7eabf10f259f", "IPY_MODEL_119a4fd76de149689234ff6436252d52", "IPY_MODEL_8ea0d1f8e0704288982b181b8ab05ae3", "IPY_MODEL_9964dcac88fa42afa6e9722e4facc986", "IPY_MODEL_09f9e99468e846b39b17e5687f46f461"], "layout": "IPY_MODEL_c0e7cb0afd6c43da95a93300cc3dc6c3"}}, "d547c130a22249e99d85793362ba304a": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "SliderStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "e69ad7f9bfed4d078e98498c40acb91e": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "SliderStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "ed7a8d77fad44c318d4502ef52bb5823": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "f7b409ecbd094cd0bc146026c5149ee2": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "fbcf9885340348bb9c671daeca2018ab": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}}, "version_major": 2, "version_minor": 0}
+{"state": {"0e5df2a5ffff4a7e9fb376d68ce01047": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "1694314677b248af9088f036c5c48b60": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "SliderStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "2172fc0a3f1c4466aec13b89e75c6ee2": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "SliderStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "483fbd99179b4a68935dd6714e09aa93": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "VBoxModel", "state": {"_dom_classes": ["widget-interact"], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "VBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "VBoxView", "box_style": "", "children": ["IPY_MODEL_7925b7580bb04a66910070c3eb88efd2", "IPY_MODEL_6014e8d0e4c34cb295937c96b7a4612c", "IPY_MODEL_da342336cc9441e3a12fe66041e3b505", "IPY_MODEL_a761f57516e9489fb90ceddad7474475", "IPY_MODEL_514ee4cd97944ee0bea181fcf8be2537", "IPY_MODEL_7fade5b2ff3c49369f77edeb38454600", "IPY_MODEL_baa60bc0743e469888dcecaba1ce50b1", "IPY_MODEL_cfabc7441a434873a383c9448f302b8c"], "layout": "IPY_MODEL_9b81abc14548495895665d36cbf61365"}}, "4d229edc3cac4db694395bb8f98a8fcd": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "SliderStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "514ee4cd97944ee0bea181fcf8be2537": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "IntSliderModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "IntSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "IntSliderView", "continuous_update": true, "description": "sep", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_a75d35af2ce742b283ded741184725ca", "max": 50, "min": 1, "orientation": "horizontal", "readout": true, "readout_format": "d", "step": 1, "style": "IPY_MODEL_2172fc0a3f1c4466aec13b89e75c6ee2", "value": 10}}, "6014e8d0e4c34cb295937c96b7a4612c": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "IntSliderModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "IntSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "IntSliderView", "continuous_update": true, "description": "h_pos", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_d568b83de8cc47d2bb25e1fa675dc2cf", "max": 359, "min": 0, "orientation": "horizontal", "readout": true, "readout_format": "d", "step": 1, "style": "IPY_MODEL_de032345ebb94c27923dfab4762aa618", "value": 10}}, "63ddaa9f2b5e4fdaa76b7105c102be3f": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "7287518ac03b431bb7909a2ed347590a": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "77709e4db5cf46c99a2ad51fba9a6706": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "7925b7580bb04a66910070c3eb88efd2": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "IntSliderModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "IntSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "IntSliderView", "continuous_update": true, "description": "h_neg", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_63ddaa9f2b5e4fdaa76b7105c102be3f", "max": 359, "min": 0, "orientation": "horizontal", "readout": true, "readout_format": "d", "step": 1, "style": "IPY_MODEL_7d67fc2a296f47e9a5e316c64ad38186", "value": 220}}, "7d67fc2a296f47e9a5e316c64ad38186": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "SliderStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "7fade5b2ff3c49369f77edeb38454600": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "IntSliderModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "IntSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "IntSliderView", "continuous_update": true, "description": "n", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_f7bb42266eff401794317e91fbb37fb6", "max": 16, "min": 2, "orientation": "horizontal", "readout": true, "readout_format": "d", "step": 1, "style": "IPY_MODEL_4d229edc3cac4db694395bb8f98a8fcd", "value": 9}}, "9b81abc14548495895665d36cbf61365": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "9e6baa6ece604bebbd5a0f984b9967fb": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "a59e1711791b4fc9881a75a0a07b63a4": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "a75d35af2ce742b283ded741184725ca": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "a761f57516e9489fb90ceddad7474475": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "IntSliderModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "IntSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "IntSliderView", "continuous_update": true, "description": "l", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_9e6baa6ece604bebbd5a0f984b9967fb", "max": 99, "min": 0, "orientation": "horizontal", "readout": true, "readout_format": "d", "step": 1, "style": "IPY_MODEL_1694314677b248af9088f036c5c48b60", "value": 50}}, "baa60bc0743e469888dcecaba1ce50b1": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DropdownModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DropdownModel", "_options_labels": ["light", "dark"], "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "DropdownView", "description": "center", "description_tooltip": null, "disabled": false, "index": 0, "layout": "IPY_MODEL_77709e4db5cf46c99a2ad51fba9a6706", "style": "IPY_MODEL_a59e1711791b4fc9881a75a0a07b63a4"}}, "be64267b35324adca324225cbd59100d": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "SliderStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "cfabc7441a434873a383c9448f302b8c": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_0e5df2a5ffff4a7e9fb376d68ce01047", "msg_id": "", "outputs": [{"data": {"image/png": "iVBORw0KGgoAAAANSUhEUgAAAggAAABICAYAAACTOw0mAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90bGliIHZlcnNpb24zLjQuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8rg+JYAAAACXBIWXMAAAsTAAALEwEAmpwYAAACRklEQVR4nO3aP2pUURjG4e9KIjFYhGAKBbW2MFVW4iLcgZtxQzYWMf6BLMBOsBASM0KOrfAm4kAOZ+b4PO0dhu9lmh/cWVprBQDwp3ujDwAANo9AAACCQAAAgkAAAIJAAACCQAAAws46H97df9j2Dg573TLc/v3d0Sd09cC+rTXztqqq68ufo0/oql1cjD6hqzb573d9cTn6hG6+Xl3W91+r5aZnawXC3sFhnbx+czdXbaDjZ49Hn9DVy8n3HT+dd9+LJ0ejT+hq9eV89AldrT58HH1CV1enn0af0NXq7PPoE7p5dfru1mdeMQAAQSAAAEEgAABBIAAAQSAAAEEgAABBIAAAQSAAAEEgAABBIAAAQSAAAEEgAABBIAAAQSAAAEEgAABBIAAAQSAAAEEgAABBIAAAQSAAAEEgAABBIAAAQSAAAEEgAABBIAAAQSAAAEEgAABBIAAAQSAAAEEgAABBIAAAQSAAAEEgAABBIAAAQSAAAEEgAABBIAAAQSAAAEEgAABBIAAAQSAAAEEgAABBIAAAQSAAAEEgAABBIAAAQSAAAEEgAABBIAAAQSAAAEEgAABBIAAAYWmt/fuHl+VHVZ33O2e4R1X1bfQRncy8rcq+bWff9pp5W9X8+5631o5uerCz5hedt9ZO7uCgjbQsy/tZ9828rcq+bWff9pp5W9X8+/7GKwYAIAgEACCsGwhvu1yxOWbeN/O2Kvu2nX3ba+ZtVfPvu9Vaf1IEAP4PXjEAAEEgAABBIAAAQSAAAEEgAADhN8nhYisz5qb4AAAAAElFTkSuQmCC\n", "text/plain": "<Figure size 648x72 with 1 Axes>"}, "metadata": {"needs_background": "light"}, "output_type": "display_data"}]}}, "d568b83de8cc47d2bb25e1fa675dc2cf": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "da342336cc9441e3a12fe66041e3b505": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "IntSliderModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "IntSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "IntSliderView", "continuous_update": true, "description": "s", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_7287518ac03b431bb7909a2ed347590a", "max": 99, "min": 0, "orientation": "horizontal", "readout": true, "readout_format": "d", "step": 1, "style": "IPY_MODEL_be64267b35324adca324225cbd59100d", "value": 74}}, "de032345ebb94c27923dfab4762aa618": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "SliderStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "f7bb42266eff401794317e91fbb37fb6": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}}, "version_major": 2, "version_minor": 0}
 </script>
 
 
@@ -1144,6 +1203,7 @@ In this configuration, outliers, i.e. data points above or beyond the respective
         
         <div class='prev-next-bottom'>
             
+    <a class='left-prev' id="prev-link" href="06_scraping.html" title="previous page">Web Scraping</a>
 
         </div>
         
