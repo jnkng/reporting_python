@@ -17,46 +17,26 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-proc = CrawlerProcess()
-proc.crawl(followSpider)
-proc.start()
+import pandas as pd
+df = pd.DataFrame.from_dict({labels[x]:[el for el in data[x:x+4]] for x in range(5)},\
+                            orient='index', columns = columns)
+print(df)
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mReactorNotRestartable[0m                     Traceback (most recent call last)
-[0;32m<ipython-input-30-e9e37d33cc67>[0m in [0;36m<module>[0;34m[0m
-[1;32m      1[0m [0mproc[0m [0;34m=[0m [0mCrawlerProcess[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      2[0m [0mproc[0m[0;34m.[0m[0mcrawl[0m[0;34m([0m[0mfollowSpider[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0;32m----> 3[0;31m [0mproc[0m[0;34m.[0m[0mstart[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m
-[0;32m~/Desktop/Promotion/python_class/venv/lib/python3.9/site-packages/scrapy/crawler.py[0m in [0;36mstart[0;34m(self, stop_after_crawl)[0m
-[1;32m    325[0m         [0mtp[0m[0;34m.[0m[0madjustPoolsize[0m[0;34m([0m[0mmaxthreads[0m[0;34m=[0m[0mself[0m[0;34m.[0m[0msettings[0m[0;34m.[0m[0mgetint[0m[0;34m([0m[0;34m'REACTOR_THREADPOOL_MAXSIZE'[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    326[0m         [0mreactor[0m[0;34m.[0m[0maddSystemEventTrigger[0m[0;34m([0m[0;34m'before'[0m[0;34m,[0m [0;34m'shutdown'[0m[0;34m,[0m [0mself[0m[0;34m.[0m[0mstop[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0;32m--> 327[0;31m         [0mreactor[0m[0;34m.[0m[0mrun[0m[0;34m([0m[0minstallSignalHandlers[0m[0;34m=[0m[0;32mFalse[0m[0;34m)[0m  [0;31m# blocking call[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m    328[0m [0;34m[0m[0m
-[1;32m    329[0m     [0;32mdef[0m [0m_graceful_stop_reactor[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;31mIndexError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-23-a26c39302159>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m df = pd.DataFrame.from_dict({labels[x]:[el for el in data[x:x+4]] for x in range(5)},\
+[0m[1;32m      3[0m                             orient='index', columns = columns)
+[1;32m      4[0m [0mprint[0m[0;34m([0m[0mdf[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 
-[0;32m~/Desktop/Promotion/python_class/venv/lib/python3.9/site-packages/twisted/internet/base.py[0m in [0;36mrun[0;34m(self, installSignalHandlers)[0m
-[1;32m   1420[0m [0;34m[0m[0m
-[1;32m   1421[0m     [0;32mdef[0m [0mrun[0m[0;34m([0m[0mself[0m[0;34m,[0m [0minstallSignalHandlers[0m[0;34m:[0m [0mbool[0m [0;34m=[0m [0;32mTrue[0m[0;34m)[0m [0;34m->[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0;32m-> 1422[0;31m         [0mself[0m[0;34m.[0m[0mstartRunning[0m[0;34m([0m[0minstallSignalHandlers[0m[0;34m=[0m[0minstallSignalHandlers[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m   1423[0m         [0mself[0m[0;34m.[0m[0mmainLoop[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m   1424[0m [0;34m[0m[0m
+[0;32m<ipython-input-23-a26c39302159>[0m in [0;36m<dictcomp>[0;34m(.0)[0m
+[1;32m      1[0m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m df = pd.DataFrame.from_dict({labels[x]:[el for el in data[x:x+4]] for x in range(5)},\
+[0m[1;32m      3[0m                             orient='index', columns = columns)
+[1;32m      4[0m [0mprint[0m[0;34m([0m[0mdf[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 
-[0;32m~/Desktop/Promotion/python_class/venv/lib/python3.9/site-packages/twisted/internet/base.py[0m in [0;36mstartRunning[0;34m(self, installSignalHandlers)[0m
-[1;32m   1402[0m         """
-[1;32m   1403[0m         [0mself[0m[0;34m.[0m[0m_installSignalHandlers[0m [0;34m=[0m [0minstallSignalHandlers[0m[0;34m[0m[0;34m[0m[0m
-[0;32m-> 1404[0;31m         [0mReactorBase[0m[0;34m.[0m[0mstartRunning[0m[0;34m([0m[0mcast[0m[0;34m([0m[0mReactorBase[0m[0;34m,[0m [0mself[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m   1405[0m [0;34m[0m[0m
-[1;32m   1406[0m     [0;32mdef[0m [0m_reallyStartRunning[0m[0;34m([0m[0mself[0m[0;34m)[0m [0;34m->[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-
-[0;32m~/Desktop/Promotion/python_class/venv/lib/python3.9/site-packages/twisted/internet/base.py[0m in [0;36mstartRunning[0;34m(self)[0m
-[1;32m    841[0m             [0;32mraise[0m [0merror[0m[0;34m.[0m[0mReactorAlreadyRunning[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    842[0m         [0;32mif[0m [0mself[0m[0;34m.[0m[0m_startedBefore[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0;32m--> 843[0;31m             [0;32mraise[0m [0merror[0m[0;34m.[0m[0mReactorNotRestartable[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m    844[0m         [0mself[0m[0;34m.[0m[0m_started[0m [0;34m=[0m [0;32mTrue[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    845[0m         [0mself[0m[0;34m.[0m[0m_stopped[0m [0;34m=[0m [0;32mFalse[0m[0;34m[0m[0;34m[0m[0m
-
-[0;31mReactorNotRestartable[0m: 
-ReactorNotRestartable: 
+[0;31mIndexError[0m: list index out of range
+IndexError: list index out of range
 
