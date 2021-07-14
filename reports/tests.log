@@ -17,26 +17,21 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-import pandas as pd
-df = pd.DataFrame.from_dict({labels[x]:[el for el in data[x:x+4]] for x in range(5)},\
-                            orient='index', columns = columns)
-print(df)
+dash.callback_context.triggered
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mIndexError[0m                                Traceback (most recent call last)
-[0;32m<ipython-input-23-a26c39302159>[0m in [0;36m<module>[0;34m[0m
-[1;32m      1[0m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m[0;34m[0m[0;34m[0m[0m
-[0;32m----> 2[0;31m df = pd.DataFrame.from_dict({labels[x]:[el for el in data[x:x+4]] for x in range(5)},\
-[0m[1;32m      3[0m                             orient='index', columns = columns)
-[1;32m      4[0m [0mprint[0m[0;34m([0m[0mdf[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;31mMissingCallbackContextException[0m           Traceback (most recent call last)
+[0;32m<ipython-input-5-9b8247de4d7d>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mdash[0m[0;34m.[0m[0mcallback_context[0m[0;34m.[0m[0mtriggered[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m/usr/local/lib/python3.9/site-packages/dash/_callback_context.py[0m in [0;36massert_context[0;34m(*args, **kwargs)[0m
+[1;32m      9[0m     [0;32mdef[0m [0massert_context[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     10[0m         [0;32mif[0m [0;32mnot[0m [0mflask[0m[0;34m.[0m[0mhas_request_context[0m[0;34m([0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 11[0;31m             raise exceptions.MissingCallbackContextException(
+[0m[1;32m     12[0m                 "dash.callback_context.{} is only available from a callback!".format(
+[1;32m     13[0m                     [0mgetattr[0m[0;34m([0m[0mfunc[0m[0;34m,[0m [0;34m"__name__"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 
-[0;32m<ipython-input-23-a26c39302159>[0m in [0;36m<dictcomp>[0;34m(.0)[0m
-[1;32m      1[0m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m[0;34m[0m[0;34m[0m[0m
-[0;32m----> 2[0;31m df = pd.DataFrame.from_dict({labels[x]:[el for el in data[x:x+4]] for x in range(5)},\
-[0m[1;32m      3[0m                             orient='index', columns = columns)
-[1;32m      4[0m [0mprint[0m[0;34m([0m[0mdf[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-
-[0;31mIndexError[0m: list index out of range
-IndexError: list index out of range
+[0;31mMissingCallbackContextException[0m: dash.callback_context.triggered is only available from a callback!
+MissingCallbackContextException: dash.callback_context.triggered is only available from a callback!
 
