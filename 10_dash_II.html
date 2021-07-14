@@ -262,6 +262,11 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#deployment">
+   Deployment
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#extra-decorators">
    Extra: Decorators
   </a>
@@ -281,7 +286,7 @@
 <h1>Dash - advanced interactivity<a class="headerlink" href="#dash-advanced-interactivity" title="Permalink to this headline">¶</a></h1>
 <p>To provide advanced interactivity and reactivity, that is to let new input trigger modified output, we need to provide the content as the result of a function.
 We can have several functions, each modifying one specific element of the UI. To reference elements in the UI and the server part, we give a unique <strong>id</strong> to each element. This id is handed to the respective function to tell it that this is the <strong>input</strong> to be used. The same applies in the reversed direction: by specifying the id of the desired UI element as a function’s <strong>output</strong>, the created result is passed to the right address to be displayed.
-The declaration of what is input and output is done using <a class="reference internal" href="#decorators"><span class="std std-ref">decorators</span></a> and callbacks. This decorator takes the input and output ids as arguments.</p>
+The declaration of what is input and output is done using <a class="reference internal" href="_10_dash_II_alt.html#decorators"><span class="std std-ref">decorators</span></a> and callbacks. This decorator takes the input and output ids as arguments.</p>
 <p>The structure for building an advanced reactive app becomes:</p>
 <ul class="simple">
 <li><p>create a JupyterDash object</p></li>
@@ -632,6 +637,10 @@ The printed statements at the bottom show:</p>
 <img alt="" src="_images/selectpoints.png" /></p></li>
 </ol>
 <p>This introduction to and display of Dash’s functionality is not at all complete and is not intended to be. For the creation of your own app, please scan the (left column) in the <a class="reference external" href="https://dash.plotly.com">documentation</a> to find other useful elements.</p>
+</div>
+<div class="section" id="deployment">
+<h2>Deployment<a class="headerlink" href="#deployment" title="Permalink to this headline">¶</a></h2>
+<p>It is possible to deploy Dash apps online (also for free) using git. We will not cover this procedure here and instead refer to the <a class="reference external" href="https://dash.plotly.com/deployment">documentation</a>.</p>
 </div>
 <div class="section" id="extra-decorators">
 <span id="decorators"></span><h2>Extra: Decorators<a class="headerlink" href="#extra-decorators" title="Permalink to this headline">¶</a></h2>
