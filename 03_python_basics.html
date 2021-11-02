@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -44,7 +44,7 @@
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
@@ -74,13 +74,14 @@
     <a class="navbar-brand text-wrap" href="index.html">
       
       
+      
       <h1 class="site-logo" id="site-title">Data Visualisation and Reporting with Python</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
@@ -126,17 +127,22 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="09_dash_I.html">
+  <a class="reference internal" href="09_sklearn.html">
+   SciKit Learn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10_dash_I.html">
    Dash - introduction
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="10_dash_II.html">
+  <a class="reference internal" href="11_dash_II.html">
    Dash - advanced interactivity
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="11_markdown.html">
+  <a class="reference internal" href="12_markdown.html">
    Notebook formatting
   </a>
  </li>
@@ -242,7 +248,7 @@
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
             </div>
-            <nav id="bd-toc-nav">
+            <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
@@ -413,7 +419,7 @@ This will run the current cell and select the next cell below.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;3.9.5 (default, May  4 2021, 03:36:27) \n[Clang 12.0.0 (clang-1200.0.32.29)]&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;3.9.7 (default, Oct 13 2021, 06:45:31) \n[Clang 13.0.0 (clang-1300.0.29.3)]&#39;
 </pre></div>
 </div>
 </div>
@@ -481,8 +487,8 @@ This will run the current cell and select the next cell below.</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Addition:&#39;</span><span class="p">,</span>       <span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">)</span>      
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Subtraction:&#39;</span><span class="p">,</span>    <span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span> <span class="p">)</span>      
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Division:&#39;</span><span class="p">,</span>       <span class="mi">1</span> <span class="o">*</span> <span class="mi">2</span> <span class="p">)</span>      
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Multiplication:&#39;</span><span class="p">,</span> <span class="mi">2</span> <span class="o">/</span> <span class="mi">1</span> <span class="p">)</span>      
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Division:&#39;</span><span class="p">,</span>       <span class="mi">1</span> <span class="o">/</span> <span class="mi">2</span> <span class="p">)</span>      
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Multiplication:&#39;</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">1</span> <span class="p">)</span>      
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Modulus:&#39;</span><span class="p">,</span>        <span class="mi">3</span> <span class="o">%</span> <span class="mi">2</span> <span class="p">)</span>      
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Floor division:&#39;</span><span class="p">,</span> <span class="mi">5</span> <span class="o">//</span> <span class="mi">2</span> <span class="p">)</span>     
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Exponent:&#39;</span><span class="p">,</span>       <span class="mi">2</span> <span class="o">**</span> <span class="mi">3</span> <span class="p">)</span>     
@@ -494,8 +500,8 @@ This will run the current cell and select the next cell below.</p>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Addition: 2
 Subtraction: 1
-Division: 2
-Multiplication: 2.0
+Division: 0.5
+Multiplication: 2
 Modulus: 1
 Floor division: 2
 Exponent: 8
@@ -1174,7 +1180,7 @@ With branching, several return statements may appear in one function.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;generator object yield_list at 0x122985a50&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;generator object yield_list at 0x1108dbc80&gt;
 </pre></div>
 </div>
 </div>
@@ -1581,11 +1587,11 @@ Tina: Physics
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.29690894 0.50258801 0.78518668 1.30172628 0.70215953]
- [0.43387473 1.0259318  0.59168328 0.37580071 0.134547  ]
- [0.34540493 1.16575923 0.20937905 1.31846623 0.47800639]
- [0.65134094 0.07630209 0.27931405 0.81360586 1.29452966]
- [0.45627396 0.23352401 1.17784495 0.8513704  0.56834016]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[2.32996696 0.22826215 0.43001963 0.43680322 0.42195302]
+ [0.44284088 0.54906526 0.11355442 0.88354103 0.78069834]
+ [0.569371   2.42572567 0.52613232 0.26163319 0.97306049]
+ [0.43437054 1.06036998 0.27053858 0.29618077 0.20076374]
+ [0.55519813 1.26942959 0.53408843 0.31542328 0.77185109]]
 </pre></div>
 </div>
 </div>
@@ -1616,22 +1622,42 @@ Tina: Physics
               </div>
               
         
-        <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="02_general.html" title="previous page">What is Python and why use it?</a>
-    <a class='right-next' id="next-link" href="04_data.html" title="next page">Working with Data</a>
 
-        </div>
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="02_general.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">What is Python and why use it?</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="04_data.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Working with Data</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         
           By Jan König<br/>
         
-            &copy; Copyright 2020.<br/>
+            &copy; Copyright 2021.<br/>
       </p>
     </div>
   </footer>
