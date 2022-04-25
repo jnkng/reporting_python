@@ -1,0 +1,37 @@
+Traceback (most recent call last):
+  File "/Users/jan/Desktop/Promotion/python_class/venv.nosync/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/Users/jan/Desktop/Promotion/python_class/venv.nosync/lib/python3.9/site-packages/nbclient/client.py", line 1117, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/Users/jan/Desktop/Promotion/python_class/venv.nosync/lib/python3.9/site-packages/nbclient/util.py", line 78, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/Users/jan/Desktop/Promotion/python_class/venv.nosync/lib/python3.9/site-packages/nbclient/util.py", line 57, in just_run
+    return loop.run_until_complete(coro)
+  File "/usr/local/Cellar/python@3.9/3.9.7_1/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py", line 642, in run_until_complete
+    return future.result()
+  File "/Users/jan/Desktop/Promotion/python_class/venv.nosync/lib/python3.9/site-packages/nbclient/client.py", line 558, in async_execute
+    await self.async_execute_cell(
+  File "/Users/jan/Desktop/Promotion/python_class/venv.nosync/lib/python3.9/site-packages/nbclient/client.py", line 862, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "/Users/jan/Desktop/Promotion/python_class/venv.nosync/lib/python3.9/site-packages/nbclient/client.py", line 765, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+dash.callback_context.triggered
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mMissingCallbackContextException[0m           Traceback (most recent call last)
+[0;32m/var/folders/4c/0h263wwj13nd8_xtccdlvlhh0000gn/T/ipykernel_2078/1833526468.py[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mdash[0m[0;34m.[0m[0mcallback_context[0m[0;34m.[0m[0mtriggered[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m~/Desktop/Promotion/python_class/venv.nosync/lib/python3.9/site-packages/dash/_callback_context.py[0m in [0;36massert_context[0;34m(*args, **kwargs)[0m
+[1;32m     11[0m     [0;32mdef[0m [0massert_context[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     12[0m         [0;32mif[0m [0;32mnot[0m [0mflask[0m[0;34m.[0m[0mhas_request_context[0m[0;34m([0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 13[0;31m             raise exceptions.MissingCallbackContextException(
+[0m[1;32m     14[0m                 "dash.callback_context.{} is only available from a callback!".format(
+[1;32m     15[0m                     [0mgetattr[0m[0;34m([0m[0mfunc[0m[0;34m,[0m [0;34m"__name__"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mMissingCallbackContextException[0m: dash.callback_context.triggered is only available from a callback!
+MissingCallbackContextException: dash.callback_context.triggered is only available from a callback!
+
