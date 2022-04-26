@@ -591,8 +591,9 @@ Normally, the procedure is to register an e-mail account to get an <strong>ident
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>title:
  University_of_Passau
-
-summary:
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>summary:
  The University of Passau (Universität Passau in German) is a public research university located in Passau, Lower Bavaria, Germany. Founded in 1973, it is the youngest university in Bavaria and consequently has the most modern campus in the state. Nevertheless, its roots as the Institute for Catholic Studies date back some hundreds of years.
 Today it is home to four faculties and 39 different undergraduate and postgraduate degree programmes.
 </pre></div>
@@ -756,12 +757,12 @@ Today it is home to four faculties and 39 different undergraduate and postgradua
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># finally print the text attribute from the created object</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">text</span><span class="p">[</span><span class="mi">400</span><span class="p">:</span><span class="mi">1000</span><span class="p">])</span>     <span class="c1"># only part of document for shorter output</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">text</span><span class="p">[</span><span class="mi">500</span><span class="p">:</span><span class="mi">1000</span><span class="p">])</span>     <span class="c1"># only part of document for shorter output </span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a, GermanyCoordinates: 48°34′06″N 13°27′12″E﻿ / ﻿48.56833°N 13.45333°E﻿ / 48.56833; 13.45333CampusUrbanColoursOrange and grey   Websitewww.uni-passau.de/en
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>banColoursOrange and grey   Websitewww.uni-passau.de/en
 The University of Passau (Universität Passau in German) is a public research university located in Passau, Lower Bavaria, Germany. Founded in 1973, it is the youngest university in Bavaria and consequently has the most modern campus in the state. Nevertheless, its roots as the Institute for Catholic Studies date back some hundreds of years.
 Today it is home to four faculties and 39 different undergraduate and postgraduate degree programmes.
 </pre></div>
@@ -809,13 +810,13 @@ Today it is home to four faculties and 39 different undergraduate and postgradua
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;symbol&#39;: &#39;GOOG&#39;,
-  &#39;price&#39;: 2392.28,
+  &#39;price&#39;: 2465.0,
   &#39;beta&#39;: 1.060784,
-  &#39;volAvg&#39;: 1518596,
-  &#39;mktCap&#39;: 1581385646080,
+  &#39;volAvg&#39;: 1514340,
+  &#39;mktCap&#39;: 1629456171008,
   &#39;lastDiv&#39;: 0.0,
   &#39;range&#39;: &#39;2230.05-3042.0&#39;,
-  &#39;changes&#39;: -106.46997,
+  &#39;changes&#39;: 72.71997,
   &#39;companyName&#39;: &#39;Alphabet Inc.&#39;,
   &#39;currency&#39;: &#39;USD&#39;,
   &#39;cik&#39;: &#39;0001652044&#39;,
@@ -836,7 +837,7 @@ Today it is home to four faculties and 39 different undergraduate and postgradua
   &#39;state&#39;: &#39;CA&#39;,
   &#39;zip&#39;: &#39;94043&#39;,
   &#39;dcfDiff&#39;: 30.96,
-  &#39;dcf&#39;: 2423.24,
+  &#39;dcf&#39;: 2495.96,
   &#39;image&#39;: &#39;https://financialmodelingprep.com/image-stock/GOOG.png&#39;,
   &#39;ipoDate&#39;: &#39;2004-08-19&#39;,
   &#39;defaultImage&#39;: False,
@@ -925,9 +926,14 @@ Today it is home to four faculties and 39 different undergraduate and postgradua
     <span class="c1"># add column with respective symbol</span>
     <span class="n">temp_df</span><span class="p">[</span><span class="s1">&#39;symbol&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">symbol</span>
     <span class="c1"># append temporary dataframe to collect dataframe </span>
-    <span class="n">dji_hist</span> <span class="o">=</span> <span class="n">dji_hist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp_df</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">dji_hist</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">dji_hist</span><span class="p">,</span> <span class="n">temp_df</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="c1"># delete temporary dataframe before next iteration</span>
     <span class="k">del</span> <span class="n">temp_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error! Aborted
 </pre></div>
 </div>
 </div>
