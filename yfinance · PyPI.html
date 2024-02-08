@@ -1,0 +1,4185 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="de" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="defaultLanguage" content="en">
+    <meta name="availableLanguages" content="en, es, fr, ja, pt_BR, uk, el, de, zh_Hans, zh_Hant, ru, he, eo">
+
+    
+
+    <title>yfinance · PyPI</title>
+    <meta name="description" content="Download market data from Yahoo! Finance API">
+
+    <link rel="stylesheet" href="/static/css/warehouse-ltr.3a9112f7.css">
+    <link rel="stylesheet" href="/static/css/fontawesome.d37999f3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,600,600italic,700,700italic%7CSource+Code+Pro:500">
+    <noscript>
+      <link rel="stylesheet" href="/static/css/noscript.0673c9ea.css">
+    </noscript>
+
+    
+
+    <link rel="icon" href="/static/images/favicon.35549fe8.ico" type="image/x-icon">
+
+    <link rel="alternate" type="application/rss+xml" title="RSS: Letzte 40 Aktualisierungen" href="/rss/updates.xml">
+    <link rel="alternate" type="application/rss+xml" title="RSS: 40 neueste Pakete" href="/rss/packages.xml">
+    <link rel="alternate" type="application/rss+xml" title="RSS: latest releases for yfinance" href="/rss/project/yfinance/releases.xml">
+    
+    <link rel="canonical" href="https://pypi.org/project/yfinance/">
+    
+
+    <meta property="og:url" content="https://pypi.org/project/yfinance/">
+    <meta property="og:site_name" content="PyPI">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://pypi.org/static/images/twitter.abaf4b19.webp">
+    <meta property="og:title" content="yfinance">
+    <meta property="og:description" content="Download market data from Yahoo! Finance API">
+    
+
+
+
+    <link rel="search" type="application/opensearchdescription+xml" title="PyPI" href="/opensearch.xml">
+
+    
+    <script async
+            data-ga-id="UA-55961911-1"
+            data-ga4-id="G-RW7D75DF8V"
+            
+            src="/static/js/warehouse.b0774018.js">
+    </script>
+    
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  },
+};
+</script>
+<script async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"
+  integrity="sha256-1CldwzdEg2k1wTmf7s5RWVd7NMXI/7nxxjJM2C4DqII="
+  crossorigin="anonymous"
+></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-55961911-1"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RW7D75DF8V"></script>
+    <script defer src="https://www.fastly-insights.com/insights.js?k=6a52360a-f306-421e-8ed5-7417d0d4a4e9&dnt=true"></script>
+    <script async
+        src="https://media.ethicalads.io/media/client/v1.4.0/ethicalads.min.js"
+        integrity="sha256-U3hKDidudIaxBDEzwGJApJgPEf2mWk6cfMWghrAa6i0= sha384-UcmsCqcNRSLW/dV3Lo1oCi2/VaurXbib6p4HyUEOeIa/4OpsrnucrugAefzVZJfI sha512-q4t1L4xEjGV2R4hzqCa41P8jrgFUS8xTb8rdNv4FGvw7FpydVj/kkxBJHOiaoxHa8olCcx1Slk9K+3sNbsM4ug=="
+        crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body data-controller="viewport-toggle">
+    
+
+    <!-- Accessibility: this link should always be the first piece of content inside the body-->
+    <a href="#content" class="skip-to-content">Zum Hauptinhalt springen</a>
+
+    <button type="button" class="button button--primary button--switch-to-mobile hidden" data-viewport-toggle-target="switchToMobile" data-action="viewport-toggle#switchToMobile">
+      Zur mobilen Version wechseln
+    </button>
+
+    <div id="sticky-notifications" class="stick-to-top js-stick-to-top">
+      <!-- Add browser warning. Will show for ie9 and below -->
+      <!--[if IE]>
+      <div class="notification-bar notification-bar--warning" role="status">
+        <span class="notification-bar__icon">
+          <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+          <span class="sr-only">Warnung</span>
+        </span>
+        <span class="notification-bar__message">Sie verwenden einen nicht unterstützten Browser, aktualisieren Sie auf eine neuere Version.</span>
+      </div>
+      <![endif]-->
+      
+      <noscript>
+      <div class="notification-bar notification-bar--warning" role="status">
+        
+        <span class="notification-bar__icon">
+          <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+          <span class="sr-only">Warnung</span>
+        </span>
+        <span class="notification-bar__message">Einige Funktionen sind möglicherweise ohne JavaScript nicht nutzbar. Bitte versuchen Sie es mit aktiviertem JavaScript, falls Probleme auftreten.</span>
+      </div>
+      </noscript>
+
+      
+        <div data-html-include="/_includes/notification-banners/">
+        </div>
+      
+    </div>
+
+    
+      <div data-html-include="/_includes/flash-messages/">
+      </div>
+    
+
+    
+
+    
+      <div data-html-include="/_includes/session-notifications/">
+      </div>
+    
+
+    <header class="site-header ">
+      <div class="site-container">
+        <div class="split-layout">
+          
+          <div class="split-layout">
+            <div>
+              <a class="site-header__logo" href="/">
+                <img alt="PyPI" src="/static/images/logo-small.2a411bc6.svg">
+              </a>
+            </div>
+
+            <form class="search-form search-form--primary" action="/search/" role="search">
+              <label for="search" class="sr-only">PyPI durchsuchen</label>
+              <input id="search" class="search-form__search" type="text" name="q" placeholder="Projekte suchen" value="" autocomplete="off" autocapitalize="off" spellcheck="false" data-controller="search-focus" data-action="keydown@window->search-focus#focusSearchField" data-search-focus-target="searchField">
+              
+              <button type="submit" class="search-form__button">
+                <i class="fa fa-search" aria-hidden="true"></i>
+                <span class="sr-only">Suche</span>
+              </button>
+            </form>
+          </div>
+          
+
+          <div data-html-include="/_includes/current-user-indicator/">
+            <div id="user-indicator" class="horizontal-menu horizontal-menu--light horizontal-menu--tall">
+  <nav class="horizontal-menu horizontal-menu--light horizontal-menu--tall hide-on-tablet" aria-label="Hauptnavigation">
+    <ul>
+      <li class="horizontal-menu__item"><a href="/help/" class="horizontal-menu__link">Hilfe</a></li>
+      <li class="horizontal-menu__item"><a href="/sponsors/" class="horizontal-menu__link">Sponsoren</a></li>
+      <li class="horizontal-menu__item"><a href="/account/login/" class="horizontal-menu__link">Einloggen</a></li>
+      <li class="horizontal-menu__item"><a href="/account/register/" class="horizontal-menu__link">Registrieren</a></li>
+    </ul>
+  </nav>
+  <nav class="dropdown dropdown--on-menu hidden show-on-tablet" aria-label="Hauptnavigation">
+    <button type="button" class="horizontal-menu__link dropdown__trigger" aria-haspopup="true" aria-expanded="false" aria-label="Menü anzeigen">
+      Menü
+      <span class="dropdown__trigger-caret">
+        <i class="fa fa-caret-down" aria-hidden="true"></i>
+      </span>
+    </button>
+    <ul class="dropdown__content" aria-hidden="true" aria-label="Hauptmenü">
+      <li><a class="dropdown__link" href="/help/">Hilfe</a></li>
+      <li><a class="dropdown__link" href="/sponsors/">Sponsoren</a></li>
+      <li><a class="dropdown__link" href="/account/login/">Einloggen</a></li>
+      <li><a class="dropdown__link" href="/account/register/">Registrieren</a></li>
+    </ul>
+  </nav>
+</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    
+    <div class="mobile-search">
+      <form class="search-form search-form--fullwidth" action="/search/" role="search">
+        <label for="mobile-search" class="sr-only">PyPI durchsuchen</label>
+        <input id="mobile-search" class="search-form__search" type="text" name="q" placeholder="Projekte suchen" value="" autocomplete="off" autocapitalize="off" spellcheck="false">
+        
+        <button type="submit" class="search-form__button">
+          <i class="fa fa-search" aria-hidden="true"></i>
+          <span class="sr-only">Suche</span>
+        </button>
+      </form>
+    </div>
+    
+
+    <main id="content">
+      
+<div data-html-include="/_includes/administer-project-include/yfinance">
+</div>
+
+<div class="hidden"
+  data-controller="github-repo-stats"
+  data-github-repo-stats-github-repo-info-outlet=".github-repo-info"
+  data-github-repo-stats-url-value="https://api.github.com/repos/ranaroussi/yfinance">
+</div>
+
+
+<div class="banner">
+  <div class="package-header">
+    <div class="package-header__left">
+      <h1 class="package-header__name">
+        yfinance 0.2.9
+      </h1>
+
+      
+      <p class="package-header__pip-instructions">
+        <span id="pip-command">pip install yfinance</span>
+        <button type="button" class="copy-tooltip copy-tooltip-s" data-clipboard-target="#pip-command" data-tooltip-label="In die Zwischenablage kopieren">
+          <i class="fa fa-copy" aria-hidden="true"></i>
+          <span class="sr-only">PIP Anweisungen kopieren</span>
+        </button>
+      </p>
+      
+    </div>
+
+    <div class="package-header__right">
+    
+      
+      <a class="status-badge status-badge--good" href="/project/yfinance/">
+        <span>Neueste Version</span>
+      </a>
+      
+    
+      <p class="package-header__date">
+        Veröffentlicht am: <time datetime="2023-01-26T22:22:37+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  26.01.2023
+</time>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="horizontal-section horizontal-section--grey horizontal-section--thin">
+  <div class="site-container">
+    <div class="split-layout split-layout--middle package-description">
+    
+      <p class="package-description__summary">Download market data from Yahoo! Finance API</p>
+    
+    <div data-html-include="/_includes/edit-project-button/yfinance">
+    </div>
+    </div>
+  </div>
+</div>
+
+<div data-controller="project-tabs">
+  <div class="tabs-container">
+    <div class="vertical-tabs">
+      <div class="vertical-tabs__tabs">
+        <div class="sidebar-section">
+          <h3 class="sidebar-section__title">Navigation</h3>
+          <nav aria-label="Navigation für yfinance">
+            <ul class="vertical-tabs__list" role="tablist">
+              <li role="tab">
+                <a id="description-tab" href="#description" data-project-tabs-target="tab" data-action="project-tabs#onTabClick" class="vertical-tabs__tab vertical-tabs__tab--with-icon vertical-tabs__tab--is-active" aria-selected="true" aria-label="Projektbeschreibung. Der Fokus wird auf die Beschreibung verschoben.">
+                  <i class="fa fa-align-left" aria-hidden="true"></i>
+                  Projekt-Beschreibung
+                </a>
+              </li>
+              <li role="tab">
+                <a id="history-tab" href="#history" data-project-tabs-target="tab" data-action="project-tabs#onTabClick" class="vertical-tabs__tab vertical-tabs__tab--with-icon" aria-label="Veröffentlichungs-Historie. Der Fokus wird auf den Historien-Verlauf gelegt.">
+                  <i class="fa fa-history" aria-hidden="true"></i>
+                  Veröffentlichungs-Historie
+                </a>
+              </li>
+              
+              <li role="tab">
+                <a id="files-tab" href="#files" data-project-tabs-target="tab" data-action="project-tabs#onTabClick" class="vertical-tabs__tab vertical-tabs__tab--with-icon" aria-label="Dateien zum Herunterladen. Der Fokus wird auf die Projekt-Dateien gelenkt.">
+                  <i class="fa fa-download" aria-hidden="true"></i>
+                  Dateien zum Herunterladen
+                </a>
+              </li>
+              
+            </ul>
+          </nav>
+        </div>
+        
+<div class="sidebar-section">
+  <h3 class="sidebar-section__title">Projekt-Links</h3>
+  <ul class="vertical-tabs__list">
+    
+    
+    <li>
+      <a class="vertical-tabs__tab vertical-tabs__tab--with-icon vertical-tabs__tab--condensed" href="https://github.com/ranaroussi/yfinance" rel="nofollow">
+        
+
+
+  
+
+
+<i class="fas fa-home" aria-hidden="true"></i>Homepage
+      </a>
+    </li>
+    
+    
+  </ul>
+</div>
+
+
+<div class="sidebar-section">
+  <h3 class="sidebar-section__title">Statistiken</h3>
+  
+  <div class="hidden github-repo-info" data-controller="github-repo-info">
+    GitHub-Statistiken:
+    <ul class="vertical-tabs__list">
+      <li>
+        <a class="vertical-tabs__tab vertical-tabs__tab--with-icon vertical-tabs__tab--condensed"
+           data-github-repo-info-target="stargazersUrl" rel="noopener">
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <strong>Sterne:</strong>
+          <span data-github-repo-info-target="stargazersCount"></span>
+        </a>
+      </li>
+      <li>
+        <a class="vertical-tabs__tab vertical-tabs__tab--with-icon vertical-tabs__tab--condensed"
+           data-github-repo-info-target="forksUrl" rel="noopener">
+          <i class="fa fa-code-branch" aria-hidden="true"></i>
+          <strong>Forks:</strong>
+          <span data-github-repo-info-target="forksCount"></span>
+        </a>
+      </li>
+      <li>
+        <a class="vertical-tabs__tab vertical-tabs__tab--with-icon vertical-tabs__tab--condensed"
+           data-github-repo-info-target="openIssuesUrl" rel="noopener">
+          <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+          <strong>Offene Issues/Pull Requests:</strong>
+          <span data-github-repo-info-target="openIssuesCount"></span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+  <p>
+    Besuchen Sie <a href="https://libraries.io/pypi/yfinance" title="Externer Link" target="_blank" rel="noopener">Libraries.io</a> oder benutzen Sie <a href="https://packaging.python.org/guides/analyzing-pypi-package-downloads/" target="_blank" rel="noopener">unseren öffentlichen Datensatz auf Google BigQuery</a>, um Statistiken für dieses Projekt zu sehen
+  </p>
+</div>
+
+
+<div class="sidebar-section">
+  <h3 class="sidebar-section__title">Meta</h3>
+  
+  <p><strong>Lizenz:</strong> Apache Software License (Apache)</p>
+  
+  
+    <p><strong>Autor:</strong> <a href="mailto:ran@aroussi.com">Ran Aroussi</a></p>
+  
+  
+  
+  <p class="tags">
+    <i class="fa fa-tags" aria-hidden="true"></i>
+    <span class="sr-only">Schlagwörter</span>
+    
+    <span class="package-keyword">
+      pandas,
+    </span>
+    
+    <span class="package-keyword">
+      yahoo finance,
+    </span>
+    
+    <span class="package-keyword">
+      pandas datareader
+    </span>
+    
+  </p>
+  
+  
+</div>
+
+
+<div class="sidebar-section">
+  <h3 class="sidebar-section__title">Betreuer</h3>
+  
+    
+    <span class="sidebar-section__maintainer">
+      <a href="/user/ranaroussi/" aria-label="ranaroussi">
+        <span class="sidebar-section__user-gravatar">
+          <img src="https://warehouse-camo.ingress.cmh1.psfhosted.org/75707dd70735c7106c77cefd5ef37c712a893808/68747470733a2f2f7365637572652e67726176617461722e636f6d2f6176617461722f30383335626437316462306133396261306130363035643564633562393437323f73697a653d3530" height="50" width="50" alt="Profilbild für ranaroussi von gravatar.com" title="Profilbild für ranaroussi von gravatar.com">
+        </span>
+        <span class="sidebar-section__user-gravatar-text">
+          ranaroussi
+        </span>
+      </a>
+    </span>
+  
+</div>
+
+
+<div class="sidebar-section">
+  <h3 class="sidebar-section__title">Kategorien</h3>
+  <ul class="sidebar-section__classifiers">
+    
+    <li>
+      <strong>Development Status</strong>
+      <ul>
+        
+        <li>
+          <a href="/search/?c=Development+Status+%3A%3A+4+-+Beta">
+            4 - Beta
+          </a>
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li>
+      <strong>Intended Audience</strong>
+      <ul>
+        
+        <li>
+          <a href="/search/?c=Intended+Audience+%3A%3A+Developers">
+            Developers
+          </a>
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li>
+      <strong>License</strong>
+      <ul>
+        
+        <li>
+          <a href="/search/?c=License+%3A%3A+OSI+Approved+%3A%3A+Apache+Software+License">
+            OSI Approved :: Apache Software License
+          </a>
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li>
+      <strong>Operating System</strong>
+      <ul>
+        
+        <li>
+          <a href="/search/?c=Operating+System+%3A%3A+OS+Independent">
+            OS Independent
+          </a>
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li>
+      <strong>Programming Language</strong>
+      <ul>
+        
+        <li>
+          <a href="/search/?c=Programming+Language+%3A%3A+Python+%3A%3A+3.6">
+            Python :: 3.6
+          </a>
+        </li>
+        
+        <li>
+          <a href="/search/?c=Programming+Language+%3A%3A+Python+%3A%3A+3.7">
+            Python :: 3.7
+          </a>
+        </li>
+        
+        <li>
+          <a href="/search/?c=Programming+Language+%3A%3A+Python+%3A%3A+3.8">
+            Python :: 3.8
+          </a>
+        </li>
+        
+        <li>
+          <a href="/search/?c=Programming+Language+%3A%3A+Python+%3A%3A+3.9">
+            Python :: 3.9
+          </a>
+        </li>
+        
+        <li>
+          <a href="/search/?c=Programming+Language+%3A%3A+Python+%3A%3A+3.10">
+            Python :: 3.10
+          </a>
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li>
+      <strong>Topic</strong>
+      <ul>
+        
+        <li>
+          <a href="/search/?c=Topic+%3A%3A+Office%2FBusiness+%3A%3A+Financial">
+            Office/Business :: Financial
+          </a>
+        </li>
+        
+        <li>
+          <a href="/search/?c=Topic+%3A%3A+Office%2FBusiness+%3A%3A+Financial+%3A%3A+Investment">
+            Office/Business :: Financial :: Investment
+          </a>
+        </li>
+        
+        <li>
+          <a href="/search/?c=Topic+%3A%3A+Scientific%2FEngineering+%3A%3A+Interface+Engine%2FProtocol+Translator">
+            Scientific/Engineering :: Interface Engine/Protocol Translator
+          </a>
+        </li>
+        
+        <li>
+          <a href="/search/?c=Topic+%3A%3A+Software+Development+%3A%3A+Libraries">
+            Software Development :: Libraries
+          </a>
+        </li>
+        
+        <li>
+          <a href="/search/?c=Topic+%3A%3A+Software+Development+%3A%3A+Libraries+%3A%3A+Python+Modules">
+            Software Development :: Libraries :: Python Modules
+          </a>
+        </li>
+        
+      </ul>
+    </li>
+    
+  </ul>
+</div>
+
+        <div class="sidebar-section" data-ea-publisher="psf" data-ea-type="psf" data-ea-keywords="pypi-sidebar"></div>
+
+      </div>
+      <div class="vertical-tabs__panel">
+        <!-- mobile menu -->
+        <nav aria-label="Navigation für yfinance">
+          <ul class="vertical-tabs__list" role="tablist">
+            <li role="tab">
+              <a id="mobile-description-tab" href="#description" data-project-tabs-target="mobileTab" data-action="project-tabs#onTabClick" class="vertical-tabs__tab vertical-tabs__tab--with-icon vertical-tabs__tab--mobile vertical-tabs__tab--no-top-border vertical-tabs__tab--is-active" aria-selected="true" aria-label="Projektbeschreibung. Der Fokus wird auf die Beschreibung verschoben.">
+                <i class="fa fa-align-left" aria-hidden="true"></i>
+                Projekt-Beschreibung
+              </a>
+            </li>
+            <li role="tab">
+              <a id="mobile-data-tab" href="#data" data-project-tabs-target="mobileTab" data-action="project-tabs#onTabClick" class="vertical-tabs__tab vertical-tabs__tab--with-icon vertical-tabs__tab--mobile" aria-label="Projekt-Details. Der Fokus wird auf die Projekt-Details verschoben.">
+                <i class="fa fa-info-circle" aria-hidden="true"></i>
+                Projekt-Details
+              </a>
+            </li>
+            <li role="tab">
+              <a id="mobile-history-tab" href="#history" data-project-tabs-target="mobileTab" data-action="project-tabs#onTabClick" class="vertical-tabs__tab vertical-tabs__tab--with-icon vertical-tabs__tab--mobile" aria-label="Veröffentlichungs-Historie. Der Fokus wird auf den Historien-Verlauf gelegt.">
+              <i class="fa fa-history" aria-hidden="true"></i>
+              Veröffentlichungs-Historie
+            </a>
+            </li>
+            
+            <li role="tab">
+              <a id="mobile-files-tab" href="#files" data-project-tabs-target="mobileTab" data-action="project-tabs#onTabClick" class="vertical-tabs__tab vertical-tabs__tab--with-icon vertical-tabs__tab--mobile" aria-label="Dateien zum Herunterladen. Der Fokus wird auf die Projekt-Dateien gelenkt.">
+                <i class="fa fa-download" aria-hidden="true"></i>
+                Dateien zum Herunterladen
+              </a>
+            </li>
+            
+          </ul>
+        </nav>
+
+        
+        <div id="description" data-project-tabs-target="content" class="vertical-tabs__content" role="tabpanel" aria-labelledby="description-tab mobile-description-tab" tabindex="-1">
+          <h2 class="page-title">Projekt-Beschreibung</h2>
+          
+          <div class="project-description">
+            <h1>Download market data from Yahoo! Finance's API</h1>
+<table><tr><td>
+<h4>*** IMPORTANT LEGAL DISCLAIMER ***</h4>
+<hr>
+<p><strong>Yahoo!, Y!Finance, and Yahoo! finance are registered trademarks of
+Yahoo, Inc.</strong></p>
+<p>yfinance is <strong>not</strong> affiliated, endorsed, or vetted by Yahoo, Inc. It's
+an open-source tool that uses Yahoo's publicly available APIs, and is
+intended for research and educational purposes.</p>
+<p><strong>You should refer to Yahoo!'s terms of use</strong>
+(<a href="https://policies.yahoo.com/us/en/yahoo/terms/product-atos/apiforydn/index.htm" rel=nofollow>here</a>,
+<a href="https://legal.yahoo.com/us/en/yahoo/terms/otos/index.html" rel=nofollow>here</a>, and
+<a href="https://policies.yahoo.com/us/en/yahoo/terms/index.htm" rel=nofollow>here</a>) <strong>for
+details on your rights to use the actual data downloaded. Remember - the
+Yahoo! finance API is intended for personal use only.</strong></p>
+</table>
+<hr>
+<p><a href="https://pypi.python.org/pypi/yfinance" rel=nofollow><img src="https://warehouse-camo.ingress.cmh1.psfhosted.org/0618c2e453bcdee07417f23ffb7c37ccce0edbfb/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f707974686f6e2d322e372c253230332e362b2d626c75652e7376673f7374796c653d666c6174" alt="Python version"></a>
+<a href="https://pypi.python.org/pypi/yfinance" rel=nofollow><img src="https://warehouse-camo.ingress.cmh1.psfhosted.org/59020f5e104ce5026bcd99c14f73211cb4af0805/68747470733a2f2f696d672e736869656c64732e696f2f707970692f762f7966696e616e63652e7376673f6d61784167653d363025" alt="PyPi version"></a>
+<a href="https://pypi.python.org/pypi/yfinance" rel=nofollow><img src="https://warehouse-camo.ingress.cmh1.psfhosted.org/9cb63134c2bb87f990e41cace73ca14640ce5f7c/68747470733a2f2f696d672e736869656c64732e696f2f707970692f7374617475732f7966696e616e63652e7376673f6d61784167653d3630" alt="PyPi status"></a>
+<a href="https://pypi.python.org/pypi/yfinance" rel=nofollow><img src="https://warehouse-camo.ingress.cmh1.psfhosted.org/f9e65ef595907a832b841a80f1237d9846e813b3/68747470733a2f2f696d672e736869656c64732e696f2f707970692f646d2f7966696e616e63652e7376673f6d61784167653d32353932303030266c6162656c3d696e7374616c6c7326636f6c6f723d253233323742314646" alt="PyPi downloads"></a>
+<a href="https://travis-ci.com/github/ranaroussi/yfinance" rel=nofollow><img src="https://warehouse-camo.ingress.cmh1.psfhosted.org/89dbe24c03f661c54e19aed6f722312f0cdb54c1/68747470733a2f2f696d672e736869656c64732e696f2f7472617669732f72616e61726f757373692f7966696e616e63652f6d61696e2e7376673f6d61784167653d31" alt="Travis-CI build status"></a>
+<a href="https://www.codefactor.io/repository/github/ranaroussi/yfinance" rel=nofollow><img src="https://warehouse-camo.ingress.cmh1.psfhosted.org/1dd380d9b9c50d994e41520880aedfdf1743f9a5/68747470733a2f2f7777772e636f6465666163746f722e696f2f7265706f7369746f72792f6769746875622f72616e61726f757373692f7966696e616e63652f6261646765" alt=CodeFactor></a>
+<a href="https://github.com/ranaroussi/yfinance" rel=nofollow><img src="https://warehouse-camo.ingress.cmh1.psfhosted.org/2ec112141dda595d4f5437b5adca1620e282d21c/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f73746172732f72616e61726f757373692f7966696e616e63652e7376673f7374796c653d736f6369616c266c6162656c3d53746172266d61784167653d3630" alt="Star this repo"></a>
+<a href="https://twitter.com/aroussi" rel=nofollow><img src="https://warehouse-camo.ingress.cmh1.psfhosted.org/513847a4fadfa421adcd30e919f443cfd6a8da07/68747470733a2f2f696d672e736869656c64732e696f2f747769747465722f666f6c6c6f772f61726f757373692e7376673f7374796c653d736f6369616c266c6162656c3d466f6c6c6f77266d61784167653d3630" alt="Follow me on twitter"></a></p>
+<p><strong>yfinance</strong> offers a threaded and Pythonic way to download market data from <a href="https://finance.yahoo.com" rel=nofollow>Yahoo!Ⓡ finance</a>.</p>
+<p>→ Check out this <a href="https://aroussi.com/#post/python-yahoo-finance" rel=nofollow>Blog post</a> for a detailed tutorial with code examples.</p>
+<p><a href="https://github.com/ranaroussi/yfinance/blob/main/CHANGELOG.rst" rel=nofollow>Changelog »</a></p>
+<hr>
+<h2>What's new in version 0.2</h2>
+<ul>
+<li>Optimised web scraping</li>
+<li>All 3 financials tables now match website so expect keys to change. If you really want old tables, use <a href="https://github.com/ranaroussi/yfinance/blob/85783da515761a145411d742c2a8a3c1517264b0/yfinance/base.py#L968" rel=nofollow><code>Ticker.get_[income_stmt|balance_sheet|cashflow](legacy=True, ...)</code></a></li>
+<li>price data improvements: fix bug NaN rows with dividend; new repair feature for missing or 100x prices <code>download(repair=True)</code>; new attribute <code>Ticker.history_metadata</code>
+<a href="https://github.com/ranaroussi/yfinance/releases/tag/0.2.1" rel=nofollow>See release notes for full list of changes</a></li>
+</ul>
+<h2>Quick Start</h2>
+<h3>The Ticker module</h3>
+<p>The <code>Ticker</code> module, which allows you to access ticker data in a more Pythonic way:</p>
+<pre lang=python3><span class=kn>import</span> <span class=nn>yfinance</span> <span class=k>as</span> <span class=nn>yf</span>
+
+<span class=n>msft</span> <span class=o>=</span> <span class=n>yf</span><span class=o>.</span><span class=n>Ticker</span><span class=p>(</span><span class=s2>"MSFT"</span><span class=p>)</span>
+
+<span class=c1># fast access to subset of stock info</span>
+<span class=n>msft</span><span class=o>.</span><span class=n>basic_info</span>
+<span class=c1># slow access to all stock info</span>
+<span class=n>msft</span><span class=o>.</span><span class=n>info</span>
+
+<span class=c1># get historical market data</span>
+<span class=n>hist</span> <span class=o>=</span> <span class=n>msft</span><span class=o>.</span><span class=n>history</span><span class=p>(</span><span class=n>period</span><span class=o>=</span><span class=s2>"max"</span><span class=p>)</span>
+
+<span class=c1># show meta information about the history (requires history() to be called first)</span>
+<span class=n>msft</span><span class=o>.</span><span class=n>history_metadata</span>
+
+<span class=c1># show actions (dividends, splits, capital gains)</span>
+<span class=n>msft</span><span class=o>.</span><span class=n>actions</span>
+
+<span class=c1># show dividends</span>
+<span class=n>msft</span><span class=o>.</span><span class=n>dividends</span>
+
+<span class=c1># show splits</span>
+<span class=n>msft</span><span class=o>.</span><span class=n>splits</span>
+
+
+<span class=c1># show capital gains (for mutual funds &amp; etfs)</span>
+<span class=n>msft</span><span class=o>.</span><span class=n>capital_gains</span>
+
+<span class=c1># show share count</span>
+<span class=n>msft</span><span class=o>.</span><span class=n>shares</span>
+<span class=n>msft</span><span class=o>.</span><span class=n>get_shares_full</span><span class=p>()</span>
+
+<span class=c1># show financials:</span>
+<span class=c1># - income statement</span>
+<span class=n>msft</span><span class=o>.</span><span class=n>income_stmt</span>
+<span class=n>msft</span><span class=o>.</span><span class=n>quarterly_income_stmt</span>
+<span class=c1># - balance sheet</span>
+<span class=n>msft</span><span class=o>.</span><span class=n>balance_sheet</span>
+<span class=n>msft</span><span class=o>.</span><span class=n>quarterly_balance_sheet</span>
+<span class=c1># - cash flow statement</span>
+<span class=n>msft</span><span class=o>.</span><span class=n>cashflow</span>
+<span class=n>msft</span><span class=o>.</span><span class=n>quarterly_cashflow</span>
+<span class=c1># see `Ticker.get_income_stmt()` for more options</span>
+
+<span class=c1># show major holders</span>
+<span class=n>msft</span><span class=o>.</span><span class=n>major_holders</span>
+
+<span class=c1># show institutional holders</span>
+<span class=n>msft</span><span class=o>.</span><span class=n>institutional_holders</span>
+
+<span class=c1># show mutualfund holders</span>
+<span class=n>msft</span><span class=o>.</span><span class=n>mutualfund_holders</span>
+
+<span class=c1># show earnings</span>
+<span class=n>msft</span><span class=o>.</span><span class=n>earnings</span>
+<span class=n>msft</span><span class=o>.</span><span class=n>quarterly_earnings</span>
+
+<span class=c1># show sustainability</span>
+<span class=n>msft</span><span class=o>.</span><span class=n>sustainability</span>
+
+<span class=c1># show analysts recommendations</span>
+<span class=n>msft</span><span class=o>.</span><span class=n>recommendations</span>
+<span class=n>msft</span><span class=o>.</span><span class=n>recommendations_summary</span>
+<span class=c1># show analysts other work</span>
+<span class=n>msft</span><span class=o>.</span><span class=n>analyst_price_target</span>
+<span class=n>msft</span><span class=o>.</span><span class=n>revenue_forecasts</span>
+<span class=n>msft</span><span class=o>.</span><span class=n>earnings_forecasts</span>
+<span class=n>msft</span><span class=o>.</span><span class=n>earnings_trend</span>
+
+<span class=c1># show next event (earnings, etc)</span>
+<span class=n>msft</span><span class=o>.</span><span class=n>calendar</span>
+
+<span class=c1># Show future and historic earnings dates, returns at most next 4 quarters and last 8 quarters by default. </span>
+<span class=c1># Note: If more are needed use msft.get_earnings_dates(limit=XX) with increased limit argument.</span>
+<span class=n>msft</span><span class=o>.</span><span class=n>earnings_dates</span>
+
+<span class=c1># show ISIN code - *experimental*</span>
+<span class=c1># ISIN = International Securities Identification Number</span>
+<span class=n>msft</span><span class=o>.</span><span class=n>isin</span>
+
+<span class=c1># show options expirations</span>
+<span class=n>msft</span><span class=o>.</span><span class=n>options</span>
+
+<span class=c1># show news</span>
+<span class=n>msft</span><span class=o>.</span><span class=n>news</span>
+
+<span class=c1># get option chain for specific expiration</span>
+<span class=n>opt</span> <span class=o>=</span> <span class=n>msft</span><span class=o>.</span><span class=n>option_chain</span><span class=p>(</span><span class=s1>'YYYY-MM-DD'</span><span class=p>)</span>
+<span class=c1># data available via: opt.calls, opt.puts</span>
+</pre>
+<p>If you want to use a proxy server for downloading data, use:</p>
+<pre lang=python3><span class=kn>import</span> <span class=nn>yfinance</span> <span class=k>as</span> <span class=nn>yf</span>
+
+<span class=n>msft</span> <span class=o>=</span> <span class=n>yf</span><span class=o>.</span><span class=n>Ticker</span><span class=p>(</span><span class=s2>"MSFT"</span><span class=p>)</span>
+
+<span class=n>msft</span><span class=o>.</span><span class=n>history</span><span class=p>(</span><span class=o>...</span><span class=p>,</span> <span class=n>proxy</span><span class=o>=</span><span class=s2>"PROXY_SERVER"</span><span class=p>)</span>
+<span class=n>msft</span><span class=o>.</span><span class=n>get_actions</span><span class=p>(</span><span class=n>proxy</span><span class=o>=</span><span class=s2>"PROXY_SERVER"</span><span class=p>)</span>
+<span class=n>msft</span><span class=o>.</span><span class=n>get_dividends</span><span class=p>(</span><span class=n>proxy</span><span class=o>=</span><span class=s2>"PROXY_SERVER"</span><span class=p>)</span>
+<span class=n>msft</span><span class=o>.</span><span class=n>get_splits</span><span class=p>(</span><span class=n>proxy</span><span class=o>=</span><span class=s2>"PROXY_SERVER"</span><span class=p>)</span>
+<span class=n>msft</span><span class=o>.</span><span class=n>get_capital_gains</span><span class=p>(</span><span class=n>proxy</span><span class=o>=</span><span class=s2>"PROXY_SERVER"</span><span class=p>)</span>
+<span class=n>msft</span><span class=o>.</span><span class=n>get_balance_sheet</span><span class=p>(</span><span class=n>proxy</span><span class=o>=</span><span class=s2>"PROXY_SERVER"</span><span class=p>)</span>
+<span class=n>msft</span><span class=o>.</span><span class=n>get_cashflow</span><span class=p>(</span><span class=n>proxy</span><span class=o>=</span><span class=s2>"PROXY_SERVER"</span><span class=p>)</span>
+<span class=n>msft</span><span class=o>.</span><span class=n>option_chain</span><span class=p>(</span><span class=o>...</span><span class=p>,</span> <span class=n>proxy</span><span class=o>=</span><span class=s2>"PROXY_SERVER"</span><span class=p>)</span>
+<span class=o>...</span>
+</pre>
+<p>To use a custom <code>requests</code> session (for example to cache calls to the
+API or customize the <code>User-agent</code> header), pass a <code>session=</code> argument to
+the Ticker constructor.</p>
+<pre lang=python3><span class=kn>import</span> <span class=nn>requests_cache</span>
+<span class=n>session</span> <span class=o>=</span> <span class=n>requests_cache</span><span class=o>.</span><span class=n>CachedSession</span><span class=p>(</span><span class=s1>'yfinance.cache'</span><span class=p>)</span>
+<span class=n>session</span><span class=o>.</span><span class=n>headers</span><span class=p>[</span><span class=s1>'User-agent'</span><span class=p>]</span> <span class=o>=</span> <span class=s1>'my-program/1.0'</span>
+<span class=n>ticker</span> <span class=o>=</span> <span class=n>yf</span><span class=o>.</span><span class=n>Ticker</span><span class=p>(</span><span class=s1>'msft'</span><span class=p>,</span> <span class=n>session</span><span class=o>=</span><span class=n>session</span><span class=p>)</span>
+<span class=c1># The scraped response will be stored in the cache</span>
+<span class=n>ticker</span><span class=o>.</span><span class=n>actions</span>
+</pre>
+<p>To initialize multiple <code>Ticker</code> objects, use</p>
+<pre lang=python3><span class=kn>import</span> <span class=nn>yfinance</span> <span class=k>as</span> <span class=nn>yf</span>
+
+<span class=n>tickers</span> <span class=o>=</span> <span class=n>yf</span><span class=o>.</span><span class=n>Tickers</span><span class=p>(</span><span class=s1>'msft aapl goog'</span><span class=p>)</span>
+
+<span class=c1># access each ticker using (example)</span>
+<span class=n>tickers</span><span class=o>.</span><span class=n>tickers</span><span class=p>[</span><span class=s1>'MSFT'</span><span class=p>]</span><span class=o>.</span><span class=n>info</span>
+<span class=n>tickers</span><span class=o>.</span><span class=n>tickers</span><span class=p>[</span><span class=s1>'AAPL'</span><span class=p>]</span><span class=o>.</span><span class=n>history</span><span class=p>(</span><span class=n>period</span><span class=o>=</span><span class=s2>"1mo"</span><span class=p>)</span>
+<span class=n>tickers</span><span class=o>.</span><span class=n>tickers</span><span class=p>[</span><span class=s1>'GOOG'</span><span class=p>]</span><span class=o>.</span><span class=n>actions</span>
+</pre>
+<h3>Fetching data for multiple tickers</h3>
+<pre lang=python3><span class=kn>import</span> <span class=nn>yfinance</span> <span class=k>as</span> <span class=nn>yf</span>
+<span class=n>data</span> <span class=o>=</span> <span class=n>yf</span><span class=o>.</span><span class=n>download</span><span class=p>(</span><span class=s2>"SPY AAPL"</span><span class=p>,</span> <span class=n>start</span><span class=o>=</span><span class=s2>"2017-01-01"</span><span class=p>,</span> <span class=n>end</span><span class=o>=</span><span class=s2>"2017-04-30"</span><span class=p>)</span>
+</pre>
+<p>I've also added some options to make life easier :)</p>
+<pre lang=python3><span class=n>data</span> <span class=o>=</span> <span class=n>yf</span><span class=o>.</span><span class=n>download</span><span class=p>(</span>  <span class=c1># or pdr.get_data_yahoo(...</span>
+        <span class=c1># tickers list or string as well</span>
+        <span class=n>tickers</span> <span class=o>=</span> <span class=s2>"SPY AAPL MSFT"</span><span class=p>,</span>
+
+        <span class=c1># use "period" instead of start/end</span>
+        <span class=c1># valid periods: 1d,5d,1mo,3mo,6mo,1y,2y,5y,10y,ytd,max</span>
+        <span class=c1># (optional, default is '1mo')</span>
+        <span class=n>period</span> <span class=o>=</span> <span class=s2>"ytd"</span><span class=p>,</span>
+
+        <span class=c1># fetch data by interval (including intraday if period &lt; 60 days)</span>
+        <span class=c1># valid intervals: 1m,2m,5m,15m,30m,60m,90m,1h,1d,5d,1wk,1mo,3mo</span>
+        <span class=c1># (optional, default is '1d')</span>
+        <span class=n>interval</span> <span class=o>=</span> <span class=s2>"5d"</span><span class=p>,</span>
+
+        <span class=c1># Whether to ignore timezone when aligning ticker data from </span>
+        <span class=c1># different timezones. Default is False.</span>
+        <span class=n>ignore_tz</span> <span class=o>=</span> <span class=kc>False</span><span class=p>,</span>
+
+        <span class=c1># group by ticker (to access via data['SPY'])</span>
+        <span class=c1># (optional, default is 'column')</span>
+        <span class=n>group_by</span> <span class=o>=</span> <span class=s1>'ticker'</span><span class=p>,</span>
+
+        <span class=c1># adjust all OHLC automatically</span>
+        <span class=c1># (optional, default is False)</span>
+        <span class=n>auto_adjust</span> <span class=o>=</span> <span class=kc>True</span><span class=p>,</span>
+
+        <span class=c1># attempt repair of missing data or currency mixups e.g. $/cents</span>
+        <span class=n>repair</span> <span class=o>=</span> <span class=kc>False</span><span class=p>,</span>
+
+        <span class=c1># download pre/post regular market hours data</span>
+        <span class=c1># (optional, default is False)</span>
+        <span class=n>prepost</span> <span class=o>=</span> <span class=kc>True</span><span class=p>,</span>
+
+        <span class=c1># use threads for mass downloading? (True/False/Integer)</span>
+        <span class=c1># (optional, default is True)</span>
+        <span class=n>threads</span> <span class=o>=</span> <span class=kc>True</span><span class=p>,</span>
+
+        <span class=c1># proxy URL scheme use use when downloading?</span>
+        <span class=c1># (optional, default is None)</span>
+        <span class=n>proxy</span> <span class=o>=</span> <span class=kc>None</span>
+    <span class=p>)</span>
+</pre>
+<h3>Timezone cache store</h3>
+<p>When fetching price data, all dates are localized to stock exchange timezone.
+But timezone retrieval is relatively slow, so yfinance attemps to cache them
+in your users cache folder.
+You can direct cache to use a different location with <code>set_tz_cache_location()</code>:</p>
+<pre lang=python3><span class=kn>import</span> <span class=nn>yfinance</span> <span class=k>as</span> <span class=nn>yf</span>
+<span class=n>yf</span><span class=o>.</span><span class=n>set_tz_cache_location</span><span class=p>(</span><span class=s2>"custom/cache/location"</span><span class=p>)</span>
+<span class=o>...</span>
+</pre>
+<h3>Managing Multi-Level Columns</h3>
+<p>The following answer on Stack Overflow is for <a href="https://stackoverflow.com/questions/63107801" rel=nofollow>How to deal with
+multi-level column names downloaded with
+yfinance?</a></p>
+<ul>
+<li><code>yfinance</code> returns a <code>pandas.DataFrame</code> with multi-level column
+names, with a level for the ticker and a level for the stock price
+data
+<ul>
+<li>The answer discusses:
+<ul>
+<li>How to correctly read the the multi-level columns after
+saving the dataframe to a csv with <code>pandas.DataFrame.to_csv</code></li>
+<li>How to download single or multiple tickers into a single
+dataframe with single level column names and a ticker column</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2><code>pandas_datareader</code> override</h2>
+<p>If your code uses <code>pandas_datareader</code> and you want to download data
+faster, you can "hijack" <code>pandas_datareader.data.get_data_yahoo()</code>
+method to use <strong>yfinance</strong> while making sure the returned data is in the
+same format as <strong>pandas_datareader</strong>'s <code>get_data_yahoo()</code>.</p>
+<pre lang=python3><span class=kn>from</span> <span class=nn>pandas_datareader</span> <span class=kn>import</span> <span class=n>data</span> <span class=k>as</span> <span class=n>pdr</span>
+
+<span class=kn>import</span> <span class=nn>yfinance</span> <span class=k>as</span> <span class=nn>yf</span>
+<span class=n>yf</span><span class=o>.</span><span class=n>pdr_override</span><span class=p>()</span> <span class=c1># &lt;== that's all it takes :-)</span>
+
+<span class=c1># download dataframe</span>
+<span class=n>data</span> <span class=o>=</span> <span class=n>pdr</span><span class=o>.</span><span class=n>get_data_yahoo</span><span class=p>(</span><span class=s2>"SPY"</span><span class=p>,</span> <span class=n>start</span><span class=o>=</span><span class=s2>"2017-01-01"</span><span class=p>,</span> <span class=n>end</span><span class=o>=</span><span class=s2>"2017-04-30"</span><span class=p>)</span>
+</pre>
+<hr>
+<h2>Installation</h2>
+<p>Install <code>yfinance</code> using <code>pip</code>:</p>
+<pre lang={.sourceCode>$ pip install yfinance --upgrade --no-cache-dir
+</pre>
+<p>To install <code>yfinance</code> using <code>conda</code>, see
+<a href="https://anaconda.org/ranaroussi/yfinance" rel=nofollow>this</a>.</p>
+<h3>Requirements</h3>
+<ul>
+<li><a href="https://www.python.org" rel=nofollow>Python</a> &gt;= 2.7, 3.4+</li>
+<li><a href="https://github.com/pydata/pandas" rel=nofollow>Pandas</a> &gt;= 1.3.0</li>
+<li><a href="http://www.numpy.org" rel=nofollow>Numpy</a> &gt;= 1.16.5</li>
+<li><a href="http://docs.python-requests.org/en/master" rel=nofollow>requests</a> &gt;= 2.26</li>
+<li><a href="https://pypi.org/project/lxml" rel=nofollow>lxml</a> &gt;= 4.9.1</li>
+<li><a href="https://pypi.org/project/appdirs" rel=nofollow>appdirs</a> &gt;= 1.4.4</li>
+<li><a href="https://pypi.org/project/pytz" rel=nofollow>pytz</a> &gt;=2022.5</li>
+<li><a href="https://pypi.org/project/frozendict" rel=nofollow>frozendict</a> &gt;= 2.3.4</li>
+<li><a href="https://pypi.org/project/beautifulsoup4" rel=nofollow>beautifulsoup4</a> &gt;= 4.11.1</li>
+<li><a href="https://pypi.org/project/html5lib" rel=nofollow>html5lib</a> &gt;= 1.1</li>
+<li><a href="https://pypi.org/project/cryptography" rel=nofollow>cryptography</a> &gt;= 3.3.2</li>
+</ul>
+<h3>Optional (if you want to use <code>pandas_datareader</code>)</h3>
+<ul>
+<li><a href="https://github.com/pydata/pandas-datareader" rel=nofollow>pandas_datareader</a>
+&gt;= 0.4.0</li>
+</ul>
+<hr>
+<h3>Legal Stuff</h3>
+<p><strong>yfinance</strong> is distributed under the <strong>Apache Software License</strong>. See
+the <a href="./LICENSE.txt" rel=nofollow>LICENSE.txt</a> file in the release for details.</p>
+<p>AGAIN - yfinance is <strong>not</strong> affiliated, endorsed, or vetted by Yahoo, Inc. It's
+an open-source tool that uses Yahoo's publicly available APIs, and is
+intended for research and educational purposes. You should refer to Yahoo!'s terms of use
+(<a href="https://policies.yahoo.com/us/en/yahoo/terms/product-atos/apiforydn/index.htm" rel=nofollow>here</a>,
+<a href="https://legal.yahoo.com/us/en/yahoo/terms/otos/index.html" rel=nofollow>here</a>, and
+<a href="https://policies.yahoo.com/us/en/yahoo/terms/index.htm" rel=nofollow>here</a>) for
+detailes on your rights to use the actual data downloaded.</p>
+<hr>
+<h3>P.S.</h3>
+<p>Please drop me an note with any feedback you have.</p>
+<p><strong>Ran Aroussi</strong></p>
+
+          </div>
+          
+        </div>
+
+        
+        <div id="data" data-project-tabs-target="content" class="vertical-tabs__content" role="tabpanel" aria-labelledby="mobile-data-tab" tabindex="-1">
+          <h2 class="page-title">Projekt-Details</h2>
+          
+<div class="sidebar-section">
+  <h3 class="sidebar-section__title">Projekt-Links</h3>
+  <ul class="vertical-tabs__list">
+    
+    
+    <li>
+      <a class="vertical-tabs__tab vertical-tabs__tab--with-icon vertical-tabs__tab--condensed" href="https://github.com/ranaroussi/yfinance" rel="nofollow">
+        
+
+
+  
+
+
+<i class="fas fa-home" aria-hidden="true"></i>Homepage
+      </a>
+    </li>
+    
+    
+  </ul>
+</div>
+
+
+<div class="sidebar-section">
+  <h3 class="sidebar-section__title">Statistiken</h3>
+  
+  <div class="hidden github-repo-info" data-controller="github-repo-info">
+    GitHub-Statistiken:
+    <ul class="vertical-tabs__list">
+      <li>
+        <a class="vertical-tabs__tab vertical-tabs__tab--with-icon vertical-tabs__tab--condensed"
+           data-github-repo-info-target="stargazersUrl" rel="noopener">
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <strong>Sterne:</strong>
+          <span data-github-repo-info-target="stargazersCount"></span>
+        </a>
+      </li>
+      <li>
+        <a class="vertical-tabs__tab vertical-tabs__tab--with-icon vertical-tabs__tab--condensed"
+           data-github-repo-info-target="forksUrl" rel="noopener">
+          <i class="fa fa-code-branch" aria-hidden="true"></i>
+          <strong>Forks:</strong>
+          <span data-github-repo-info-target="forksCount"></span>
+        </a>
+      </li>
+      <li>
+        <a class="vertical-tabs__tab vertical-tabs__tab--with-icon vertical-tabs__tab--condensed"
+           data-github-repo-info-target="openIssuesUrl" rel="noopener">
+          <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+          <strong>Offene Issues/Pull Requests:</strong>
+          <span data-github-repo-info-target="openIssuesCount"></span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+  <p>
+    Besuchen Sie <a href="https://libraries.io/pypi/yfinance" title="Externer Link" target="_blank" rel="noopener">Libraries.io</a> oder benutzen Sie <a href="https://packaging.python.org/guides/analyzing-pypi-package-downloads/" target="_blank" rel="noopener">unseren öffentlichen Datensatz auf Google BigQuery</a>, um Statistiken für dieses Projekt zu sehen
+  </p>
+</div>
+
+
+<div class="sidebar-section">
+  <h3 class="sidebar-section__title">Meta</h3>
+  
+  <p><strong>Lizenz:</strong> Apache Software License (Apache)</p>
+  
+  
+    <p><strong>Autor:</strong> <a href="mailto:ran@aroussi.com">Ran Aroussi</a></p>
+  
+  
+  
+  <p class="tags">
+    <i class="fa fa-tags" aria-hidden="true"></i>
+    <span class="sr-only">Schlagwörter</span>
+    
+    <span class="package-keyword">
+      pandas,
+    </span>
+    
+    <span class="package-keyword">
+      yahoo finance,
+    </span>
+    
+    <span class="package-keyword">
+      pandas datareader
+    </span>
+    
+  </p>
+  
+  
+</div>
+
+
+<div class="sidebar-section">
+  <h3 class="sidebar-section__title">Betreuer</h3>
+  
+    
+    <span class="sidebar-section__maintainer">
+      <a href="/user/ranaroussi/" aria-label="ranaroussi">
+        <span class="sidebar-section__user-gravatar">
+          <img src="https://warehouse-camo.ingress.cmh1.psfhosted.org/75707dd70735c7106c77cefd5ef37c712a893808/68747470733a2f2f7365637572652e67726176617461722e636f6d2f6176617461722f30383335626437316462306133396261306130363035643564633562393437323f73697a653d3530" height="50" width="50" alt="Profilbild für ranaroussi von gravatar.com" title="Profilbild für ranaroussi von gravatar.com">
+        </span>
+        <span class="sidebar-section__user-gravatar-text">
+          ranaroussi
+        </span>
+      </a>
+    </span>
+  
+</div>
+
+
+<div class="sidebar-section">
+  <h3 class="sidebar-section__title">Kategorien</h3>
+  <ul class="sidebar-section__classifiers">
+    
+    <li>
+      <strong>Development Status</strong>
+      <ul>
+        
+        <li>
+          <a href="/search/?c=Development+Status+%3A%3A+4+-+Beta">
+            4 - Beta
+          </a>
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li>
+      <strong>Intended Audience</strong>
+      <ul>
+        
+        <li>
+          <a href="/search/?c=Intended+Audience+%3A%3A+Developers">
+            Developers
+          </a>
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li>
+      <strong>License</strong>
+      <ul>
+        
+        <li>
+          <a href="/search/?c=License+%3A%3A+OSI+Approved+%3A%3A+Apache+Software+License">
+            OSI Approved :: Apache Software License
+          </a>
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li>
+      <strong>Operating System</strong>
+      <ul>
+        
+        <li>
+          <a href="/search/?c=Operating+System+%3A%3A+OS+Independent">
+            OS Independent
+          </a>
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li>
+      <strong>Programming Language</strong>
+      <ul>
+        
+        <li>
+          <a href="/search/?c=Programming+Language+%3A%3A+Python+%3A%3A+3.6">
+            Python :: 3.6
+          </a>
+        </li>
+        
+        <li>
+          <a href="/search/?c=Programming+Language+%3A%3A+Python+%3A%3A+3.7">
+            Python :: 3.7
+          </a>
+        </li>
+        
+        <li>
+          <a href="/search/?c=Programming+Language+%3A%3A+Python+%3A%3A+3.8">
+            Python :: 3.8
+          </a>
+        </li>
+        
+        <li>
+          <a href="/search/?c=Programming+Language+%3A%3A+Python+%3A%3A+3.9">
+            Python :: 3.9
+          </a>
+        </li>
+        
+        <li>
+          <a href="/search/?c=Programming+Language+%3A%3A+Python+%3A%3A+3.10">
+            Python :: 3.10
+          </a>
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li>
+      <strong>Topic</strong>
+      <ul>
+        
+        <li>
+          <a href="/search/?c=Topic+%3A%3A+Office%2FBusiness+%3A%3A+Financial">
+            Office/Business :: Financial
+          </a>
+        </li>
+        
+        <li>
+          <a href="/search/?c=Topic+%3A%3A+Office%2FBusiness+%3A%3A+Financial+%3A%3A+Investment">
+            Office/Business :: Financial :: Investment
+          </a>
+        </li>
+        
+        <li>
+          <a href="/search/?c=Topic+%3A%3A+Scientific%2FEngineering+%3A%3A+Interface+Engine%2FProtocol+Translator">
+            Scientific/Engineering :: Interface Engine/Protocol Translator
+          </a>
+        </li>
+        
+        <li>
+          <a href="/search/?c=Topic+%3A%3A+Software+Development+%3A%3A+Libraries">
+            Software Development :: Libraries
+          </a>
+        </li>
+        
+        <li>
+          <a href="/search/?c=Topic+%3A%3A+Software+Development+%3A%3A+Libraries+%3A%3A+Python+Modules">
+            Software Development :: Libraries :: Python Modules
+          </a>
+        </li>
+        
+      </ul>
+    </li>
+    
+  </ul>
+</div>
+
+          <br>
+        </div>
+
+        
+        <div id="history" data-project-tabs-target="content" class="vertical-tabs__content" role="tabpanel" aria-labelledby="history-tab mobile-history-tab" tabindex="-1">
+          <h2 class="page-title split-layout">
+            <span>Veröffentlichungs-Historie</span>
+            <span class="reset-text margin-top">
+              <a href="/help/#project-release-notifications">Veröffentlichungs-Benachrichtigungen</a> |
+              <a href="/rss/project/yfinance/releases.xml">RSS feed <i class="fa fa-rss" aria-hidden="true"></i></a>
+            </span>
+          </h2>
+
+          <div class="release-timeline">
+            
+            
+            
+            
+            <div class="release release--latest">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.2.10b2/">
+                <p class="release__version">
+                  0.2.10b2
+                  
+                  <span class="badge badge--warning">
+                    vorab-Veröffentlichung
+                  </span>
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2023-02-01T13:33:39+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  01.02.2023
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.2.10b1/">
+                <p class="release__version">
+                  0.2.10b1
+                  
+                  <span class="badge badge--warning">
+                    vorab-Veröffentlichung
+                  </span>
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2023-01-31T22:13:25+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  31.01.2023
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release release--current">
+              <div class="release__meta">
+                
+                <span class="badge">Diese Version</span>
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/blue-cube.572a5bfb.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.2.9/">
+                <p class="release__version">
+                  0.2.9
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2023-01-26T22:22:37+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  26.01.2023
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.2.7/">
+                <p class="release__version">
+                  0.2.7
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2023-01-26T17:04:18+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  26.01.2023
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.2.6/">
+                <p class="release__version">
+                  0.2.6
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2023-01-25T19:12:00+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  25.01.2023
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.2.5/">
+                <p class="release__version">
+                  0.2.5
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2023-01-25T16:47:54+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  25.01.2023
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.2.4/">
+                <p class="release__version">
+                  0.2.4
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2023-01-14T23:01:31+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  14.01.2023
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.2.3/">
+                <p class="release__version">
+                  0.2.3
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2022-12-20T11:58:57+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  20.12.2022
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.2.2/">
+                <p class="release__version">
+                  0.2.2
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2022-12-20T11:35:19+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  20.12.2022
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.2.1/">
+                <p class="release__version">
+                  0.2.1
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2022-12-19T23:21:14+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  19.12.2022
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.2.0rc5/">
+                <p class="release__version">
+                  0.2.0rc5
+                  
+                  <span class="badge badge--warning">
+                    vorab-Veröffentlichung
+                  </span>
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2022-12-16T16:29:02+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  16.12.2022
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.2.0rc4/">
+                <p class="release__version">
+                  0.2.0rc4
+                  
+                  <span class="badge badge--warning">
+                    vorab-Veröffentlichung
+                  </span>
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2022-12-13T22:13:47+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  13.12.2022
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.2.0rc2/">
+                <p class="release__version">
+                  0.2.0rc2
+                  
+                  <span class="badge badge--warning">
+                    vorab-Veröffentlichung
+                  </span>
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2022-11-12T21:30:26+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  12.11.2022
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.2.0rc1/">
+                <p class="release__version">
+                  0.2.0rc1
+                  
+                  <span class="badge badge--warning">
+                    vorab-Veröffentlichung
+                  </span>
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2022-10-26T21:42:09+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  26.10.2022
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.96/">
+                <p class="release__version">
+                  0.1.96
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2022-12-20T20:52:15+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  20.12.2022
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.95/">
+                <p class="release__version">
+                  0.1.95
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2022-12-19T21:48:23+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  19.12.2022
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.94/">
+                <p class="release__version">
+                  0.1.94
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2022-12-19T11:19:23+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  19.12.2022
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.93/">
+                <p class="release__version">
+                  0.1.93
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2022-12-18T22:17:43+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  18.12.2022
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.92/">
+                <p class="release__version">
+                  0.1.92
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2022-12-18T21:46:09+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  18.12.2022
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.91/">
+                <p class="release__version">
+                  0.1.91
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2022-12-18T21:41:22+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  18.12.2022
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.90/">
+                <p class="release__version">
+                  0.1.90
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2022-12-13T15:38:00+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  13.12.2022
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.89/">
+                <p class="release__version">
+                  0.1.89
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2022-12-12T22:07:37+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  12.12.2022
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.87/">
+                <p class="release__version">
+                  0.1.87
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2022-11-16T12:45:13+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  16.11.2022
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.86/">
+                <p class="release__version">
+                  0.1.86
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2022-11-14T12:51:33+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  14.11.2022
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.85/">
+                <p class="release__version">
+                  0.1.85
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2022-11-03T19:06:08+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  03.11.2022
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.84/">
+                <p class="release__version">
+                  0.1.84
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2022-10-25T23:16:01+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  25.10.2022
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.83/">
+                <p class="release__version">
+                  0.1.83
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2022-10-25T22:24:46+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  25.10.2022
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.82/">
+                <p class="release__version">
+                  0.1.82
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2022-10-25T22:17:02+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  25.10.2022
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.81/">
+                <p class="release__version">
+                  0.1.81
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2022-10-23T18:55:47+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  23.10.2022
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.80/">
+                <p class="release__version">
+                  0.1.80
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2022-10-22T12:28:32+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  22.10.2022
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.79/">
+                <p class="release__version">
+                  0.1.79
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2022-10-18T19:15:28+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  18.10.2022
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.78/">
+                <p class="release__version">
+                  0.1.78
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2022-10-18T11:56:20+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  18.10.2022
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.77/">
+                <p class="release__version">
+                  0.1.77
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2022-10-07T21:05:59+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  07.10.2022
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.75/">
+                <p class="release__version">
+                  0.1.75
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2022-10-04T11:11:13+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  04.10.2022
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.74/">
+                <p class="release__version">
+                  0.1.74
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2022-07-11T22:21:34+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  11.07.2022
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.73/">
+                <p class="release__version">
+                  0.1.73
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2022-07-11T11:16:40+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  11.07.2022
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.72/">
+                <p class="release__version">
+                  0.1.72
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2022-06-16T15:33:16+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  16.06.2022
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.71/">
+                <p class="release__version">
+                  0.1.71
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2022-06-16T15:25:26+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  16.06.2022
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.70/">
+                <p class="release__version">
+                  0.1.70
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2022-01-30T12:14:45+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  30.01.2022
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.69/">
+                <p class="release__version">
+                  0.1.69
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2022-01-12T15:47:22+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  12.01.2022
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.68/">
+                <p class="release__version">
+                  0.1.68
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2021-12-30T15:42:18+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  30.12.2021
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.67/">
+                <p class="release__version">
+                  0.1.67
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2021-11-20T20:56:26+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  20.11.2021
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.66/">
+                <p class="release__version">
+                  0.1.66
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2021-11-13T22:56:02+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  13.11.2021
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.65/">
+                <p class="release__version">
+                  0.1.65
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2021-11-13T17:29:28+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  13.11.2021
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.64/">
+                <p class="release__version">
+                  0.1.64
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2021-10-19T20:31:06+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  19.10.2021
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.63/">
+                <p class="release__version">
+                  0.1.63
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2021-07-10T20:28:59+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  10.07.2021
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.62/">
+                <p class="release__version">
+                  0.1.62
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2021-07-09T18:17:55+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  09.07.2021
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.61/">
+                <p class="release__version">
+                  0.1.61
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2021-07-08T08:29:31+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  08.07.2021
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.60/">
+                <p class="release__version">
+                  0.1.60
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2021-07-03T13:44:57+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  03.07.2021
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.59/">
+                <p class="release__version">
+                  0.1.59
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2021-03-25T00:43:03+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  25.03.2021
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.58/">
+                <p class="release__version">
+                  0.1.58
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2021-03-25T00:11:46+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  25.03.2021
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.57/">
+                <p class="release__version">
+                  0.1.57
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2021-03-24T23:39:55+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  24.03.2021
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.56/">
+                <p class="release__version">
+                  0.1.56
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2021-03-24T11:33:59+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  24.03.2021
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.55/">
+                <p class="release__version">
+                  0.1.55
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2020-10-05T12:19:44+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  05.10.2020
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.54/">
+                <p class="release__version">
+                  0.1.54
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2019-12-27T21:18:22+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  27.12.2019
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.53/">
+                <p class="release__version">
+                  0.1.53
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2019-12-27T18:17:39+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  27.12.2019
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.52/">
+                <p class="release__version">
+                  0.1.52
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2019-12-04T18:57:10+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  04.12.2019
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.51/">
+                <p class="release__version">
+                  0.1.51
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2019-12-04T14:40:51+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  04.12.2019
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.50/">
+                <p class="release__version">
+                  0.1.50
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2019-11-10T17:55:31+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  10.11.2019
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.49/">
+                <p class="release__version">
+                  0.1.49
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2019-10-29T12:36:31+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  29.10.2019
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.48/">
+                <p class="release__version">
+                  0.1.48
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2019-10-29T08:40:35+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  29.10.2019
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.47/">
+                <p class="release__version">
+                  0.1.47
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2019-10-27T23:47:07+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  27.10.2019
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.46/">
+                <p class="release__version">
+                  0.1.46
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2019-10-27T17:43:01+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  27.10.2019
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.45/">
+                <p class="release__version">
+                  0.1.45
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2019-08-26T13:41:00+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  26.08.2019
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.44/">
+                <p class="release__version">
+                  0.1.44
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2019-08-02T07:45:32+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  02.08.2019
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.43/">
+                <p class="release__version">
+                  0.1.43
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2019-06-21T17:13:20+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  21.06.2019
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.42/">
+                <p class="release__version">
+                  0.1.42
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2019-06-04T18:16:35+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  04.06.2019
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.41/">
+                <p class="release__version">
+                  0.1.41
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2019-05-31T15:07:02+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  31.05.2019
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.40/">
+                <p class="release__version">
+                  0.1.40
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2019-05-31T11:44:24+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  31.05.2019
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.39/">
+                <p class="release__version">
+                  0.1.39
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2019-05-29T11:08:43+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  29.05.2019
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.38/">
+                <p class="release__version">
+                  0.1.38
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2019-05-27T18:05:03+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  27.05.2019
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.37/">
+                <p class="release__version">
+                  0.1.37
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2019-05-26T15:13:29+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  26.05.2019
+</time>
+                </p>
+              </a>
+            </div>
+            
+            
+            <div class="release release--oldest">
+              <div class="release__meta">
+                
+              </div>
+
+              <div class="release__graphic">
+                
+                <div class="release__line"></div>
+                
+                
+                <img class="release__node" alt="" src="https://pypi.org/static/images/white-cube.2351a86c.svg">
+                
+              </div>
+
+              <a class="card release__card" href="/project/yfinance/0.1.36/">
+                <p class="release__version">
+                  0.1.36
+                  
+                  
+                </p>
+                <p class="release__version-date">
+                  <time datetime="2019-05-26T11:21:44+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  26.05.2019
+</time>
+                </p>
+              </a>
+            </div>
+            
+          </div>
+        </div>
+
+        
+          
+          <div id="files" data-project-tabs-target="content" class="vertical-tabs__content" role="tabpanel" aria-labelledby="files-tab mobile-files-tab" tabindex="-1">
+            <h2 class="page-title">Dateien zum Herunterladen</h2>
+            <p>Laden Sie die Datei für Ihre Plattform herunter. Wenn Sie nicht sicher sind, was Sie auswählen sollen, lesen Sie <a href="https://packaging.python.org/installing/" title="Externer Link" target="_blank" rel="noopener">Installation von Paketen</a>.</p>
+            <h3>
+              Source Distribution
+            </h3>
+
+            
+              
+    <div class="file">
+      <div class="file__graphic">
+        <i class="far fa-file" aria-hidden="true"></i>
+      </div>
+
+      <div class="card file__card">
+        <a href="https://files.pythonhosted.org/packages/44/7c/2f17e16867fb4ad198467cc2ee2db5ff845cfdb1159ecb69ef2e6fc0807b/yfinance-0.2.9.tar.gz">
+          yfinance-0.2.9.tar.gz
+        </a>
+        (53.7 kB
+        <a href="#copy-hash-modal-07649485-039a-4ae2-98fa-30a9093aee27">view hashes</a>)
+        <p class="file__meta">
+          Uploaded <time datetime="2023-01-26T22:22:39+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  26.01.2023
+</time>
+          
+          
+          <code>source</code>
+          
+          
+        </p>
+      </div>
+    </div>
+  
+            
+
+            
+            <h3>
+              Built Distribution
+            </h3>
+
+            
+    <div class="file">
+      <div class="file__graphic">
+        <i class="far fa-file" aria-hidden="true"></i>
+      </div>
+
+      <div class="card file__card">
+        <a href="https://files.pythonhosted.org/packages/61/44/cd2c60f34b8b8106c825422b69704ca1e453db990ac46a34e0dc949489c7/yfinance-0.2.9-py2.py3-none-any.whl">
+          yfinance-0.2.9-py2.py3-none-any.whl
+        </a>
+        (55.9 kB
+        <a href="#copy-hash-modal-4d374c73-0154-4e11-bf4e-34cc73255f7d">view hashes</a>)
+        <p class="file__meta">
+          Uploaded <time datetime="2023-01-26T22:22:37+0000" data-controller="localized-time" data-localized-time-relative="true" data-localized-time-show-time="false">
+  26.01.2023
+</time>
+          
+          
+          <code>py2</code>
+          
+          <code>py3</code>
+          
+          
+        </p>
+      </div>
+    </div>
+  
+            
+          </div>
+
+          
+          <div id="copy-hash-modal-07649485-039a-4ae2-98fa-30a9093aee27" class="modal modal--wide">
+  <div class="modal__content" role="dialog">
+    <a href="#modal-close" title="Schließen" class="modal__close">
+      <i class="fa fa-times" aria-hidden="true"></i>
+      <span class="sr-only">Schließen</span>
+    </a>
+    <div class="modal__body">
+      <h3 class="modal__title">
+        <a href="https://pip.pypa.io/en/stable/cli/pip_install/#hash-checking-mode" title="Externer Link" target="_blank" rel="noopener">Hash-Codes</a> für yfinance-0.2.9.tar.gz
+      </h3>
+      <table class="table table--hashes">
+        <caption class="sr-only">Hash-Codes für yfinance-0.2.9.tar.gz</caption>
+        <thead>
+          <tr>
+            <th scope="col">Algorithmus</th>
+            <th scope="col">Hashwert</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">SHA256</th>
+            <td><code>449f9d54ff7868bdbb2d25b628a97d21fdd05e293a0f9975bba7aaa9984d08e6</code></td>
+            <td class="table__align-right">
+              <button type="button" class="button button--small copy-tooltip copy-tooltip-w" data-tooltip-label="In die Zwischenablage kopieren" data-clipboard-text="449f9d54ff7868bdbb2d25b628a97d21fdd05e293a0f9975bba7aaa9984d08e6">
+                Kopieren
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">MD5</th>
+            <td><code>f0fcc783eadaf5992ac401dad25703b7</code></td>
+            <td class="table__align-right">
+              <button type="button" class="button button--small copy-tooltip copy-tooltip-w" data-tooltip-label="In die Zwischenablage kopieren" data-clipboard-text="f0fcc783eadaf5992ac401dad25703b7">
+                Kopieren
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">BLAKE2b-256</th>
+            <td><code>447c2f17e16867fb4ad198467cc2ee2db5ff845cfdb1159ecb69ef2e6fc0807b</code></td>
+            <td class="table__align-right">
+              <button type="button" class="button button--small copy-tooltip copy-tooltip-w" data-tooltip-label="In die Zwischenablage kopieren" data-clipboard-text="447c2f17e16867fb4ad198467cc2ee2db5ff845cfdb1159ecb69ef2e6fc0807b">
+                Kopieren
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="modal__footer">
+      <a href="#modal-close" class="button button--primary modal__action">Schließen</a>
+    </div>
+  </div>
+</div>
+          
+          <div id="copy-hash-modal-4d374c73-0154-4e11-bf4e-34cc73255f7d" class="modal modal--wide">
+  <div class="modal__content" role="dialog">
+    <a href="#modal-close" title="Schließen" class="modal__close">
+      <i class="fa fa-times" aria-hidden="true"></i>
+      <span class="sr-only">Schließen</span>
+    </a>
+    <div class="modal__body">
+      <h3 class="modal__title">
+        <a href="https://pip.pypa.io/en/stable/cli/pip_install/#hash-checking-mode" title="Externer Link" target="_blank" rel="noopener">Hash-Codes</a> für yfinance-0.2.9-py2.py3-none-any.whl
+      </h3>
+      <table class="table table--hashes">
+        <caption class="sr-only">Hash-Codes für yfinance-0.2.9-py2.py3-none-any.whl</caption>
+        <thead>
+          <tr>
+            <th scope="col">Algorithmus</th>
+            <th scope="col">Hashwert</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">SHA256</th>
+            <td><code>604013bad5680a2be2d91634d36cd638bc0202b83c5a5cb81ae655f3dcb84751</code></td>
+            <td class="table__align-right">
+              <button type="button" class="button button--small copy-tooltip copy-tooltip-w" data-tooltip-label="In die Zwischenablage kopieren" data-clipboard-text="604013bad5680a2be2d91634d36cd638bc0202b83c5a5cb81ae655f3dcb84751">
+                Kopieren
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">MD5</th>
+            <td><code>dd5aa4b952c9fc9a06d3f4f08a6d8001</code></td>
+            <td class="table__align-right">
+              <button type="button" class="button button--small copy-tooltip copy-tooltip-w" data-tooltip-label="In die Zwischenablage kopieren" data-clipboard-text="dd5aa4b952c9fc9a06d3f4f08a6d8001">
+                Kopieren
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">BLAKE2b-256</th>
+            <td><code>6144cd2c60f34b8b8106c825422b69704ca1e453db990ac46a34e0dc949489c7</code></td>
+            <td class="table__align-right">
+              <button type="button" class="button button--small copy-tooltip copy-tooltip-w" data-tooltip-label="In die Zwischenablage kopieren" data-clipboard-text="6144cd2c60f34b8b8106c825422b69704ca1e453db990ac46a34e0dc949489c7">
+                Kopieren
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="modal__footer">
+      <a href="#modal-close" class="button button--primary modal__action">Schließen</a>
+    </div>
+  </div>
+</div>
+          
+
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+    </main>
+
+    <footer class="footer">
+      <div class="footer__logo">
+        <img src="/static/images/white-cube.2351a86c.svg" alt="" class="-js-white-cube">
+      </div>
+
+      <div class="footer__menus">
+        <div class="footer__menu">
+          <h2>Hilfe</h2>
+          <nav aria-label="Hilfe-Navigation">
+            <ul>
+              <li><a href="https://packaging.python.org/installing/" title="Externer Link" target="_blank" rel="noopener">Installieren von Paketen</a></li>
+              <li><a href="https://packaging.python.org/tutorials/packaging-projects/" title="Externer Link" target="_blank" rel="noopener">Hochladen von Paketen</a></li>
+              <li><a href="https://packaging.python.org/" title="Externer Link" target="_blank" rel="noopener">Bedienungsanleitung</a></li>
+              <li><a href="https://www.python.org/dev/peps/pep-0541/" title="Externer Link" target="_blank" rel="noopener">Project name retention</a></li>
+              <li><a href="/help/">Häufige Fragen</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="footer__menu">
+          <h2>Über PyPI</h2>
+          <nav aria-label="Navigation in "Über PyPI"">
+            <ul>
+              <li><a href="https://twitter.com/PyPI" title="Externer Link" target="_blank" rel="noopener">PyPI bei Twitter</a></li>
+              <li><a href="https://dtdg.co/pypi" title="Externer Link" target="_blank" rel="noopener">Infrastruktur Übersicht</a></li>
+              <li><a href="/stats/">Statistiken</a></li>
+              <li><a href="/trademarks/">Logos & trademarks</a></li>
+              <li><a href="/sponsors/">Unsere Sponsoren</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="footer__menu">
+          <h2>Mitwirken bei PyPI</h2>
+          <nav aria-label="Navigation im Bereich "Mitwirken bei PyPI"">
+            <ul>
+              <li><a href="/help/#feedback">Fehler und Rückmeldungen</a></li>
+              <li><a href="https://github.com/pypi/warehouse" title="Externer Link" target="_blank" rel="noopener">Mitwirken auf GitHub</a></li>
+              <li><a href="https://hosted.weblate.org/projects/pypa/warehouse/" title="Externer Link" target="_blank" rel="noopener">PyPI übersetzen</a></li>
+              <li><a href="/sponsors/">Sponsor PyPI</a></li>
+              <li><a href="https://github.com/pypi/warehouse/graphs/contributors" title="Externer Link" target="_blank" rel="noopener">Entwicklungs-Anerkennungen</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="footer__menu">
+          <h2>PyPI verwenden</h2>
+          <nav aria-label="Navigation in "PyPI verwenden"">
+            <ul>
+              <li><a href="https://github.com/pypa/.github/blob/main/CODE_OF_CONDUCT.md" title="Externer Link" target="_blank" rel="noopener">Verhaltensrichtlinien</a></li>
+              <li><a href="/security/">Sicherheitsproblem melden</a></li>
+              <li><a href="https://www.python.org/privacy/" title="Externer Link" target="_blank" rel="noopener">Datenschutz</a></li>
+              <li><a href="/policy/terms-of-use/">Nutzungsbedingungen</a></li>
+              <li><a href="/policy/acceptable-use-policy/">Acceptable Use Policy</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <hr class="footer__divider">
+
+      <div class="footer__text">
+        
+        <p>Status:<a href="https://status.python.org/" title="Externer Link" target="_blank" rel="noopener">
+          <span data-statuspage-domain="https://2p66nmmycsj3.statuspage.io">alle Systeme betriebsbereit</span></a>
+        </p>
+        
+        <p>
+          Entwickelt und gepflegt von der Python-Community, für die Python-Community.
+          <br>
+          <a href="https://donate.pypi.org">Spenden Sie noch heute!</a>
+        </p>
+        <p>
+          
+"PyPI", "Python Package Index", and the blocks logos are registered <a href="/trademarks/">trademarks</a> of the <a href="https://python.org/psf-landing" target="_blank" rel="noopener">Python Software Foundation</a>.
+<br>
+        </p>
+        <p>
+          © 2023 <a href="https://www.python.org/psf-landing/" title="Externer Link" target="_blank" rel="noopener">Python Software Foundation</a><br>
+          <a href="/sitemap/">Sitemap</a>
+        </p>
+      </div>
+
+      <div class="centered hide-on-desktop">
+        <button type="button" class="button button--switch-to-desktop hidden" data-viewport-toggle-target="switchToDesktop" data-action="viewport-toggle#switchToDesktop">
+          Zur Desktop-Version wechseln
+        </button>
+      </div>
+    </footer>
+
+
+    <div class="language-switcher">
+      <form action="/locale/">
+        <ul>
+          
+          <li>
+            <button
+              
+              name="locale_id" value="en" type="submit"
+            >
+              English
+            </button>
+          </li>
+          
+          <li>
+            <button
+              
+              name="locale_id" value="es" type="submit"
+            >
+              español
+            </button>
+          </li>
+          
+          <li>
+            <button
+              
+              name="locale_id" value="fr" type="submit"
+            >
+              français
+            </button>
+          </li>
+          
+          <li>
+            <button
+              
+              name="locale_id" value="ja" type="submit"
+            >
+              日本語
+            </button>
+          </li>
+          
+          <li>
+            <button
+              
+              name="locale_id" value="pt_BR" type="submit"
+            >
+              português (Brasil)
+            </button>
+          </li>
+          
+          <li>
+            <button
+              
+              name="locale_id" value="uk" type="submit"
+            >
+              українська
+            </button>
+          </li>
+          
+          <li>
+            <button
+              
+              name="locale_id" value="el" type="submit"
+            >
+              Ελληνικά
+            </button>
+          </li>
+          
+          <li>
+            <button
+              
+              class="language-switcher__selected"
+              
+              name="locale_id" value="de" type="submit"
+            >
+              Deutsch
+            </button>
+          </li>
+          
+          <li>
+            <button
+              
+              name="locale_id" value="zh_Hans" type="submit"
+            >
+              中文 (简体)
+            </button>
+          </li>
+          
+          <li>
+            <button
+              
+              name="locale_id" value="zh_Hant" type="submit"
+            >
+              中文 (繁體)
+            </button>
+          </li>
+          
+          <li>
+            <button
+              
+              name="locale_id" value="ru" type="submit"
+            >
+              русский
+            </button>
+          </li>
+          
+          <li>
+            <button
+              
+              name="locale_id" value="he" type="submit"
+            >
+              עברית
+            </button>
+          </li>
+          
+          <li>
+            <button
+              
+              name="locale_id" value="eo" type="submit"
+            >
+              esperanto
+            </button>
+          </li>
+          
+        </ul>
+      </form>
+    </div>
+
+
+    <div class="sponsors">
+  <p class="sponsors__title">Supported by</p>
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+      
+      
+        <a class="sponsors__sponsor" target="_blank" rel="noopener" href="https://aws.amazon.com/">
+          <img class=sponsors__image src="https://warehouse-camo.ingress.cmh1.psfhosted.org/ed7074cadad1a06f56bc520ad9bd3e00d0704c5b/68747470733a2f2f73746f726167652e676f6f676c65617069732e636f6d2f707970692d6173736574732f73706f6e736f726c6f676f732f6177732d77686974652d6c6f676f2d7443615473387a432e706e67" alt=AWS loading=lazy>
+          <span class="sponsors__name">AWS</span>
+          <span class="sponsors__service">
+          
+          
+            Cloud computing
+          
+          </span>
+        </a>
+      
+    
+  
+    
+    
+  
+    
+    
+      
+      
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+      
+      
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+      
+      
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+      
+      
+        <a class="sponsors__sponsor" target="_blank" rel="noopener" href="https://www.datadoghq.com/">
+          <img class=sponsors__image src="https://warehouse-camo.ingress.cmh1.psfhosted.org/8855f7c063a3bdb5b0ce8d91bfc50cf851cc5c51/68747470733a2f2f73746f726167652e676f6f676c65617069732e636f6d2f707970692d6173736574732f73706f6e736f726c6f676f732f64617461646f672d77686974652d6c6f676f2d6668644c4e666c6f2e706e67" alt=Datadog loading=lazy>
+          <span class="sponsors__name">Datadog</span>
+          <span class="sponsors__service">
+          
+          
+            Monitoring
+          
+          </span>
+        </a>
+      
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+      
+      
+    
+  
+    
+    
+      
+      
+        <a class="sponsors__sponsor" target="_blank" rel="noopener" href="https://research.fb.com/">
+          <img class=sponsors__image src="https://warehouse-camo.ingress.cmh1.psfhosted.org/e338a8302eed851d9793e0a4a92f57b315eb5998/68747470733a2f2f73746f726167652e676f6f676c65617069732e636f6d2f707970692d6173736574732f73706f6e736f726c6f676f732f66616365626f6f6b2d696e7374616772616d2d77686974652d6c6f676f2d6750686a57647a722e706e67" alt="Facebook / Instagram" loading=lazy>
+          <span class="sponsors__name">Facebook / Instagram</span>
+          <span class="sponsors__service">
+          
+          
+            PSF Sponsor
+          
+          </span>
+        </a>
+      
+    
+  
+    
+    
+  
+    
+    
+      
+      
+        <a class="sponsors__sponsor" target="_blank" rel="noopener" href="https://www.fastly.com/">
+          <img class=sponsors__image src="https://warehouse-camo.ingress.cmh1.psfhosted.org/df6fe8829cbff2d7f668d98571df1fd011f36192/68747470733a2f2f73746f726167652e676f6f676c65617069732e636f6d2f707970692d6173736574732f73706f6e736f726c6f676f732f666173746c792d77686974652d6c6f676f2d65684d3077735f6f2e706e67" alt=Fastly loading=lazy>
+          <span class="sponsors__name">Fastly</span>
+          <span class="sponsors__service">
+          
+          
+            CDN
+          
+          </span>
+        </a>
+      
+    
+  
+    
+    
+  
+    
+    
+      
+      
+        <a class="sponsors__sponsor" target="_blank" rel="noopener" href="https://careers.google.com/">
+          <img class=sponsors__image src="https://warehouse-camo.ingress.cmh1.psfhosted.org/420cc8cf360bac879e24c923b2f50ba7d1314fb0/68747470733a2f2f73746f726167652e676f6f676c65617069732e636f6d2f707970692d6173736574732f73706f6e736f726c6f676f732f676f6f676c652d77686974652d6c6f676f2d616734424e3774332e706e67" alt=Google loading=lazy>
+          <span class="sponsors__name">Google</span>
+          <span class="sponsors__service">
+          
+          
+            Object Storage and Download Analytics
+          
+          </span>
+        </a>
+      
+    
+  
+    
+    
+  
+    
+    
+      
+      
+        <a class="sponsors__sponsor" target="_blank" rel="noopener" href="https://www.python.org/psf/sponsors/#huawei">
+          <img class=sponsors__image src="https://warehouse-camo.ingress.cmh1.psfhosted.org/656ae2011c837dba1e2de4c8f85815eed86c0878/68747470733a2f2f73746f726167652e676f6f676c65617069732e636f6d2f707970692d6173736574732f73706f6e736f726c6f676f732f6875617765692d77686974652d6c6f676f2d416a465f553652312e706e67" alt=Huawei loading=lazy>
+          <span class="sponsors__name">Huawei</span>
+          <span class="sponsors__service">
+          
+          
+            PSF Sponsor
+          
+          </span>
+        </a>
+      
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+      
+      
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+      
+      
+        <a class="sponsors__sponsor" target="_blank" rel="noopener" href="https://www.python.org/psf/sponsors/#microsoft">
+          <img class=sponsors__image src="https://warehouse-camo.ingress.cmh1.psfhosted.org/524d1ce72f7772294ca4c1fe05d21dec8fa3f8ea/68747470733a2f2f73746f726167652e676f6f676c65617069732e636f6d2f707970692d6173736574732f73706f6e736f726c6f676f732f6d6963726f736f66742d77686974652d6c6f676f2d5a443172685444462e706e67" alt=Microsoft loading=lazy>
+          <span class="sponsors__name">Microsoft</span>
+          <span class="sponsors__service">
+          
+          
+            PSF Sponsor
+          
+          </span>
+        </a>
+      
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+      
+      
+        <a class="sponsors__sponsor" target="_blank" rel="noopener" href="https://www.python.org/psf/sponsors/#nvidia">
+          <img class=sponsors__image src="https://warehouse-camo.ingress.cmh1.psfhosted.org/19eae9e26a9a9ffacc134095642b1392737c58fb/68747470733a2f2f73746f726167652e676f6f676c65617069732e636f6d2f707970692d6173736574732f73706f6e736f726c6f676f732f6e76696469612d77686974652d6c6f676f2d46394c393761474c2e706e67" alt=NVIDIA loading=lazy>
+          <span class="sponsors__name">NVIDIA</span>
+          <span class="sponsors__service">
+          
+          
+            PSF Sponsor
+          
+          </span>
+        </a>
+      
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+      
+      
+        <a class="sponsors__sponsor" target="_blank" rel="noopener" href="https://www.pingdom.com/">
+          <img class=sponsors__image src="https://warehouse-camo.ingress.cmh1.psfhosted.org/d01053c02f3a626b73ffcb06b96367fdbbf9e230/68747470733a2f2f73746f726167652e676f6f676c65617069732e636f6d2f707970692d6173736574732f73706f6e736f726c6f676f732f70696e67646f6d2d77686974652d6c6f676f2d67355831547546362e706e67" alt=Pingdom loading=lazy>
+          <span class="sponsors__name">Pingdom</span>
+          <span class="sponsors__service">
+          
+          
+            Monitoring
+          
+          </span>
+        </a>
+      
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+      
+      
+        <a class="sponsors__sponsor" target="_blank" rel="noopener" href="https://www.python.org/psf/sponsors/#salesforce">
+          <img class=sponsors__image src="https://warehouse-camo.ingress.cmh1.psfhosted.org/932f54a6c688f0bbc0e2f4e7b7dc5c067eed6c55/68747470733a2f2f73746f726167652e676f6f676c65617069732e636f6d2f707970692d6173736574732f73706f6e736f726c6f676f732f73616c6573666f7263652d77686974652d6c6f676f2d4539677a3053782d2e706e67" alt=Salesforce loading=lazy>
+          <span class="sponsors__name">Salesforce</span>
+          <span class="sponsors__service">
+          
+          
+            PSF Sponsor
+          
+          </span>
+        </a>
+      
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+      
+      
+        <a class="sponsors__sponsor" target="_blank" rel="noopener" href="https://getsentry.com/for/python">
+          <img class=sponsors__image src="https://warehouse-camo.ingress.cmh1.psfhosted.org/b1dc2c04aa1a8efbacd6dc6254bb63429af47b41/68747470733a2f2f73746f726167652e676f6f676c65617069732e636f6d2f707970692d6173736574732f73706f6e736f726c6f676f732f73656e7472792d77686974652d6c6f676f2d31556836754c32452e706e67" alt=Sentry loading=lazy>
+          <span class="sponsors__name">Sentry</span>
+          <span class="sponsors__service">
+          
+          
+            Error logging
+          
+          </span>
+        </a>
+      
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+      
+      
+        <a class="sponsors__sponsor" target="_blank" rel="noopener" href="https://statuspage.io">
+          <img class=sponsors__image src="https://warehouse-camo.ingress.cmh1.psfhosted.org/b611884ff90435a0575dbab7d9b0d3e60f136466/68747470733a2f2f73746f726167652e676f6f676c65617069732e636f6d2f707970692d6173736574732f73706f6e736f726c6f676f732f737461747573706167652d77686974652d6c6f676f2d5467476c6a4a2d502e706e67" alt=StatusPage loading=lazy>
+          <span class="sponsors__name">StatusPage</span>
+          <span class="sponsors__service">
+          
+          
+            Status page
+          
+          </span>
+        </a>
+      
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+</div>
+
+    
+  </body>
+
+</html>

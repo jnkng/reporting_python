@@ -1,0 +1,71 @@
+Traceback (most recent call last):
+  File "/Users/uni/Desktop/Lehre/python_class/venv.nosync/lib/python3.8/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/Users/uni/Desktop/Lehre/python_class/venv.nosync/lib/python3.8/site-packages/nbclient/client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/Users/uni/Desktop/Lehre/python_class/venv.nosync/lib/python3.8/site-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/Users/uni/Desktop/Lehre/python_class/venv.nosync/lib/python3.8/site-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/asyncio/base_events.py", line 616, in run_until_complete
+    return future.result()
+  File "/Users/uni/Desktop/Lehre/python_class/venv.nosync/lib/python3.8/site-packages/nbclient/client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "/Users/uni/Desktop/Lehre/python_class/venv.nosync/lib/python3.8/site-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/uni/Desktop/Lehre/python_class/venv.nosync/lib/python3.8/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+proc = CrawlerProcess()
+proc.crawl(followSpider)
+proc.start()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mReactorAlreadyInstalledError[0m              Traceback (most recent call last)
+Input [0;32mIn [32][0m, in [0;36m<cell line: 2>[0;34m()[0m
+[1;32m      1[0m proc [38;5;241m=[39m CrawlerProcess()
+[0;32m----> 2[0m [43mproc[49m[38;5;241;43m.[39;49m[43mcrawl[49m[43m([49m[43mfollowSpider[49m[43m)[49m
+[1;32m      3[0m proc[38;5;241m.[39mstart()
+
+File [0;32m~/Desktop/Lehre/python_class/venv.nosync/lib/python3.8/site-packages/scrapy/crawler.py:205[0m, in [0;36mCrawlerRunner.crawl[0;34m(self, crawler_or_spidercls, *args, **kwargs)[0m
+[1;32m    201[0m [38;5;28;01mif[39;00m [38;5;28misinstance[39m(crawler_or_spidercls, Spider):
+[1;32m    202[0m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m(
+[1;32m    203[0m         [38;5;124m'[39m[38;5;124mThe crawler_or_spidercls argument cannot be a spider object, [39m[38;5;124m'[39m
+[1;32m    204[0m         [38;5;124m'[39m[38;5;124mit must be a spider class (or a Crawler object)[39m[38;5;124m'[39m)
+[0;32m--> 205[0m crawler [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mcreate_crawler[49m[43m([49m[43mcrawler_or_spidercls[49m[43m)[49m
+[1;32m    206[0m [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39m_crawl(crawler, [38;5;241m*[39margs, [38;5;241m*[39m[38;5;241m*[39mkwargs)
+
+File [0;32m~/Desktop/Lehre/python_class/venv.nosync/lib/python3.8/site-packages/scrapy/crawler.py:238[0m, in [0;36mCrawlerRunner.create_crawler[0;34m(self, crawler_or_spidercls)[0m
+[1;32m    236[0m [38;5;28;01mif[39;00m [38;5;28misinstance[39m(crawler_or_spidercls, Crawler):
+[1;32m    237[0m     [38;5;28;01mreturn[39;00m crawler_or_spidercls
+[0;32m--> 238[0m [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_create_crawler[49m[43m([49m[43mcrawler_or_spidercls[49m[43m)[49m
+
+File [0;32m~/Desktop/Lehre/python_class/venv.nosync/lib/python3.8/site-packages/scrapy/crawler.py:313[0m, in [0;36mCrawlerProcess._create_crawler[0;34m(self, spidercls)[0m
+[1;32m    311[0m [38;5;28;01mif[39;00m [38;5;28misinstance[39m(spidercls, [38;5;28mstr[39m):
+[1;32m    312[0m     spidercls [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mspider_loader[38;5;241m.[39mload(spidercls)
+[0;32m--> 313[0m [38;5;28;01mreturn[39;00m [43mCrawler[49m[43m([49m[43mspidercls[49m[43m,[49m[43m [49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43msettings[49m[43m,[49m[43m [49m[43minit_reactor[49m[38;5;241;43m=[39;49m[38;5;28;43;01mTrue[39;49;00m[43m)[49m
+
+File [0;32m~/Desktop/Lehre/python_class/venv.nosync/lib/python3.8/site-packages/scrapy/crawler.py:82[0m, in [0;36mCrawler.__init__[0;34m(self, spidercls, settings, init_reactor)[0m
+[1;32m     80[0m     [38;5;28;01melse[39;00m:
+[1;32m     81[0m         [38;5;28;01mfrom[39;00m [38;5;21;01mtwisted[39;00m[38;5;21;01m.[39;00m[38;5;21;01minternet[39;00m [38;5;28;01mimport[39;00m default
+[0;32m---> 82[0m         [43mdefault[49m[38;5;241;43m.[39;49m[43minstall[49m[43m([49m[43m)[49m
+[1;32m     83[0m     log_reactor_info()
+[1;32m     84[0m [38;5;28;01mif[39;00m reactor_class:
+
+File [0;32m~/Desktop/Lehre/python_class/venv.nosync/lib/python3.8/site-packages/twisted/internet/selectreactor.py:194[0m, in [0;36minstall[0;34m()[0m
+[1;32m    191[0m reactor [38;5;241m=[39m SelectReactor()
+[1;32m    192[0m [38;5;28;01mfrom[39;00m [38;5;21;01mtwisted[39;00m[38;5;21;01m.[39;00m[38;5;21;01minternet[39;00m[38;5;21;01m.[39;00m[38;5;21;01mmain[39;00m [38;5;28;01mimport[39;00m installReactor
+[0;32m--> 194[0m [43minstallReactor[49m[43m([49m[43mreactor[49m[43m)[49m
+
+File [0;32m~/Desktop/Lehre/python_class/venv.nosync/lib/python3.8/site-packages/twisted/internet/main.py:32[0m, in [0;36minstallReactor[0;34m(reactor)[0m
+[1;32m     29[0m [38;5;28;01mimport[39;00m [38;5;21;01mtwisted[39;00m[38;5;21;01m.[39;00m[38;5;21;01minternet[39;00m
+[1;32m     31[0m [38;5;28;01mif[39;00m [38;5;124m"[39m[38;5;124mtwisted.internet.reactor[39m[38;5;124m"[39m [38;5;129;01min[39;00m sys[38;5;241m.[39mmodules:
+[0;32m---> 32[0m     [38;5;28;01mraise[39;00m error[38;5;241m.[39mReactorAlreadyInstalledError([38;5;124m"[39m[38;5;124mreactor already installed[39m[38;5;124m"[39m)
+[1;32m     33[0m twisted[38;5;241m.[39minternet[38;5;241m.[39mreactor [38;5;241m=[39m reactor
+[1;32m     34[0m sys[38;5;241m.[39mmodules[[38;5;124m"[39m[38;5;124mtwisted.internet.reactor[39m[38;5;124m"[39m] [38;5;241m=[39m reactor
+
+[0;31mReactorAlreadyInstalledError[0m: reactor already installed
+ReactorAlreadyInstalledError: reactor already installed
+

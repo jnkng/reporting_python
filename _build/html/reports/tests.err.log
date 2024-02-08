@@ -1,0 +1,47 @@
+Traceback (most recent call last):
+  File "/Users/uni/Desktop/Lehre/python_class/venv.nosync/lib/python3.11/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/Users/uni/Desktop/Lehre/python_class/venv.nosync/lib/python3.11/site-packages/nbclient/client.py", line 1263, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/uni/Desktop/Lehre/python_class/venv.nosync/lib/python3.11/site-packages/nbclient/util.py", line 85, in wrapped
+    return just_run(coro(*args, **kwargs))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/uni/Desktop/Lehre/python_class/venv.nosync/lib/python3.11/site-packages/nbclient/util.py", line 60, in just_run
+    return loop.run_until_complete(coro)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.11/3.11.0/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/base_events.py", line 650, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.11/3.11.0/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 222, in __aexit__
+    await self.gen.athrow(typ, value, traceback)
+  File "/Users/uni/Desktop/Lehre/python_class/venv.nosync/lib/python3.11/site-packages/nbclient/client.py", line 646, in async_setup_kernel
+    yield
+  File "/Users/uni/Desktop/Lehre/python_class/venv.nosync/lib/python3.11/site-packages/nbclient/client.py", line 701, in async_execute
+    await self.async_execute_cell(
+  File "/Users/uni/Desktop/Lehre/python_class/venv.nosync/lib/python3.11/site-packages/nbclient/client.py", line 1019, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/uni/Desktop/Lehre/python_class/venv.nosync/lib/python3.11/site-packages/nbclient/client.py", line 913, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+dash.callback_context.triggered
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mMissingCallbackContextException[0m           Traceback (most recent call last)
+Cell [0;32mIn [5], line 1[0m
+[0;32m----> 1[0m [43mdash[49m[38;5;241;43m.[39;49m[43mcallback_context[49m[38;5;241;43m.[39;49m[43mtriggered[49m
+
+File [0;32m~/Desktop/Lehre/python_class/venv.nosync/lib/python3.11/site-packages/dash/_callback_context.py:20[0m, in [0;36mhas_context.<locals>.assert_context[0;34m(*args, **kwargs)[0m
+[1;32m     17[0m [38;5;129m@functools[39m[38;5;241m.[39mwraps(func)
+[1;32m     18[0m [38;5;28;01mdef[39;00m [38;5;21massert_context[39m([38;5;241m*[39margs, [38;5;241m*[39m[38;5;241m*[39mkwargs):
+[1;32m     19[0m     [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m context_value[38;5;241m.[39mget():
+[0;32m---> 20[0m         [38;5;28;01mraise[39;00m exceptions[38;5;241m.[39mMissingCallbackContextException(
+[1;32m     21[0m             [38;5;124mf[39m[38;5;124m"[39m[38;5;124mdash.callback_context.[39m[38;5;132;01m{[39;00m[38;5;28mgetattr[39m(func, [38;5;124m'[39m[38;5;124m__name__[39m[38;5;124m'[39m)[38;5;132;01m}[39;00m[38;5;124m is only available from a callback![39m[38;5;124m"[39m
+[1;32m     22[0m         )
+[1;32m     23[0m     [38;5;28;01mreturn[39;00m func([38;5;241m*[39margs, [38;5;241m*[39m[38;5;241m*[39mkwargs)
+
+[0;31mMissingCallbackContextException[0m: dash.callback_context.triggered is only available from a callback!
+MissingCallbackContextException: dash.callback_context.triggered is only available from a callback!
+

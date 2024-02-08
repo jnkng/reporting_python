@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <title data-original="39905 Vorlesung: Data Analysis und Digital Reporting mit Python - Kurzinfo">
+        39905 Vorlesung: Data Analysis und Digital Reporting mit Python - Kurzinfo - Universität Passau    </title>
+    <script>
+        CKEDITOR_BASEPATH = "https://studip.uni-passau.de/studip/assets/javascripts/ckeditor/";
+        String.locale = "de-DE";
+    </script>
+    
+    <script>
+    document.querySelector('html').className = 'js';
+    window.STUDIP = {
+        ABSOLUTE_URI_STUDIP: "https://studip.uni-passau.de/studip/",
+        ASSETS_URL: "https://studip.uni-passau.de/studip/assets/",
+        CSRF_TOKEN: {
+            name: 'security_token',
+            value: 'eYDgNMMiR3nqXRMpmJGVbDGgv5z5IpVzqd7prpg4569I42B+ZFhQgno='
+        },
+        STUDIP_SHORT_NAME: "Stud.IP",
+        URLHelper: {
+            base_url: "https://studip.uni-passau.de/studip/",
+            parameters: {"cid":"643a11036cf5630b3f71daad1e5957d0","show_expired":null}        },
+        jsupdate_enable: true,
+        wysiwyg_enabled: true,
+        server_timestamp: 1675699293    }
+    </script>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://studip.uni-passau.de/studip/assets/images/apple-touch-icon.png">
+<link rel="icon" type="image/svg+xml" href="https://studip.uni-passau.de/studip/assets/images/favicon.svg">
+<link rel="icon" type="image/png" sizes="64x64" href="https://studip.uni-passau.de/studip/assets/images/favicon-64x64.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://studip.uni-passau.de/studip/assets/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://studip.uni-passau.de/studip/assets/images/favicon-16x16.png">
+<link rel="manifest" href="https://studip.uni-passau.de/studip/assets/images/manifest.json">
+<link rel="mask-icon" href="https://studip.uni-passau.de/studip/assets/images/safari-pinned-tab.svg">
+<link rel="preload" href="https://studip.uni-passau.de/studip/assets/fonts/LatoLatin/LatoLatin-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://studip.uni-passau.de/studip/assets/fonts/LatoLatin/LatoLatin-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<meta name="TileColor" content="#2b5797">
+<meta name="TileImage" content="https://studip.uni-passau.de/studip/assets/images/mstile-144x144.png">
+<meta name="msapplication-config" content="https://studip.uni-passau.de/studip/assets/images/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="help" href="https://hilfe.studip.de/help/4.5/de/Basis.VerschiedenesFormat" class="text-format" title="Hilfe zur Textformatierung">
+<link media="screen" rel="stylesheet" href="https://studip.uni-passau.de/studip/assets/stylesheets/studip-base.css?v=4.5.2.3">
+<script src="https://studip.uni-passau.de/studip/assets/javascripts/studip-base.js?v=4.5.2.3">
+</script>
+<link media="print" rel="stylesheet" href="https://studip.uni-passau.de/studip/assets/stylesheets/print.css?v=4.5.2.3">
+<link rel="stylesheet" href="https://studip.uni-passau.de/studip/assets/stylesheets/studip-wysiwyg.css?v=4.5.2.3">
+<script src="https://studip.uni-passau.de/studip/assets/javascripts/studip-wysiwyg.js?v=4.5.2.3">
+</script>
+<link rel="stylesheet" href="https://studip.uni-passau.de/studip/plugins_packages/intelec/PassauOpticsPlugin/assets/stylesheets/passau.css">
+
+    <script>
+    window.STUDIP.editor_enabled = true && CKEDITOR.env.isCompatible;
+    </script>
+</head>
+
+<body id="course-overview-index" >
+<div id="layout_wrapper">
+            <div id="studip-logo"><img alt="Studip-logo" src="https://studip.uni-passau.de/studip/assets/images/logos/studip-logo.svg"></div><div id="upa-logo"><a href="http://www.uni-passau.de/" target="_blank" title="Zur Homepage der Universität Passau"><img src="https://studip.uni-passau.de/studip/plugins_packages/intelec/PassauOpticsPlugin/assets/images/logo_unipassau.svg" alt="Logo der Universität Passau" title="Logo der Universität Passau"/></a></div>
+    
+<!-- Leiste unten -->
+<div id="barBottomContainer">
+    <div id="barBottomLeft">
+        <input type="checkbox" id="barTopMenu-toggle">
+        <label for="barTopMenu-toggle">
+            Menü        </label>
+            </div>
+    <div id="barTopFont">
+        Universität Passau    </div>
+
+    <!-- Dynamische Links ohne Icons -->
+    <div id="barBottomright">
+        <ul>
+
+                            
+                                    <li id="quicksearch_item">
+                    <script>
+                        var selectSem = function (seminar_id, name) {
+                            document.location = "https://studip.uni-passau.de/studip/dispatch.php/course/details/?cid=643a11036cf5630b3f71daad1e5957d0&send_from_search=1&send_from_search_page=https%3A%2F%2Fstudip.uni-passau.de%2Fstudip%2Fdispatch.php%2Fsearch%2Fcourses%3Fcid%3D643a11036cf5630b3f71daad1e5957d0%26keep_result_set%3D1&sem_id=" + seminar_id;
+                        };
+                    </script>
+                    <div id="globalsearch-searchbar">
+    <input class="hidden-small-down" type="text" name="globalsearchterm" id="globalsearch-input"
+           placeholder="Was suchen Sie?">
+    <img id="globalsearch-clear" class="hidden-small-down icon-role-inactive icon-shape-decline" width="16" height="16" src="https://studip.uni-passau.de/studip/assets/images/icons/grey/decline.svg" alt="decline">    <input type="image" id="globalsearch-icon" width="16" height="16" src="https://studip.uni-passau.de/studip/assets/images/icons/white/search.svg" alt="search" class="icon-role-info_alt icon-shape-search">    <div id="globalsearch-list">
+        <a href="#" id="globalsearch-togglehints" data-toggle-text="Tipps ausblenden">
+            Tipps einblenden        </a>
+        <article id="globalsearch-hints">
+    <section>
+        <header>
+            Hinweis:        </header>
+        <p>
+            Die Schnellsuche findet nur Ergebnisse im aktuellen Semester.        </p>
+    </section>
+    <section>
+        <header>
+            [STRG] + [Leertaste]        </header>
+        <p>
+            Tastenkombination zum Öffnen und Schließen        </p>
+    </section>
+    <section>
+        <header>
+            Platzhalter        </header>
+        <p>
+            "_" ist Platzhalter für ein beliebiges Zeichen.            <br>
+            "%" ist Platzhalter für beliebig viele Zeichen.            <br>
+            "Me_er" findet Treffer für "Meyer" und "Meier". "M__er" findet zusätzlich auch "Mayer" und "Maier". "M%er" findet alle vorherigen Treffer, aber auch "Müller".        </p>
+    </section>
+    <section>
+        <header>
+            Klick auf Überschrift        </header>
+        <p>
+            Erweitert die ausgewählte Suchkategorie, um mehr Suchergebnisse aus dieser Kategorie anzuzeigen.  Ein weiterer Klick zeigt wieder Ergebnisse aus allen Kategorien an.        </p>
+    </section>
+    <section>
+        <header>
+            Dateisuche        </header>
+        <p>
+            Die Dateisuche kann über einen Schrägstrich (/) verfeinert werden. Beispiel: "Meine Veranstaltung/Datei" zeigt alle Dateien, die das Wort "Datei" enthalten und in "Meine Veranstaltung" sind, an. Die Veranstaltung kann auch auf einen Teil (z.B. "Veran/Datei") oder auf die Großbuchstaben bzw. auch deren Abkürzung (z.B. "MV/Datei" oder "V/Datei") beschränkt werden.        </p>
+    </section>
+</article>
+        <div id="globalsearch-searching">
+            Suche...        </div>
+        <div id="globalsearch-results" data-more-results="alle anzeigen"
+             data-no-result="Keine Ergebnisse gefunden."
+             data-current-semester="1664575200"
+             data-results-per-type="3"
+        ></div>
+    </div>
+</div>
+                </li>
+                    
+                    
+            <!-- User-Avatar -->
+            <li class="header_avatar_container " id="barTopAvatar">
+
+                                                            <div id="notification_container">
+                                        <div id="notification_marker" title="Benachrichtigungen" data-lastvisit="1675326869">
+                        0                    </div>
+                    <div class="list below" id="notification_list">
+                        <a class="mark-all-as-read notification_hidden" href="https://studip.uni-passau.de/studip/dispatch.php/jsupdater/mark_notification_read/all?cid=643a11036cf5630b3f71daad1e5957d0&amp;return_to=%2Fstudip%2Fdispatch.php%2Fcourse%2Foverview%3Fcid%3D643a11036cf5630b3f71daad1e5957d0">
+                            Alle Benachrichtigungen als gelesen markieren                        </a>
+                        <a class="enable-desktop-notifications" href="#" style="display: none;">
+                            Desktop-Benachrichtigungen aktivieren                        </a>
+                        <ul>
+                                                </ul>
+                    </div>
+                                    <audio id="audio_notification" preload="none">
+                        <source src="https://studip.uni-passau.de/studip/assets/sounds/blubb.ogg" type="audio/ogg">
+                        <source src="https://studip.uni-passau.de/studip/assets/sounds/blubb.mp3" type="audio/mpeg">
+                    </audio>
+                                </div>
+            
+                            <div id="header_avatar_menu">
+                                <nav class="action-menu avatar-menu" data-action-menu-reposition="false">
+    <a class="action-menu-icon" title="Jan König"
+       aria-expanded="false" aria-label="Profilmenü" href="#">
+        <img src="https://studip.uni-passau.de/studip/pictures/user/c32f8e50ff291867cc20cb40cbbd8bfe_medium.png?d=1658838467" class="avatar-medium user-koeni106" title="Jan König" alt="Jan König">    </a>
+    <div class="action-menu-content">
+    	        <div class="action-menu-title">
+            Jan König        </div>
+                <ul class="action-menu-list">
+                    <li class="action-menu-item">
+                            <a href="https://studip.uni-passau.de/studip/dispatch.php/profile/index" >
+
+                                                            <img width="16" height="16" src="https://studip.uni-passau.de/studip/assets/images/icons/blue/person.svg" alt="person" class="icon-role-clickable icon-shape-person">                                                        Profil                </a>
+                        </li>
+                    <li class="action-menu-item">
+                            <a href="https://studip.uni-passau.de/studip/dispatch.php/settings/account" >
+
+                                                            <img width="16" height="16" src="https://studip.uni-passau.de/studip/assets/images/icons/blue/key.svg" alt="key" class="icon-role-clickable icon-shape-key">                                                        Persönliche Angaben                </a>
+                        </li>
+                    <li class="action-menu-item">
+                            <a href="https://studip.uni-passau.de/studip/dispatch.php/settings/general" >
+
+                                                            <img width="16" height="16" src="https://studip.uni-passau.de/studip/assets/images/icons/blue/admin.svg" alt="admin" class="icon-role-clickable icon-shape-admin">                                                        Einstellungen                </a>
+                        </li>
+                    <li class="action-menu-item">
+                            <a href="https://studip.uni-passau.de/studip/logout.php?sso=shib" >
+
+                                                            <img width="16" height="16" src="https://studip.uni-passau.de/studip/assets/images/icons/blue/door-leave.svg" alt="door-leave" class="icon-role-clickable icon-shape-door-leave">                                                        Logout                </a>
+                        </li>
+                </ul>
+    </div>
+</nav>
+                </div>
+                        </li>
+        
+        </ul>
+    </div>
+</div>
+<!-- Ende Header -->
+
+<!-- Start Header -->
+<div id="flex-header">
+    <!--<div id='barTopLogo'>
+        <img alt="Logo Uni Göttingen" src="https://studip.uni-passau.de/studip/assets/images/logos/logoneu.jpg">    </div>
+     -->
+
+        <ul id="barTopMenu" role="navigation" >
+            
+<li id="nav_start">
+    <a href="https://studip.uni-passau.de/studip/dispatch.php/start" title="Zur Startseite">
+        <img class="headericon original icon-role-navigation icon-shape-home" width="16" height="16" src="https://studip.uni-passau.de/studip/assets/images/icons/blue/home.svg" alt="Zur Startseite">        <div class="navtitle">Start</div>
+    </a>
+</li>
+            
+<li id="nav_course" class="active">
+    <a href="https://studip.uni-passau.de/studip/dispatch.php/my_courses" title="Meine Veranstaltungen &amp; Einrichtungen">
+        <img class="headericon original icon-role-navigation icon-shape-seminar" width="16" height="16" src="https://studip.uni-passau.de/studip/assets/images/icons/blue/seminar.svg" alt="Meine Veranstaltungen &amp; Einrichtungen">        <div class="navtitle">Veranstaltungen</div>
+    </a>
+</li>
+            
+<li id="nav_messaging">
+    <a href="https://studip.uni-passau.de/studip/dispatch.php/messages/overview" title="Sie haben 180 alte empfangene Nachrichten">
+        <img class="headericon original icon-role-navigation icon-shape-mail" width="16" height="16" src="https://studip.uni-passau.de/studip/assets/images/icons/blue/mail.svg" alt="Sie haben 180 alte empfangene Nachrichten">        <div class="navtitle">Nachrichten</div>
+    </a>
+</li>
+            
+<li id="nav_community">
+    <a href="https://studip.uni-passau.de/studip/dispatch.php/blubber" title="Es sind außer Ihnen 1898 Personen online">
+        <img class="headericon original icon-role-navigation icon-shape-community" width="16" height="16" src="https://studip.uni-passau.de/studip/assets/images/icons/blue/community.svg" alt="Es sind außer Ihnen 1898 Personen online">        <div class="navtitle">Community</div>
+    </a>
+</li>
+            
+<li id="nav_profile">
+    <a href="https://studip.uni-passau.de/studip/dispatch.php/profile" >
+        <img class="headericon original icon-role-navigation icon-shape-person" width="16" height="16" src="https://studip.uni-passau.de/studip/assets/images/icons/blue/person.svg" alt="person">        <div class="navtitle">Profil</div>
+    </a>
+</li>
+            
+<li id="nav_calendar">
+    <a href="https://studip.uni-passau.de/studip/dispatch.php/calendar/schedule" title="Stundenplan">
+        <img class="headericon original icon-role-navigation icon-shape-schedule" width="16" height="16" src="https://studip.uni-passau.de/studip/assets/images/icons/blue/schedule.svg" alt="Stundenplan">        <div class="navtitle">Planer</div>
+    </a>
+</li>
+            
+<li id="nav_search">
+    <a href="https://studip.uni-passau.de/studip/dispatch.php/search/globalsearch" title="Suche">
+        <img class="headericon original icon-role-navigation icon-shape-search" width="16" height="16" src="https://studip.uni-passau.de/studip/assets/images/icons/blue/search.svg" alt="Suche">        <div class="navtitle">Suche</div>
+    </a>
+</li>
+            
+<li id="nav_tools">
+    <a href="https://studip.uni-passau.de/studip/dispatch.php/news/admin_news" title="Tools">
+        <img class="headericon original icon-role-navigation icon-shape-tools" width="16" height="16" src="https://studip.uni-passau.de/studip/assets/images/icons/blue/tools.svg" alt="Tools">        <div class="navtitle">Tools</div>
+    </a>
+</li>
+            
+<li id="nav_files_dashboard">
+    <a href="https://studip.uni-passau.de/studip/dispatch.php/files_dashboard" title="Zum Dashboard des Dateimanagements">
+        <img class="headericon original icon-role-navigation icon-shape-files" width="16" height="16" src="https://studip.uni-passau.de/studip/assets/images/icons/blue/files.svg" alt="Zum Dashboard des Dateimanagements">        <div class="navtitle">Dateien</div>
+    </a>
+</li>
+            
+<li id="nav_support">
+    <a href="https://studip.uni-passau.de/studip/plugins.php/supportplugin/faq" title="Support">
+        <img class="headericon original icon-role-navigation icon-shape-rescue" width="16" height="16" src="https://studip.uni-passau.de/studip/assets/images/icons/blue/rescue.svg" alt="Support">        <div class="navtitle">Support</div>
+    </a>
+</li>
+            
+<li id="nav_cardportal">
+    <a href="https://studip.uni-passau.de/studip/plugins.php/cardportal/show/claim" >
+        <img class="headericon original icon-role-clickable" width="16" height="16" src="https://studip.uni-passau.de/studip/plugins_packages/intelec/Cardportal/assets/images/credit.svg" alt="credit.svg">        <div class="navtitle">CampusCard</div>
+    </a>
+</li>
+            
+<li id="nav_trafficlights">
+    <a href="https://zim.uni-passau.de/ampel" title="Lesesaalbelegungen">
+        <img target="_blank" class="headericon original icon-role-navigation icon-shape-span-2third" width="16" height="16" src="https://studip.uni-passau.de/studip/assets/images/icons/blue/span-2third.svg" alt="Lesesaalbelegungen">        <div class="navtitle">Lesesaalbelegungen</div>
+    </a>
+</li>
+            
+<li id="nav_schwarzesbrettplugin">
+    <a href="https://studip.uni-passau.de/studip/plugins.php/schwarzesbrettplugin/category" alt="Schwarzes Brett">
+        <img class="headericon original icon-role-navigation icon-shape-billboard" width="16" height="16" src="https://studip.uni-passau.de/studip/assets/images/icons/blue/billboard.svg" alt="billboard">        <div class="navtitle">Schwarzes Brett</div>
+    </a>
+</li>
+            <li class="overflow">
+            <input type="checkbox" id="header-sink">
+            <label for="header-sink">
+                <a class="canvasready" href="#">
+                    <img class="headericon original icon-role-navigation icon-shape-action" title="" alt="action" width="28" height="28" src="https://studip.uni-passau.de/studip/assets/images/icons/blue/action.svg">                    <div class="navtitle">
+                        Mehr&hellip;
+                    </div>
+                </a>
+            </label>
+
+            <ul>
+                        </ul>
+        </li>
+    </ul>
+
+    <!-- Stud.IP Logo -->
+    <a class="studip-logo" id="barTopStudip" href="http://www.studip.de/" title="Stud.IP Homepage" target="_blank" rel="noopener noreferrer">
+        Stud.IP Homepage
+    </a>
+</div>
+
+        <div id="layout_page" >
+
+    
+            <nav class="secondary-navigation">
+                                                <a href="https://studip.uni-passau.de/studip/dispatch.php/my_courses/groups?cid=643a11036cf5630b3f71daad1e5957d0"
+                   data-dialog
+                   class="colorblock gruppe4"></a>
+                                        <div id="layout_context_title">
+                            <img class="context_icon icon-role-info icon-shape-seminar" width="20" height="20" src="https://studip.uni-passau.de/studip/assets/images/icons/black/seminar.svg" alt="seminar">                39905 Vorlesung: Data Analysis und Digital Reporting mit Python                        </div>
+        
+                    <div class="tabs_wrapper">
+        <ul id="tabs" role="navigation">
+                                            <li id="nav_course_main" class="current">
+                                                                                        <a href="https://studip.uni-passau.de/studip/dispatch.php/course/overview?cid=643a11036cf5630b3f71daad1e5957d0">
+                                                            <img class="tab-icon icon-role-info icon-shape-seminar" title="Übersicht" width="16" height="16" src="https://studip.uni-passau.de/studip/assets/images/icons/black/seminar.svg" alt="seminar">                                                        <span title="Übersicht" class="tab-title">Übersicht</span>
+                        </a>
+                        
+                                                
+                                                            </li>
+                                                <li id="nav_course_admin">
+                                                                                        <a href="https://studip.uni-passau.de/studip/dispatch.php/course/management?cid=643a11036cf5630b3f71daad1e5957d0">
+                                                            <img class="tab-icon icon-role-info_alt icon-shape-admin" title="Verwaltung" width="16" height="16" src="https://studip.uni-passau.de/studip/assets/images/icons/white/admin.svg" alt="admin">                                                        <span title="Verwaltung" class="tab-title">Verwaltung</span>
+                        </a>
+                        
+                                                
+                                                            </li>
+                                                <li id="nav_course_forum2">
+                                                                                        <a href="https://studip.uni-passau.de/studip/plugins.php/coreforum/index?cid=643a11036cf5630b3f71daad1e5957d0">
+                                                            <img class="tab-icon icon-role-info_alt icon-shape-forum" title="Forum" width="16" height="16" src="https://studip.uni-passau.de/studip/assets/images/icons/white/forum.svg" alt="forum">                                                        <span title="Forum" class="tab-title">Forum</span>
+                        </a>
+                        
+                                                
+                                                            </li>
+                                                <li id="nav_course_members">
+                                                                                        <a href="https://studip.uni-passau.de/studip/dispatch.php/course/members?cid=643a11036cf5630b3f71daad1e5957d0">
+                                                            <img class="tab-icon icon-role-info_alt icon-shape-persons" title="Teilnehmende" width="16" height="16" src="https://studip.uni-passau.de/studip/assets/images/icons/white/persons.svg" alt="persons">                                                        <span title="Teilnehmende" class="tab-title">Teilnehmende</span>
+                        </a>
+                        
+                                                
+                                                            </li>
+                                                <li id="nav_course_files">
+                                                                                        <a href="https://studip.uni-passau.de/studip/dispatch.php/course/files?cid=643a11036cf5630b3f71daad1e5957d0">
+                                                            <img class="tab-icon icon-role-info_alt icon-shape-files" title="Dateien" width="16" height="16" src="https://studip.uni-passau.de/studip/assets/images/icons/white/files.svg" alt="files">                                                        <span title="Dateien" class="tab-title">Dateien</span>
+                        </a>
+                                                            </li>
+                                                <li id="nav_course_schedule">
+                                                                                        <a href="https://studip.uni-passau.de/studip/dispatch.php/course/dates?cid=643a11036cf5630b3f71daad1e5957d0">
+                                                            <img class="tab-icon icon-role-info_alt icon-shape-schedule" title="Ablaufplan" width="16" height="16" src="https://studip.uni-passau.de/studip/assets/images/icons/white/schedule.svg" alt="schedule">                                                        <span title="Ablaufplan" class="tab-title">Ablaufplan</span>
+                        </a>
+                        
+                                                
+                                                            </li>
+                                                <li id="nav_course_blubber">
+                                                                                        <a href="https://studip.uni-passau.de/studip/plugins.php/blubber/messenger/course?cid=643a11036cf5630b3f71daad1e5957d0">
+                                                            <img class="tab-icon icon-role-info_alt icon-shape-blubber" title="Blubber" width="16" height="16" src="https://studip.uni-passau.de/studip/assets/images/icons/white/blubber.svg" alt="blubber">                                                        <span title="Blubber" class="tab-title">Blubber</span>
+                        </a>
+                                                            </li>
+                                                <li id="nav_course_UniZensusPlugin">
+                                                                                        <a href="https://studip.uni-passau.de/studip/plugins.php/unizensusplugin/show?cid=643a11036cf5630b3f71daad1e5957d0">
+                                                            <img class="tab-icon icon-role-info_alt icon-shape-evaluation" title="Lehrevaluation UniZensus" width="16" height="16" src="https://studip.uni-passau.de/studip/assets/images/icons/white/evaluation.svg" alt="evaluation">                                                        <span title="Lehrevaluation UniZensus" class="tab-title">Lehrevaluation UniZensus</span>
+                        </a>
+                                                            </li>
+                                                <li id="nav_course_zoom">
+                                                                                        <a href="https://studip.uni-passau.de/studip/plugins.php/zoomplugin/zoom_meetings?cid=643a11036cf5630b3f71daad1e5957d0">
+                                                        <span title="Zoom" class="tab-title">Zoom</span>
+                        </a>
+                                                            </li>
+                                                <li id="nav_course_videos">
+                                                                                        <a href="https://studip.uni-passau.de/studip/plugins.php/externalvideos/videos?cid=643a11036cf5630b3f71daad1e5957d0">
+                                                        <span title="Videos" class="tab-title">Videos</span>
+                        </a>
+                                                            </li>
+                                                <li id="nav_course_modules">
+                                                                                        <a href="https://studip.uni-passau.de/studip/dispatch.php/course/plus/index?cid=643a11036cf5630b3f71daad1e5957d0">
+                                                        <span title="Mehr Stud.IP-Funktionen für Ihre Veranstaltung" class="tab-title">Mehr …</span>
+                        </a>
+                                                            </li>
+                               </ul>
+            <div class="helpbar-container">
+    <input type="checkbox" id="helpbar-sticky" >
+    <div class="helpbar">
+        <h2 class="helpbar-title">
+            <label for="helpbar-sticky">
+                Tipps & Hilfe            </label>
+        </h2>
+        <ul class="helpbar-widgets">
+                    <li>
+                                <p><div class="formatted-content">In der Übersicht finden sich veranstaltungsbezogene Kurz- und Detail-Informationen, Ankündigungen, Termine und Umfragen.</div></p>                <div class="helpbar-widget-admin-icons">
+                                                                </div>
+            </li>
+                    <li>
+                            <img class="helpbar-widget-icon icon-role-info_alt icon-shape-link-extern" width="16" height="16" src="https://studip.uni-passau.de/studip/assets/images/icons/white/link-extern.svg" alt="link-extern">                                <a rel="noopener noreferrer" target="_blank" href="https://hilfe.studip.de/help/4.5/de/Basis.InVeranstaltungKurzinfo">Weiterführende Hilfe</a>                <div class="helpbar-widget-admin-icons">
+                                                                </div>
+            </li>
+                </ul>
+    </div>
+</div>
+    </div>
+                </nav>
+    
+                <div id="page_title_container" class="hidden-medium-up">
+            <div id="current_page_title">
+                                    Kurzinfo                                            </div>
+        </div>
+
+        <div id="layout_container">
+            <div id="layout-sidebar">
+    <section class="sidebar">
+        <div class="sidebar-image sidebar-image-with-context">
+                    <div class="sidebar-context">
+                                <img src="https://studip.uni-passau.de/studip/pictures/course/nobody_medium.png?d=1585647341" class="course-avatar-medium course-643a11036cf5630b3f71daad1e5957d0" title="Data Analysis und Digital Reporting mit Python" alt="Data Analysis und Digital Reporting mit Python">                        </div>
+                    <div class="sidebar-title">
+                Kurzinfo            </div>
+        </div>
+
+            <div class="sidebar-widget "
+    id="sidebar-navigation"    >
+    <div class="sidebar-widget-header">
+            Navigation    </div>
+    <div class="sidebar-widget-content">
+        <ul class="widget-list widget-links sidebar-navigation">
+            <li id="link-8f382e50a5422893e0f57d4025a87464"
+                class="active">
+        <a id="nav_main_info" class="active" href="https://studip.uni-passau.de/studip/dispatch.php/course/overview?cid=643a11036cf5630b3f71daad1e5957d0">Kurzinfo</a>    </li>
+            <li id="link-5a71a8c5a09bc48d7fe0b1c145691962"
+                >
+        <a id="nav_main_details" href="https://studip.uni-passau.de/studip/dispatch.php/course/details/?cid=643a11036cf5630b3f71daad1e5957d0">Details</a>    </li>
+</ul>
+    </div>
+</div>
+            <div class="sidebar-widget "
+        >
+    <div class="sidebar-widget-header">
+            Teilen    </div>
+    <div class="sidebar-widget-content">
+        <ul class="widget-list widget-links">
+            <li id="link-87aeb56774fef105f89f35590df2dd3a"
+        style="background-image:url(https://studip.uni-passau.de/studip/assets/images/icons/blue/group.svg);background-size:16px 16px;"        >
+        <a class="copyable-link" href="https://studip.uni-passau.de/studip/dispatch.php/course/details?sem_id=643a11036cf5630b3f71daad1e5957d0&amp;again=yes">Link zu dieser Veranstaltung kopieren</a>    </li>
+</ul>
+    </div>
+</div>
+        </section>
+</div>
+            <div id="layout_content">
+                                            <section class="contentbox">
+    <header>
+        <h1>Grunddaten</h1>
+    </header>
+    <section>
+        <dl style="margin: 0;">
+                            <dt>Zeit / Veranstaltungsort</dt>
+            <dd>
+                Donnerstag: 12:00 - 14:00, wöchentlich (ab 20.10.2022), Ort: <a href="https://studip.uni-passau.de/studip/dispatch.php/resources/room/index/c6a1470ebb0525f114dce01e121cfe3b?cid=643a11036cf5630b3f71daad1e5957d0" data-dialog="1">(HK 14b) SR 015</a><br>            </dd>
+                            <dt>Nächster Termin</dt>
+                <dd>Do., 09.02.2023 12:00 - 14:00 Uhr, Ort: <a href="https://studip.uni-passau.de/studip/dispatch.php/resources/room/index/c6a1470ebb0525f114dce01e121cfe3b?cid=643a11036cf5630b3f71daad1e5957d0" data-dialog="1">(HK 14b) SR 015</a><br></dd>
+                        <dt>Lehrende</dt>
+            <dd><a href="https://studip.uni-passau.de/studip/dispatch.php/profile?cid=643a11036cf5630b3f71daad1e5957d0&amp;username=kellne24">Prof. Dr. Ralf Kellner</a>, <a href="https://studip.uni-passau.de/studip/dispatch.php/profile?cid=643a11036cf5630b3f71daad1e5957d0&amp;username=koeni106">Jan König</a> </dd>
+                </dl>
+    </section>
+</section>
+
+<article class="studip">
+    <header>
+        <h1>
+            <img width="16" height="16" src="https://studip.uni-passau.de/studip/assets/images/icons/black/news.svg" alt="news" class="icon-role-info icon-shape-news">
+            Ankündigungen        </h1>
+        <nav>
+                    <a href="https://studip.uni-passau.de/studip/dispatch.php/news/edit_news/new/643a11036cf5630b3f71daad1e5957d0?cid=643a11036cf5630b3f71daad1e5957d0" rel="get_dialog">
+                <img width="16" height="16" src="https://studip.uni-passau.de/studip/assets/images/icons/blue/add.svg" alt="add" class="icon-role-clickable icon-shape-add">            </a>
+                                </nav>
+    </header>
+            <article class="studip toggle " id="e96ea5a2c26d0b1ab4e5bcc0b2ab2fbd" data-visiturl="https://studip.uni-passau.de/studip/dispatch.php/news/visit">
+        <header>
+            <h1>
+                <a href="?cid=643a11036cf5630b3f71daad1e5957d0&contentbox_type=news&contentbox_open=e96ea5a2c26d0b1ab4e5bcc0b2ab2fbd#e96ea5a2c26d0b1ab4e5bcc0b2ab2fbd">
+                    <img width="16" height="16" src="https://studip.uni-passau.de/studip/assets/images/icons/blue/news.svg" alt="news" class="icon-role-clickable icon-shape-news">                    Skript zum heutigen thema                </a>
+            </h1>
+            <nav>
+                    <a class='news_user' href="https://studip.uni-passau.de/studip/dispatch.php/profile?cid=643a11036cf5630b3f71daad1e5957d0&amp;username=koeni106">
+        Jan König    </a>
+
+<span class='news_date' title="Ablaufdatum: 09.02.2023">
+    02.02.2023</span>
+
+    <span title="Aufrufe" class='news_visits' style="color: #050">
+        31    </span>
+
+
+
+
+    <a href="https://studip.uni-passau.de/studip/dispatch.php/news/edit_news/e96ea5a2c26d0b1ab4e5bcc0b2ab2fbd?cid=643a11036cf5630b3f71daad1e5957d0" rel="get_dialog">
+        <img width="16" height="16" src="https://studip.uni-passau.de/studip/assets/images/icons/blue/edit.svg" alt="edit" class="icon-role-clickable icon-shape-edit">    </a>
+                <a href=" ?cid=643a11036cf5630b3f71daad1e5957d0&amp;delete_news=e96ea5a2c26d0b1ab4e5bcc0b2ab2fbd" >
+            <img width="16" height="16" src="https://studip.uni-passau.de/studip/assets/images/icons/blue/trash.svg" alt="trash" class="icon-role-clickable icon-shape-trash">        </a>
+                </nav>
+        </header>
+        <section>
+            <article>
+                <div class="formatted-content">
+
+<p>Im online Skript zum heutigen Thema, das derzeit letzte im Skript, werden die Formeln nicht gerendert. In den Dateien befindet sich deshalb das Jupyter Notebook zum Kapitel, in dem die Formeln richtig angezeigt werden. </p>
+</div>            </article>
+        </section>
+            </article>
+            <article class="studip toggle " id="14b5bbda8a829bc3f44f3757f65fe4f9" data-visiturl="https://studip.uni-passau.de/studip/dispatch.php/news/visit">
+        <header>
+            <h1>
+                <a href="?cid=643a11036cf5630b3f71daad1e5957d0&contentbox_type=news&contentbox_open=14b5bbda8a829bc3f44f3757f65fe4f9#14b5bbda8a829bc3f44f3757f65fe4f9">
+                    <img width="16" height="16" src="https://studip.uni-passau.de/studip/assets/images/icons/blue/news.svg" alt="news" class="icon-role-clickable icon-shape-news">                    Prüfungsformat                </a>
+            </h1>
+            <nav>
+                    <a class='news_user' href="https://studip.uni-passau.de/studip/dispatch.php/profile?cid=643a11036cf5630b3f71daad1e5957d0&amp;username=koeni106">
+        Jan König    </a>
+
+<span class='news_date' title="Ablaufdatum: 31.03.2023">
+    22.01.2023</span>
+
+    <span title="Aufrufe" class='news_visits' style="color: #050">
+        43    </span>
+
+
+
+
+    <a href="https://studip.uni-passau.de/studip/dispatch.php/news/edit_news/14b5bbda8a829bc3f44f3757f65fe4f9?cid=643a11036cf5630b3f71daad1e5957d0" rel="get_dialog">
+        <img width="16" height="16" src="https://studip.uni-passau.de/studip/assets/images/icons/blue/edit.svg" alt="edit" class="icon-role-clickable icon-shape-edit">    </a>
+                <a href=" ?cid=643a11036cf5630b3f71daad1e5957d0&amp;delete_news=14b5bbda8a829bc3f44f3757f65fe4f9" >
+            <img width="16" height="16" src="https://studip.uni-passau.de/studip/assets/images/icons/blue/trash.svg" alt="trash" class="icon-role-clickable icon-shape-trash">        </a>
+                </nav>
+        </header>
+        <section>
+            <article>
+                <div class="formatted-content">
+
+<p>Die Leistungserhebung in diesem Kurs findet allein in Form eines Abschlussprojekts statt. Die Aufgabenstellung wird in der letzten Semesterwoche veröffentlicht.</p>
+</div>            </article>
+        </section>
+            </article>
+            <article class="studip toggle " id="0c281328d4635a2090aae9eabaf7252b" data-visiturl="https://studip.uni-passau.de/studip/dispatch.php/news/visit">
+        <header>
+            <h1>
+                <a href="?cid=643a11036cf5630b3f71daad1e5957d0&contentbox_type=news&contentbox_open=0c281328d4635a2090aae9eabaf7252b#0c281328d4635a2090aae9eabaf7252b">
+                    <img width="16" height="16" src="https://studip.uni-passau.de/studip/assets/images/icons/blue/news.svg" alt="news" class="icon-role-clickable icon-shape-news">                    online Skript                </a>
+            </h1>
+            <nav>
+                    <a class='news_user' href="https://studip.uni-passau.de/studip/dispatch.php/profile?cid=643a11036cf5630b3f71daad1e5957d0&amp;username=koeni106">
+        Jan König    </a>
+
+<span class='news_date' title="Ablaufdatum: 28.02.2023">
+    19.10.2022</span>
+
+    <span title="Aufrufe" class='news_visits' style="color: #050">
+        58    </span>
+
+
+
+
+    <a href="https://studip.uni-passau.de/studip/dispatch.php/news/edit_news/0c281328d4635a2090aae9eabaf7252b?cid=643a11036cf5630b3f71daad1e5957d0" rel="get_dialog">
+        <img width="16" height="16" src="https://studip.uni-passau.de/studip/assets/images/icons/blue/edit.svg" alt="edit" class="icon-role-clickable icon-shape-edit">    </a>
+                <a href=" ?cid=643a11036cf5630b3f71daad1e5957d0&amp;delete_news=0c281328d4635a2090aae9eabaf7252b" >
+            <img width="16" height="16" src="https://studip.uni-passau.de/studip/assets/images/icons/blue/trash.svg" alt="trash" class="icon-role-clickable icon-shape-trash">        </a>
+                </nav>
+        </header>
+        <section>
+            <article>
+                <div class="formatted-content">
+
+<p>Das online Skript ist <u><a href="https://jnkng.github.io/reporting_python" class="link-extern" target="_blank" rel="noreferrer noopener">unter diesem Link</a></u> zu finden. Es könnte noch kleinere Änderungen oder Ergänzungen während des Semesters geben, der Link wird jeweils die aktuellste Version enthalten.</p>
+</div>            </article>
+        </section>
+            </article>
+            <article class="studip toggle " id="cafdc2877494f3991fa468c730823a11" data-visiturl="https://studip.uni-passau.de/studip/dispatch.php/news/visit">
+        <header>
+            <h1>
+                <a href="?cid=643a11036cf5630b3f71daad1e5957d0&contentbox_type=news&contentbox_open=cafdc2877494f3991fa468c730823a11#cafdc2877494f3991fa468c730823a11">
+                    <img width="16" height="16" src="https://studip.uni-passau.de/studip/assets/images/icons/blue/news.svg" alt="news" class="icon-role-clickable icon-shape-news">                    Zeiten Übung und Vorlesung                </a>
+            </h1>
+            <nav>
+                    <a class='news_user' href="https://studip.uni-passau.de/studip/dispatch.php/profile?cid=643a11036cf5630b3f71daad1e5957d0&amp;username=koeni106">
+        Jan König    </a>
+
+<span class='news_date' title="Ablaufdatum: 19.02.2023">
+    18.10.2022</span>
+
+    <span title="Aufrufe" class='news_visits' style="color: #050">
+        62    </span>
+
+
+
+
+    <a href="https://studip.uni-passau.de/studip/dispatch.php/news/edit_news/cafdc2877494f3991fa468c730823a11?cid=643a11036cf5630b3f71daad1e5957d0" rel="get_dialog">
+        <img width="16" height="16" src="https://studip.uni-passau.de/studip/assets/images/icons/blue/edit.svg" alt="edit" class="icon-role-clickable icon-shape-edit">    </a>
+                <a href=" ?cid=643a11036cf5630b3f71daad1e5957d0&amp;delete_news=cafdc2877494f3991fa468c730823a11" >
+            <img width="16" height="16" src="https://studip.uni-passau.de/studip/assets/images/icons/blue/trash.svg" alt="trash" class="icon-role-clickable icon-shape-trash">        </a>
+                </nav>
+        </header>
+        <section>
+            <article>
+                <div class="formatted-content">
+
+<p>Da wir Vorlesung und Übung am Donnerstag als Block gelegt haben, <br />
+- beginnen wir die Vorlesung c.t., also um 12.15 Uhr<br />
+- machen 15 Minute Pause um 13.45 Uhr<br />
+- beginnen wir die Übung s.t., also um 14.00 Uhr <br />
+<br />
+Viele Grüße<br />
+Jan König</p>
+</div>            </article>
+        </section>
+            </article>
+            <article class="studip toggle " id="13cdd0d8e7dc4ad8fa4adc20c1d50c55" data-visiturl="https://studip.uni-passau.de/studip/dispatch.php/news/visit">
+        <header>
+            <h1>
+                <a href="?cid=643a11036cf5630b3f71daad1e5957d0&contentbox_type=news&contentbox_open=13cdd0d8e7dc4ad8fa4adc20c1d50c55#13cdd0d8e7dc4ad8fa4adc20c1d50c55">
+                    <img width="16" height="16" src="https://studip.uni-passau.de/studip/assets/images/icons/blue/news.svg" alt="news" class="icon-role-clickable icon-shape-news">                    Prüfungsformat                </a>
+            </h1>
+            <nav>
+                    <a class='news_user' href="https://studip.uni-passau.de/studip/dispatch.php/profile?cid=643a11036cf5630b3f71daad1e5957d0&amp;username=koeni106">
+        Jan König    </a>
+
+<span class='news_date' title="Ablaufdatum: 31.03.2023">
+    11.10.2022</span>
+
+    <span title="Aufrufe" class='news_visits' style="color: #050">
+        68    </span>
+
+
+
+
+    <a href="https://studip.uni-passau.de/studip/dispatch.php/news/edit_news/13cdd0d8e7dc4ad8fa4adc20c1d50c55?cid=643a11036cf5630b3f71daad1e5957d0" rel="get_dialog">
+        <img width="16" height="16" src="https://studip.uni-passau.de/studip/assets/images/icons/blue/edit.svg" alt="edit" class="icon-role-clickable icon-shape-edit">    </a>
+                <a href=" ?cid=643a11036cf5630b3f71daad1e5957d0&amp;delete_news=13cdd0d8e7dc4ad8fa4adc20c1d50c55" >
+            <img width="16" height="16" src="https://studip.uni-passau.de/studip/assets/images/icons/blue/trash.svg" alt="trash" class="icon-role-clickable icon-shape-trash">        </a>
+                </nav>
+        </header>
+        <section>
+            <article>
+                <div class="formatted-content">
+
+<p>Hallo zusammen,<br />
+<br />
+bisher wurde die Leistung in dieser Veranstaltung ausschließlich mit einem Abschlussprojekt erbracht. Leider haben wir damit kürzlich schlechte Erfahrungen gemacht. Wir werden das Prüfungsformat daher ggf. ändern müssen. Das werden wir so schnell wie möglich besprechen und bekannt geben. Da im Modulkatalog eine Abschlussarbeit erwähnt wird, wollten wir darauf bereits vor Beginn hinweisen. Für Wiederholer des Kurses sei noch gesagt, dass sich der Kursinhalt nur marginal verändern wird.<br />
+<br />
+Einen guten Start ins Semester erstmal<br />
+Jan König</p>
+</div>            </article>
+        </section>
+            </article>
+                            <footer>
+                <a href="?cid=643a11036cf5630b3f71daad1e5957d0&amp;nshow_all=1">Abgelaufene und unveröffentlichte Ankündigungen anzeigen (2)</a>
+            </footer>
+                </article>
+<article class="studip">
+    <header>
+        <h1>
+            <img width="16" height="16" src="https://studip.uni-passau.de/studip/assets/images/icons/black/schedule.svg" alt="schedule" class="icon-role-info icon-shape-schedule">            Termine für die Zeit vom 06. Februar 2023 bis zum 20. Februar 2023        </h1>
+        <nav>
+                    <a href="https://studip.uni-passau.de/studip/dispatch.php/course/timesrooms?cid=643a11036cf5630b3f71daad1e5957d0">
+            <img class="text-bottom icon-role-clickable icon-shape-admin" width="16" height="16" src="https://studip.uni-passau.de/studip/assets/images/icons/blue/admin.svg" alt="admin">        </a>
+                    </nav>
+    </header>
+  
+            <article class="studip toggle " id="00a6ebc943f6b95f11fe9f7d29291f15">
+    <header>
+        <h1>
+            <a href="?cid=643a11036cf5630b3f71daad1e5957d0&contentbox_open=00a6ebc943f6b95f11fe9f7d29291f15#00a6ebc943f6b95f11fe9f7d29291f15">
+                <img class="text-bottom icon-role-inactive icon-shape-date" width="16" height="16" src="https://studip.uni-passau.de/studip/assets/images/icons/grey/date.svg" alt="date">                Do., 09.02.2023, 12:00 - 14:00            </a>
+        </h1>
+        <nav>
+            <span>
+                Raum: (HK 14b) SR 015            </span>
+                    </nav>
+    </header>
+    <div>
+                            Keine Beschreibung vorhanden                <ul class="list-csv" style="text-align: center;">
+                </ul>
+    </div>
+</article>
+    </article>
+<article class="studip">
+    <header>
+        <h1>
+            <img width="16" height="16" src="https://studip.uni-passau.de/studip/assets/images/icons/black/vote.svg" alt="vote" class="icon-role-info icon-shape-vote">            Evaluationen        </h1>
+        <nav>
+                    <a href="https://studip.uni-passau.de/studip/admin_evaluation.php?cid=643a11036cf5630b3f71daad1e5957d0&amp;rangeID=643a11036cf5630b3f71daad1e5957d0">
+                <img width="16" height="16" src="https://studip.uni-passau.de/studip/assets/images/icons/blue/edit.svg" alt="edit" class="icon-role-clickable icon-shape-edit">            </a>
+                </nav>
+    </header>
+
+            <section>
+            Keine Evaluationen vorhanden. Um neue Umfragen zu erstellen, klicken Sie rechts auf das Bearbeiten-Zeichen.        </section>
+    </article>
+<article class="studip questionnaire_widget" id="questionnaire_area">
+    <header>
+        <h1>
+            <img class="text-bottom icon-role-info icon-shape-evaluation" width="16" height="16" src="https://studip.uni-passau.de/studip/assets/images/icons/black/evaluation.svg" alt="evaluation">            Fragebögen        </h1>
+        <nav>
+                            <a href="https://studip.uni-passau.de/studip/dispatch.php/questionnaire/edit?cid=643a11036cf5630b3f71daad1e5957d0&amp;range_id=643a11036cf5630b3f71daad1e5957d0&amp;range_type=course" data-dialog title="Fragebogen hinzufügen">
+                    <img class="text-bottom icon-role-clickable icon-shape-add" width="16" height="16" src="https://studip.uni-passau.de/studip/assets/images/icons/blue/add.svg" alt="add">                </a>
+                <a href="https://studip.uni-passau.de/studip/dispatch.php/questionnaire/courseoverview?cid=643a11036cf5630b3f71daad1e5957d0" title="Fragebögen verwalten">
+                    <img class="text-bottom icon-role-clickable icon-shape-edit" width="16" height="16" src="https://studip.uni-passau.de/studip/assets/images/icons/blue/edit.svg" alt="edit">                </a>
+                    </nav>
+    </header>
+
+            <section class="noquestionnaires">
+            Es sind keine Fragebögen vorhanden.                            Um neue Fragebögen zu erstellen, klicken Sie rechts auf das Plus.                    </section>
+            <footer>
+                            <a href="?cid=643a11036cf5630b3f71daad1e5957d0&amp;questionnaire_showall=1#questionnaire_area">Abgelaufene Fragebögen einblenden</a>
+                    </footer>
+</article>
+            </div>
+        </div>
+    </div> 
+    <!-- Beginn Footer -->
+<div id="layout_footer">
+    <div id="footer">
+        Sie sind angemeldet als koeni106 (dozent)        |
+        06.02.2023, 17:01:33        </div>
+
+    <ul>
+                        <li>
+            <a
+                            href="https://studip.uni-passau.de/studip/dispatch.php/sitemap/?cid=643a11036cf5630b3f71daad1e5957d0"
+                        >Sitemap</a>
+            </li>
+                                <li>
+            <a
+                            href="http://www.studip.de/" target="_blank" rel="noopener noreferrer"
+                        >Stud.IP</a>
+            </li>
+                                <li>
+            <a
+                            href="https://studip.uni-passau.de/studip/dispatch.php/siteinfo/show?cid=643a11036cf5630b3f71daad1e5957d0&amp;cancel_login=1"
+                        >Impressum</a>
+            </li>
+                                <li>
+            <a
+                            href="https://studip.uni-passau.de/studip/dispatch.php/siteinfo/show//?cid=643a11036cf5630b3f71daad1e5957d0"
+                        >Datenschutz</a>
+            </li>
+                </ul>
+</div>
+<script>
+STUDIP.Navigation = {"activated":["course","course\/main"],"navigation":{"start":{"icon":"images\/icons\/white\/home.svg","title":"Start","url":"dispatch.php\/start","children":{"start\/my_courses":{"title":"Meine Veranstaltungen","url":"dispatch.php\/my_courses?cid=643a11036cf5630b3f71daad1e5957d0","children":{"start\/my_courses\/new_course":{"title":"Neue Veranstaltung anlegen","url":"dispatch.php\/course\/wizard?cid=643a11036cf5630b3f71daad1e5957d0"},"start\/my_courses\/new_studygroup":{"title":"Studiengruppe anlegen","url":"dispatch.php\/course\/wizard?cid=643a11036cf5630b3f71daad1e5957d0&studygroup=1"}}},"start\/messaging":{"title":"Nachrichten","url":"dispatch.php\/messages\/overview?cid=643a11036cf5630b3f71daad1e5957d0","children":{"start\/messaging\/in":{"title":"Posteingang","url":"dispatch.php\/messages\/overview?cid=643a11036cf5630b3f71daad1e5957d0"},"start\/messaging\/out":{"title":"Gesendet","url":"dispatch.php\/messages\/sent?cid=643a11036cf5630b3f71daad1e5957d0"}}},"start\/community":{"title":"Community","url":"dispatch.php\/online?cid=643a11036cf5630b3f71daad1e5957d0","children":{"start\/community\/online":{"title":"Wer ist online?","url":"dispatch.php\/online?cid=643a11036cf5630b3f71daad1e5957d0"},"start\/community\/contacts":{"title":"Meine Kontakte","url":"dispatch.php\/contact?cid=643a11036cf5630b3f71daad1e5957d0"},"start\/community\/browse":{"title":"Studiengruppen","url":"dispatch.php\/studygroup\/browse?cid=643a11036cf5630b3f71daad1e5957d0"},"start\/community\/score":{"title":"Rangliste","url":"dispatch.php\/score?cid=643a11036cf5630b3f71daad1e5957d0"}}},"start\/profile":{"title":"Mein Profil","url":"dispatch.php\/profile?cid=643a11036cf5630b3f71daad1e5957d0","children":{"start\/profile\/settings":{"title":"Einstellungen","url":"dispatch.php\/settings\/general?cid=643a11036cf5630b3f71daad1e5957d0"},"start\/profile\/terminvergabe":{"title":"Terminvergabe","url":"plugins.php\/homepageterminvergabeplugin\/showadmin?cid=643a11036cf5630b3f71daad1e5957d0","children":{"start\/profile\/terminvergabe\/showadmin":{"title":"Terminvergabe","url":"plugins.php\/homepageterminvergabeplugin\/showadmin?cid=643a11036cf5630b3f71daad1e5957d0"},"start\/profile\/terminvergabe\/tv_termingruppe_edit":{"title":"Termingruppe anlegen \/ bearbeiten","url":"plugins.php\/homepageterminvergabeplugin\/show_category?cid=643a11036cf5630b3f71daad1e5957d0&tmodus2=show_cat_form"},"start\/profile\/terminvergabe\/tv_buchungen":{"title":"Wo bin ich gebucht?","url":"plugins.php\/homepageterminvergabeplugin\/show_bookings?cid=643a11036cf5630b3f71daad1e5957d0"}}}}},"start\/planner":{"title":"Mein Planer","url":"dispatch.php\/calendar\/single?cid=643a11036cf5630b3f71daad1e5957d0","children":{"start\/planner\/calendar":{"title":"Terminkalender","url":"dispatch.php\/calendar\/single?cid=643a11036cf5630b3f71daad1e5957d0"},"start\/planner\/schedule":{"title":"Stundenplan","url":"dispatch.php\/calendar\/schedule?cid=643a11036cf5630b3f71daad1e5957d0"}}},"start\/search":{"title":"Suchen","url":"dispatch.php\/search\/globalsearch?cid=643a11036cf5630b3f71daad1e5957d0","children":{"start\/search\/course":{"title":"Veranstaltungssuche","url":"dispatch.php\/search\/courses?cid=643a11036cf5630b3f71daad1e5957d0"},"start\/search\/rooms":{"title":"R\u00e4ume suchen","url":"dispatch.php\/resources\/search\/rooms?cid=643a11036cf5630b3f71daad1e5957d0"}}},"start\/tools":{"title":"Tools","url":"dispatch.php\/news\/admin_news?cid=643a11036cf5630b3f71daad1e5957d0","children":{"start\/tools\/news":{"title":"Ank\u00fcndigungen","url":"dispatch.php\/news\/admin_news?cid=643a11036cf5630b3f71daad1e5957d0"},"start\/tools\/vote":{"title":"Umfragen und Tests","url":"dispatch.php\/questionnaire\/overview?cid=643a11036cf5630b3f71daad1e5957d0"},"start\/tools\/evaluation":{"title":"Evaluationen","url":"admin_evaluation.php?cid=643a11036cf5630b3f71daad1e5957d0&rangeID=koeni106"},"start\/tools\/literature":{"title":"Literatur","url":"dispatch.php\/literature\/edit_list.php?cid=643a11036cf5630b3f71daad1e5957d0&_range_id=self"},"start\/tools\/export":{"title":"Export","url":"export.php?cid=643a11036cf5630b3f71daad1e5957d0"}}},"start\/files_dashboard":{"title":"Dateien","url":"dispatch.php\/files_dashboard?cid=643a11036cf5630b3f71daad1e5957d0"},"start\/help":{"title":"Hilfe","url":"http:\/\/www.hilfe.uni-passau.de\/studip\/?cid=643a11036cf5630b3f71daad1e5957d0"},"start\/trafficlights":{"title":"Lesesaalbelegungen","url":"https:\/\/zim.uni-passau.de\/ampel?cid=643a11036cf5630b3f71daad1e5957d0"}}},"course":{"icon":"images\/icons\/white\/seminar.svg","title":"Veranstaltungen","url":"dispatch.php\/my_courses","children":{"course\/main":{"title":"\u00dcbersicht","url":"dispatch.php\/course\/overview?cid=643a11036cf5630b3f71daad1e5957d0","children":{"course\/main\/info":{"title":"Kurzinfo","url":"dispatch.php\/course\/overview?cid=643a11036cf5630b3f71daad1e5957d0"},"course\/main\/details":{"title":"Details","url":"dispatch.php\/course\/details\/?cid=643a11036cf5630b3f71daad1e5957d0"}}},"course\/admin":{"title":"Verwaltung","url":"dispatch.php\/course\/management?cid=643a11036cf5630b3f71daad1e5957d0","children":{"course\/admin\/main":{"title":"Verwaltung","url":"dispatch.php\/course\/management?cid=643a11036cf5630b3f71daad1e5957d0"},"course\/admin\/details":{"title":"Grunddaten","url":"dispatch.php\/course\/basicdata\/view\/643a11036cf5630b3f71daad1e5957d0?cid=643a11036cf5630b3f71daad1e5957d0"},"course\/admin\/avatar":{"title":"Infobild","url":"dispatch.php\/avatar\/update\/course\/643a11036cf5630b3f71daad1e5957d0?cid=643a11036cf5630b3f71daad1e5957d0"},"course\/admin\/study_areas":{"title":"Studienbereiche","url":"dispatch.php\/course\/study_areas\/show\/643a11036cf5630b3f71daad1e5957d0?cid=643a11036cf5630b3f71daad1e5957d0"},"course\/admin\/lvgruppen":{"title":"LV-Gruppen","url":"dispatch.php\/course\/lvgselector\/index\/643a11036cf5630b3f71daad1e5957d0?cid=643a11036cf5630b3f71daad1e5957d0&list=TRUE"},"course\/admin\/dates":{"title":"Zeiten\/R\u00e4ume","url":"dispatch.php\/course\/timesrooms?cid=643a11036cf5630b3f71daad1e5957d0"},"course\/admin\/admission":{"title":"Zugangsberechtigungen","url":"dispatch.php\/course\/admission?cid=643a11036cf5630b3f71daad1e5957d0"},"course\/admin\/additional_data":{"title":"Zusatzangaben","url":"dispatch.php\/admin\/additional?cid=643a11036cf5630b3f71daad1e5957d0"},"course\/admin\/questionnaires":{"title":"Frageb\u00f6gen","url":"dispatch.php\/questionnaire\/courseoverview?cid=643a11036cf5630b3f71daad1e5957d0"},"course\/admin\/evaluation":{"title":"Evaluationen","url":"admin_evaluation.php?cid=643a11036cf5630b3f71daad1e5957d0&view=eval_sem"},"course\/admin\/whakamahere":{"title":"Semesterplanung","url":"plugins.php\/whakamahereplugin\/course\/planningrequest?cid=643a11036cf5630b3f71daad1e5957d0","children":{"course\/admin\/whakamahere\/planningrequest":{"title":"Angaben zur Semesterplanung","url":"plugins.php\/whakamahereplugin\/course\/planningrequest?cid=643a11036cf5630b3f71daad1e5957d0"}}}}},"course\/forum2":{"title":"Forum","url":"plugins.php\/coreforum\/index?cid=643a11036cf5630b3f71daad1e5957d0","children":{"course\/forum2\/index":{"title":"\u00dcbersicht","url":"plugins.php\/coreforum\/index?cid=643a11036cf5630b3f71daad1e5957d0"},"course\/forum2\/newest":{"title":"Neue Beitr\u00e4ge","url":"plugins.php\/coreforum\/index\/newest?cid=643a11036cf5630b3f71daad1e5957d0"},"course\/forum2\/latest":{"title":"Letzte Beitr\u00e4ge","url":"plugins.php\/coreforum\/index\/latest?cid=643a11036cf5630b3f71daad1e5957d0"},"course\/forum2\/favorites":{"title":"Gemerkte Beitr\u00e4ge","url":"plugins.php\/coreforum\/index\/favorites?cid=643a11036cf5630b3f71daad1e5957d0"}}},"course\/members":{"title":"Teilnehmende","url":"dispatch.php\/course\/members?cid=643a11036cf5630b3f71daad1e5957d0","children":{"course\/members\/view":{"title":"Teilnehmende","url":"dispatch.php\/course\/members?cid=643a11036cf5630b3f71daad1e5957d0"},"course\/members\/statusgroups":{"title":"Gruppen","url":"dispatch.php\/course\/statusgroups?cid=643a11036cf5630b3f71daad1e5957d0"}}},"course\/files":{"title":"Dateien","url":"dispatch.php\/course\/files?cid=643a11036cf5630b3f71daad1e5957d0"},"course\/schedule":{"title":"Ablaufplan","url":"dispatch.php\/course\/dates?cid=643a11036cf5630b3f71daad1e5957d0","children":{"course\/schedule\/dates":{"title":"Termine","url":"dispatch.php\/course\/dates?cid=643a11036cf5630b3f71daad1e5957d0"},"course\/schedule\/topics":{"title":"Themen","url":"dispatch.php\/course\/topics?cid=643a11036cf5630b3f71daad1e5957d0"}}},"course\/blubber":{"title":"Blubber","url":"plugins.php\/blubber\/messenger\/course?cid=643a11036cf5630b3f71daad1e5957d0"},"course\/UniZensusPlugin":{"title":"Lehrevaluation UniZensus","url":"plugins.php\/unizensusplugin\/show?cid=643a11036cf5630b3f71daad1e5957d0"},"course\/zoom":{"title":"Zoom","url":"plugins.php\/zoomplugin\/zoom_meetings?cid=643a11036cf5630b3f71daad1e5957d0","children":{"course\/zoom\/meetings":{"title":"Meetings","url":"plugins.php\/zoomplugin\/zoom_meetings?cid=643a11036cf5630b3f71daad1e5957d0"}}},"course\/videos":{"title":"Videos","url":"plugins.php\/externalvideos\/videos?cid=643a11036cf5630b3f71daad1e5957d0","children":{"course\/videos\/videos":{"title":"Videos","url":"plugins.php\/externalvideos\/videos?cid=643a11036cf5630b3f71daad1e5957d0"}}},"course\/modules":{"title":"Mehr \u2026","url":"dispatch.php\/course\/plus\/index?cid=643a11036cf5630b3f71daad1e5957d0"}}},"messaging":{"icon":"images\/icons\/white\/mail.svg","title":"Nachrichten","url":"dispatch.php\/messages\/overview","children":{"messaging\/messages":{"title":"Nachrichten","url":"dispatch.php\/messages\/overview?cid=643a11036cf5630b3f71daad1e5957d0","children":{"messaging\/messages\/inbox":{"title":"Eingang","url":"dispatch.php\/messages\/overview?cid=643a11036cf5630b3f71daad1e5957d0"},"messaging\/messages\/sent":{"title":"Gesendet","url":"dispatch.php\/messages\/sent?cid=643a11036cf5630b3f71daad1e5957d0"}}}}},"community":{"icon":"images\/icons\/white\/community.svg","title":"Community","url":"dispatch.php\/blubber","children":{"community\/blubber":{"title":"Blubber","url":"dispatch.php\/blubber?cid=643a11036cf5630b3f71daad1e5957d0"},"community\/online":{"title":"Wer ist online?","url":"dispatch.php\/online\/index?cid=643a11036cf5630b3f71daad1e5957d0"},"community\/contacts":{"title":"Kontakte","url":"dispatch.php\/contact?cid=643a11036cf5630b3f71daad1e5957d0"},"community\/studygroups":{"title":"Studiengruppen","url":"dispatch.php\/studygroup\/browse?cid=643a11036cf5630b3f71daad1e5957d0","children":{"community\/studygroups\/browse":{"title":"Studiengruppensuche","url":"dispatch.php\/studygroup\/browse?cid=643a11036cf5630b3f71daad1e5957d0"}}},"community\/score":{"title":"Rangliste","url":"dispatch.php\/score?cid=643a11036cf5630b3f71daad1e5957d0"}}},"profile":{"icon":"images\/icons\/white\/person.svg","title":"Profil","url":"dispatch.php\/profile","children":{"profile\/index":{"title":"Profil","url":"dispatch.php\/profile\/index?cid=643a11036cf5630b3f71daad1e5957d0"},"profile\/edit":{"title":"Pers\u00f6nliche Angaben","url":"dispatch.php\/settings\/account?cid=643a11036cf5630b3f71daad1e5957d0","children":{"profile\/edit\/profile":{"title":"Grunddaten","url":"dispatch.php\/settings\/account?cid=643a11036cf5630b3f71daad1e5957d0"},"profile\/edit\/password":{"title":"Passwort \u00e4ndern","url":"dispatch.php\/settings\/password?cid=643a11036cf5630b3f71daad1e5957d0"},"profile\/edit\/details":{"title":"Weitere Daten","url":"dispatch.php\/settings\/details?cid=643a11036cf5630b3f71daad1e5957d0"},"profile\/edit\/studies":{"title":"Studiendaten","url":"dispatch.php\/settings\/studies?cid=643a11036cf5630b3f71daad1e5957d0"},"profile\/edit\/statusgruppen":{"title":"Einrichtungsdaten","url":"dispatch.php\/settings\/statusgruppen?cid=643a11036cf5630b3f71daad1e5957d0"}}},"profile\/settings":{"title":"Einstellungen","url":"dispatch.php\/settings\/general?cid=643a11036cf5630b3f71daad1e5957d0","children":{"profile\/settings\/general":{"title":"Allgemeines","url":"dispatch.php\/settings\/general?cid=643a11036cf5630b3f71daad1e5957d0"},"profile\/settings\/privacy":{"title":"Privatsph\u00e4re","url":"dispatch.php\/settings\/privacy?cid=643a11036cf5630b3f71daad1e5957d0"},"profile\/settings\/messaging":{"title":"Nachrichten","url":"dispatch.php\/settings\/messaging?cid=643a11036cf5630b3f71daad1e5957d0"},"profile\/settings\/calendar_new":{"title":"Terminkalender","url":"dispatch.php\/settings\/calendar?cid=643a11036cf5630b3f71daad1e5957d0"},"profile\/settings\/notification":{"title":"Benachrichtigung","url":"dispatch.php\/settings\/notification?cid=643a11036cf5630b3f71daad1e5957d0"},"profile\/settings\/deputies":{"title":"Standardvertretung","url":"dispatch.php\/settings\/deputies?cid=643a11036cf5630b3f71daad1e5957d0"},"profile\/settings\/api":{"title":"API-Berechtigungen","url":"dispatch.php\/api\/authorizations?cid=643a11036cf5630b3f71daad1e5957d0"}}},"profile\/categories":{"title":"Kategorien","url":"dispatch.php\/settings\/categories?cid=643a11036cf5630b3f71daad1e5957d0"},"profile\/my_tandems":{"title":"Meine Tandems","url":"plugins.php\/tandemplugin\/my_tandems\/index?cid=643a11036cf5630b3f71daad1e5957d0"},"profile\/tracer":{"title":"Kontaktverfolgung","url":"plugins.php\/contacttracer\/tracerdata?cid=643a11036cf5630b3f71daad1e5957d0"},"profile\/terminvergabe":{"title":"Terminvergabe","url":"plugins.php\/homepageterminvergabeplugin\/showadmin?cid=643a11036cf5630b3f71daad1e5957d0","children":{"profile\/terminvergabe\/showadmin":{"title":"Terminvergabe","url":"plugins.php\/homepageterminvergabeplugin\/showadmin?cid=643a11036cf5630b3f71daad1e5957d0"},"profile\/terminvergabe\/tv_termingruppe_edit":{"title":"Termingruppe anlegen \/ bearbeiten","url":"plugins.php\/homepageterminvergabeplugin\/show_category?cid=643a11036cf5630b3f71daad1e5957d0&tmodus2=show_cat_form"},"profile\/terminvergabe\/tv_buchungen":{"title":"Wo bin ich gebucht?","url":"plugins.php\/homepageterminvergabeplugin\/show_bookings?cid=643a11036cf5630b3f71daad1e5957d0"}}},"profile\/modules":{"title":"Mehr \u2026","url":"dispatch.php\/profilemodules\/index?cid=643a11036cf5630b3f71daad1e5957d0"}}},"calendar":{"icon":"images\/icons\/white\/schedule.svg","title":"Planer","url":"dispatch.php\/calendar\/schedule","children":{"calendar\/schedule":{"title":"Stundenplan","url":"dispatch.php\/calendar\/schedule?cid=643a11036cf5630b3f71daad1e5957d0"},"calendar\/calendar":{"title":"Terminkalender","url":"dispatch.php\/calendar\/single?cid=643a11036cf5630b3f71daad1e5957d0&self=1"}}},"search":{"icon":"images\/icons\/white\/search.svg","title":"Suche","url":"dispatch.php\/search\/globalsearch","children":{"search\/globalsearch":{"title":"Globale Suche","url":"dispatch.php\/search\/globalsearch?cid=643a11036cf5630b3f71daad1e5957d0"},"search\/courses":{"title":"Veranstaltungsverzeichnis","url":"dispatch.php\/search\/courses?cid=643a11036cf5630b3f71daad1e5957d0&level=vv&cmd=qs&sset=0&option=","children":{"search\/courses\/courses":{"title":"Vorlesungsverzeichnis","url":"dispatch.php\/search\/courses?cid=643a11036cf5630b3f71daad1e5957d0&level=vv&cmd=qs&sset=0&option="},"search\/courses\/semtree":{"title":"Vorlesungsverzeichnis","url":"dispatch.php\/search\/courses?cid=643a11036cf5630b3f71daad1e5957d0&level=vv&cmd=qs&sset=0&option="},"search\/courses\/rangetree":{"title":"Einrichtungsverzeichnis","url":"dispatch.php\/search\/courses?cid=643a11036cf5630b3f71daad1e5957d0&level=ev&cmd=qs&sset=0&option="},"search\/courses\/module":{"title":"Modulverzeichnis","url":"dispatch.php\/search\/module?cid=643a11036cf5630b3f71daad1e5957d0"}}},"search\/rooms":{"title":"R\u00e4ume","url":"dispatch.php\/resources\/search\/rooms?cid=643a11036cf5630b3f71daad1e5957d0"},"search\/phonebook":{"title":"Telefonbuch","url":"plugins.php\/phonebook\/phonebook_search?cid=643a11036cf5630b3f71daad1e5957d0","children":{"search\/phonebook\/search":{"title":"Suche","url":"plugins.php\/phonebook\/phonebook_search?cid=643a11036cf5630b3f71daad1e5957d0"}}}}},"tools":{"icon":"images\/icons\/white\/tools.svg","title":"Tools","url":"dispatch.php\/news\/admin_news","children":{"tools\/news":{"title":"Ank\u00fcndigungen","url":"dispatch.php\/news\/admin_news?cid=643a11036cf5630b3f71daad1e5957d0"},"tools\/questionnaire":{"title":"Frageb\u00f6gen","url":"dispatch.php\/questionnaire\/overview?cid=643a11036cf5630b3f71daad1e5957d0","children":{"tools\/questionnaire\/overview":{"title":"\u00dcbersicht","url":"dispatch.php\/questionnaire\/overview?cid=643a11036cf5630b3f71daad1e5957d0"}}},"tools\/evaluation":{"title":"Evaluationen","url":"admin_evaluation.php?cid=643a11036cf5630b3f71daad1e5957d0&rangeID=koeni106"},"tools\/literature":{"title":"Literatur","url":"dispatch.php\/literature\/edit_list.php?cid=643a11036cf5630b3f71daad1e5957d0&_range_id=self","children":{"tools\/literature\/edit_list":{"title":"Literatur bearbeiten","url":"dispatch.php\/literature\/edit_list?cid=643a11036cf5630b3f71daad1e5957d0&_range_id=self"},"tools\/literature\/search":{"title":"Literatur suchen","url":"dispatch.php\/literature\/search?cid=643a11036cf5630b3f71daad1e5957d0&return_range=self"}}},"tools\/export":{"title":"Export","url":"export.php?cid=643a11036cf5630b3f71daad1e5957d0"},"tools\/coursesets":{"title":"Anmeldesets","url":"dispatch.php\/admission\/courseset\/index?cid=643a11036cf5630b3f71daad1e5957d0","children":{"tools\/coursesets\/sets":{"title":"Anmeldesets verwalten","url":"dispatch.php\/admission\/courseset\/index?cid=643a11036cf5630b3f71daad1e5957d0"},"tools\/coursesets\/userlists":{"title":"Personenlisten","url":"dispatch.php\/admission\/userlist\/index?cid=643a11036cf5630b3f71daad1e5957d0"},"tools\/coursesets\/restricted_courses":{"title":"teilnahmebeschr\u00e4nkte Veranstaltungen","url":"dispatch.php\/admission\/restricted_courses?cid=643a11036cf5630b3f71daad1e5957d0"}}},"tools\/dozentenrechteplugin":{"title":"Dozentenrechte","url":"plugins.php\/dozentenrechteplugin\/show?cid=643a11036cf5630b3f71daad1e5957d0","children":{"tools\/dozentenrechteplugin\/self":{"title":"F\u00fcr mich gestellte Antr\u00e4ge","url":"plugins.php\/dozentenrechteplugin\/show?cid=643a11036cf5630b3f71daad1e5957d0"},"tools\/dozentenrechteplugin\/given":{"title":"Von mir gestellte Antr\u00e4ge","url":"plugins.php\/dozentenrechteplugin\/show\/given?cid=643a11036cf5630b3f71daad1e5957d0"},"tools\/dozentenrechteplugin\/new":{"title":"Neuer Antrag","url":"plugins.php\/dozentenrechteplugin\/show\/new?cid=643a11036cf5630b3f71daad1e5957d0"}}}}},"files_dashboard":{"icon":"images\/icons\/white\/files.svg","title":"Dateien","url":"dispatch.php\/files_dashboard","children":{"files_dashboard\/dashboard":{"title":"Dateien","url":"dispatch.php\/files_dashboard?cid=643a11036cf5630b3f71daad1e5957d0"},"files_dashboard\/files":{"title":"Meine Dateien","url":"dispatch.php\/files?cid=643a11036cf5630b3f71daad1e5957d0"},"files_dashboard\/search":{"title":"Suche","url":"dispatch.php\/files_dashboard\/search?cid=643a11036cf5630b3f71daad1e5957d0"}}},"support":{"icon":"images\/icons\/white\/rescue.svg","title":"Support","url":"plugins.php\/supportplugin\/faq","children":{"support\/faq":{"title":"H\u00e4ufig gestellte Fragen","url":"plugins.php\/supportplugin\/faq?cid=643a11036cf5630b3f71daad1e5957d0"},"support\/ticket":{"title":"Supportanfrage stellen","url":"plugins.php\/supportplugin\/ticket?cid=643a11036cf5630b3f71daad1e5957d0"}}},"cardportal":{"icon":"https:\/\/studip.uni-passau.de\/studip\/plugins_packages\/intelec\/Cardportal\/assets\/images\/credit.svg","title":"CampusCard","url":"plugins.php\/cardportal\/show\/claim"},"trafficlights":{"icon":"images\/icons\/white\/span-2third.svg","title":"Lesesaalbelegungen","url":"https:\/\/zim.uni-passau.de\/ampel"},"schwarzesbrettplugin":{"icon":"images\/icons\/white\/billboard.svg","title":"Schwarzes Brett","url":"plugins.php\/schwarzesbrettplugin\/category","children":{"schwarzesbrettplugin\/show":{"title":"Schwarzes Brett","url":"plugins.php\/schwarzesbrettplugin\/category?cid=643a11036cf5630b3f71daad1e5957d0","children":{"schwarzesbrettplugin\/show\/all":{"title":"\u00dcbersicht","url":"plugins.php\/schwarzesbrettplugin\/category?cid=643a11036cf5630b3f71daad1e5957d0"},"schwarzesbrettplugin\/show\/watchlist":{"title":"Merkliste","url":"plugins.php\/schwarzesbrettplugin\/watchlist?cid=643a11036cf5630b3f71daad1e5957d0"},"schwarzesbrettplugin\/show\/own":{"title":"Meine Anzeigen","url":"plugins.php\/schwarzesbrettplugin\/article\/own?cid=643a11036cf5630b3f71daad1e5957d0"}}}}}},"hash":"b3e0e209ffa3b872194199c72fcb25cc"};
+</script>
+<!-- Ende Footer -->
+    <!-- Ende Page -->
+    </div>
+
+
+    </body>
+</html>

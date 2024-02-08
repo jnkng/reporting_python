@@ -1,0 +1,1392 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Introduction to Statistics and Indicators in Finance &#8212; Data Visualisation and Reporting with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"ignoreHtmlClass": "never-ignore", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}, "tex2jax": {"ignoreClass": "never-ignore"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '13_financial_stats';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="01_content.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Data Visualisation and Reporting with Python</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="01_content.html">
+                    Data, Visualisation and Reporting with Python
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="02_general.html">What is Python and why use it?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_python_basics.html">First steps</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="04_data.html">Working with Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_online.html">Online Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_scraping.html">Web Scraping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_graphics.html">Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_interactive_plots.html">Interactive Graphics - Plotly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_sklearn.html">SciKit Learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_dash_I.html">Dash - introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_dash_II.html">Dash - advanced interactivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_markdown.html">Notebook formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_financial_stats_CAPM.html">Introduction to Statistics and Indicators in Finance</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F13_financial_stats.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/13_financial_stats.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introduction to Statistics and Indicators in Finance</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#returns">Returns</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additivity">Additivity</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#log-returns">log-returns</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#portfolios-and-cross-sectional-additivity">Portfolios and cross sectional additivity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristics-of-returns">Characteristics of returns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indicators">Indicators</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#technical-indicators">Technical indicators</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="introduction-to-statistics-and-indicators-in-finance">
+<h1>Introduction to Statistics and Indicators in Finance<a class="headerlink" href="#introduction-to-statistics-and-indicators-in-finance" title="Permalink to this heading">#</a></h1>
+<p>Most fields in finance rely on some sort of data analysis given their respective objective. For example in fundamental analysis of a business, various numbers from the company itself (i.e. from the balance sheet) and such indicators representing the overall market are used in order to price the companies stock. The results from such analyses are utilised in making decisions regarding for example an investement in said company. There are many well established techniques and statistics for pricing financial products. Yet, the search for indicators or ways in generel to foresee an investement’s future performance is ever ongoing. Especially since the dawn of more powerful algorithms and artificial intelligence being more readily available for the public.</p>
+<p>In this chapter, we will take a look at statistics, that are the very basis of such analyses and examine some examples that would lead the way to more sophisticated procedures.</p>
+<section id="returns">
+<h2>Returns<a class="headerlink" href="#returns" title="Permalink to this heading">#</a></h2>
+<p>In order for an investment to be profitable, the money it yields must be higher than the inital investment made (plus some transaction costs which is the amount paid to make the investment, e.g. the money you’d pay a bank so that they buy some stocks for you). If we want to assess how much the value of an investment increased (or decreased), we look at the so called return. The usual, i.e. discrete, return is defined as the relative change in value <span class="math notranslate nohighlight">\(S\)</span>. In mathematical terms, we look at the ratio of the past and the present value and subtract one:</p>
+<div class="math notranslate nohighlight">
+\[ r_t = \frac{S_t - S_{t-1}}{S_{t-1}} =\frac{S_t}{S_{t-1}} - 1 \]</div>
+<p>Note here that one time step <span class="math notranslate nohighlight">\(t\)</span> is of arbitrary length. Two examples: daily returns imply that the price of two successive days are used. Monthly returns would be calculated by using prices that are separated by the time span of one month.</p>
+<section id="additivity">
+<h3>Additivity<a class="headerlink" href="#additivity" title="Permalink to this heading">#</a></h3>
+<p>One may be confronted with returns based on different time spans, that need to be taken into account or that somehow need to be compared to each other. This could require a means of aggregating these returns in order to bring them to the same time scale. The property we are looking for is called addititvity, i.e. the sum of the shorter-scale returns should be equal to the larger-scale return. Working with the example above, we could face the need to aggregate the daily returns to get monthly returns. We thus wish to be able to add all daily returns of one month in order to get the monthly return. Note while this is possible, as explained in the following, we can’t just split monthly returns into daily returns without making assumptions on the distribution of these artificial daily returns.<br />
+We’ll now choose a slightly different example of daily and weekly returns (in this example, we assume seven trading days). To calculate weekly returns from daily returns, we mustn’t use the daily return as is.<br />
+Let’s consider the following values:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>time <span class="math notranslate nohighlight">\(t\)</span></p></th>
+<th class="head"><p>0</p></th>
+<th class="head"><p>1</p></th>
+<th class="head"><p>2</p></th>
+<th class="head"><p>3</p></th>
+<th class="head"><p>4</p></th>
+<th class="head"><p>5</p></th>
+<th class="head"><p>6</p></th>
+<th class="head"><p>7</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>prices <span class="math notranslate nohighlight">\(S_t\)</span></p></td>
+<td><p>100</p></td>
+<td><p>110</p></td>
+<td><p>121</p></td>
+<td><p>110</p></td>
+<td><p>132</p></td>
+<td><p>105</p></td>
+<td><p>112</p></td>
+<td><p>105</p></td>
+</tr>
+<tr class="row-odd"><td><p>return <span class="math notranslate nohighlight">\(r_t\)</span></p></td>
+<td><p>—</p></td>
+<td><p>0.10</p></td>
+<td><p>0.10</p></td>
+<td><p>-0.09</p></td>
+<td><p>0.2</p></td>
+<td><p>-0.20</p></td>
+<td><p>0.07</p></td>
+<td><p>-0.06</p></td>
+</tr>
+</tbody>
+</table>
+<p>If we simply added all returns, we’d find a weekly return of <span class="math notranslate nohighlight">\(r_{0,7} = 0.12\)</span>. However, using the correct formula from above, we find that</p>
+<div class="math notranslate nohighlight">
+\[ r_{0,7} = \frac{S_7}{S_{0}} - 1 = \frac{105}{100} - 1  = 0.05 \]</div>
+<p>and conclude that indeed daily returns cannot simply be added up in order to yield the weekly return.</p>
+<section id="log-returns">
+<h4>log-returns<a class="headerlink" href="#log-returns" title="Permalink to this heading">#</a></h4>
+<p>With a single transformation however, we can can establish the desired additivity over time. The transformation needed is taking the logarithm. There are basically two ways of seeing the calculation of these so called log returns, which are equivalent. Either logarithmise the (daily) <strong>prices</strong> and simply get the difference between sucessive values. Or logarithmise the ratio of the past and current price:</p>
+<div class="math notranslate nohighlight">
+\[ r_t^{log} = \log{\frac{S_t}{S_{t-1}}} \]</div>
+<div class="math notranslate nohighlight">
+\[ \downarrow(\log{\frac{x}{y}} = \log{x}- \log{y})\]</div>
+<div class="math notranslate nohighlight">
+\[ = \log{S_t} - \log{S_{t-1}} \]</div>
+<p>These log returns, or continuous returns, now exhibit the qualities the discrete returns from the example above lacked.<br />
+Let’s have a look at the same table after taking the logarithm and try the same aggregation from above.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>time <span class="math notranslate nohighlight">\(t\)</span></p></th>
+<th class="head"><p>0</p></th>
+<th class="head"><p>1</p></th>
+<th class="head"><p>2</p></th>
+<th class="head"><p>3</p></th>
+<th class="head"><p>4</p></th>
+<th class="head"><p>5</p></th>
+<th class="head"><p>6</p></th>
+<th class="head"><p>7</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>prices <span class="math notranslate nohighlight">\(S_t\)</span></p></td>
+<td><p>100</p></td>
+<td><p>110</p></td>
+<td><p>121</p></td>
+<td><p>110</p></td>
+<td><p>132</p></td>
+<td><p>105</p></td>
+<td><p>112</p></td>
+<td><p>105</p></td>
+</tr>
+<tr class="row-odd"><td><p>log return <span class="math notranslate nohighlight">\(r_t^{log}\)</span></p></td>
+<td><p>—</p></td>
+<td><p>0.10</p></td>
+<td><p>0.10</p></td>
+<td><p>-0.10</p></td>
+<td><p>0.18</p></td>
+<td><p>-0.23</p></td>
+<td><p>0.06</p></td>
+<td><p>-0.06</p></td>
+</tr>
+</tbody>
+</table>
+<p>Now, we add all log returns up and find the weekly log return to be <span class="math notranslate nohighlight">\( r_{0,7} = 0.05 \)</span>.
+To convert log returns to discrete returns, we simply take the exponent (the inverse of the logarithm) of the log return <strong>and subtract 1</strong>, which will also result in a value of <span class="math notranslate nohighlight">\(0.05\)</span>.</p>
+<p>Having a look at the math with logarithmised prices, we can unveil the characteristics of this additive behaviour:</p>
+<div class="math notranslate nohighlight">
+\[ r_{t=2}^{log} =\log{\frac{S_t}{S_{t-1}}} = \log{S_{t=2} - \log{S_{t=0}}} \]</div>
+<div class="math notranslate nohighlight">
+\[\downarrow \text{&quot;add zero&quot;: } - \log{S_{t=1}} + \log{S_{t=1}} = 0 \]</div>
+<div class="math notranslate nohighlight">
+\[ r_{0, t=2}^{log} =\log{S_{t=2} + 0 - \log{S_{t=0}}} \]</div>
+<div class="math notranslate nohighlight">
+\[ r_{0, t=2}^{log} = (\log{S_{t=2} - \log{S_{t=1}}) + (\log{S_{t=1}} - \log{S_{t=0}}}) \]</div>
+<div class="math notranslate nohighlight">
+\[ r_{0, t=2}^{log} = r_{1, t=2}^{log} + r_{0, t=1}^{log} \]</div>
+<p>One may notice that the log returns are very close to the discrete returns. This is due to the fact, the logarithm behaves almost linear for values close to zero. So for small values of the discrete return, the log returns are very similar. Note that this applies almost always for daily returns and even shorter time spans. For a monthly return (or quarterly, yearly) there “is more time for the value to develop” and we usually find higher returns for larger time spans.</p>
+<p>Let’s have a look at what we can achieve in python using the prices from the table above.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;S&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="mi">121</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="mi">132</span><span class="p">,</span> <span class="mi">105</span><span class="p">,</span> <span class="mi">112</span><span class="p">,</span> <span class="mi">105</span><span class="p">],</span>
+    <span class="p">},</span>
+<span class="n">index</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">)))</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>S</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>110</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>121</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>110</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>132</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>105</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>112</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>105</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We can calculate discrete returns simply by using a method of a Series object: <code class="docutils literal notranslate"><span class="pre">.pct_change()</span></code>.<br />
+Note the <code class="docutils literal notranslate"><span class="pre">NaN</span></code> value for the first line.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;discrete_returns&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">S</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>S</th>
+      <th>discrete_returns</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>100</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>110</td>
+      <td>0.100000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>121</td>
+      <td>0.100000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>110</td>
+      <td>-0.090909</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>132</td>
+      <td>0.200000</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>105</td>
+      <td>-0.204545</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>112</td>
+      <td>0.066667</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>105</td>
+      <td>-0.062500</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>To calculate log returns with numpy’s <code class="docutils literal notranslate"><span class="pre">np.log()</span></code>, we can either utilise the prices, logarithmise them and calculate the difference using <code class="docutils literal notranslate"><span class="pre">.diff()</span></code> or use the discrete returns by adding one before taking the logarithm.
+For completeness, we also add a column with discrete returns calculated from the log returns.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># use prices and </span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;log_returns&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">S</span><span class="p">)</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;log_returns_alt&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">discrete_returns</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;discrete_returns_from_log&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">log_returns</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>S</th>
+      <th>discrete_returns</th>
+      <th>log_returns</th>
+      <th>log_returns_alt</th>
+      <th>discrete_returns_from_log</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>100</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>110</td>
+      <td>0.100000</td>
+      <td>0.095310</td>
+      <td>0.095310</td>
+      <td>0.100000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>121</td>
+      <td>0.100000</td>
+      <td>0.095310</td>
+      <td>0.095310</td>
+      <td>0.100000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>110</td>
+      <td>-0.090909</td>
+      <td>-0.095310</td>
+      <td>-0.095310</td>
+      <td>-0.090909</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>132</td>
+      <td>0.200000</td>
+      <td>0.182322</td>
+      <td>0.182322</td>
+      <td>0.200000</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>105</td>
+      <td>-0.204545</td>
+      <td>-0.228842</td>
+      <td>-0.228842</td>
+      <td>-0.204545</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>112</td>
+      <td>0.066667</td>
+      <td>0.064539</td>
+      <td>0.064539</td>
+      <td>0.066667</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>105</td>
+      <td>-0.062500</td>
+      <td>-0.064539</td>
+      <td>-0.064539</td>
+      <td>-0.062500</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+<section id="portfolios-and-cross-sectional-additivity">
+<h3>Portfolios and cross sectional additivity<a class="headerlink" href="#portfolios-and-cross-sectional-additivity" title="Permalink to this heading">#</a></h3>
+<p>So far, we established a way to track a single investment’s performance over time using (log) returns. Now, we would also like to track the performance of a portfolio over time. A portfolio (<span class="math notranslate nohighlight">\(PF\)</span>) is a collection of investments. So if you had bought one share each from two different companies, these would form your portfolio. Portfolios can in general have different ways of being allocated, i.e. by the criteria the stocks are selected into the portfolio. Without loss of generality, we can describe a portfolio’s value by the sum of its constituents. These are defined as the weight (fraction of total capital) of each single stock <span class="math notranslate nohighlight">\(w_i\)</span> multiplied by the respective stock’s value <span class="math notranslate nohighlight">\(S_i\)</span>.
+$<span class="math notranslate nohighlight">\( P_i = w_i \cdot S_i\)</span><span class="math notranslate nohighlight">\(
+where \)</span>i$ indicates the company.</p>
+<p>Given the returns of the whole portfolio as time series data, we can just apply the methods from above. However, if we are given the prices of the single stocks of which the portfolio consists, we need a way to calculate the portfolio’s performance in the cross section. Meaning we would like to calculate the performance from <span class="math notranslate nohighlight">\(t=0\)</span> to <span class="math notranslate nohighlight">\(t=1\)</span> for the entirety of stocks in our portfolio. To do so, will again resort to calculating returns.
+For the cross sectional portfolio return, we now <strong>must not use log returns</strong>. Instead, discrete returns already possess the desired cross sectional additivity. Looking at the portfolio return, we’ll use the price development of a single stock
+$<span class="math notranslate nohighlight">\( P_{t+1}^i = P_t^i (1 + r_{t+1}^i) \)</span>$</p>
+<p>It can now be derived, that discrete returns do indeed possess the cross sectional additivity
+$<span class="math notranslate nohighlight">\( r_{t+1}^{PF} = \sum_i P^i_t (1 + r_{t+1}^i) \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( = \sum_i{w_i S_t} + \sum_i{w_i S_t r_{t+1}^i} \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( = S_t \cdot (1 + \sum_i w_i r_{t+1}^i) \)</span><span class="math notranslate nohighlight">\(
+with \)</span>\sum_i w_i = 1$.</p>
+<p>Let’s have a look at the following data:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>time <span class="math notranslate nohighlight">\(t\)</span></p></th>
+<th class="head"><p>0</p></th>
+<th class="head"><p>1</p></th>
+<th class="head"><p>2</p></th>
+<th class="head"><p>3</p></th>
+<th class="head"><p>4</p></th>
+<th class="head"><p>5</p></th>
+<th class="head"><p>6</p></th>
+<th class="head"><p>7</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>company A <span class="math notranslate nohighlight">\(A_t\)</span></p></td>
+<td><p>100</p></td>
+<td><p>110</p></td>
+<td><p>121</p></td>
+<td><p>110</p></td>
+<td><p>132</p></td>
+<td><p>105</p></td>
+<td><p>112</p></td>
+<td><p>105</p></td>
+</tr>
+<tr class="row-odd"><td><p>company B <span class="math notranslate nohighlight">\(B_t\)</span></p></td>
+<td><p>200</p></td>
+<td><p>180</p></td>
+<td><p>194</p></td>
+<td><p>198</p></td>
+<td><p>197</p></td>
+<td><p>205</p></td>
+<td><p>208</p></td>
+<td><p>215</p></td>
+</tr>
+</tbody>
+</table>
+<p>For simplicity, we will assume to invest the same amount of money in both stocks. This gives <span class="math notranslate nohighlight">\(w_1=w_2=0.5\)</span>. This would for example mean we bought two shares of company A for a total of 200 monetary units (mu) and and one share of company B for the same amount of mu.<br />
+We will now calculate the dauily returns of the portfolio using pandas:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="mi">121</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="mi">132</span><span class="p">,</span> <span class="mi">105</span><span class="p">,</span> <span class="mi">112</span><span class="p">,</span> <span class="mi">105</span><span class="p">],</span>
+    <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">200</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="mi">194</span><span class="p">,</span> <span class="mi">198</span><span class="p">,</span> <span class="mi">197</span><span class="p">,</span> <span class="mi">205</span><span class="p">,</span> <span class="mi">208</span><span class="p">,</span> <span class="mi">215</span><span class="p">],</span>
+    <span class="p">},</span>
+<span class="n">index</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">)))</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>100</td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>110</td>
+      <td>180</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>121</td>
+      <td>194</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>110</td>
+      <td>198</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>132</td>
+      <td>197</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>105</td>
+      <td>205</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>112</td>
+      <td>208</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>105</td>
+      <td>215</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;A_return&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">A</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;B_return&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">B</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;pf_return&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">((</span><span class="mi">2</span> <span class="o">*</span> <span class="n">df</span><span class="o">.</span><span class="n">A</span><span class="o">.</span><span class="n">shift</span><span class="p">()</span><span class="o">/</span><span class="mi">400</span><span class="p">)</span> <span class="o">*</span> <span class="n">df</span><span class="o">.</span><span class="n">A_return</span> <span class="o">+</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">B</span><span class="o">.</span><span class="n">shift</span><span class="p">()</span><span class="o">/</span><span class="mi">400</span><span class="p">)</span> <span class="o">*</span> <span class="n">df</span><span class="o">.</span><span class="n">B_return</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>A_return</th>
+      <th>B_return</th>
+      <th>pf_return</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>100</td>
+      <td>200</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>110</td>
+      <td>180</td>
+      <td>0.100000</td>
+      <td>-0.100000</td>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>121</td>
+      <td>194</td>
+      <td>0.100000</td>
+      <td>0.077778</td>
+      <td>0.0900</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>110</td>
+      <td>198</td>
+      <td>-0.090909</td>
+      <td>0.020619</td>
+      <td>-0.0450</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>132</td>
+      <td>197</td>
+      <td>0.200000</td>
+      <td>-0.005051</td>
+      <td>0.1075</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>105</td>
+      <td>205</td>
+      <td>-0.204545</td>
+      <td>0.040609</td>
+      <td>-0.1150</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>112</td>
+      <td>208</td>
+      <td>0.066667</td>
+      <td>0.014634</td>
+      <td>0.0425</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>105</td>
+      <td>215</td>
+      <td>-0.062500</td>
+      <td>0.033654</td>
+      <td>-0.0175</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We can take a closer look at the first two daily returns of the stocks and the portfolio:</p>
+<ul class="simple">
+<li><p>for <span class="math notranslate nohighlight">\(t=1\)</span>:</p>
+<ul>
+<li><p>Our investment of 200 mu (2 shares) in Stock <span class="math notranslate nohighlight">\(A\)</span> is now worth 220 mu, i.e. the return is 10 %</p></li>
+<li><p>Our investment of 200 mu (1 share) in Stock <span class="math notranslate nohighlight">\(B\)</span> is now worth 180 mu, i.e. the return is -10 %<br />
+<span class="math notranslate nohighlight">\(\rightarrow\)</span> the portfolio’s value stays the same as for <span class="math notranslate nohighlight">\(t=0\)</span></p></li>
+</ul>
+</li>
+<li><p>for <span class="math notranslate nohighlight">\(t=2\)</span>:</p>
+<ul>
+<li><p>Our position of 220 mu in Stock <span class="math notranslate nohighlight">\(A\)</span> is now worth 242 mu, i.e. the daily return is 10 %</p></li>
+<li><p>Our position of 180 mu in Stock <span class="math notranslate nohighlight">\(B\)</span> is now worth 194 mu, i.e. the daily return is 8 %<br />
+<span class="math notranslate nohighlight">\(\rightarrow\)</span> the portfolio’s value increases to a total of 436 mu which means the daily return is <span class="math notranslate nohighlight">\(\frac{436}{400} - 1 = 0.09\)</span></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="characteristics-of-returns">
+<h3>Characteristics of returns<a class="headerlink" href="#characteristics-of-returns" title="Permalink to this heading">#</a></h3>
+<p>Usually, returns exhibit the following:</p>
+<ul class="simple">
+<li><p>expected returns are close to zero (the shorter the time span, the smaller the expected return)</p></li>
+<li><p>weakly stationary (i.e. constant expected value and variance over time) <strong>but</strong> usually volatility clustering</p></li>
+<li><p>skewed distribution</p></li>
+</ul>
+<p>From these items alone, we can start an analysis of stock returns by looking at some (standardized) moments of the empirical data:</p>
+<ul class="simple">
+<li><p>the average return as an estimate of the expected return</p></li>
+<li><p>the empirical variance or standard deviation/volatility</p></li>
+<li><p>skewness (if negative: left skewed)</p></li>
+<li><p>(excess) kurtosis (larger <span class="math notranslate nohighlight">\(\rightarrow\)</span> fat tails)</p></li>
+</ul>
+<p>The average return can be seen as an indicator on how profitable a long term investment may be. The volatility is interpreted as a risk measure, i.e. the higher the volatility, the higher the risk. Skewness, especially left-skewdness, can indicate a higher probability of being exposed to larger losses. Finally, kurtosis means how “fat tailed” a distribution is and thus how exposed the investment would be to extreme values, both positive and negative. If we talk about excess kurtosis, we subtract a value of 3. this reference value is the kurtosis of a standard normal distribution.</p>
+<p>In pandas, we can take a look at these moments by calling the appropriate methods. We will have a look at real-world data, downloading close prices using the yfinance package and calculating the returns.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">yfinance</span> <span class="k">as</span> <span class="nn">yf</span>
+
+<span class="n">msft</span> <span class="o">=</span> <span class="n">yf</span><span class="o">.</span><span class="n">Ticker</span><span class="p">(</span><span class="s1">&#39;MSFT&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">history</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="s2">&quot;2020-01-01&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msft</span> <span class="o">=</span> <span class="n">msft</span><span class="p">[[</span><span class="s1">&#39;Close&#39;</span><span class="p">]]</span>
+<span class="n">msft</span><span class="p">[</span><span class="s1">&#39;daily_return&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">msft</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span>
+<span class="n">msft</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">avg_return</span> <span class="o">=</span> <span class="n">msft</span><span class="o">.</span><span class="n">daily_return</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">vola</span> <span class="o">=</span> <span class="n">msft</span><span class="o">.</span><span class="n">daily_return</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="n">skew</span> <span class="o">=</span> <span class="n">msft</span><span class="o">.</span><span class="n">daily_return</span><span class="o">.</span><span class="n">skew</span><span class="p">()</span>
+<span class="n">kurtis</span> <span class="o">=</span> <span class="n">msft</span><span class="o">.</span><span class="n">daily_return</span><span class="o">.</span><span class="n">kurt</span><span class="p">()</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;average return </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">avg_return</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;volatility </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">vola</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;skewness </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">skew</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;kurtosis </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">kurtis</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>average return 0.0012
+volatility 0.0204
+skewness 0.0141
+kurtosis 6.5948
+</pre></div>
+</div>
+</div>
+</div>
+<p>As we discussed in earlier chapter, it is always recommended to take a look at some charts.<br />
+We can plot returns over time as well as look at the distribution.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msft</span><span class="o">.</span><span class="n">daily_return</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot: xlabel=&#39;Date&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/5f9ba249404af710c01d092ec46afafa159caec5209a0c9a5372883065d3c532.png" src="_images/5f9ba249404af710c01d092ec46afafa159caec5209a0c9a5372883065d3c532.png" />
+</div>
+</div>
+<p>Over time, we see that the volatility is far from constant, something that is often knowingly ignored/downplayed. Even though it is found  in almost every time series of returns given a sufficiently long observation period.</p>
+<p>To look at the distribution, we already know which plot to utilise.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">msft</span><span class="o">.</span><span class="n">daily_return</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;forestgreen&#39;</span><span class="p">,</span> <span class="n">kde</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot: xlabel=&#39;daily_return&#39;, ylabel=&#39;Count&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/d02415863b80cb326f1fd68755acbc684ef9e3a2560e554356f5f5541daf7be3.png" src="_images/d02415863b80cb326f1fd68755acbc684ef9e3a2560e554356f5f5541daf7be3.png" />
+</div>
+</div>
+<p>From the kernel density estimation (solid line), we can in fact see the left-skewedness of the distribution, meaning we find more negative returns of larger values.</p>
+</section>
+<section id="indicators">
+<h3>Indicators<a class="headerlink" href="#indicators" title="Permalink to this heading">#</a></h3>
+<p>In order to determine the performance, different indicators can be consulted. When it comes to trading, a whole universe of technical indocators exiists, all seeking to predict future performance.</p>
+<p>A classic example of a performance measure is the Sharpe ratio. It is a rather simple measure to indicate the (excess) return of an investment in relation to the risk to which it was exposed, where the risk is measured by the volatility of the (excess) return.</p>
+<section id="technical-indicators">
+<h4>Technical indicators<a class="headerlink" href="#technical-indicators" title="Permalink to this heading">#</a></h4>
+<p>Technical indicators are used in technical analysis and calculated using historical stock prices and/or the trading volume. Technical analysis in general aims at forecasting prices or market movements in order to generate revenue by trading. Note however, on average it is not possible to outperform the market using these very commonly known indicators. Technical indicators are usually designed to capture patterns of price movements, like long term development or short term returns. It is these patterns that are then meant to be exploited.</p>
+<p>Usually, some sort of chart is produced for the indicator in order to identify patterns as the “rules”
+for indicators may vary from trader to trader. These rules are defined as indicator specific signals, e.g. critical values or sub-patterns, which tell the trader to sell or buy the stock.</p>
+<p>As a simple example, we can have a look at the the golden cross. It is found by comparing the 200 days and 50 days simple moving average of the close price and considering it a buy-signal, if the 50 day (fast) moving average takes on higher values than the (slow) 200 days moving average.</p>
+<p>Again, there is are methods available for pandas series: <code class="docutils literal notranslate"><span class="pre">.rolling()</span></code> creates an object similar to what we know from <code class="docutils literal notranslate"><span class="pre">groupby()</span></code>. Calling <code class="docutils literal notranslate"><span class="pre">.mean()</span></code> on this object then calculates the mean of the days in this time window.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mmm</span> <span class="o">=</span> <span class="n">yf</span><span class="o">.</span><span class="n">Ticker</span><span class="p">(</span><span class="s1">&#39;AMD&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">history</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="s2">&quot;2020-01-01&quot;</span><span class="p">)</span>
+<span class="n">mmm</span><span class="p">[</span><span class="s1">&#39;SMA_50&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mmm</span><span class="o">.</span><span class="n">Close</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">mmm</span><span class="p">[</span><span class="s1">&#39;SMA_200&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mmm</span><span class="o">.</span><span class="n">Close</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mmm</span><span class="o">.</span><span class="n">SMA_50</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;50&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mmm</span><span class="o">.</span><span class="n">SMA_200</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;200&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mmm</span><span class="o">.</span><span class="n">Close</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Close&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/74090f21861f3ddc7bd9a31f0e04303e39d45af3eaa947b0ce8f4ced28d2a7e1.png" src="_images/74090f21861f3ddc7bd9a31f0e04303e39d45af3eaa947b0ce8f4ced28d2a7e1.png" />
+</div>
+</div>
+<p>In the graph, we can see one golden crossing, where the blue line crosses above the orange line (only after a short drop below).
+This would indicate to buy the stock at the time of the crossing. A strategy that would have worked if for example selling before the lines switch their order again later.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">yf</span><span class="o">.</span><span class="n">Ticker</span><span class="p">(</span><span class="s1">&#39;AAPL&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">history</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="s1">&#39;2021-01-01&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">awe_osc</span><span class="p">(</span><span class="n">high</span><span class="p">,</span> <span class="n">low</span><span class="p">,</span> <span class="n">fast</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">slow</span><span class="o">=</span><span class="mi">34</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">slow</span> <span class="o">&lt;</span> <span class="n">fast</span><span class="p">:</span>
+        <span class="n">fast</span><span class="p">,</span> <span class="n">slow</span> <span class="o">=</span> <span class="n">slow</span><span class="p">,</span> <span class="n">fast</span>
+        
+    <span class="n">median_price</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">high</span> <span class="o">+</span> <span class="n">low</span><span class="p">)</span>
+    <span class="n">fast_sma</span> <span class="o">=</span> <span class="n">median_price</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">fast</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">slow_sma</span> <span class="o">=</span> <span class="n">median_price</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">slow</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">ao</span> <span class="o">=</span> <span class="n">fast_sma</span> <span class="o">-</span> <span class="n">slow_sma</span>
+
+    <span class="c1"># Name and Categorize it</span>
+    <span class="n">ao</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;AO_</span><span class="si">{</span><span class="n">fast</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">slow</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">ao</span><span class="p">)</span>
+
+<span class="n">ao</span> <span class="o">=</span> <span class="n">awe_osc</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">High</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">Low</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ao</span><span class="p">[</span><span class="mi">30</span><span class="p">:</span><span class="mi">35</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>AO_5_34</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>30</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>-2.868465</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>-4.985443</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ao</span><span class="p">[</span><span class="s1">&#39;shift_diff&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ao</span> <span class="o">&gt;</span> <span class="n">ao</span><span class="o">.</span><span class="n">shift</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ao</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot: &gt;
+</pre></div>
+</div>
+<img alt="_images/5a3ac2189adb7357f811bc57c867d09a8cf0687ae1e54bde6e05ef368d534114.png" src="_images/5a3ac2189adb7357f811bc57c867d09a8cf0687ae1e54bde6e05ef368d534114.png" />
+</div>
+</div>
+<p>The standard graph for the awesome oscillator is a bar plot in red and green, where the color captures the price movement from one increment to the next: red for a lower price, green for a higher price.</p>
+<p>We can have a look <a class="reference external" href="https://www.ifcm.co.uk/ntx-indicators/awesome-oscillator">here</a> for an explanation of the indicator and the rules.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">ao</span><span class="p">[</span><span class="n">ao</span><span class="o">.</span><span class="n">shift_diff</span><span class="o">==</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">ao</span><span class="p">[</span><span class="n">ao</span><span class="o">.</span><span class="n">shift_diff</span><span class="o">==</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">AO_5_34</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">ao</span><span class="p">[</span><span class="n">ao</span><span class="o">.</span><span class="n">shift_diff</span><span class="o">==</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">ao</span><span class="p">[</span><span class="n">ao</span><span class="o">.</span><span class="n">shift_diff</span><span class="o">==</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">AO_5_34</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">ao</span><span class="p">[</span><span class="s1">&#39;signal&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ao</span><span class="o">.</span><span class="n">shift_diff</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/551b240ca71dbec21985ed66066148aaa96e06ae85fd24c42949fd51d8cd3c23.png" src="_images/551b240ca71dbec21985ed66066148aaa96e06ae85fd24c42949fd51d8cd3c23.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#returns">Returns</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additivity">Additivity</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#log-returns">log-returns</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#portfolios-and-cross-sectional-additivity">Portfolios and cross sectional additivity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristics-of-returns">Characteristics of returns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indicators">Indicators</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#technical-indicators">Technical indicators</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jan König
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

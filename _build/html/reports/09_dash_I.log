@@ -1,0 +1,99 @@
+Traceback (most recent call last):
+  File "/Users/jan/Desktop/Promotion/python_class/venv/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/Users/jan/Desktop/Promotion/python_class/venv/lib/python3.9/site-packages/nbclient/client.py", line 1112, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/Users/jan/Desktop/Promotion/python_class/venv/lib/python3.9/site-packages/nbclient/util.py", line 74, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/Users/jan/Desktop/Promotion/python_class/venv/lib/python3.9/site-packages/nbclient/util.py", line 53, in just_run
+    return loop.run_until_complete(coro)
+  File "/usr/local/Cellar/python@3.9/3.9.5/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py", line 642, in run_until_complete
+    return future.result()
+  File "/Users/jan/Desktop/Promotion/python_class/venv/lib/python3.9/site-packages/nbclient/client.py", line 553, in async_execute
+    await self.async_execute_cell(
+  File "/Users/jan/Desktop/Promotion/python_class/venv/lib/python3.9/site-packages/nbclient/client.py", line 857, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "/Users/jan/Desktop/Promotion/python_class/venv/lib/python3.9/site-packages/nbclient/client.py", line 760, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import plotly.express as px
+import numpy as np
+import plotly.graph_objects as go
+x = np.linspace(-2,2,51)
+y = x**2
+fig = go.Figure(go.Scatter(x=x,y=y, mode='markers'))
+fig.update_layout(margin= {'t': 60})
+
+app = JupyterDash('SimpleExample')
+app.layout = html.Div([
+    dcc.Markdown(''' - plotly_express:'''), 
+    dcc.Graph(id='px', figure= px.scatter(x=x,y=y)),
+    dcc.Markdown(''' - graph_objects:'''),
+    dcc.Graph(id='go', figure= fig)
+], style={'columnCount':2})
+
+app.run_server(mode='inline')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mOSError[0m                                   Traceback (most recent call last)
+[0;32m<ipython-input-6-97bff1c21ec3>[0m in [0;36m<module>[0;34m[0m
+[1;32m     15[0m ], style={'columnCount':2})
+[1;32m     16[0m [0;34m[0m[0m
+[0;32m---> 17[0;31m [0mapp[0m[0;34m.[0m[0mrun_server[0m[0;34m([0m[0mmode[0m[0;34m=[0m[0;34m'inline'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m~/Desktop/Promotion/python_class/venv/lib/python3.9/site-packages/jupyter_dash/jupyter_app.py[0m in [0;36mrun_server[0;34m(self, mode, width, height, inline_exceptions, **kwargs)[0m
+[1;32m    317[0m                 )
+[1;32m    318[0m [0;34m[0m[0m
+[0;32m--> 319[0;31m         [0mwait_for_app[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    320[0m [0;34m[0m[0m
+[1;32m    321[0m         [0;32mif[0m [0mJupyterDash[0m[0;34m.[0m[0m_in_colab[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/Desktop/Promotion/python_class/venv/lib/python3.9/site-packages/retrying.py[0m in [0;36mwrapped_f[0;34m(*args, **kw)[0m
+[1;32m     47[0m             [0;34m@[0m[0msix[0m[0;34m.[0m[0mwraps[0m[0;34m([0m[0mf[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     48[0m             [0;32mdef[0m [0mwrapped_f[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkw[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 49[0;31m                 [0;32mreturn[0m [0mRetrying[0m[0;34m([0m[0;34m*[0m[0mdargs[0m[0;34m,[0m [0;34m**[0m[0mdkw[0m[0;34m)[0m[0;34m.[0m[0mcall[0m[0;34m([0m[0mf[0m[0;34m,[0m [0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkw[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     50[0m [0;34m[0m[0m
+[1;32m     51[0m             [0;32mreturn[0m [0mwrapped_f[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/Desktop/Promotion/python_class/venv/lib/python3.9/site-packages/retrying.py[0m in [0;36mcall[0;34m(self, fn, *args, **kwargs)[0m
+[1;32m    210[0m                 [0;32mif[0m [0;32mnot[0m [0mself[0m[0;34m.[0m[0m_wrap_exception[0m [0;32mand[0m [0mattempt[0m[0;34m.[0m[0mhas_exception[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    211[0m                     [0;31m# get() on an attempt with an exception should cause it to be raised, but raise just in case[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 212[0;31m                     [0;32mraise[0m [0mattempt[0m[0;34m.[0m[0mget[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    213[0m                 [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    214[0m                     [0;32mraise[0m [0mRetryError[0m[0;34m([0m[0mattempt[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/Desktop/Promotion/python_class/venv/lib/python3.9/site-packages/retrying.py[0m in [0;36mget[0;34m(self, wrap_exception)[0m
+[1;32m    245[0m                 [0;32mraise[0m [0mRetryError[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    246[0m             [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 247[0;31m                 [0msix[0m[0;34m.[0m[0mreraise[0m[0;34m([0m[0mself[0m[0;34m.[0m[0mvalue[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m,[0m [0mself[0m[0;34m.[0m[0mvalue[0m[0;34m[[0m[0;36m1[0m[0;34m][0m[0;34m,[0m [0mself[0m[0;34m.[0m[0mvalue[0m[0;34m[[0m[0;36m2[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    248[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    249[0m             [0;32mreturn[0m [0mself[0m[0;34m.[0m[0mvalue[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/Desktop/Promotion/python_class/venv/lib/python3.9/site-packages/six.py[0m in [0;36mreraise[0;34m(tp, value, tb)[0m
+[1;32m    717[0m             [0;32mif[0m [0mvalue[0m[0;34m.[0m[0m__traceback__[0m [0;32mis[0m [0;32mnot[0m [0mtb[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    718[0m                 [0;32mraise[0m [0mvalue[0m[0;34m.[0m[0mwith_traceback[0m[0;34m([0m[0mtb[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 719[0;31m             [0;32mraise[0m [0mvalue[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    720[0m         [0;32mfinally[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    721[0m             [0mvalue[0m [0;34m=[0m [0;32mNone[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/Desktop/Promotion/python_class/venv/lib/python3.9/site-packages/retrying.py[0m in [0;36mcall[0;34m(self, fn, *args, **kwargs)[0m
+[1;32m    198[0m         [0;32mwhile[0m [0;32mTrue[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    199[0m             [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 200[0;31m                 [0mattempt[0m [0;34m=[0m [0mAttempt[0m[0;34m([0m[0mfn[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m,[0m [0mattempt_number[0m[0;34m,[0m [0;32mFalse[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    201[0m             [0;32mexcept[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    202[0m                 [0mtb[0m [0;34m=[0m [0msys[0m[0;34m.[0m[0mexc_info[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/Desktop/Promotion/python_class/venv/lib/python3.9/site-packages/jupyter_dash/jupyter_app.py[0m in [0;36mwait_for_app[0;34m()[0m
+[1;32m    310[0m                     [0mhost[0m[0;34m=[0m[0mhost[0m[0;34m,[0m [0mport[0m[0;34m=[0m[0mport[0m[0;34m,[0m [0mtoken[0m[0;34m=[0m[0mJupyterDash[0m[0;34m.[0m[0m_token[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    311[0m                 )
+[0;32m--> 312[0;31m                 raise OSError(
+[0m[1;32m    313[0m                     [0;34m"Address '{url}' already in use.\n"[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    314[0m                     "    Try passing a different port to run_server.".format(
+
+[0;31mOSError[0m: Address 'http://127.0.0.1:8050' already in use.
+    Try passing a different port to run_server.
+OSError: Address 'http://127.0.0.1:8050' already in use.
+    Try passing a different port to run_server.
+
