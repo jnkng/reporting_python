@@ -1,0 +1,1857 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Working with Data &#8212; Data Visualisation and Reporting with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"ignoreHtmlClass": "never-ignore", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}, "tex2jax": {"ignoreClass": "never-ignore"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '04_data';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Online Data" href="05_online.html" />
+    <link rel="prev" title="First steps" href="03_python_basics.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="01_content.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Data Visualisation and Reporting with Python</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="01_content.html">
+                    Data, Visualisation and Reporting with Python
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="02_general.html">What is Python and why use it?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_python_basics.html">First steps</a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Working with Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_online.html">Online Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_scraping.html">Web Scraping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_graphics.html">Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_interactive_plots.html">Interactive Graphics - Plotly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_sklearn.html">SciKit Learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_dash_I.html">Dash - introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_dash_II.html">Dash - advanced interactivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_markdown.html">Notebook formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_financial_stats_CAPM.html">Introduction to Statistics and Indicators in Finance</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F04_data.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/04_data.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Working with Data</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-dataframes-and-series">Pandas - DataFrames and Series</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing">Indexing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-methods">Useful Methods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plots">Plots</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-and-exporting-data">Importing and Exporting Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#database-and-sql">Database and SQL</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#store-in-database">Store in Database</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-from-database">Load from Database</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="working-with-data">
+<h1>Working with Data<a class="headerlink" href="#working-with-data" title="Permalink to this heading">#</a></h1>
+<p>Several libraries offer useful tools to work with data in order to allow for a meaningful analysis. One of the most popular and powerful is <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/index.html"><strong>Pandas</strong></a>. Beside including efficient ways for cleaning and manipulating data, pandas also includes functions for statistical analysis and graphics.</p>
+<p>Usually, pandas is imported under the alias <code class="docutils literal notranslate"><span class="pre">pd</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="pandas-dataframes-and-series">
+<h2>Pandas - DataFrames and Series<a class="headerlink" href="#pandas-dataframes-and-series" title="Permalink to this heading">#</a></h2>
+<section id="indexing">
+<h3>Indexing<a class="headerlink" href="#indexing" title="Permalink to this heading">#</a></h3>
+<p>The basic elements for data are <em>DataFrames</em> and <em>Series</em>. A DataFrame is a whole matrix- or table-like representation of data with column and row names. A Series can be understood as a single column of such a data matrix (but without the need for a table).<br />
+There are respective functions to turn other objects, e.g. lists or dicts, into DataFrames or Series. Indexing, similar to lists or dicts, uses square brackets.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span>
+<span class="n">my_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">my_list</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;var1&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;df:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">my_df</span><span class="p">)</span>
+
+<span class="n">my_series</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;series:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">my_series</span><span class="p">)</span>
+
+<span class="c1"># selecting a single column from a DataFrame</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;select column from df:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">my_df</span><span class="p">[</span><span class="s1">&#39;var1&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>df:
+    var1
+0     1
+1     2
+2     3
+3     4
+4     5
+5     6
+6     7
+series:
+ 0    1
+1    2
+2    3
+3    4
+4    5
+5    6
+6    7
+dtype: int64
+select column from df:
+ 0    1
+1    2
+2    3
+3    4
+4    5
+5    6
+6    7
+Name: var1, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>To select specific rows or columns, the <code class="docutils literal notranslate"><span class="pre">iloc</span></code> method, for selecting based on an index, and <code class="docutils literal notranslate"><span class="pre">loc</span></code> method, based on labels, are recommended. Especially when several columns are to be selected. Indexing can also be done by boolean Series (or lists) and thus conditionally. <br />
+Another way to select a single column is by chaining the column’s name to the DataFrame’s name by a dot (like in method chaining).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+<span class="p">{</span><span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">56</span><span class="p">],</span>
+ <span class="s1">&#39;height&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">183</span><span class="p">,</span> <span class="mi">179</span><span class="p">,</span> <span class="mi">172</span><span class="p">]</span>
+<span class="p">},</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;person_a&#39;</span><span class="p">,</span> <span class="s1">&#39;person_b&#39;</span><span class="p">,</span> <span class="s1">&#39;person_c&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_df</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;1.:&#39;</span><span class="p">,</span> <span class="n">my_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;person_b&#39;</span><span class="p">,</span><span class="s1">&#39;age&#39;</span><span class="p">],</span> <span class="s1">&#39;is the same as&#39;</span><span class="p">,</span>  <span class="n">my_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># age &gt; 27</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;indexing by condition/list</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">my_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">my_df</span><span class="o">.</span><span class="n">age</span> <span class="o">&gt;</span><span class="mi">27</span><span class="p">],</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">corresponds to </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">my_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">my_df</span><span class="o">.</span><span class="n">age</span> <span class="o">&gt;</span><span class="mi">27</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>          age  height
+person_a   20     183
+person_b   34     179
+person_c   56     172
+1.: 34 is the same as 34
+indexing by condition/list
+           age  height
+person_b   34     179
+person_c   56     172 
+corresponds to 
+           age  height
+person_b   34     179
+person_c   56     172
+&lt;class &#39;pandas.core.series.Series&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="useful-methods">
+<h3>Useful Methods<a class="headerlink" href="#useful-methods" title="Permalink to this heading">#</a></h3>
+<p>Pandas includes many useful methods that will help you get to know and manipulate a dataset. Some of these methods are shown in the following, others are introduced later when needed.<br />
+More often than not, a dataset will contain missing values, i.e. cells in a data table contain no value. They will be depicted as <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, <strong>N</strong>ot <strong>a</strong> <strong>N</strong>umber.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">my_df</span> <span class="o">=</span>  <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+<span class="p">{</span><span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">44</span><span class="p">],</span>
+ <span class="s1">&#39;height&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">183</span><span class="p">,</span> <span class="mi">179</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span>  <span class="mi">163</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="n">my_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>height</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>20.0</td>
+      <td>183.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>34.0</td>
+      <td>179.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>56.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>NaN</td>
+      <td>163.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>44.0</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># view the first rows (view last rows with .tail())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;0.</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">my_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="c1"># general information</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">1.&#39;</span><span class="p">)</span>
+<span class="n">my_df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+
+<span class="c1"># descriptive statistsics on dataset</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">2.</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">my_df</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+
+<span class="c1"># number of missing values per column</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">3.</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">my_df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+
+<span class="c1"># single statistics are included as methods, also for single columns</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">4.</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">my_df</span><span class="o">.</span><span class="n">age</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+
+<span class="c1"># fill missing values (e.g. with mean of column)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> 5.</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">my_df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">my_df</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span>    
+
+<span class="c1"># note that you must assign this to my_df (or a different variable) in order to impute missing values permanently!</span>
+<span class="n">my_df</span> <span class="o">=</span> <span class="n">my_df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">my_df</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+
+<span class="c1"># sort values by column(s)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">6.</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">my_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]))</span>    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.
+     age  height
+0  20.0   183.0
+1  34.0   179.0
+2  56.0     NaN
+3   NaN   163.0
+4  44.0     NaN
+
+1.
+&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 5 entries, 0 to 4
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype  
+---  ------  --------------  -----  
+ 0   age     4 non-null      float64
+ 1   height  3 non-null      float64
+dtypes: float64(2)
+memory usage: 208.0 bytes
+
+2.
+              age      height
+count   4.000000    3.000000
+mean   38.500000  175.000000
+std    15.264338   10.583005
+min    20.000000  163.000000
+25%    30.500000  171.000000
+50%    39.000000  179.000000
+75%    47.000000  181.000000
+max    56.000000  183.000000
+
+3.
+ age       1
+height    2
+dtype: int64
+
+4.
+ 38.5
+
+ 5.
+     age  height
+0  20.0   183.0
+1  34.0   179.0
+2  56.0   175.0
+3  38.5   163.0
+4  44.0   175.0
+
+6.
+     age  height
+3  38.5   163.0
+2  56.0   175.0
+4  44.0   175.0
+1  34.0   179.0
+0  20.0   183.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get column names (useful for looping)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;7.</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">my_df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+
+<span class="c1"># drop rows containing missing values</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;8.</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">my_df</span><span class="o">.</span><span class="n">dropna</span><span class="p">())</span> 
+
+<span class="c1"># drop rows or columns</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;9.</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">my_df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;age&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="c1"># merge DataFrames (automatically on shared variable if not specified otherwise)</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+<span class="p">{</span><span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">44</span><span class="p">],</span>
+ <span class="s1">&#39;weight&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">83</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">98</span><span class="p">,</span>  <span class="mi">50</span><span class="p">,</span> <span class="mi">77</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;10.</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">my_df</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df2</span><span class="p">))</span>
+<span class="n">my_df</span> <span class="o">=</span> <span class="n">my_df</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df2</span><span class="p">)</span>
+
+<span class="c1"># correlation matrix</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;11.</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">my_df</span><span class="o">.</span><span class="n">corr</span><span class="p">())</span>
+
+<span class="c1"># adding new columns</span>
+<span class="n">my_df</span> <span class="o">=</span> <span class="n">my_df</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">bmi</span> <span class="o">=</span> <span class="n">my_df</span><span class="o">.</span><span class="n">weight</span><span class="o">/</span><span class="p">(</span><span class="n">my_df</span><span class="o">.</span><span class="n">height</span><span class="o">/</span><span class="mi">100</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">my_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7.
+ Index([&#39;age&#39;, &#39;height&#39;], dtype=&#39;object&#39;)
+8.
+     age  height
+0  20.0   183.0
+1  34.0   179.0
+2  56.0   175.0
+3  38.5   163.0
+4  44.0   175.0
+9.
+    height
+0   183.0
+1   179.0
+2   175.0
+3   163.0
+4   175.0
+10.
+     age  height  weight
+0  20.0   183.0      83
+1  34.0   179.0      63
+2  56.0   175.0      98
+3  44.0   175.0      77
+11.
+              age    height    weight
+age     1.000000 -0.946549  0.481176
+height -0.946549  1.000000 -0.282126
+weight  0.481176 -0.282126  1.000000
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>height</th>
+      <th>weight</th>
+      <th>bmi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>20.0</td>
+      <td>183.0</td>
+      <td>83</td>
+      <td>24.784258</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>34.0</td>
+      <td>179.0</td>
+      <td>63</td>
+      <td>19.662308</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>56.0</td>
+      <td>175.0</td>
+      <td>98</td>
+      <td>32.000000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>44.0</td>
+      <td>175.0</td>
+      <td>77</td>
+      <td>25.142857</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>As a last tool in this section, we will look at the <code class="docutils literal notranslate"><span class="pre">get_dummies()</span></code> function. Dummy variables are used to encode categorical variables with zero and one, for example in order to calculate the correlation with some other numerical variable.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+<span class="p">{</span><span class="s1">&#39;hair&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;blonde&#39;</span><span class="p">,</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;black&#39;</span><span class="p">]</span>
+<span class="p">})</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">df3</span><span class="o">.</span><span class="n">hair</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   black  blonde  red
+0      0       1    0
+1      1       0    0
+2      0       0    1
+3      0       0    1
+4      1       0    0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="plots">
+<h3>Plots<a class="headerlink" href="#plots" title="Permalink to this heading">#</a></h3>
+<p>Methods for standard pot types are available. For a histogram of the data, just use <code class="docutils literal notranslate"><span class="pre">.hist()</span></code>. Other types are available by chaining <code class="docutils literal notranslate"><span class="pre">.plot.</span></code> and the plot type.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># histogram</span>
+<span class="n">my_df</span><span class="o">.</span><span class="n">hist</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[&lt;AxesSubplot: title={&#39;center&#39;: &#39;age&#39;}&gt;,
+        &lt;AxesSubplot: title={&#39;center&#39;: &#39;height&#39;}&gt;],
+       [&lt;AxesSubplot: title={&#39;center&#39;: &#39;weight&#39;}&gt;,
+        &lt;AxesSubplot: title={&#39;center&#39;: &#39;bmi&#39;}&gt;]], dtype=object)
+</pre></div>
+</div>
+<img alt="_images/9ff447333c418fa29eb33363614c199797ad02a7bd47f55746e648023791247d.png" src="_images/9ff447333c418fa29eb33363614c199797ad02a7bd47f55746e648023791247d.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># lineplot</span>
+<span class="n">my_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;age&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;height&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot: xlabel=&#39;age&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/f5bcd7a0cb4945de965afbcffe5cfb2ffa8a169a2f60a0a788a9647863e989a0.png" src="_images/f5bcd7a0cb4945de965afbcffe5cfb2ffa8a169a2f60a0a788a9647863e989a0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># scatter plot</span>
+<span class="n">my_df</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot: xlabel=&#39;age&#39;, ylabel=&#39;weight&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/e944b800d854672780a4fc5c9a8386b6560ad02a9ae33550b9bba30f7bfc8225.png" src="_images/e944b800d854672780a4fc5c9a8386b6560ad02a9ae33550b9bba30f7bfc8225.png" />
+</div>
+</div>
+</section>
+<section id="importing-and-exporting-data">
+<h3>Importing and Exporting Data<a class="headerlink" href="#importing-and-exporting-data" title="Permalink to this heading">#</a></h3>
+<p>Your data may come to you in various file formats. Pandas enables you to import data from all common formats. The respective functions are usually called <code class="docutils literal notranslate"><span class="pre">read_</span></code> and <code class="docutils literal notranslate"><span class="pre">to_</span></code> followed by the respective file type.</p>
+<p>To read a <em>.csv</em> for example, use the <code class="docutils literal notranslate"><span class="pre">read_csv()</span></code> function. Note that the file need not be stored locally on your computer.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import from csv</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">dax</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/DAX.csv&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dax</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dax</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>         Date          Open          High           Low         Close  \
+0  2020-03-10  10724.980469  11032.290039  10423.900391  10475.490234   
+1  2020-03-11  10601.849609  10761.429688  10390.509766  10438.679688   
+2  2020-03-12   9863.990234   9932.559570   9139.120117   9161.129883   
+
+      Adj Close     Volume  
+0  10475.490234  267400800  
+1  10438.679688  216708900  
+2   9161.129883  390477000  
+           Date          Open          High           Low         Close  \
+251  2021-03-08  14024.570313  14402.919922  13977.129883  14380.910156   
+252  2021-03-09  14345.509766  14475.650391  14309.349609  14437.940430   
+253  2021-03-10  14439.450195  14554.490234  14408.519531  14528.570313   
+
+        Adj Close     Volume  
+251  14380.910156  109071900  
+252  14437.940430  107881800  
+253  14528.570313          0  
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># save data frame to excel</span>
+<span class="n">dax</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="s1">&#39;DAX.xlsx&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Lets do some exploration and manipulation of the historical data from the DAX index we just imported.
+<span class="math notranslate nohighlight">\( \)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;shape:&#39;</span><span class="p">,</span> <span class="n">dax</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>shape: (254, 7)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dax</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>    <span class="c1"># the &#39;Date&#39; column is of dtype object </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 254 entries, 0 to 253
+Data columns (total 7 columns):
+ #   Column     Non-Null Count  Dtype  
+---  ------     --------------  -----  
+ 0   Date       254 non-null    object 
+ 1   Open       254 non-null    float64
+ 2   High       254 non-null    float64
+ 3   Low        254 non-null    float64
+ 4   Close      254 non-null    float64
+ 5   Adj Close  254 non-null    float64
+ 6   Volume     254 non-null    int64  
+dtypes: float64(5), int64(1), object(1)
+memory usage: 14.0+ KB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># check type of first entry in &#39;Date&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">dax</span><span class="o">.</span><span class="n">Date</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;str&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Transform it to <em>datetime</em>, a special type for dates in python.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dax</span><span class="p">[</span><span class="s1">&#39;Datetime&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">dax</span><span class="o">.</span><span class="n">Date</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dax</span><span class="o">.</span><span class="n">Datetime</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>    <span class="c1"># check dtype now</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0   2020-03-10
+1   2020-03-11
+2   2020-03-12
+Name: Datetime, dtype: datetime64[ns]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">dax</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;Date&#39;, &#39;Open&#39;, &#39;High&#39;, &#39;Low&#39;, &#39;Close&#39;, &#39;Adj Close&#39;, &#39;Volume&#39;,
+       &#39;Datetime&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;of </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">dax</span><span class="p">)</span><span class="si">}</span><span class="s1"> rows:</span><span class="se">\n</span><span class="si">{</span><span class="n">dax</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;makes a total of </span><span class="si">{</span><span class="n">dax</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">}</span><span class="s1"> missing values&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>of 254 rows:
+Date         254
+Open         254
+High         254
+Low          254
+Close        254
+Adj Close    254
+Volume       254
+Datetime     254
+dtype: int64
+
+makes a total of 0 missing values
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Datetime&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Open&#39;</span><span class="p">,</span> <span class="s1">&#39;Close&#39;</span><span class="p">])</span>    <span class="c1"># using Datetime for plotting</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot: xlabel=&#39;Datetime&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/be88ebf1038b43995cf5cd7e21cf6c4459c03e9de1c39cb50d407094df07de2b.png" src="_images/be88ebf1038b43995cf5cd7e21cf6c4459c03e9de1c39cb50d407094df07de2b.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dax</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Open</th>
+      <th>High</th>
+      <th>Low</th>
+      <th>Close</th>
+      <th>Adj Close</th>
+      <th>Volume</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>254.000000</td>
+      <td>254.000000</td>
+      <td>254.000000</td>
+      <td>254.000000</td>
+      <td>254.000000</td>
+      <td>2.540000e+02</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>12488.785944</td>
+      <td>12595.082573</td>
+      <td>12373.931187</td>
+      <td>12489.142640</td>
+      <td>12489.142640</td>
+      <td>9.469272e+07</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>1324.154858</td>
+      <td>1295.824891</td>
+      <td>1365.892066</td>
+      <td>1331.191733</td>
+      <td>1331.191733</td>
+      <td>4.941752e+07</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>8495.940430</td>
+      <td>8668.480469</td>
+      <td>8255.650391</td>
+      <td>8441.709961</td>
+      <td>8441.709961</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>11896.257813</td>
+      <td>12185.372315</td>
+      <td>11850.512451</td>
+      <td>12031.852783</td>
+      <td>12031.852783</td>
+      <td>6.409985e+07</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>12847.964844</td>
+      <td>12945.129883</td>
+      <td>12764.479981</td>
+      <td>12851.169922</td>
+      <td>12851.169922</td>
+      <td>7.875350e+07</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>13314.162353</td>
+      <td>13362.944824</td>
+      <td>13224.792481</td>
+      <td>13292.120362</td>
+      <td>13292.120362</td>
+      <td>1.085247e+08</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>14439.450195</td>
+      <td>14554.490234</td>
+      <td>14408.519531</td>
+      <td>14528.570313</td>
+      <td>14528.570313</td>
+      <td>3.904770e+08</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>For statistics on one variable, index the result as usual.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_open</span> <span class="o">=</span> <span class="n">dax</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;Open&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mean_open</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12488.785944444882
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Create a new column, with a flag if the closing price was higher than the opening price.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dax</span> <span class="o">=</span> <span class="n">dax</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">positive</span> <span class="o">=</span> <span class="n">dax</span><span class="o">.</span><span class="n">Close</span> <span class="o">&gt;</span> <span class="n">dax</span><span class="o">.</span><span class="n">Open</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dax</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="c1"># fraction of days when this was the case</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;fraction of positive days:&#39;</span><span class="p">,</span> <span class="n">dax</span><span class="o">.</span><span class="n">positive</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">check: </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">dax</span><span class="o">.</span><span class="n">positive</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>         Date          Open          High           Low         Close  \
+0  2020-03-10  10724.980469  11032.290039  10423.900391  10475.490234   
+1  2020-03-11  10601.849609  10761.429688  10390.509766  10438.679688   
+2  2020-03-12   9863.990234   9932.559570   9139.120117   9161.129883   
+
+      Adj Close     Volume   Datetime  positive  
+0  10475.490234  267400800 2020-03-10     False  
+1  10438.679688  216708900 2020-03-11     False  
+2   9161.129883  390477000 2020-03-12     False  
+
+fraction of positive days: 0.5
+
+check: 
+ False    127
+True     127
+Name: positive, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Extract same fraction for every day in the week. Days are counted from 0 (Monday) to 6 (Sunday).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;day </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">: &#39;</span><span class="p">,</span> <span class="n">dax</span><span class="p">[</span><span class="n">dax</span><span class="o">.</span><span class="n">Datetime</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">dayofweek</span> <span class="o">==</span> <span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">positive</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>day 0:  0.58
+day 1:  0.49056603773584906
+day 2:  0.5283018867924528
+day 3:  0.44
+day 4:  0.4583333333333333
+day 5:  nan
+day 6:  nan
+</pre></div>
+</div>
+</div>
+</div>
+<p>A more straight forward way using built-in methods.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dax</span> <span class="o">=</span> <span class="n">dax</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">wday</span> <span class="o">=</span> <span class="n">dax</span><span class="o">.</span><span class="n">Datetime</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">dayofweek</span><span class="p">)</span>
+<span class="n">dax</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;wday&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># rows with nans are not calculated</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Open</th>
+      <th>High</th>
+      <th>Low</th>
+      <th>Close</th>
+      <th>Adj Close</th>
+      <th>Volume</th>
+      <th>positive</th>
+    </tr>
+    <tr>
+      <th>wday</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>12510.387852</td>
+      <td>12640.970996</td>
+      <td>12400.179629</td>
+      <td>12546.658457</td>
+      <td>12546.658457</td>
+      <td>8.860451e+07</td>
+      <td>0.580000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>12523.045843</td>
+      <td>12621.270969</td>
+      <td>12403.764906</td>
+      <td>12520.457547</td>
+      <td>12520.457547</td>
+      <td>9.450496e+07</td>
+      <td>0.490566</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>12522.144310</td>
+      <td>12628.387014</td>
+      <td>12414.166403</td>
+      <td>12527.621886</td>
+      <td>12527.621886</td>
+      <td>9.062774e+07</td>
+      <td>0.528302</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>12422.626602</td>
+      <td>12512.666523</td>
+      <td>12286.600566</td>
+      <td>12394.369766</td>
+      <td>12394.369766</td>
+      <td>9.770017e+07</td>
+      <td>0.440000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>12460.538106</td>
+      <td>12567.442179</td>
+      <td>12360.190674</td>
+      <td>12450.887695</td>
+      <td>12450.887695</td>
+      <td>1.025976e+08</td>
+      <td>0.458333</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+<section id="database-and-sql">
+<h2>Database and SQL<a class="headerlink" href="#database-and-sql" title="Permalink to this heading">#</a></h2>
+<p>Beside CSV (or Excel) files, another way to work with data is using databases. From there, data can be accessed using a query language. A very common one for relational databases is <strong>SQL</strong> (<strong>S</strong>tructured <strong>Q</strong>uery <strong>L</strong>anguage). It allows to extract specific records, i.e. records which meet special requirements, from a database using single commands.</p>
+<section id="store-in-database">
+<h3>Store in Database<a class="headerlink" href="#store-in-database" title="Permalink to this heading">#</a></h3>
+<p>First, saving a data frame to a database is conveniently done with a built-in method in Pandas. However, to access a database, a connection must first be established. In the following, we will use the <strong>sqlalchemy</strong> package for working with a database and use a <em>SQLite</em> database engine.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span><span class="p">,</span> <span class="n">Table</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># setup SQLite engine and connect</span>
+<span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;data/dax_db.sqlite&#39;</span>
+<span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="s1">&#39;sqlite:///&#39;</span> <span class="o">+</span> <span class="n">path</span><span class="p">,</span> <span class="n">echo</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># if &#39;echo = False&#39;, information is not printed </span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># save dataframe to database and close connection</span>
+<span class="n">dax</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="s1">&#39;historical_data&#39;</span><span class="p">,</span> <span class="n">con</span><span class="o">=</span><span class="n">conn</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="s1">&#39;replace&#39;</span><span class="p">)</span>
+<span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>       <span class="c1"># close connection</span>
+<span class="n">engine</span><span class="o">.</span><span class="n">dispose</span><span class="p">()</span>   <span class="c1"># dispose engine</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="load-from-database">
+<h3>Load from Database<a class="headerlink" href="#load-from-database" title="Permalink to this heading">#</a></h3>
+<p>To import data from a database, at first a connection must be created the same way as before. Then, <strong>SQL</strong> statements are used to fetch the data and store it in a Pandas dataframe.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">inspect</span><span class="p">,</span> <span class="n">select</span><span class="p">,</span> <span class="n">MetaData</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;data/dax_db.sqlite&#39;</span>
+<span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="s1">&#39;sqlite:///&#39;</span> <span class="o">+</span> <span class="n">path</span><span class="p">,</span> <span class="n">echo</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># if &#39;echo = True&#39;, information is printed in every step</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># show tables and columns with inspector</span>
+<span class="n">inspector</span> <span class="o">=</span> <span class="n">inspect</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+<span class="n">tables</span> <span class="o">=</span> <span class="n">inspector</span><span class="o">.</span><span class="n">get_table_names</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tables</span><span class="p">)</span>
+
+<span class="c1"># show columns</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">inspector</span><span class="o">.</span><span class="n">get_columns</span><span class="p">(</span><span class="n">tables</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Col: </span><span class="si">{</span><span class="n">col</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">,</span><span class="se">\t</span><span class="s2"> type: </span><span class="si">{</span><span class="n">col</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;historical_data&#39;]
+Col: index,	 type: BIGINT
+Col: Date,	 type: TEXT
+Col: Open,	 type: FLOAT
+Col: High,	 type: FLOAT
+Col: Low,	 type: FLOAT
+Col: Close,	 type: FLOAT
+Col: Adj Close,	 type: FLOAT
+Col: Volume,	 type: BIGINT
+Col: Datetime,	 type: DATETIME
+Col: positive,	 type: BOOLEAN
+Col: wday,	 type: BIGINT
+</pre></div>
+</div>
+</div>
+</div>
+<p>Use a MetaData Object, which holds information about the database.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">MetaData</span><span class="p">()</span>
+<span class="n">m</span><span class="o">.</span><span class="n">reflect</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">tables</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;historical_data&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">table</span> <span class="ow">in</span> <span class="n">m</span><span class="o">.</span><span class="n">tables</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">table</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">table</span><span class="o">.</span><span class="n">c</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Col: </span><span class="si">{</span><span class="n">column</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1">,</span><span class="se">\t</span><span class="s1">, Type: </span><span class="si">{</span><span class="n">column</span><span class="o">.</span><span class="n">type</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>historical_data
+Col: index,	, Type: BIGINT
+Col: Date,	, Type: TEXT
+Col: Open,	, Type: FLOAT
+Col: High,	, Type: FLOAT
+Col: Low,	, Type: FLOAT
+Col: Close,	, Type: FLOAT
+Col: Adj Close,	, Type: FLOAT
+Col: Volume,	, Type: BIGINT
+Col: Datetime,	, Type: DATETIME
+Col: positive,	, Type: BOOLEAN
+Col: wday,	, Type: BIGINT
+</pre></div>
+</div>
+</div>
+</div>
+<p>Knowing all components, a query can be sent to get the required data from the database to a dataframe.
+By convention, SQL is written in all CAPS, even though this is not required for the statement to work.</p>
+<p>To select all columns from a table, the wildcard character <code class="docutils literal notranslate"><span class="pre">*</span></code> is used. The syntax is <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">&lt;col1&gt;,</span> <span class="pre">&lt;col2&gt;</span> <span class="pre">FROM</span> <span class="pre">&lt;table&gt;</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_query</span> <span class="o">=</span> <span class="s1">&#39;SELECT * FROM historical_data&#39;</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">my_query</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">fetchall</span><span class="p">(),</span> <span class="n">columns</span><span class="o">=</span><span class="n">results</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>index</th>
+      <th>Date</th>
+      <th>Open</th>
+      <th>High</th>
+      <th>Low</th>
+      <th>Close</th>
+      <th>Adj Close</th>
+      <th>Volume</th>
+      <th>Datetime</th>
+      <th>positive</th>
+      <th>wday</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>2020-03-10</td>
+      <td>10724.980469</td>
+      <td>11032.290039</td>
+      <td>10423.900391</td>
+      <td>10475.490234</td>
+      <td>10475.490234</td>
+      <td>267400800</td>
+      <td>2020-03-10 00:00:00.000000</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>2020-03-11</td>
+      <td>10601.849609</td>
+      <td>10761.429688</td>
+      <td>10390.509766</td>
+      <td>10438.679688</td>
+      <td>10438.679688</td>
+      <td>216708900</td>
+      <td>2020-03-11 00:00:00.000000</td>
+      <td>0</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># built-in function in Pandas</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">my_query</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
+<span class="n">df2</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>index</th>
+      <th>Date</th>
+      <th>Open</th>
+      <th>High</th>
+      <th>Low</th>
+      <th>Close</th>
+      <th>Adj Close</th>
+      <th>Volume</th>
+      <th>Datetime</th>
+      <th>positive</th>
+      <th>wday</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>2020-03-10</td>
+      <td>10724.980469</td>
+      <td>11032.290039</td>
+      <td>10423.900391</td>
+      <td>10475.490234</td>
+      <td>10475.490234</td>
+      <td>267400800</td>
+      <td>2020-03-10 00:00:00.000000</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>2020-03-11</td>
+      <td>10601.849609</td>
+      <td>10761.429688</td>
+      <td>10390.509766</td>
+      <td>10438.679688</td>
+      <td>10438.679688</td>
+      <td>216708900</td>
+      <td>2020-03-11 00:00:00.000000</td>
+      <td>0</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>For some sanity checks, not only regarding imports, the <code class="docutils literal notranslate"><span class="pre">assert</span></code> keyword will raise an error, if the trailing statement is not True.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">df</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="n">df2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To select specific columns only, the can be listed, separated by a comma</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_query</span> <span class="o">=</span> <span class="s1">&#39;SELECT open, close FROM historical_data&#39;</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">my_query</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="c1"># select only first 10 entries with LIMIT</span>
+<span class="n">my_query</span> <span class="o">=</span> <span class="s1">&#39;SELECT open, close FROM historical_data LIMIT 10&#39;</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">my_query</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;only 10 rows:&#39;</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>           Open         Close
+0  10724.980469  10475.490234
+1  10601.849609  10438.679688
+
+only 10 rows: (10, 2)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The dataset can be filtered before being loaded into a dataframe. To pose restrictions on the import of records, use <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> after the table name.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># select only first 10 entries with LIMIT</span>
+<span class="n">my_query</span> <span class="o">=</span> <span class="s1">&#39;SELECT open, close FROM historical_data WHERE wday=0&#39;</span>   <span class="c1"># note that &#39;wday&#39; does not need to be imported</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">my_query</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;only mondays:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>only mondays:
+            Open         Close
+0   8728.480469   8742.250000
+1   8536.330078   8741.150391
+2   9725.879883   9815.969727
+3   9889.030273  10075.169922
+4  10704.349609  10675.900391
+</pre></div>
+</div>
+</div>
+</div>
+<p>Only some of the other functions and commands will be shown, for a quick overview, see <a class="reference external" href="https://www.sqltutorial.org/sql-cheat-sheet/">this collection</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Count occurrence</span>
+<span class="n">my_query</span> <span class="o">=</span> <span class="s1">&#39;SELECT Count(*) FROM historical_data WHERE wday=0&#39;</span>   
+<span class="n">mon</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">my_query</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;number of monday records in dataset:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">mon</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>number of monday records in dataset:
+ [[50]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get distinct values</span>
+<span class="n">my_query</span> <span class="o">=</span> <span class="s1">&#39;SELECT DISTINCT(wday) FROM historical_data&#39;</span>   
+<span class="n">weekdays</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">my_query</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;distinct weekdays in dataset:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">weekdays</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>distinct weekdays in dataset:
+ [[1]
+ [2]
+ [3]
+ [4]
+ [0]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculate mean</span>
+<span class="n">my_query</span> <span class="o">=</span> <span class="s1">&#39;SELECT ROUND(AVG(open),2) as mean_open FROM historical_data&#39;</span>   
+<span class="n">mean_open</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">my_query</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mean_open</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   mean_open
+0   12488.79
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import Variable under different name</span>
+<span class="n">my_query</span> <span class="o">=</span> <span class="s1">&#39;SELECT ROUND(open,2) as opening_price, ROUND(close, 2) as closing_price FROM historical_data&#39;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">my_query</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">to_list</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;opening_price&#39;, &#39;closing_price&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>In order to automatically close connections after import or export, python offers the so-called <em>connection manager</em>. Usually, it is called with the keyword <code class="docutils literal notranslate"><span class="pre">with</span></code> and a variable after <code class="docutils literal notranslate"><span class="pre">as</span></code>. The connection is only active in the indented block afterwards and is closed when leaving this body of the context manager.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># engine is already created</span>
+<span class="k">with</span> <span class="n">engine</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+    <span class="n">my_q</span> <span class="o">=</span> <span class="s1">&#39;SELECT * FROM historical_data LIMIT 1&#39;</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">my_q</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   index        Date          Open          High           Low         Close  \
+0      0  2020-03-10  10724.980469  11032.290039  10423.900391  10475.490234   
+
+      Adj Close     Volume                    Datetime  positive  wday  
+0  10475.490234  267400800  2020-03-10 00:00:00.000000         0     1  
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/Users/uni/Desktop/Lehre/python_class/testbook&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>SQL offers a wide functionality, which is way beyond the scope of this course. To name just one more big advantage, not shown above, is that data from several related tables can be merged and loaded at once.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="03_python_basics.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">First steps</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="05_online.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Online Data</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-dataframes-and-series">Pandas - DataFrames and Series</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing">Indexing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-methods">Useful Methods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plots">Plots</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-and-exporting-data">Importing and Exporting Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#database-and-sql">Database and SQL</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#store-in-database">Store in Database</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-from-database">Load from Database</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jan König
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1172 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Dash - advanced interactivity &#8212; Data Visualisation and Reporting with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"ignoreHtmlClass": "never-ignore", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}, "tex2jax": {"ignoreClass": "never-ignore"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_10_dash_II_alt';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="01_content.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Data Visualisation and Reporting with Python</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="01_content.html">
+                    Data, Visualisation and Reporting with Python
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="02_general.html">What is Python and why use it?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_python_basics.html">First steps</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="04_data.html">Working with Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_online.html">Online Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_scraping.html">Web Scraping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_graphics.html">Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_interactive_plots.html">Interactive Graphics - Plotly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_sklearn.html">SciKit Learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_dash_I.html">Dash - introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_dash_II.html">Dash - advanced interactivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_markdown.html">Notebook formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_financial_stats_CAPM.html">Introduction to Statistics and Indicators in Finance</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F_10_dash_II_alt.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/_10_dash_II_alt.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Dash - advanced interactivity</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decorators">Decorators</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jupyter_dash</span> <span class="kn">import</span> <span class="n">JupyterDash</span> 
+<span class="kn">import</span> <span class="nn">dash_core_components</span> <span class="k">as</span> <span class="nn">dcc</span>
+<span class="kn">import</span> <span class="nn">dash_html_components</span> <span class="k">as</span> <span class="nn">html</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/w4/wqf2j639555dgr__2br4lwjr0000gn/T/ipykernel_62563/4130790256.py:2: UserWarning: 
+The dash_core_components package is deprecated. Please replace
+`import dash_core_components as dcc` with `from dash import dcc`
+  import dash_core_components as dcc
+/var/folders/w4/wqf2j639555dgr__2br4lwjr0000gn/T/ipykernel_62563/4130790256.py:3: UserWarning: 
+The dash_html_components package is deprecated. Please replace
+`import dash_html_components as html` with `from dash import html`
+  import dash_html_components as html
+</pre></div>
+</div>
+</div>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="dash-advanced-interactivity">
+<h1>Dash - advanced interactivity<a class="headerlink" href="#dash-advanced-interactivity" title="Permalink to this heading">#</a></h1>
+<p>To provide advanced interactivity and reactivity, that is to let new input trigger modified output, we need to provide the content as the result of a function.
+We can have several functions, each modifying one specific element of the UI. To reference elements in the UI and the server part, we give a unique <strong>id</strong> to each element. This id is handed to the respective function to tell it that this is the <strong>input</strong> to be used. The same applies in the reversed direction: by specifying the id of the desired UI element as a function’s <strong>output</strong>, the created result is passed to the right address to be displayed.
+The declaration of what is input and output is done using <a class="reference internal" href="#decorators"><span class="std std-ref">decorators</span></a> and callbacks. This decorator takes the input and output ids as arguments.</p>
+<p>The structure for building an advanced reactive app becomes:</p>
+<ul class="simple">
+<li><p>create a JupyterDash object</p></li>
+<li><p>define the UI by using the <code class="docutils literal notranslate"><span class="pre">.layout()</span></code> method:</p>
+<ul>
+<li><p>static elements are defined here</p></li>
+<li><p>every interactive item gets an unique <strong>id</strong> which will identify the element as it is given to the server/UI. For example: An info text, which will not change during the use of the app would not need an id. A button to alter the content must get an id.</p></li>
+</ul>
+</li>
+<li><p>define the server functions for the content and use the <code class="docutils literal notranslate"><span class="pre">app.callback()</span></code> decorator.</p>
+<ul>
+<li><p>this part will do any calculations or assignments for interactive elements. The output created here also gets an <strong>id</strong> to address it in the UI in order to display it at the desired location. The definition as callback ensures that every time an input changes, the respective function (having this element as input) is run to keep the content of the UI up-to-date, e.g. after clicking a button</p></li>
+</ul>
+</li>
+<li><p>the app is run using the <code class="docutils literal notranslate"><span class="pre">.run_server()</span></code> method</p></li>
+</ul>
+<p>Note that expensive operations like (down)loading a file should be placed outside the reactive environment, if possible. Else, the operation is triggered and run every time the input changes. For example when working with APIs: Place the request and loading of the data once upfront, before starting the app. Otherwise, the request will be sent unnecessarily for every change in input and soon the limit of requests per day is reached. In general, don’t change global variables inside the reactive environment.</p>
+<p>To use the decorators and link input and output between server and UI, we need to import the functions <code class="docutils literal notranslate"><span class="pre">Input</span></code> and <code class="docutils literal notranslate"><span class="pre">Output</span></code> from <code class="docutils literal notranslate"><span class="pre">dash.dependencies</span></code>. We call these functions (imported from <code class="docutils literal notranslate"><span class="pre">dash.dependencies</span></code>) as arguments of <code class="docutils literal notranslate"><span class="pre">app.callback()</span></code>.</p>
+<p>Then, as arguments to <code class="docutils literal notranslate"><span class="pre">Input</span></code> and <code class="docutils literal notranslate"><span class="pre">Output</span></code> we need to specify the <code class="docutils literal notranslate"><span class="pre">component_id</span></code> and the <code class="docutils literal notranslate"><span class="pre">component_property</span></code>. The respective ids must be identical to the ones used in the UI. The properties vary, dependent on what the output of the function is:</p>
+<p><ins>Output</ins>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">'children'</span></code>: to return text to the <code class="docutils literal notranslate"><span class="pre">'children'</span></code> argument of html elements</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'figure'</span></code>: to return a plotly graphic to <code class="docutils literal notranslate"><span class="pre">dcc.Graph()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'value'</span></code>: to return a standard value to an interactive element</p></li>
+<li><p>(<code class="docutils literal notranslate"><span class="pre">'options'</span></code>: to create options for interactive elements like dropdowns, dependent on earlier selection)</p></li>
+</ul>
+<p><ins>Input</ins>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">'value'</span></code>: use the value of an element as argument, e.g. an entered number</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'n_clicks'</span></code>: returns the number a <code class="docutils literal notranslate"><span class="pre">html.Button</span></code> has been clicked</p></li>
+<li><p>(<code class="docutils literal notranslate"><span class="pre">'options'</span></code>: use options from an interactive element)</p></li>
+</ul>
+<p>Let’s look at a first example.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dash.dependencies</span> <span class="kn">import</span> <span class="n">Input</span><span class="p">,</span> <span class="n">Output</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">JupyterDash</span><span class="p">(</span><span class="s1">&#39;myFirstReactive&#39;</span><span class="p">)</span>
+
+<span class="n">app</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">([</span>
+    <span class="n">html</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="s2">&quot;Input: &quot;</span><span class="p">),</span>
+    <span class="n">dcc</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;inum&#39;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;number&#39;</span><span class="p">),</span>
+    <span class="n">html</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;outext&#39;</span><span class="p">)</span>
+<span class="p">])</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span>
+    <span class="n">Output</span><span class="p">(</span><span class="n">component_id</span><span class="o">=</span><span class="s1">&#39;outext&#39;</span><span class="p">,</span> <span class="n">component_property</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">),</span>
+    <span class="n">Input</span><span class="p">(</span><span class="n">component_id</span><span class="o">=</span><span class="s1">&#39;inum&#39;</span><span class="p">,</span> <span class="n">component_property</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="k">def</span> <span class="nf">div_outext</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;times two: </span><span class="si">{</span><span class="n">num</span><span class="o">*</span><span class="mi">2</span><span class="si">}</span><span class="s1">&#39;</span>
+
+<span class="n">app</span><span class="o">.</span><span class="n">run_server</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;inline&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+        <iframe
+            width="100%"
+            height="650"
+            src="http://127.0.0.1:8050/"
+            frameborder="0"
+            allowfullscreen
+            
+        ></iframe>
+        </div></div>
+</div>
+<p>First, we instantiate the JupyterDash object.</p>
+<p>Then, we modify the <ins>layout</ins> to contain the following elements inside the main <code class="docutils literal notranslate"><span class="pre">Div</span></code>:</p>
+<ul class="simple">
+<li><p>a <code class="docutils literal notranslate"><span class="pre">P</span></code> element saying ‘Input:’ <span class="math notranslate nohighlight">\(\rightarrow\)</span> static, no need for an <strong>id</strong></p></li>
+<li><p>a <code class="docutils literal notranslate"><span class="pre">dcc.Input()</span></code> with a unique id, a default value (empty string, otherwise it would say ‘None’) and the <code class="docutils literal notranslate"><span class="pre">type</span></code> of the input to create the according field type in the UI</p></li>
+<li><p>another <code class="docutils literal notranslate"><span class="pre">P</span></code> element with <em>only</em> an <strong>id</strong> and no children</p></li>
+</ul>
+<p>Then, we define the <ins>server</ins> function to create the output: the function per se takes one argument and creates a string containing it after being multiplied by two.</p>
+<p>This function, however, gets decorated with <code class="docutils literal notranslate"><span class="pre">app.callback()</span></code>. This is where the linking between the function and the UI happens.
+<code class="docutils literal notranslate"><span class="pre">app.callback()</span></code> gets <code class="docutils literal notranslate"><span class="pre">Output()</span></code> and <code class="docutils literal notranslate"><span class="pre">Input()</span></code> as arguments. Each of which have arguments <code class="docutils literal notranslate"><span class="pre">component_id=</span></code> and <code class="docutils literal notranslate"><span class="pre">component_property=</span></code>:</p>
+<ul class="simple">
+<li><p>to <code class="docutils literal notranslate"><span class="pre">Output</span></code>, we pass the id of the second <code class="docutils literal notranslate"><span class="pre">P</span></code> element, which in the definition of the layout did not have a <code class="docutils literal notranslate"><span class="pre">children</span></code> argument. This omission becomes clearer when we see that we now pass <code class="docutils literal notranslate"><span class="pre">component_property='children'</span></code>. In prose, this means: Take the result of the decorated function and supply it to the UI element with <code class="docutils literal notranslate"><span class="pre">component_id='outext'</span></code> as a <code class="docutils literal notranslate"><span class="pre">children</span></code> element.</p></li>
+<li><p>to <code class="docutils literal notranslate"><span class="pre">Input</span></code> we pass the <code class="docutils literal notranslate"><span class="pre">component_id='inum'</span></code> and <code class="docutils literal notranslate"><span class="pre">component_property='value'</span></code>. This means, that the value of the input variable ‘inum’, defined by the input field <code class="docutils literal notranslate"><span class="pre">dcc.Input()</span></code> should be taken as the input to the decorated function, where it can be processed.</p></li>
+</ul>
+<p>Every time we change the input by entering a number or clicking the arrows in the input field, the function gets called and the output is updated.</p>
+<p>Note that when starting an app, dash will run all available callbacks. This is why we omitted the <code class="docutils literal notranslate"><span class="pre">children</span></code> in the definition of the second <code class="docutils literal notranslate"><span class="pre">P</span></code> element when defining the layout: Any value we would enter here, would instantly be overwritten by the callback.</p>
+<p>We will slightly alter this first example to demonstrate, that several inputs and outputs can be used by one function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dash.dependencies</span> <span class="kn">import</span> <span class="n">Input</span><span class="p">,</span> <span class="n">Output</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">JupyterDash</span><span class="p">()</span>
+
+<span class="n">app</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">([</span>
+    <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">([</span><span class="s2">&quot;Enter first and last name: &quot;</span><span class="p">,</span>
+    <span class="n">dcc</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;fname_i&#39;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s1">&#39;otto&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;text&#39;</span><span class="p">),</span>
+    <span class="n">dcc</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;lname_i&#39;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s1">&#39;renner&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;text&#39;</span><span class="p">)]),</span>
+    <span class="n">html</span><span class="o">.</span><span class="n">Br</span><span class="p">(),</span>
+    <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">([</span><span class="n">html</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;fname_o&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;float&#39;</span><span class="p">:</span> <span class="s1">&#39;left&#39;</span><span class="p">}),</span>
+    <span class="n">html</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;lname_o&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;float&#39;</span><span class="p">:</span> <span class="s1">&#39;left&#39;</span><span class="p">,</span><span class="s1">&#39;marginLeft&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">})]</span> <span class="p">)</span>
+<span class="p">])</span>
+    
+<span class="nd">@app</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span>
+    <span class="n">Output</span><span class="p">(</span><span class="n">component_id</span><span class="o">=</span><span class="s1">&#39;fname_o&#39;</span><span class="p">,</span> <span class="n">component_property</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">),</span>
+    <span class="n">Output</span><span class="p">(</span><span class="n">component_id</span><span class="o">=</span><span class="s1">&#39;lname_o&#39;</span><span class="p">,</span> <span class="n">component_property</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">),</span>
+    <span class="n">Input</span><span class="p">(</span><span class="n">component_id</span><span class="o">=</span><span class="s1">&#39;fname_i&#39;</span><span class="p">,</span> <span class="n">component_property</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">),</span>
+    <span class="n">Input</span><span class="p">(</span><span class="n">component_id</span><span class="o">=</span><span class="s1">&#39;lname_i&#39;</span><span class="p">,</span> <span class="n">component_property</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="k">def</span> <span class="nf">div_outext</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">lname</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">fname</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">fname</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">lname</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    
+<span class="n">app</span><span class="o">.</span><span class="n">run_server</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;inline&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Address already in use
+Port 8050 is in use by another program. Either identify and stop that program, or start the server with a different port.
+</pre></div>
+</div>
+</div>
+</div>
+<p>To use several Inputs, we need to look at the order of the <code class="docutils literal notranslate"><span class="pre">Input</span></code>s in the callback. It must match the order of the arguments in the decorated function, i.e. the first <code class="docutils literal notranslate"><span class="pre">Input</span></code> will be passed as the first argument to the function. In the example above, <code class="docutils literal notranslate"><span class="pre">fname_i</span></code> is passed to the function as the <code class="docutils literal notranslate"><span class="pre">fname</span></code> argument.</p>
+<p>For several Outputs, the same applies: the order of <code class="docutils literal notranslate"><span class="pre">Output</span></code>s in the callback must match the order after <code class="docutils literal notranslate"><span class="pre">return</span></code>.</p>
+<p>Dash includes elements knwon from plotly, like sliders and buttons. They are implemented in <code class="docutils literal notranslate"><span class="pre">dcc</span></code>. Some are also part of <code class="docutils literal notranslate"><span class="pre">html</span></code> like <code class="docutils literal notranslate"><span class="pre">html.Button</span></code> (having the <code class="docutils literal notranslate"><span class="pre">n_clicks</span></code> attribute).</p>
+<p>To use interactive elements, we must take their input and pass it to a function by the callback decorator. There, we can use the value to return updated content of an element.</p>
+<p>In the following example, we will use a slider input to filter and return the copy(!) of a global dataframe.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">dt</span>
+<span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/dji_100_days.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">date</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2021</span><span class="p">]</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">el</span><span class="o">.</span><span class="n">month</span> <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">date</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%b&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Jan&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%b&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">month</span><span class="p">))}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{1: &#39;Jan&#39;, 2: &#39;Jan&#39;, 3: &#39;Jan&#39;, 4: &#39;Jan&#39;, 5: &#39;Jan&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dash.dependencies</span> <span class="kn">import</span> <span class="n">Input</span><span class="p">,</span> <span class="n">Output</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">JupyterDash</span><span class="p">()</span>
+
+<span class="n">months</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">app</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">([</span>
+    <span class="n">dcc</span><span class="o">.</span><span class="n">Slider</span><span class="p">(</span>
+        <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;comp_slider&#39;</span><span class="p">,</span>
+        <span class="nb">min</span><span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">month</span><span class="p">),</span>
+        <span class="nb">max</span><span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">month</span><span class="p">),</span>
+        <span class="n">marks</span><span class="o">=</span> <span class="p">{</span><span class="n">n</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">month</span><span class="p">))},</span>
+        <span class="n">value</span><span class="o">=</span><span class="mi">1</span>
+        <span class="p">),</span>
+    <span class="n">dcc</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;company_dd&#39;</span><span class="p">,</span>
+                <span class="n">options</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="n">i</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="n">i</span><span class="p">}</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">symbol</span><span class="o">.</span><span class="n">unique</span><span class="p">()],</span> <span class="n">value</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">symbol</span><span class="o">.</span><span class="n">unique</span><span class="p">()[</span><span class="mi">0</span><span class="p">]),</span>
+    <span class="n">dcc</span><span class="o">.</span><span class="n">Graph</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;outgraph&#39;</span><span class="p">)</span>
+<span class="p">])</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span>
+    <span class="n">Output</span><span class="p">(</span><span class="s1">&#39;outgraph&#39;</span><span class="p">,</span> <span class="s1">&#39;figure&#39;</span><span class="p">),</span>
+    <span class="n">Input</span><span class="p">(</span><span class="s1">&#39;comp_slider&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">),</span>
+    <span class="n">Input</span><span class="p">(</span><span class="s1">&#39;company_dd&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="k">def</span> <span class="nf">make_outgraph</span><span class="p">(</span><span class="n">month</span><span class="p">,</span> <span class="n">sym</span><span class="p">):</span>
+    <span class="n">dftemp</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">symbol</span> <span class="o">==</span> <span class="n">sym</span><span class="p">]</span>
+    <span class="n">dftemp</span> <span class="o">=</span> <span class="n">dftemp</span><span class="p">[</span><span class="n">dftemp</span><span class="o">.</span><span class="n">month</span> <span class="o">==</span> <span class="n">month</span><span class="p">]</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">dftemp</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;open&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">fig</span>
+
+<span class="n">app</span><span class="o">.</span><span class="n">run_server</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;inline&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">8051</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/jan/anaconda3/lib/python3.8/site-packages/jupyter_dash/jupyter_app.py:139: UserWarning:
+
+The &#39;environ[&#39;werkzeug.server.shutdown&#39;]&#39; function is deprecated and will be removed in Werkzeug 2.1.
+</pre></div>
+</div>
+<div class="output text_html">
+        <iframe
+            width="100%"
+            height="650"
+            src="http://127.0.0.1:8051/"
+            frameborder="0"
+            allowfullscreen
+        ></iframe>
+        </div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">month</span><span class="o">==</span><span class="mi">4</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>date</th>
+      <th>open</th>
+      <th>high</th>
+      <th>low</th>
+      <th>close</th>
+      <th>adjClose</th>
+      <th>volume</th>
+      <th>unadjustedVolume</th>
+      <th>change</th>
+      <th>changePercent</th>
+      <th>vwap</th>
+      <th>label</th>
+      <th>changeOverTime</th>
+      <th>symbol</th>
+      <th>month</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>4</th>
+      <td>2021-04-30</td>
+      <td>232.800000</td>
+      <td>234.490000</td>
+      <td>229.520000</td>
+      <td>230.320000</td>
+      <td>230.320000</td>
+      <td>4555579.0</td>
+      <td>4555579.0</td>
+      <td>-2.48000</td>
+      <td>-1.065</td>
+      <td>231.44333</td>
+      <td>April 30, 21</td>
+      <td>-0.01065</td>
+      <td>CRM</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2021-04-29</td>
+      <td>237.320000</td>
+      <td>237.670000</td>
+      <td>232.170000</td>
+      <td>234.360000</td>
+      <td>234.360000</td>
+      <td>4146903.0</td>
+      <td>4146903.0</td>
+      <td>-2.96000</td>
+      <td>-1.247</td>
+      <td>234.73333</td>
+      <td>April 29, 21</td>
+      <td>-0.01247</td>
+      <td>CRM</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>2021-04-28</td>
+      <td>235.000000</td>
+      <td>238.330000</td>
+      <td>233.630000</td>
+      <td>236.880000</td>
+      <td>236.880000</td>
+      <td>4203282.0</td>
+      <td>4203282.0</td>
+      <td>1.88000</td>
+      <td>0.800</td>
+      <td>236.28000</td>
+      <td>April 28, 21</td>
+      <td>0.00800</td>
+      <td>CRM</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>2021-04-27</td>
+      <td>235.460000</td>
+      <td>235.840000</td>
+      <td>231.910000</td>
+      <td>234.210000</td>
+      <td>234.210000</td>
+      <td>3477159.0</td>
+      <td>3477159.0</td>
+      <td>-1.25000</td>
+      <td>-0.531</td>
+      <td>233.98667</td>
+      <td>April 27, 21</td>
+      <td>-0.00531</td>
+      <td>CRM</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>2021-04-26</td>
+      <td>234.040000</td>
+      <td>235.800000</td>
+      <td>232.440000</td>
+      <td>235.460000</td>
+      <td>235.460000</td>
+      <td>3484643.0</td>
+      <td>3484643.0</td>
+      <td>1.42000</td>
+      <td>0.607</td>
+      <td>234.56667</td>
+      <td>April 26, 21</td>
+      <td>0.00607</td>
+      <td>CRM</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2920</th>
+      <td>2021-04-08</td>
+      <td>194.419998</td>
+      <td>196.669998</td>
+      <td>194.029999</td>
+      <td>195.720001</td>
+      <td>195.720001</td>
+      <td>2391800.0</td>
+      <td>2391800.0</td>
+      <td>1.30000</td>
+      <td>0.669</td>
+      <td>195.47333</td>
+      <td>April 08, 21</td>
+      <td>0.00669</td>
+      <td>MMM</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>2921</th>
+      <td>2021-04-07</td>
+      <td>194.160004</td>
+      <td>195.350006</td>
+      <td>193.919998</td>
+      <td>194.949997</td>
+      <td>194.949997</td>
+      <td>1501500.0</td>
+      <td>1501500.0</td>
+      <td>0.78999</td>
+      <td>0.407</td>
+      <td>194.74000</td>
+      <td>April 07, 21</td>
+      <td>0.00407</td>
+      <td>MMM</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>2922</th>
+      <td>2021-04-06</td>
+      <td>195.000000</td>
+      <td>195.610001</td>
+      <td>193.990005</td>
+      <td>194.839996</td>
+      <td>194.839996</td>
+      <td>1472700.0</td>
+      <td>1472700.0</td>
+      <td>-0.16000</td>
+      <td>-0.082</td>
+      <td>194.81333</td>
+      <td>April 06, 21</td>
+      <td>-0.00082</td>
+      <td>MMM</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>2923</th>
+      <td>2021-04-05</td>
+      <td>193.889999</td>
+      <td>195.949997</td>
+      <td>193.710007</td>
+      <td>194.970001</td>
+      <td>194.970001</td>
+      <td>1963000.0</td>
+      <td>1963000.0</td>
+      <td>1.08000</td>
+      <td>0.557</td>
+      <td>194.87667</td>
+      <td>April 05, 21</td>
+      <td>0.00557</td>
+      <td>MMM</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>2924</th>
+      <td>2021-04-01</td>
+      <td>193.250000</td>
+      <td>193.919998</td>
+      <td>190.839996</td>
+      <td>192.699997</td>
+      <td>192.699997</td>
+      <td>1902100.0</td>
+      <td>1902100.0</td>
+      <td>-0.55000</td>
+      <td>-0.285</td>
+      <td>192.48666</td>
+      <td>April 01, 21</td>
+      <td>-0.00285</td>
+      <td>MMM</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+<p>629 rows × 15 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>    
+<span class="nd">@app</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span>
+    <span class="n">Output</span><span class="p">(</span><span class="n">component_id</span><span class="o">=</span><span class="s1">&#39;fname_o&#39;</span><span class="p">,</span> <span class="n">component_property</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">),</span>
+    <span class="n">Output</span><span class="p">(</span><span class="n">component_id</span><span class="o">=</span><span class="s1">&#39;lname_o&#39;</span><span class="p">,</span> <span class="n">component_property</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">),</span>
+    <span class="n">Input</span><span class="p">(</span><span class="n">component_id</span><span class="o">=</span><span class="s1">&#39;fname_i&#39;</span><span class="p">,</span> <span class="n">component_property</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">),</span>
+    <span class="n">Input</span><span class="p">(</span><span class="n">component_id</span><span class="o">=</span><span class="s1">&#39;lname_i&#39;</span><span class="p">,</span> <span class="n">component_property</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="k">def</span> <span class="nf">div_outext</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">lname</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">fname</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">fname</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">lname</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    
+<span class="n">app</span><span class="o">.</span><span class="n">run_server</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;inline&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">app</span><span class="o">.</span><span class="n">callback_map</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="decorators">
+<span id="id1"></span><h2>Decorators<a class="headerlink" href="#decorators" title="Permalink to this heading">#</a></h2>
+<p>Functions which expand the functionality of another function are called decorators (or wrappers). However, these decorators do not change the underlying function, i.e. the one that <em>gets decorated</em>.</p>
+<p>This is possible since functions, just like anything in python, are objects and can get passed as arguments to other functions (we have seen this in the context of callbacks). Furthermore, functions may be defined inside other functions, using the the same syntax as usual.</p>
+<p>Let’s look at a simple example of a function and a wrapper/decorator.
+The initial function <code class="docutils literal notranslate"><span class="pre">text_to_wrap</span></code> simply prints a string. The decorator returns the <code class="docutils literal notranslate"><span class="pre">wrapper()</span></code> function, which adds a line above and below the text, when printing.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">text_to_wrap</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;my text&#39;</span><span class="p">)</span>
+    
+<span class="n">text_to_wrap</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">emphasize_decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;##################&#39;</span><span class="p">)</span>
+        <span class="n">func</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;!!!!!!!!!!!!!!!!!!&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">wrapper</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To decorate <code class="docutils literal notranslate"><span class="pre">text_to_wrap</span></code>, we can assign the decorator with ‘<code class="docutils literal notranslate"><span class="pre">text_to_wrap</span></code>’ as argument to the initial function name. Note that we pass the function name without parentheses.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text_to_wrap</span> <span class="o">=</span> <span class="n">emphasize_decorator</span><span class="p">(</span><span class="n">text_to_wrap</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text_to_wrap</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To shorten this procedure, python includes a special syntax for decorators. With <code class="docutils literal notranslate"><span class="pre">&#64;emphasize_decorator</span></code> (no parentheses!) before the definition of the inner function, we can achieve the same behaviour.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># emphasize_decorator is being treated as already defined</span>
+
+<span class="nd">@emphasize_decorator</span>
+<span class="k">def</span> <span class="nf">print_greeting</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">print_greeting</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see, that <code class="docutils literal notranslate"><span class="pre">print_greeting()</span></code> has initially been defined to print ‘Hello’. With the decorator call using <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>, however, we have decorated it on the fly to add the emphasis lines around the text from <code class="docutils literal notranslate"><span class="pre">emphasize_decorator()</span></code>. Furthermore, decorators may be chained by subsequent calls of the decorator functions with the same <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>-syntax before the definition of the inner function.</p>
+<p>To pass arguments through the decorator, we can use <code class="docutils literal notranslate"><span class="pre">*args</span></code> and <code class="docutils literal notranslate"><span class="pre">**kwargs</span></code> as placeholder for an arbitrary number of positional arguments and keyword arguments. Note that this is not unique for decorators, but can be used for the definition of any function! We will now update the first two examples from above:
+- <code class="docutils literal notranslate"><span class="pre">text_to_wrap</span></code> will get two arguments to print
+- <code class="docutils literal notranslate"><span class="pre">wrapper</span></code> inside <code class="docutils literal notranslate"><span class="pre">emphasize_decorator</span></code> will get the placeholders in it’s definition</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">emphasize_decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;##################&#39;</span><span class="p">)</span>
+        <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;!!!!!!!!!!!!!!!!!!&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">wrapper</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@emphasize_decorator</span>
+<span class="k">def</span> <span class="nf">text_to_wrap</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">w1</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="n">w2</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text_to_wrap</span><span class="p">(</span><span class="s1">&#39;line1&#39;</span><span class="p">,</span> <span class="s1">&#39;line2&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is what dash does with the functions defined in the server part: These functions get wrapped to be linked automatically to the UI and to get called every time, the respective input changes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">dash</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
+<span class="kn">import</span> <span class="nn">dash_core_components</span> <span class="k">as</span> <span class="nn">dcc</span>
+<span class="kn">import</span> <span class="nn">dash_html_components</span> <span class="k">as</span> <span class="nn">html</span>
+
+<span class="kn">from</span> <span class="nn">dash.dependencies</span> <span class="kn">import</span> <span class="n">Input</span><span class="p">,</span> <span class="n">Output</span><span class="p">,</span> <span class="n">State</span>
+
+<span class="n">cars_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/plotly/datasets/master/imports-85.csv&#39;</span><span class="p">)</span>
+<span class="c1"># Build parcats dimensions</span>
+<span class="n">categorical_dimensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;body-style&#39;</span><span class="p">,</span> <span class="s1">&#39;drive-wheels&#39;</span><span class="p">,</span> <span class="s1">&#39;fuel-type&#39;</span><span class="p">]</span>
+<span class="n">dimensions</span> <span class="o">=</span> <span class="p">[</span><span class="nb">dict</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="n">cars_df</span><span class="p">[</span><span class="n">label</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">categorical_dimensions</span><span class="p">]</span>
+<span class="c1"># Build colorscale.</span>
+<span class="n">color</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cars_df</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;uint8&#39;</span><span class="p">)</span>
+<span class="n">colorscale</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;#167b7e&#39;</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;#4b3268&#39;</span><span class="p">]]</span>
+
+
+<span class="k">def</span> <span class="nf">build_figure</span><span class="p">():</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span>
+        <span class="n">data</span><span class="o">=</span><span class="p">[</span>
+            <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">cars_df</span><span class="o">.</span><span class="n">horsepower</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">cars_df</span><span class="p">[</span><span class="s1">&#39;highway-mpg&#39;</span><span class="p">],</span>
+                       <span class="n">marker</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;gray&#39;</span><span class="p">},</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;markers&#39;</span><span class="p">,</span> <span class="n">selected</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;marker&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;firebrick&#39;</span><span class="p">}},</span>
+                       <span class="n">unselected</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;marker&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;opacity&#39;</span><span class="p">:</span> <span class="mf">0.4</span><span class="p">}}),</span>
+            <span class="n">go</span><span class="o">.</span><span class="n">Parcats</span><span class="p">(</span>
+                <span class="n">domain</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">]},</span> <span class="n">dimensions</span><span class="o">=</span><span class="n">dimensions</span><span class="p">,</span>
+                <span class="n">line</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;colorscale&#39;</span><span class="p">:</span> <span class="n">colorscale</span><span class="p">,</span> <span class="s1">&#39;cmin&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                      <span class="s1">&#39;cmax&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="n">color</span><span class="p">,</span> <span class="s1">&#39;shape&#39;</span><span class="p">:</span> <span class="s1">&#39;hspline&#39;</span><span class="p">})</span>
+        <span class="p">])</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+        <span class="n">height</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span>
+        <span class="n">xaxis</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;Horsepower&#39;</span><span class="p">},</span>
+        <span class="n">yaxis</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;MPG&#39;</span><span class="p">,</span> <span class="s1">&#39;domain&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.6</span><span class="p">,</span> <span class="mi">1</span><span class="p">]},</span>
+        <span class="n">dragmode</span><span class="o">=</span><span class="s1">&#39;lasso&#39;</span><span class="p">,</span>
+        <span class="n">hovermode</span><span class="o">=</span><span class="s1">&#39;closest&#39;</span><span class="p">,</span>
+        <span class="c1"># plot_bgcolor=&#39;rgba(0, 0, 0, 0)&#39;,</span>
+        <span class="n">paper_bgcolor</span><span class="o">=</span><span class="s1">&#39;rgba(0, 0, 0, 0)&#39;</span><span class="p">,</span>
+        <span class="n">autosize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">bargap</span><span class="o">=</span><span class="mf">0.35</span><span class="p">,</span>
+        <span class="n">font</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;family&quot;</span><span class="p">:</span> <span class="s2">&quot;Questrial&quot;</span><span class="p">,</span> <span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">})</span>
+    <span class="k">return</span> <span class="n">fig</span>
+
+
+<span class="n">app</span> <span class="o">=</span><span class="n">JupyterDash</span><span class="p">(</span><span class="n">prevent_initial_callbacks</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">app</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">([</span><span class="n">dcc</span><span class="o">.</span><span class="n">Graph</span><span class="p">(</span><span class="n">figure</span><span class="o">=</span><span class="n">build_figure</span><span class="p">(),</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;graph&quot;</span><span class="p">)])</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span><span class="n">Output</span><span class="p">(</span><span class="s2">&quot;graph&quot;</span><span class="p">,</span> <span class="s2">&quot;figure&quot;</span><span class="p">),</span> <span class="p">[</span><span class="n">Input</span><span class="p">(</span><span class="s2">&quot;graph&quot;</span><span class="p">,</span> <span class="s2">&quot;selectedData&quot;</span><span class="p">),</span> <span class="n">Input</span><span class="p">(</span><span class="s2">&quot;graph&quot;</span><span class="p">,</span> <span class="s2">&quot;clickData&quot;</span><span class="p">)],</span>
+              <span class="p">[</span><span class="n">State</span><span class="p">(</span><span class="s2">&quot;graph&quot;</span><span class="p">,</span> <span class="s2">&quot;figure&quot;</span><span class="p">)])</span>
+<span class="k">def</span> <span class="nf">update_color</span><span class="p">(</span><span class="n">selectedData</span><span class="p">,</span> <span class="n">clickData</span><span class="p">,</span> <span class="n">fig</span><span class="p">):</span>
+    <span class="n">selection</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="c1"># Update selection based on which event triggered the update.</span>
+    <span class="n">trigger</span> <span class="o">=</span> <span class="n">dash</span><span class="o">.</span><span class="n">callback_context</span><span class="o">.</span><span class="n">triggered</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;prop_id&quot;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">trigger</span> <span class="o">==</span> <span class="s1">&#39;graph.clickData&#39;</span><span class="p">:</span>
+        <span class="n">selection</span> <span class="o">=</span> <span class="p">[</span><span class="n">point</span><span class="p">[</span><span class="s2">&quot;pointNumber&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">point</span> <span class="ow">in</span> <span class="n">clickData</span><span class="p">[</span><span class="s2">&quot;points&quot;</span><span class="p">]]</span>
+    <span class="k">if</span> <span class="n">trigger</span> <span class="o">==</span> <span class="s1">&#39;graph.selectedData&#39;</span><span class="p">:</span>
+        <span class="n">selection</span> <span class="o">=</span> <span class="p">[</span><span class="n">point</span><span class="p">[</span><span class="s2">&quot;pointIndex&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">point</span> <span class="ow">in</span> <span class="n">selectedData</span><span class="p">[</span><span class="s2">&quot;points&quot;</span><span class="p">]]</span>
+    <span class="c1"># Update scatter selection</span>
+    <span class="n">fig</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;selectedpoints&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">selection</span>
+    <span class="c1"># Update parcats colors</span>
+    <span class="n">new_color</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cars_df</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;uint8&#39;</span><span class="p">)</span>
+    <span class="n">new_color</span><span class="p">[</span><span class="n">selection</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">fig</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;line&quot;</span><span class="p">][</span><span class="s2">&quot;color&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_color</span>
+    <span class="k">return</span> <span class="n">fig</span>
+
+
+
+<span class="n">app</span><span class="o">.</span><span class="n">run_server</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">say_whee</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decorators">Decorators</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jan König
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

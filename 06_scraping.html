@@ -1,0 +1,1330 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Web Scraping &#8212; Data Visualisation and Reporting with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '06_scraping';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Graphics" href="07_graphics.html" />
+    <link rel="prev" title="Online Data" href="05_online.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="01_content.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Data Visualisation and Reporting with Python</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="01_content.html">
+                    Data, Visualisation and Reporting with Python
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="02_general.html">What is Python and why use it?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_python_basics.html">First steps</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="04_data.html">Working with Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_online.html">Online Data</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Web Scraping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_graphics.html">Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_interactive_plots.html">Interactive Graphics - Plotly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_sklearn.html">SciKit Learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_dash_I.html">Dash - introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_dash_II.html">Dash - advanced interactivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_markdown.html">Notebook formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_financial_stats_CAPM.html">Introduction to Statistics and Indicators in Finance</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F06_scraping.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/06_scraping.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Web Scraping</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#xpath">Xpath</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#css">CSS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspecting-a-webpage">Inspecting a webpage</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scrapy-selector">scrapy selector</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">pandas</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#webcrawler">Webcrawler</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#callback">callback</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="web-scraping">
+<h1>Web Scraping<a class="headerlink" href="#web-scraping" title="Permalink to this heading">#</a></h1>
+<p>The process of retrieving data displayed on websites automatically with your computer is called web scraping. It means instead of clicking, selecting and copying data yourself, your python script does it for you. You would only need to define how and where to look. Scraping information from the internet can be very time consuming, even when your machine does it for you. However, it may also be very rewarding because of the vast amount of data and possibilities - which come for free.</p>
+<p>Before we can turn to the actual scraping online, we will deepen our understanding of html and how to navigate through a file.</p>
+<section id="xpath">
+<h2>Xpath<a class="headerlink" href="#xpath" title="Permalink to this heading">#</a></h2>
+<p>The <strong>E</strong>xtensible <strong>M</strong>arkup <strong>L</strong>anguage <strong>XML</strong> provides something like a framework to markup languages to encode structured, hierarchical data for transfer. It is thus a related to HTML, just less for displaying data than storing and transferring it. While the differences are not of interest here (learn about them yourself anytime, though), the similarities are: in the way, we can use them to navigate html documents.</p>
+<p>The <strong>XML Path Language</strong> (<strong>Xpath</strong>) allows to select items from an xml document by addressing tag names, attributes and structural characteristics. We can use the respective commands to retrieve elements from html documents, i.e. websites.</p>
+<p>The two basic operators are</p>
+<ul class="simple">
+<li><p>a forward slash <code class="docutils literal notranslate"><span class="pre">/</span></code>: to look into the next generation</p></li>
+<li><p>square brackets <code class="docutils literal notranslate"><span class="pre">[]</span></code>: select a specific element</p></li>
+</ul>
+<p>The forward slash works basically the same way as in an URL or path when navigating a directory on your computer. The square brackets on the other hand have a very similar functionality to the usage of square brackets in python.</p>
+<p>Lets have a look at a slightly extended version of the html document from the previous chapter to see how we can use these operators for navigation.\</p>
+<p>As usual, we first import the package (actually only one class for now) providing the desired functionality: <strong>Scrapy</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scrapy</span> <span class="kn">import</span> <span class="n">Selector</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_html</span> <span class="o">=</span> \
+<span class="sd">&quot;&quot;&quot;&lt;html&gt;&lt;body&gt;&lt;div id=&#39;div_1&#39;&gt;&lt;p class=&#39;parag-1&#39; id =&#39;intro&#39;&gt;This is a brief introduction to &lt;b&gt;HTML&lt;/b&gt;.&lt;/p&gt;</span>
+<span class="sd">&lt;p class=&#39;parag-1-1&#39; id =&#39;main&#39;&gt;Part 2.&lt;/p&gt;&lt;/div id=&#39;div_2&#39; href=&#39;www.uni-passau.de&#39;&gt;</span>
+<span class="sd">&lt;p class=&#39;parag-2&#39; id =&#39;outro&#39;&gt;Part 3. &lt;a href=&#39;www.uni-passau.de&#39;&gt;Homepage&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1">#formatted version to better visualise the structure</span>
+
+<span class="c1"># &lt;html&gt;</span>
+<span class="c1">#   &lt;body&gt;</span>
+<span class="c1">#     &lt;div id=&#39;div_1&#39;&gt;</span>
+<span class="c1">#       &lt;p class=&#39;parag-1&#39; id =&#39;intro&#39;&gt;</span>
+<span class="c1">#         This is a brief introduction to &lt;b&gt;HTML&lt;/b&gt;.</span>
+<span class="c1">#       &lt;/p&gt;</span>
+<span class="c1">#       &lt;p class=&#39;parag-1-1&#39; id =&#39;main&#39;&gt;</span>
+<span class="c1">#         Part 2.</span>
+<span class="c1">#       &lt;/p&gt;</span>
+<span class="c1">#     &lt;/div id=&#39;div_2&#39; &gt;</span>
+<span class="c1">#     &lt;p class=&#39;parag-2&#39; id =&#39;outro&#39;&gt;</span>
+<span class="c1">#         Part 3.</span>
+<span class="c1">#         &lt;a href=&#39;www.uni-passau.de&#39;&gt;Homepage&lt;/a&gt;</span>
+<span class="c1">#     &lt;/p&gt;</span>
+<span class="c1">#   &lt;/body&gt;</span>
+<span class="c1"># &lt;/html&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Because of the tree like structure elements are labeled in on the basis of a family tree.<br />
+The html consists of the <strong>body</strong> inside the <strong>html</strong> tags.<br />
+In the next generation, called <em>child generation</em>, we see one <strong>div</strong> element, itself containing two <strong>p</strong> elements, i.e. <em>children</em>.<br />
+Another <strong>p</strong> element appears as a <em>sibling</em> to the only <strong>div</strong> element.</p>
+<p>Now let’s select single elements from this html using the <code class="docutils literal notranslate"><span class="pre">xpath()</span></code> method to which we pass our statement as string. To do so, we must first instantiate an Selector object with <code class="docutils literal notranslate"><span class="pre">my_html</span></code>. Note that chaining the <code class="docutils literal notranslate"><span class="pre">extract()</span></code> method to the selector object gives the desired result.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sel</span> <span class="o">=</span> <span class="n">Selector</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">my_html</span><span class="p">)</span>
+
+<span class="c1"># navigate to p elements inside div</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;both p elements:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">sel</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;/html/body/div/p&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>both p elements:
+ [&#39;&lt;p class=&quot;parag-1&quot; id=&quot;intro&quot;&gt;This is a brief introduction to &lt;b&gt;HTML&lt;/b&gt;.&lt;/p&gt;&#39;, &#39;&lt;p class=&quot;parag-1-1&quot; id=&quot;main&quot;&gt;Part 2.&lt;/p&gt;&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the special case here, where all child elements are the <em>p</em> elements we are looking for, we can use the wildcard character <code class="docutils literal notranslate"><span class="pre">*</span></code>. It wil select any element, no matter the tag in the next generation (or in all future generations with a double forward slash).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># use wildcard character *</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">wildcard *:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">sel</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;/html/body/div/*&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>wildcard *:
+ [&#39;&lt;p class=&quot;parag-1&quot; id=&quot;intro&quot;&gt;This is a brief introduction to &lt;b&gt;HTML&lt;/b&gt;.&lt;/p&gt;&#39;, &#39;&lt;p class=&quot;parag-1-1&quot; id=&quot;main&quot;&gt;Part 2.&lt;/p&gt;&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>To select only the first <em>p</em> element, index the result with square brackets.</p>
+<div class="highlight-{admonition}Caution notranslate"><div class="highlight"><pre><span></span>:class: caution
+Xpath indexing starts with 1 and not 0 like python does!:::
+
+Another way is to use scrapy&#39;s ```extract_first()``` method.
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># select first p with [1]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;slelect only first p</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">sel</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;/html/body/div/p[1]&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract</span><span class="p">())</span>
+
+<span class="c1"># indexing the python list starts with 0!</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">slelect only first p</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">sel</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;/html/body/div/p&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># with extract_first()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">slelect only first p</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">sel</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;/html/body/div/p&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract_first</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>slelect only first p
+ [&#39;&lt;p class=&quot;parag-1&quot; id=&quot;intro&quot;&gt;This is a brief introduction to &lt;b&gt;HTML&lt;/b&gt;.&lt;/p&gt;&#39;]
+
+slelect only first p
+ &lt;p class=&quot;parag-1&quot; id=&quot;intro&quot;&gt;This is a brief introduction to &lt;b&gt;HTML&lt;/b&gt;.&lt;/p&gt;
+
+slelect only first p
+ &lt;p class=&quot;parag-1&quot; id=&quot;intro&quot;&gt;This is a brief introduction to &lt;b&gt;HTML&lt;/b&gt;.&lt;/p&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see, that a forward slash navigates one generation deeper into the structure, from <em>html</em> over <em>body</em> and <em>div</em> to both(!) <em>p</em> elements. Here, we get back a list (first print statement) of the <em>p</em> elements, where we can intuitively use the square brackets to select only the first one.<br />
+What we get back, however, is still a <em>selector object</em>. To extract the text only, we need to modify the statement further by <code class="docutils literal notranslate"><span class="pre">/text()</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># select text from first p element</span>
+<span class="n">to_print</span> <span class="o">=</span> <span class="n">sel</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;/html/body/div/p[1]/text()&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;text in first p:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">to_print</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>text in first p:
+ [&#39;This is a brief introduction to &#39;, &#39;.&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now again, we do not see all of the text, just the string before the <em>b</em> tags and the dot after it as elements of a list. Even though the <em>b</em> tags for bold printing appear in-line, they still define a child generation for the enclosed ‘HTML’ string. Here, we could navigate further down the tree using a path to the b element for exampe.<br />
+Instead, we will make use of the double forward slash <code class="docutils literal notranslate"><span class="pre">//</span></code>, which selects everything ‘<strong>from future generations</strong>’. Meaning it will select all the text from all generations that follow this first <em>p</em> element.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># select text from first p element and all future generations by a double forward slash</span>
+<span class="n">to_print</span> <span class="o">=</span> <span class="n">sel</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;/html/body/div/p[1]//text()&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;text in first p and future generations with double slash:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">to_print</span><span class="p">)</span>
+
+<span class="c1"># for one string, use the join() function</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">complete string:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">to_print</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>text in first p and future generations with double slash:
+ [&#39;This is a brief introduction to &#39;, &#39;HTML&#39;, &#39;.&#39;]
+
+complete string:
+ This is a brief introduction to HTML.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Beside specifying a path explicitly, we can leverage built-in methods to extract our desired elements. Scrapy’s <code class="docutils literal notranslate"><span class="pre">getall()</span></code> returns all elements of a given tag as list</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;scrapy:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">sel</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;//p&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">getall</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>scrapy:
+ [&#39;&lt;p class=&quot;parag-1&quot; id=&quot;intro&quot;&gt;This is a brief introduction to &lt;b&gt;HTML&lt;/b&gt;.&lt;/p&gt;&#39;, &#39;&lt;p class=&quot;parag-1-1&quot; id=&quot;main&quot;&gt;Part 2.&lt;/p&gt;&#39;, &#39;&lt;p class=&quot;parag-2&quot; id=&quot;outro&quot;&gt;Part 3. &lt;a href=&quot;www.uni-passau.de&quot;&gt;Homepage&lt;/a&gt;&lt;/p&gt;&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>As mentioned before, elements can be addressed using attributes, like ID or class name. The attribute is addressed in square brackets, with <code class="docutils literal notranslate"><span class="pre">&#64;attr</span> <span class="pre">=</span> <span class="pre">'attr_name'</span></code>. If the same attribute applies to several tags, a list of all results is returned.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># search all elements in document (leading //*) by id</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ID with wildcard:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">sel</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;//*[@id=&quot;div_1&quot;]&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract</span><span class="p">())</span>
+
+<span class="c1"># same as (tag must be known)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">ID with div:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">sel</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;//div[@id=&quot;div_1&quot;]&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ID with wildcard:
+ [&#39;&lt;div id=&quot;div_1&quot;&gt;&lt;p class=&quot;parag-1&quot; id=&quot;intro&quot;&gt;This is a brief introduction to &lt;b&gt;HTML&lt;/b&gt;.&lt;/p&gt;\n&lt;p class=&quot;parag-1-1&quot; id=&quot;main&quot;&gt;Part 2.&lt;/p&gt;&lt;/div&gt;&#39;]
+
+ID with div:
+ [&#39;&lt;div id=&quot;div_1&quot;&gt;&lt;p class=&quot;parag-1&quot; id=&quot;intro&quot;&gt;This is a brief introduction to &lt;b&gt;HTML&lt;/b&gt;.&lt;/p&gt;\n&lt;p class=&quot;parag-1-1&quot; id=&quot;main&quot;&gt;Part 2.&lt;/p&gt;&lt;/div&gt;&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">contains</span></code> function provides access to attributes based on (parts of) the attribute name.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># find all elements where attr contains string</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;contains string:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">sel</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;//*[contains(@class, &quot;parag-1&quot;)]&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>contains string:
+ [&#39;&lt;p class=&quot;parag-1&quot; id=&quot;intro&quot;&gt;This is a brief introduction to &lt;b&gt;HTML&lt;/b&gt;.&lt;/p&gt;&#39;, &#39;&lt;p class=&quot;parag-1-1&quot; id=&quot;main&quot;&gt;Part 2.&lt;/p&gt;&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, an attribute can be returned by addressing it in the path.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;get attribute:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">sel</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;/html/body/div/p[1]/@id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>get attribute:
+ [&#39;intro&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="css">
+<h2>CSS<a class="headerlink" href="#css" title="Permalink to this heading">#</a></h2>
+<p>The <strong>C</strong>ascading <strong>S</strong>tyle <strong>S</strong>heets language is another way to work with markup languages and thus html. Of special interest for us is that it also provides selectors. Even more convenient is that scrapy includes these selectors and the respective language. CSS uses a different syntax, which can offer much simpler and shorter statements for the same element than xpath (or sometime, the opposite)</p>
+<p>The basic syntax changes from xpath like this:</p>
+<ul class="simple">
+<li><p>a single generation forward: <code class="docutils literal notranslate"><span class="pre">/</span></code> is replaced by <code class="docutils literal notranslate"><span class="pre">&gt;</span></code></p></li>
+<li><p>all future generations: <code class="docutils literal notranslate"><span class="pre">//</span></code> is replaced by a blank space (!)</p></li>
+<li><p>not so short anymore: indexing with <code class="docutils literal notranslate"><span class="pre">[k]</span></code> becomes <code class="docutils literal notranslate"><span class="pre">:nth-of-type(k)</span></code></p></li>
+</ul>
+<p>For scrapy, nothing changes really, except using <code class="docutils literal notranslate"><span class="pre">.css()</span></code> method. The selector object is the same as before.<br />
+Some examples:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># navigate to p elements inside div</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;xpath:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">sel</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;/html/body/div/p&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">css:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">sel</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s1">&#39;html&gt;body&gt;div&gt;p&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract</span><span class="p">())</span>
+
+<span class="c1"># navigate to all p elements in document</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">all p elements&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;xpath:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">sel</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;//p&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">css:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">sel</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>xpath:
+ [&#39;&lt;p class=&quot;parag-1&quot; id=&quot;intro&quot;&gt;This is a brief introduction to &lt;b&gt;HTML&lt;/b&gt;.&lt;/p&gt;&#39;, &#39;&lt;p class=&quot;parag-1-1&quot; id=&quot;main&quot;&gt;Part 2.&lt;/p&gt;&#39;]
+
+css:
+ [&#39;&lt;p class=&quot;parag-1&quot; id=&quot;intro&quot;&gt;This is a brief introduction to &lt;b&gt;HTML&lt;/b&gt;.&lt;/p&gt;&#39;, &#39;&lt;p class=&quot;parag-1-1&quot; id=&quot;main&quot;&gt;Part 2.&lt;/p&gt;&#39;]
+
+all p elements
+xpath:
+ [&#39;&lt;p class=&quot;parag-1&quot; id=&quot;intro&quot;&gt;This is a brief introduction to &lt;b&gt;HTML&lt;/b&gt;.&lt;/p&gt;&#39;, &#39;&lt;p class=&quot;parag-1-1&quot; id=&quot;main&quot;&gt;Part 2.&lt;/p&gt;&#39;, &#39;&lt;p class=&quot;parag-2&quot; id=&quot;outro&quot;&gt;Part 3. &lt;a href=&quot;www.uni-passau.de&quot;&gt;Homepage&lt;/a&gt;&lt;/p&gt;&#39;]
+
+css:
+ [&#39;&lt;p class=&quot;parag-1&quot; id=&quot;intro&quot;&gt;This is a brief introduction to &lt;b&gt;HTML&lt;/b&gt;.&lt;/p&gt;&#39;, &#39;&lt;p class=&quot;parag-1-1&quot; id=&quot;main&quot;&gt;Part 2.&lt;/p&gt;&#39;, &#39;&lt;p class=&quot;parag-2&quot; id=&quot;outro&quot;&gt;Part 3. &lt;a href=&quot;www.uni-passau.de&quot;&gt;Homepage&lt;/a&gt;&lt;/p&gt;&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The css locator provides short notation when working with <em>id</em> or <em>class</em>:</p>
+<ul class="simple">
+<li><p>to select elements by class: use <code class="docutils literal notranslate"><span class="pre">tag.class-name</span></code> (similiar to method chaining)</p></li>
+<li><p>to select elements by id: use <code class="docutils literal notranslate"><span class="pre">tag#id-name</span></code></p></li>
+</ul>
+<p>Examples from the toy html above:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># select by id</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;select by class:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">sel</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s1">&#39;*.parag-1&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract</span><span class="p">())</span>
+
+<span class="c1"># select by id</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">select by id:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">sel</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s1">&#39;*#intro&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>select by class:
+ [&#39;&lt;p class=&quot;parag-1&quot; id=&quot;intro&quot;&gt;This is a brief introduction to &lt;b&gt;HTML&lt;/b&gt;.&lt;/p&gt;&#39;]
+
+select by id:
+ [&#39;&lt;p class=&quot;parag-1&quot; id=&quot;intro&quot;&gt;This is a brief introduction to &lt;b&gt;HTML&lt;/b&gt;.&lt;/p&gt;&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Attributes are in general addressed by a double colon <code class="docutils literal notranslate"><span class="pre">::attr(attribute-name)</span></code>, for example to extract a link from the <code class="docutils literal notranslate"><span class="pre">href</span></code> attribute:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># select by attribute</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">select by attribute:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">sel</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s1">&#39;*::attr(href)&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>select by attribute:
+ [&#39;www.uni-passau.de&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The double colon is also used to extract <code class="docutils literal notranslate"><span class="pre">::text</span></code>, like we used <code class="docutils literal notranslate"><span class="pre">/text()</span></code> in xpath:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># extract all (blank space!) text descending from p elements inside div elements with class &#39;div_1&#39; </span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">extract text:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">sel</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s1">&#39;div#div_1&gt;p ::text&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>extract text:
+ [&#39;This is a brief introduction to &#39;, &#39;HTML&#39;, &#39;.&#39;, &#39;Part 2.&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Look for exampe at <a class="reference external" href="https://devhints.io/xpath">this cheatsheet</a> for more commands with xpath and css.</p>
+<p>Lastly, let’s look at BeautifulSoup again. It offers basically the same functionality to address and select any element based on its tag or attributes, but can make life easier with its prewritten methods. Keep in mind however, that BeautifulSoup is a python package, while the xpath and css syntax is standalone and will thus transfer to other software, e.g. <strong>R</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">my_html</span><span class="p">)</span>
+<span class="c1"># select by id</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;by id:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;div_1&#39;</span><span class="p">))</span>
+
+<span class="c1"># select by class </span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> by class:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;parag-1&#39;</span><span class="p">))</span>    <span class="c1"># note class_ (not class)</span>
+
+<span class="c1"># by s</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>by id:
+ [&lt;div id=&quot;div_1&quot;&gt;&lt;p class=&quot;parag-1&quot; id=&quot;intro&quot;&gt;This is a brief introduction to &lt;b&gt;HTML&lt;/b&gt;.&lt;/p&gt;
+&lt;p class=&quot;parag-1-1&quot; id=&quot;main&quot;&gt;Part 2.&lt;/p&gt;&lt;/div&gt;]
+
+ by class:
+ [&lt;p class=&quot;parag-1&quot; id=&quot;intro&quot;&gt;This is a brief introduction to &lt;b&gt;HTML&lt;/b&gt;.&lt;/p&gt;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="inspecting-a-webpage">
+<h2>Inspecting a webpage<a class="headerlink" href="#inspecting-a-webpage" title="Permalink to this heading">#</a></h2>
+<p>Common internet browsers like firefox, chrome, safari, etc. include functionality to inspect webpages, meaning to look at the underlying html. To view the html, right-click on a specific element on the webpage, e.g. a headline, and select “Inspect Element” (or something similar), like shown in this screenshot taken from <a class="reference external" href="https://finance.yahoo.com/quote/AAPL/analysis?p=AAPL">this page</a>:</p>
+<p><img alt="title" src="_images/inspect.png" /></p>
+<p>You will then see a small window open at the bottom of your browser, showing the html in hierarchical structure where elements can be expanded to show its child generations:</p>
+<p><img alt="title" src="_images/html.png" /></p>
+<p>While hovering with the mouse over
+an element from the list, your browser should highlight the respective element on the website. So hovering over the <code class="docutils literal notranslate"><span class="pre">&lt;table&gt;</span></code> element will highlight the complete displayed table, while hovering over a <code class="docutils literal notranslate"><span class="pre">&lt;tr&gt;</span></code> element will only highlight a specific row of the table. This facilitates the setup of your code for selection. Furthermore, a right-click on the element in the list let’s one copy several characteristics like the path or the attributes directly to avoid spelling or selection errors.</p>
+<p>In this example, we see that information is stored in a <code class="docutils literal notranslate"><span class="pre">&lt;table&gt;</span></code> and we could select it by specifying the data-reactid’ (we would have to check if there are more elements of this class, tough ids should generally be unique).</p>
+<p>In order to collect the displayed information, we use the methods from before.</p>
+<section id="scrapy-selector">
+<h3>scrapy selector<a class="headerlink" href="#scrapy-selector" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span> <span class="k">as</span> <span class="nn">re</span>
+<span class="kn">from</span> <span class="nn">scrapy</span> <span class="kn">import</span> <span class="n">Selector</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;User-Agent&quot;</span><span class="p">:</span>
+        <span class="s2">&quot;Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36&quot;</span>
+<span class="p">}</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://finance.yahoo.com/quote/AAPL/analysis?p=AAPL&#39;</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">response</span><span class="o">.</span><span class="n">ok</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sel</span> <span class="o">=</span> <span class="n">Selector</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>column names:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># select column names based on order, as no id is given for the tables</span>
+<span class="n">columns</span> <span class="o">=</span> <span class="n">sel</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;//table[1]/thead[1]/*&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s1">&#39; ::text&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">columns</span><span class="p">)</span>    <span class="c1"># unfortunately gives unsatisfying result with parentheses</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Earnings Estimate&#39;, &#39;Current Qtr.&#39;, &#39; (&#39;, &#39;Mar&#39;, &#39; 2024)&#39;, &#39;Next Qtr.&#39;, &#39; (&#39;, &#39;Jun&#39;, &#39; 2024)&#39;, &#39;Current Year&#39;, &#39; (2024)&#39;, &#39;Next Year&#39;, &#39; (2025)&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># filter by hand...</span>
+<span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">el</span> <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">if</span> <span class="nb">any</span><span class="p">([</span><span class="s1">&#39;Year&#39;</span> <span class="ow">in</span> <span class="n">el</span><span class="p">,</span> <span class="s1">&#39;Qtr.&#39;</span> <span class="ow">in</span> <span class="n">el</span><span class="p">])]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">columns</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Current Qtr.&#39;, &#39;Next Qtr.&#39;, &#39;Current Year&#39;, &#39;Next Year&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>table data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># select table entries based on data-reactid</span>
+<span class="n">table_body</span> <span class="o">=</span> <span class="n">sel</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;//table[1]/tbody/*&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s1">&#39; ::text&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">table_body</span><span class="p">)</span>  
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;No. of Analysts&#39;, &#39;26&#39;, &#39;25&#39;, &#39;34&#39;, &#39;32&#39;, &#39;Avg. Estimate&#39;, &#39;1.51&#39;, &#39;1.32&#39;, &#39;6.57&#39;, &#39;7.16&#39;, &#39;Low Estimate&#39;, &#39;1.46&#39;, &#39;1.22&#39;, &#39;6.3&#39;, &#39;6.55&#39;, &#39;High Estimate&#39;, &#39;1.62&#39;, &#39;1.43&#39;, &#39;6.92&#39;, &#39;7.63&#39;, &#39;Year Ago EPS&#39;, &#39;1.52&#39;, &#39;1.26&#39;, &#39;6.13&#39;, &#39;6.57&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="n">el</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">el</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">table_body</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="k">5</span>==0]
+<span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">el</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">el</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">table_body</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="k">5</span>!=0]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">labels</span><span class="p">[</span><span class="n">x</span><span class="p">]:[</span><span class="n">el</span> <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="o">+</span><span class="mi">4</span><span class="p">]]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">))}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;No. of Analysts&#39;: [&#39;26&#39;, &#39;25&#39;, &#39;34&#39;, &#39;32&#39;],
+ &#39;Avg. Estimate&#39;: [&#39;25&#39;, &#39;34&#39;, &#39;32&#39;, &#39;1.51&#39;],
+ &#39;Low Estimate&#39;: [&#39;34&#39;, &#39;32&#39;, &#39;1.51&#39;, &#39;1.32&#39;],
+ &#39;High Estimate&#39;: [&#39;32&#39;, &#39;1.51&#39;, &#39;1.32&#39;, &#39;6.57&#39;],
+ &#39;Year Ago EPS&#39;: [&#39;1.51&#39;, &#39;1.32&#39;, &#39;6.57&#39;, &#39;7.16&#39;]}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">({</span><span class="n">labels</span><span class="p">[</span><span class="n">x</span><span class="p">]:[</span><span class="n">el</span> <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="o">+</span><span class="mi">4</span><span class="p">]]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">))},</span>\
+                            <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">columns</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Current Qtr.</th>
+      <th>Next Qtr.</th>
+      <th>Current Year</th>
+      <th>Next Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>No. of Analysts</th>
+      <td>26</td>
+      <td>25</td>
+      <td>34</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <th>Avg. Estimate</th>
+      <td>25</td>
+      <td>34</td>
+      <td>32</td>
+      <td>1.51</td>
+    </tr>
+    <tr>
+      <th>Low Estimate</th>
+      <td>34</td>
+      <td>32</td>
+      <td>1.51</td>
+      <td>1.32</td>
+    </tr>
+    <tr>
+      <th>High Estimate</th>
+      <td>32</td>
+      <td>1.51</td>
+      <td>1.32</td>
+      <td>6.57</td>
+    </tr>
+    <tr>
+      <th>Year Ago EPS</th>
+      <td>1.51</td>
+      <td>1.32</td>
+      <td>6.57</td>
+      <td>7.16</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="pandas">
+<h3>pandas<a class="headerlink" href="#pandas" title="Permalink to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">read_html()</span></code>function returns a list of all available tables when we pass the response object as argument.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_html</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;type: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">pd_df</span><span class="p">)</span><span class="si">}</span><span class="s1">, length: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">pd_df</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>type: &lt;class &#39;list&#39;&gt;, length: 6
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd_df</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Earnings Estimate</th>
+      <th>Current Qtr. (Mar 2024)</th>
+      <th>Next Qtr. (Jun 2024)</th>
+      <th>Current Year (2024)</th>
+      <th>Next Year (2025)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>No. of Analysts</td>
+      <td>26.00</td>
+      <td>25.00</td>
+      <td>34.00</td>
+      <td>32.00</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Avg. Estimate</td>
+      <td>1.51</td>
+      <td>1.32</td>
+      <td>6.57</td>
+      <td>7.16</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Low Estimate</td>
+      <td>1.46</td>
+      <td>1.22</td>
+      <td>6.30</td>
+      <td>6.55</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>High Estimate</td>
+      <td>1.62</td>
+      <td>1.43</td>
+      <td>6.92</td>
+      <td>7.63</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Year Ago EPS</td>
+      <td>1.52</td>
+      <td>1.26</td>
+      <td>6.13</td>
+      <td>6.57</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+<section id="webcrawler">
+<h2>Webcrawler<a class="headerlink" href="#webcrawler" title="Permalink to this heading">#</a></h2>
+<p>A webcrawler or spider will automatically ‘crawl’ the web in order to collect data. Once set up, it can be run every day in the morning, every couple of hours, etc.
+Such rugular scraping is used to build a database, e..g with newspaper articles. Commonly, for this kind of data collection, the webcrawler is deployed using cloud computing which is not part of this course.</p>
+<p>We will, however, take a look at a very basic spider not diving in too deep.
+In scrapy, spiders are defined as <strong>classes</strong> including the respective methods for scraping:</p>
+<ul class="simple">
+<li><p>providing the seed pages to start</p></li>
+<li><p>parsing and storing the data</p></li>
+</ul>
+<p>It is important to note that scrapy spiders make use of <strong>callbacks</strong>. A callback is a function, which is run as soon as some criterion is met, usually when some other task is finished. In a scrapy spider, the parsing function is used as callback for the request method: The request must be complete so that the parsing may commence.</p>
+<section id="callback">
+<h3>callback<a class="headerlink" href="#callback" title="Permalink to this heading">#</a></h3>
+<p>The following is a basic example for a callback. The function will print the string and the callback will print the length of the string.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">enter_string</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+    <span class="n">callback</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+    
+<span class="k">def</span> <span class="nf">print_len</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    
+<span class="n">enter_string</span><span class="p">(</span><span class="s1">&#39;onomatopoeia&#39;</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">print_len</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>onomatopoeia
+12
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s take a look at the basic structure of a spider, found in the <a class="reference external" href="https://docs.scrapy.org/en/latest/intro/tutorial.html">scrapy docs</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scrapy</span>
+<span class="n">scrapy</span><span class="o">.</span><span class="n">spiders</span><span class="o">.</span><span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;scrapy&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">propagate</span> <span class="o">=</span> <span class="kc">False</span>    <span class="c1"># suppress logging output in cell</span>
+
+
+<span class="k">class</span> <span class="nc">mySpider</span><span class="p">(</span><span class="n">scrapy</span><span class="o">.</span><span class="n">Spider</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;my_first&quot;</span>
+
+    <span class="n">custom_settings</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;REQUEST_FINGERPRINTER_IMPLEMENTATION&#39;</span><span class="p">:</span> <span class="s1">&#39;2.7&#39;</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="k">def</span> <span class="nf">start_requests</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">urls</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s1">&#39;http://www.example.com&#39;</span>
+        <span class="p">]</span>
+        <span class="k">for</span> <span class="n">url</span> <span class="ow">in</span> <span class="n">urls</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">scrapy</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parse</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s1">&#39;p::text&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">start_requests</span></code> method provides the start or url or seed. For every url in this starting list, we send a <code class="docutils literal notranslate"><span class="pre">Request</span></code> using the respective function. We provide to this function the callback to be the <code class="docutils literal notranslate"><span class="pre">parse</span></code> method defined subsequently. It is important to use <code class="docutils literal notranslate"><span class="pre">yield</span></code>, i.e. to create a generator, as this is required by scrapy.</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">parse()</span></code>, we use the already familiar <code class="docutils literal notranslate"><span class="pre">css</span></code> method to extract all text found in p elements from the website.</p>
+<p>In order to let the spider crawl, we need to import <code class="docutils literal notranslate"><span class="pre">CrawlerProcess</span></code> instantiate an according object, link the spider to it and start the process.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scrapy.crawler</span> <span class="kn">import</span> <span class="n">CrawlerProcess</span>
+<span class="n">proc</span> <span class="o">=</span> <span class="n">CrawlerProcess</span><span class="p">()</span>
+<span class="n">proc</span><span class="o">.</span><span class="n">crawl</span><span class="p">(</span><span class="n">mySpider</span><span class="p">)</span>
+<span class="n">proc</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;This domain is for use in illustrative examples in documents. You may use this\n    domain in literature without prior coordination or asking for permission.&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>After some output (red window), we see the text from the website.</p>
+<p>In order to really crawl the web, we would need to extend the spider:</p>
+<ol class="arabic simple">
+<li><p>find all links on the starting page</p></li>
+<li><p>parse all text on the starting page</p></li>
+<li><p>find all links on the pages found the step before</p></li>
+<li><p>parse all text from the pages found the step before</p></li>
+</ol>
+<p>then repeat steps 3 and 4.</p>
+<p>We will now expand the spider from above to print the text from the starting page, then follow the provided links to the next page and print that text.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scrapy.crawler</span> <span class="kn">import</span> <span class="n">CrawlerProcess</span>
+<span class="kn">import</span> <span class="nn">scrapy</span>
+<span class="n">scrapy</span><span class="o">.</span><span class="n">spiders</span><span class="o">.</span><span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;scrapy&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">propagate</span> <span class="o">=</span> <span class="kc">False</span>    <span class="c1"># suppress logging output in cell</span>
+
+<span class="k">class</span> <span class="nc">followSpider</span><span class="p">(</span><span class="n">scrapy</span><span class="o">.</span><span class="n">Spider</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;my_second&quot;</span>
+    <span class="n">custom_settings</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;REQUEST_FINGERPRINTER_IMPLEMENTATION&#39;</span><span class="p">:</span> <span class="s1">&#39;2.7&#39;</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="k">def</span> <span class="nf">start_requests</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">urls</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s1">&#39;http://www.example.com&#39;</span>
+        <span class="p">]</span>
+        <span class="k">for</span> <span class="n">url</span> <span class="ow">in</span> <span class="n">urls</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">scrapy</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parse_links</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">parse_links</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+        <span class="n">links</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s1">&#39;a::attr(href)&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;//p/text()&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract</span><span class="p">()))</span>
+        <span class="k">for</span> <span class="n">link</span> <span class="ow">in</span> <span class="n">links</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">response</span><span class="o">.</span><span class="n">follow</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">link</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parse</span><span class="p">)</span>
+            
+    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;//p/text()&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">proc</span> <span class="o">=</span> <span class="n">CrawlerProcess</span><span class="p">()</span>
+<span class="n">proc</span><span class="o">.</span><span class="n">crawl</span><span class="p">(</span><span class="n">followSpider</span><span class="p">)</span>
+<span class="n">proc</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ReactorNotRestartable</span><span class="g g-Whitespace">                     </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">32</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">proc</span> <span class="o">=</span> <span class="n">CrawlerProcess</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">proc</span><span class="o">.</span><span class="n">crawl</span><span class="p">(</span><span class="n">followSpider</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">proc</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+<span class="nn">File ~/Desktop/Lehre/python_class/venv.nosync/lib/python3.11/site-packages/scrapy/crawler.py:363,</span> in <span class="ni">CrawlerProcess.start</span><span class="nt">(self, stop_after_crawl, install_signal_handlers)</span>
+<span class="g g-Whitespace">    </span><span class="mi">361</span> <span class="n">tp</span><span class="o">.</span><span class="n">adjustPoolsize</span><span class="p">(</span><span class="n">maxthreads</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">getint</span><span class="p">(</span><span class="s1">&#39;REACTOR_THREADPOOL_MAXSIZE&#39;</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">362</span> <span class="n">reactor</span><span class="o">.</span><span class="n">addSystemEventTrigger</span><span class="p">(</span><span class="s1">&#39;before&#39;</span><span class="p">,</span> <span class="s1">&#39;shutdown&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">stop</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">363</span> <span class="n">reactor</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">installSignalHandlers</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="nn">File ~/Desktop/Lehre/python_class/venv.nosync/lib/python3.11/site-packages/twisted/internet/base.py:1317,</span> in <span class="ni">_SignalReactorMixin.run</span><span class="nt">(self, installSignalHandlers)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1316</span> <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">installSignalHandlers</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1317</span>     <span class="bp">self</span><span class="o">.</span><span class="n">startRunning</span><span class="p">(</span><span class="n">installSignalHandlers</span><span class="o">=</span><span class="n">installSignalHandlers</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1318</span>     <span class="bp">self</span><span class="o">.</span><span class="n">mainLoop</span><span class="p">()</span>
+
+<span class="nn">File ~/Desktop/Lehre/python_class/venv.nosync/lib/python3.11/site-packages/twisted/internet/base.py:1299,</span> in <span class="ni">_SignalReactorMixin.startRunning</span><span class="nt">(self, installSignalHandlers)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1290</span> <span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1291</span><span class="sd"> Extend the base implementation in order to remember whether signal</span>
+<span class="g g-Whitespace">   </span><span class="mi">1292</span><span class="sd"> handlers should be installed later.</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1296</span><span class="sd">     installed during startup.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1297</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1298</span> <span class="bp">self</span><span class="o">.</span><span class="n">_installSignalHandlers</span> <span class="o">=</span> <span class="n">installSignalHandlers</span>
+<span class="ne">-&gt; </span><span class="mi">1299</span> <span class="n">ReactorBase</span><span class="o">.</span><span class="n">startRunning</span><span class="p">(</span><span class="n">cast</span><span class="p">(</span><span class="n">ReactorBase</span><span class="p">,</span> <span class="bp">self</span><span class="p">))</span>
+
+<span class="nn">File ~/Desktop/Lehre/python_class/venv.nosync/lib/python3.11/site-packages/twisted/internet/base.py:843,</span> in <span class="ni">ReactorBase.startRunning</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">841</span>     <span class="k">raise</span> <span class="n">error</span><span class="o">.</span><span class="n">ReactorAlreadyRunning</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">842</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_startedBefore</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">843</span>     <span class="k">raise</span> <span class="n">error</span><span class="o">.</span><span class="n">ReactorNotRestartable</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">844</span> <span class="bp">self</span><span class="o">.</span><span class="n">_started</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="g g-Whitespace">    </span><span class="mi">845</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stopped</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="ne">ReactorNotRestartable</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Writing several parse functions may also be necessary when dealing with ‘nested’ websites: One parse function may extract a specific block from an overview page, the other from all children of the overview pages.</p>
+<p>We used the <code class="docutils literal notranslate"><span class="pre">scrapy.follow</span></code> method, to go to the next link. Using this method enables us to write the <code class="docutils literal notranslate"><span class="pre">parse</span></code> method recursively, i.e. the spider would not stop until arriving at a page with no links. Thus, in order to set up a functional spider, not only the webpages must be selected accordingly, but one should always include some filters before starting the spider and storing the scraped data.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="05_online.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Online Data</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="07_graphics.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Graphics</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#xpath">Xpath</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#css">CSS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspecting-a-webpage">Inspecting a webpage</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scrapy-selector">scrapy selector</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">pandas</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#webcrawler">Webcrawler</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#callback">callback</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jan König
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

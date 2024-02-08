@@ -1,0 +1,466 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dash - introduction &#8212; Data Visualisation and Reporting with Python</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Dash - advanced interactivity" href="10_dash_II.html" />
+    <link rel="prev" title="Interactive Graphics - Plotly" href="08_interactive_plots.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">Data Visualisation and Reporting with Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01_content.html">
+   Data, Visualisation and Reporting with Python
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="02_general.html">
+   What is Python and why use it?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03_python_basics.html">
+   First steps
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04_data.html">
+   Working with Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05_online.html">
+   Online Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06_scraping.html">
+   Web Scraping
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07_graphics.html">
+   Graphics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08_interactive_plots.html">
+   Interactive Graphics - Plotly
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Dash - introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10_dash_II.html">
+   Dash - advanced interactivity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_markdown.html">
+   Notebook formatting
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/09_dash_I.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F09_dash_I.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/09_dash_I.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installation">
+   Installation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-usage">
+   Basic usage
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#interplay-with-plotly-graphics">
+     Interplay with plotly graphics
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="dash-introduction">
+<h1>Dash - introduction<a class="headerlink" href="#dash-introduction" title="Permalink to this headline">¶</a></h1>
+<p>Plotly’s <a class="reference external" href="https://plotly.com/dash/">Dash</a> is a library to build interactive and reactive web-based dashboards/applications for data analysis, more specifically for visualization. The framework allows to build advanced visualization tools, which will react to new inputs or altered preferences. Dash is built upon other languages, but allows to set up apps using only python.</p>
+<p>Applications usually consist of two parts: a server, that is where the calculations etc. are made, and a user interface (UI). The UI is everything the user can see and interact with and is called <strong>layout</strong> in dash. For very basic dashboards, all one needs to do is integrating an element, like a bit of text or a graphic.</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>Standard package to install is ‘dash’.</p>
+<p>However, since we are using jupyter in this course, the according package used throughout this chapter is <strong>jupyter-dash</strong>. This package is made specifically for jupyter and lets us view the apps inside notebooks.
+The syntax is the same for both packages. What you can do in <em>jupyter_dash</em>, you can do in any interpreter using <em>dash</em>. Also, we need some components of the standard dash, so both need to be installed anyway.</p>
+<div class="caution admonition">
+<p class="admonition-title">Caution</p>
+<p>jupyter notebook cannot display several apps in one notebook.</p>
+<p>The book format used here cannot display apps at all. Therefore, instead of the respective apps, sometimes a picture of the app as it would be displayed is shown. In order to view the actual apps, copy the respective code and run in a notebook yourself (uncomment <code class="docutils literal notranslate"><span class="pre">app.run(...)</span></code>).</p>
+</div>
+</div>
+<div class="section" id="basic-usage">
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<p>Dash provides predefined elements for creating an UI. They come in open source libraries like the <code class="docutils literal notranslate"><span class="pre">dcc_core_components</span></code> and <code class="docutils literal notranslate"><span class="pre">dash_html_components</span></code> and are called inside the setup of the layout. We will largely limit ourselves to these two here, but it is advised to check all other libraries when you are missing something (e.g. <code class="docutils literal notranslate"><span class="pre">dash_table</span></code> should be fitting for the purpose of this course, too).</p>
+<p>The following hyperlinks direct you to the dash documentation, providing a list of the included elements. Take a minute to browse them and see what is available, since we will not cover all of them here.</p>
+<p>The <a class="reference external" href="https://dash.plotly.com/dash-html-components">dash_html_components</a> (usually imported as <code class="docutils literal notranslate"><span class="pre">html</span></code> enable us to set up a dash app using html. This allows for detailed customizing, since html includes various style preferences. To customize your app, you can use css properties (<a class="reference external" href="https://www.w3schools.com/cssref/css3_pr_align-content.asp">see left column here</a>). To specify these properties, use the <code class="docutils literal notranslate"><span class="pre">style=dict()</span></code> argument of the html elements, where the dictionary contains the according key-value pairs. Note, that styling keywords differ in dash from standard html, by using a camelCase format: e.g. <code class="docutils literal notranslate"><span class="pre">columnCount</span></code> (dash) instead of <code class="docutils literal notranslate"><span class="pre">column-count</span></code> (html).<br />
+Again, will not go into detail about html, but use it as needed: some of the basic elements we have seen before, like a <em>div</em> element to store the contents of a simple app and an occasional use of some style properties. Note however, that you are very much advised to look into the style properties in order to be able to build a well arranged application.</p>
+<p>The <a class="reference external" href="https://dash.plotly.com/dash-core-components">dash-core-components</a> (usually imported as dcc) library includes a set of various interactive tools from simple text elements to download buttons. Of special interest, regarding the <em>html_core_components</em> could be the <code class="docutils literal notranslate"><span class="pre">dcc.Markdown()</span></code> function, which accepts Markdown strings with formatting and translates it for us. (We will see some basic markdown syntax in the next chapter)</p>
+<p>The structure for building a basic app is:</p>
+<ul class="simple">
+<li><p>create a JupyterDash object</p></li>
+<li><p>define the UI by modifying the <code class="docutils literal notranslate"><span class="pre">.layout</span></code> attribute:</p>
+<ul>
+<li><p>add interactive elements or graphics to appear</p></li>
+</ul>
+</li>
+<li><p>the app is run using the <code class="docutils literal notranslate"><span class="pre">.run_server()</span></code> method</p></li>
+</ul>
+<p>Let’s have a look at a first simple example. After the necessary imports, we instantiate an <em>JupyterDash</em> object.</p>
+<p>Then, by calling the object’s <code class="docutils literal notranslate"><span class="pre">layout</span></code> attribute, we add a title element (<code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">text</span></code> in Markdown is a level one header, equivalent to <code class="docutils literal notranslate"><span class="pre">html.H1()</span></code>, hence the font size and bolt letters) and subtitle.</p>
+<p>Eventually, we run the app in the <code class="docutils literal notranslate"><span class="pre">'inline'</span></code> mode, to get the output below the respective cell.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jupyter_dash</span> <span class="kn">import</span> <span class="n">JupyterDash</span>
+<span class="kn">import</span> <span class="nn">dash_core_components</span> <span class="k">as</span> <span class="nn">dcc</span>
+<span class="kn">import</span> <span class="nn">dash_html_components</span> <span class="k">as</span> <span class="nn">html</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">app</span> <span class="o">=</span> <span class="n">JupyterDash</span><span class="p">(</span><span class="s1">&#39;SimpleExample&#39;</span><span class="p">)</span>
+
+<span class="n">app</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">([</span>
+    <span class="n">dcc</span><span class="o">.</span><span class="n">Markdown</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;# Title&#39;&#39;&#39;</span><span class="p">),</span> 
+    <span class="n">html</span><span class="o">.</span><span class="n">H2</span><span class="p">(</span><span class="s1">&#39;subtitle&#39;</span><span class="p">)</span>
+<span class="p">])</span>
+<span class="c1"># Run app and display result &#39;inline&#39;, i.e. in the notebook</span>
+<span class="c1"># app.run_server(mode=&#39;inline&#39;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><img alt="" src="_images/text_app.png" /></p>
+<p>Omitting the <code class="docutils literal notranslate"><span class="pre">'inline'</span></code> specification would start a server and return the address of the app as hyperlink to open in your browser.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># app.run_server()    </span>
+
+<span class="c1"># see admonition above, below is a picture of the expected output</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><img alt="" src="_images/app_url.png" /></p>
+<p>Now to some more interactive elements: radio buttons.</p>
+<p>Note that we do not introduce any functionality with these buttons yet! They are just there an can be activated.</p>
+<p>We instantiate the object, then modify the <code class="docutils literal notranslate"><span class="pre">layout</span></code>:</p>
+<ul class="simple">
+<li><p>the options consist of a list of dicts, where we set label and value as key-value pairs, respectively.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code> selects a default option, by specifying the ‘value’ of the respective dictionary. Not specifying a standard value will not have any button selected when starting the app.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">app</span> <span class="o">=</span> <span class="n">JupyterDash</span><span class="p">(</span><span class="s1">&#39;SimpleExample&#39;</span><span class="p">)</span>
+
+<span class="n">app</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">([</span>
+    <span class="n">dcc</span><span class="o">.</span><span class="n">RadioItems</span><span class="p">(</span>
+        <span class="n">options</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;label&#39;</span> <span class="p">:</span> <span class="n">el</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span> <span class="p">:</span> <span class="n">el</span><span class="p">}</span> <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="s1">&#39;2&#39;</span><span class="p">,</span><span class="s1">&#39;3&#39;</span><span class="p">]],</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;2&#39;</span>
+    <span class="p">)</span>
+<span class="p">],</span> <span class="n">style</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">textAlign</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">))</span> 
+
+<span class="c1">#app.run_server(mode=&#39;inline&#39;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><img alt="" src="_images/button_app.png" /></p>
+<p>After having created this rather simplistic app, we can inspect the layout attribute to find what we just added.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">layout</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Div(children=[RadioItems(options=[{&#39;label&#39;: &#39;1&#39;, &#39;value&#39;: &#39;1&#39;}, {&#39;label&#39;: &#39;2&#39;, &#39;value&#39;: &#39;2&#39;}, {&#39;label&#39;: &#39;3&#39;, &#39;value&#39;: &#39;3&#39;}], value=&#39;2&#39;)], style={&#39;textAlign&#39;: &#39;center&#39;})
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="interplay-with-plotly-graphics">
+<h3>Interplay with plotly graphics<a class="headerlink" href="#interplay-with-plotly-graphics" title="Permalink to this headline">¶</a></h3>
+<p>Dash is a part of plotly and works seamlessly with plotly graphics!</p>
+<p>Graphics from <em>plotly_express</em> can directly be passed to <code class="docutils literal notranslate"><span class="pre">dcc.Graph</span></code> to integrate it in an app.</p>
+<p>To include graphics from plotly’s <em>graph_objects</em>, we need to define a <code class="docutils literal notranslate"><span class="pre">go.Figure</span></code> object with the plot first. Note the <code class="docutils literal notranslate"><span class="pre">style</span></code> argument to get two columns side by side.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">51</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;markers&#39;</span><span class="p">))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">margin</span><span class="o">=</span> <span class="p">{</span><span class="s1">&#39;t&#39;</span><span class="p">:</span> <span class="mi">60</span><span class="p">})</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">JupyterDash</span><span class="p">(</span><span class="s1">&#39;SimpleExample&#39;</span><span class="p">)</span>
+<span class="n">app</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">([</span>
+    <span class="n">dcc</span><span class="o">.</span><span class="n">Markdown</span><span class="p">(</span><span class="s1">&#39;&#39;&#39; - plotly_express:&#39;&#39;&#39;</span><span class="p">),</span> 
+    <span class="n">dcc</span><span class="o">.</span><span class="n">Graph</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;px&#39;</span><span class="p">,</span> <span class="n">figure</span><span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">)),</span>
+    <span class="n">dcc</span><span class="o">.</span><span class="n">Markdown</span><span class="p">(</span><span class="s1">&#39;&#39;&#39; - graph_objects:&#39;&#39;&#39;</span><span class="p">),</span>
+    <span class="n">dcc</span><span class="o">.</span><span class="n">Graph</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;go&#39;</span><span class="p">,</span> <span class="n">figure</span><span class="o">=</span> <span class="n">fig</span><span class="p">)</span>
+<span class="p">],</span> <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;columnCount&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">})</span>
+
+<span class="c1">#app.run_server(mode=&#39;inline&#39;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="08_interactive_plots.html" title="previous page">Interactive Graphics - Plotly</a>
+    <a class='right-next' id="next-link" href="10_dash_II.html" title="next page">Dash - advanced interactivity</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Jan König<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

@@ -1,0 +1,418 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notebook formatting &#8212; Data Visualisation and Reporting with Python</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Dash - advanced interactivity" href="10_dash_II.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">Data Visualisation and Reporting with Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01_content.html">
+   Data, Visualisation and Reporting with Python
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="02_general.html">
+   What is Python and why use it?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03_python_basics.html">
+   First steps
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04_data.html">
+   Working with Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05_online.html">
+   Online Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06_scraping.html">
+   Web Scraping
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07_graphics.html">
+   Graphics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08_interactive_plots.html">
+   Interactive Graphics - Plotly
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09_dash_I.html">
+   Dash - introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10_dash_II.html">
+   Dash - advanced interactivity
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Notebook formatting
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/11_markdown.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F11_markdown.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/11_markdown.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#markdown">
+   Markdown
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#html">
+   HTML
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="notebook-formatting">
+<h1>Notebook formatting<a class="headerlink" href="#notebook-formatting" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="markdown">
+<h2>Markdown<a class="headerlink" href="#markdown" title="Permalink to this headline">¶</a></h2>
+<p>Jupyter notebooks are html based which, beyond other features, enables to work with <a class="reference external" href="https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Working%20With%20Markdown%20Cells.html"><strong>Markdown</strong></a> directly inside cells. Markdown in general is a lightweight markup language, designed for easy formatting of plain text (like html is a markup language for browser content).</p>
+<p>In order to make use of markdown formatting in jupyter notebooks, we need to convert the (standard) code cells to markdown cells. We can do so by selecting a cell (blue cell frame) and pressing <em>m</em> on the keyboard. Alternatively, click on <em>Cell</em> in the menu bar, navigate to <em>Cell Type</em> and select <em>Markdown</em>.</p>
+<p>When a markdown cell is run, the text and styling/formatting commands will be translated to html: the content will be displayed according to applied rules. The formatting commands are added in the text and usually include (a pair of) <em>special characters</em> like asterisks, hyphens or underscores. Conveniently, the respective formatting is mostly applied dynamically when typing (or otherwise highlighted by different coloring), not only after the cell is run.</p>
+<p>This allows for a well structured notebook format, where code and formatted plain text go hand in hand in order to explain the contents of the project.</p>
+<p>Markdown in general is not proprietary to Python. We can use mostly the same as in this jupyter implementation for example in Dash’s <code class="docutils literal notranslate"><span class="pre">dcc.Markdown()</span></code> function to create formatted text.</p>
+<p>In the following, a collection of useful formatting is provided.</p>
+<p><u><strong>Inline text formatting</strong></u> like bold or italic can be achieved by using either as asterisk or underscore.</p>
+<p>A pair of asterisks/underscores enclosing the text will yield an italic font:</p>
+<ul class="simple">
+<li><p><em>italic with asterisk</em>: *italic with asterisk*</p></li>
+<li><p><em>italic with underscore</em>: _italic with underscore_</p></li>
+</ul>
+<p>A pair of double asterisks/underscores enclosing the text will yield a bold font:</p>
+<ul class="simple">
+<li><p><strong>bold with asterisk</strong>: **bold with asterisk**</p></li>
+<li><p><strong>bold with underscore</strong>: __bold with underscore__</p></li>
+</ul>
+<p>A pair of three asterisks/underscores on each side enclosing the text will yield a <em><strong>bold and italic font</strong></em>.</p>
+<p>In order to use either of these symbols safely, <em>escape</em> the single character by a prefixed backslash.</p>
+<p><u><strong>Lists</strong></u> can be inserted by starting a line with a hyphen. The symbol will be chosen automatically. A two space indent will open a new level of the list.</p>
+<ul class="simple">
+<li><p>item 1</p>
+<ul>
+<li><p>indented item</p>
+<ul>
+<li><p>further indented item</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Numbered lists are written by starting a line with a number followed by a dot. The sequence is created automatically: starting every line with <code class="docutils literal notranslate"><span class="pre">1.</span></code> will be translated to a sequence of numbers. The next level, indented by two spaces, will be a sequence of capital letters, then lowercase letters, etc.
+Note that starting a new list with for example <code class="docutils literal notranslate"><span class="pre">3.</span></code> will indeed start the sequence at 3 (or C/c).</p>
+<ol class="simple">
+<li><p>item 1</p></li>
+<li><p>item 2</p></li>
+<li><p>indented item
+3. further indented</p></li>
+</ol>
+<p><u><strong>Hyperlinks</strong></u> are inserted by enclosing the displayed text in square brackets, followed by the url enclosed in parentheses. The text will be emphasized by coloring and underlining: <a class="reference external" href="https://www.python.org">Python</a>.
+The text can also be displayed bold or italic with the commands from above inside the square brackets.</p>
+<p><u><strong>Headlines</strong></u> are created using a hash followed by one space in front of the headline text. A single # will create a level one headline, ## will create a level two headline with smaller font etc. The font size will already change while typing the #.</p>
+<p>Note that when you select a markdown cell containing text already (blue cell frame), you can assign a headline level to the first line using the numbers on your keyboard. Pressing the 1 key, will then insert one # and space in front of the first line.</p>
+<p>Possible yet not so handy is to ‘underline’ your headline text with hyphens, i.e. jump to the next line after writing the headline text and inserting 4 or more —-.</p>
+<p><u><strong>Tables</strong></u> can be inserted quickly using a sequence of hyphens to separate rows and vertical lines to separate columns. The hyphens appear in the next line after specifying the columns names and must also be separated by vertical lines:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Col1</p></th>
+<th class="head"><p>Col2</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>A</p></td>
+<td><p>B</p></td>
+</tr>
+</tbody>
+</table>
+<p>This table, before the markdown translation is written as:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Col1 | Col2
+-----|------
+A | B
+</pre></div>
+</div>
+<p>An exact count of hyphens or spaces is not required.</p>
+<p><u><strong>Code</strong></u> is displayed inline using a grave accent `. A bit of text inside a pair of these symbols is rendered as <code class="docutils literal notranslate"><span class="pre">Code</span></code></p>
+<p>To use python code specifically, we can use a pair of three grave accents. The first triple is followed by ‘python’ and a line break. This renders code as it would appear inside code cells, i.e. with the same coloring:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">print_it</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;this is a </span><span class="si">{</span><span class="n">string</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>See the same in a code cell:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">print_it</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;this is a </span><span class="si">{</span><span class="n">string</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><u><strong>$LaTeX</strong></u> expressions can also be implemented, using a pair of enclosing dollar signs. The expression inside follows standard LaTeX syntax and is especially useful for mathematical expressions:</p>
+<p>$\sum_{n=0}^\infty \frac{x^n}{n!} \hspace{1cm}\hat{=}\hspace{1cm}$ \sum_{n=0}^\infty \frac{x^n}{n!}</p>
+</div>
+<div class="section" id="html">
+<h2>HTML<a class="headerlink" href="#html" title="Permalink to this headline">¶</a></h2>
+<p>Working with Markdown is swift but also very limited in formatting options. For advanced customization HTML can be used without altering its syntax inside Markdown cells.
+We have encountered this equivalence in Dash, where we could decide whether to use <code class="docutils literal notranslate"><span class="pre">dcc.Markdown('#</span> <span class="pre">title')</span></code> or <code class="docutils literal notranslate"><span class="pre">html.H1('title)</span></code> to produce the exact same output.</p>
+<p>See bold font as one example:</p>
+<ul class="simple">
+<li><p>using Markdown *: <strong>bold</strong></p></li>
+<li><p>using html &lt;b&gt;: <b>bold</b></p></li>
+</ul>
+<p>However, HTML includes more options including, yet of course not limited to, different fonts.
+As a last example we use the ‘style’ argument (which we have already encountered for Dash):</p>
+<p style="font-family:'Copperplate'">A new font</p>
+<p>which is &lt;p style=”font-family:’Copperplate’”&gt;A new font&lt;/p&gt; as raw string.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="10_dash_II.html" title="previous page">Dash - advanced interactivity</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Jan König<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
