@@ -64,9 +64,10 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"ignoreHtmlClass": "never-ignore", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}, "tex2jax": {"ignoreClass": "never-ignore"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '13_financial_stats_CAPM';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '13_financial_stats_2024';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="SciKit Learn" href="12_sklearn_2024.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -160,7 +161,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="02_general.html">What is Python and why use it?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_python_basics.html">First steps</a></li>
 
@@ -174,7 +175,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="12_markdown.html">Notebook formatting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="12_sklearn_2024.html">SciKit Learn</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="13_financial_stats_2024.html">Introduction to Statistics and Indicators in Finance</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Introduction to Statistics and Indicators in Finance</a></li>
 </ul>
 
     </div>
@@ -246,7 +247,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F13_financial_stats_CAPM.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F13_financial_stats_2024.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -276,7 +277,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/13_financial_stats_CAPM.ipynb" target="_blank"
+      <li><a href="_sources/13_financial_stats_2024.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -368,20 +369,16 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Introduction to Statistics and Indicators in Finance</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#returns">Returns</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additivity">Additivity</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#log-returns">log-returns</a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#portfolios-and-cross-sectional-additivity">Portfolios and cross sectional additivity</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristics-of-returns">Characteristics of returns</a></li>
 </ul>
 </li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#the-capm-factor-model-and-excess-returns">The CAPM factor-model and excess returns</a></li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -402,19 +399,32 @@ document.write(`
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-statistics-and-indicators-in-finance">
 <h1>Introduction to Statistics and Indicators in Finance<a class="headerlink" href="#introduction-to-statistics-and-indicators-in-finance" title="Permalink to this heading">#</a></h1>
-<p>Most fields in finance rely on some sort of data analysis given their respective objective. For example in fundamental analysis of a business, various numbers from the company itself (i.e. from the balance sheet) and such indicators representing the overall market are used in order to price the company’s stock. The results from such analyses are utilised in making decisions regarding for example an investement in said company. There are many well established techniques and statistics for pricing financial products. Yet, the search for indicators or ways in generel to foresee an investement’s future performance is ever ongoing. Especially since the dawn of more powerful algorithms and artificial intelligence being more readily available for the public.</p>
-<p>In this chapter, we will take a look at statistics, that are the very basis of such analyses and examine some examples that would lead the way to more sophisticated procedures.</p>
+<p>Many fields in finance rely on some sort of data analysis</p>
+<ul class="simple">
+<li><p>For example fundamental analysis of a business:</p>
+<ul>
+<li><p>various numbers from the company itself (i.e. from the balance sheet)</p></li>
+<li><p>indicators representing the overall market</p></li>
+</ul>
+</li>
+</ul>
+<p>Results drive decisions, e.g. for an investement</p>
+<p>There are many well established techniques and statistics for pricing financial products.</p>
+<p>Some techniques more prominent since the dawn of powerful algorithms and artificial intelligence</p>
 <section id="returns">
 <h2>Returns<a class="headerlink" href="#returns" title="Permalink to this heading">#</a></h2>
-<p>In order for an investment to be profitable, the money it yields must be higher than the inital investment made (plus some transaction costs which is the amount paid to make the investment, e.g. the money you’d pay a bank so that they buy some stocks for you). If we want to assess how much the value of an investment increased (or decreased), we look at the so called return. The usual, i.e. discrete, return is defined as the relative change in value <span class="math notranslate nohighlight">\(S\)</span>. In mathematical terms, we look at the ratio of the past and the present value and subtract one:</p>
+<p>In order for an investment to be profitable, the money it yields must be higher than the inital investment made (plus transaction costs).</p>
+<p>Assess so called return, usually discrete: relative change in investment value <span class="math notranslate nohighlight">\(S\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[ r_t = \frac{S_t - S_{t-1}}{S_{t-1}} =\frac{S_t}{S_{t-1}} - 1 \]</div>
-<p>Note here that one time step <span class="math notranslate nohighlight">\(t\)</span> is of arbitrary length. Two examples: daily returns imply that the price of two successive days are used. Monthly returns would be calculated by using prices that are separated by the time span of one month.</p>
+<p>Note here that one time step <span class="math notranslate nohighlight">\(t\)</span> is of arbitrary length, e.g. daily or monthly</p>
 <section id="additivity">
 <h3>Additivity<a class="headerlink" href="#additivity" title="Permalink to this heading">#</a></h3>
-<p>One may be confronted with returns based on different time spans, that need to be taken into account or that somehow need to be compared to each other. This could require a means of aggregating these returns in order to bring them to the same time scale. The property we are looking for is called addititvity, i.e. the sum of the shorter-scale returns should be equal to the larger-scale return. Working with the example above, we could face the need to aggregate the daily returns to get monthly returns. We thus wish to be able to add all daily returns of one month in order to get the monthly return. Note while this is possible, as explained in the following, we can’t just split monthly returns into daily returns without making assumptions on the distribution of these artificial daily returns.<br />
-We’ll now choose a slightly different example of daily and weekly returns (in this example, we assume seven trading days). To calculate weekly returns from daily returns, we mustn’t use the daily return as is.<br />
-Let’s consider the following values:</p>
+<p>Returns my be based on different time spans <span class="math notranslate nohighlight">\(\rightarrow\)</span> aggreagte somehow</p>
+<p>The property we are looking for is called addititvity: sum shorter-scale returns to get the larger-scale returns</p>
+<p>Note that we can’t just split monthly returns into daily returns, this requires making assumptions on the distribution</p>
+<p>Daily and weekly returns:<br />
+To calculate weekly returns from daily returns, we mustn’t use the daily return as is.</p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>time <span class="math notranslate nohighlight">\(t\)</span></p></th>
@@ -451,21 +461,21 @@ Let’s consider the following values:</p>
 </tr>
 </tbody>
 </table>
-<p>If we simply added all returns, we’d find a weekly return of <span class="math notranslate nohighlight">\(r_{0,7} = 0.12\)</span>. However, using the correct formula from above, we find that</p>
-<div class="math notranslate nohighlight">
-\[ r_{0,7} = \frac{S_7}{S_{0}} - 1 = \frac{105}{100} - 1  = 0.05 \]</div>
-<p>and conclude that indeed daily returns cannot simply be added up in order to yield the weekly return.</p>
+<p>If we simply added all returns, we’d find a weekly return of <span class="math notranslate nohighlight">\(r_{0,7} = 0.12\)</span>.<br />
+However, using the formula from above, we find that
+$<span class="math notranslate nohighlight">\( r_{0,7} = \frac{S_7}{S_{0}} - 1 = \frac{105}{100} - 1  = 0.05 \)</span>$
+and conclude that indeed daily returns cannot simply be added up in order to yield the weekly return.</p>
 <section id="log-returns">
 <h4>log-returns<a class="headerlink" href="#log-returns" title="Permalink to this heading">#</a></h4>
-<p>With a single transformation however, we can can establish the desired additivity over time. The transformation needed is taking the logarithm. There are basically two ways of seeing the calculation of these so called log returns, which are equivalent. Either logarithmise the (daily) <strong>prices</strong> and simply get the difference between sucessive values. Or logarithmise the ratio of the past and current price:</p>
-<div class="math notranslate nohighlight">
-\[ r_t^{log} = \log{\frac{S_t}{S_{t-1}}} \]</div>
-<div class="math notranslate nohighlight">
-\[ \downarrow(\log{\frac{x}{y}} = \log{x}- \log{y})\]</div>
-<div class="math notranslate nohighlight">
-\[ = \log{S_t} - \log{S_{t-1}} \]</div>
-<p>These log returns, or continuous returns, now exhibit the qualities the discrete returns from the example above lacked.<br />
-Let’s have a look at the same table after taking the logarithm and try the same aggregation from above.</p>
+<p>With a single transformation however, we can can establish the desired additivity over time</p>
+<p>The transformation needed is taking the <strong>logarithm</strong> and getting <strong>log returns</strong></p>
+<p>Logarithmise the (daily) <strong>prices</strong> and get the difference between sucessive values.<br />
+Or logarithmise the ratio of the past and current price:
+$<span class="math notranslate nohighlight">\( r_t^{log} = \log{\frac{S_t}{S_{t-1}}} \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( \downarrow(\log{\frac{x}{y}} = \log{x}- \log{y})\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( = \log{S_t} - \log{S_{t-1}} \)</span>$</p>
+<p>These log returns/continuous returns, now exhibit additivity over time</p>
+<p>same prices, but log returns:</p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>time <span class="math notranslate nohighlight">\(t\)</span></p></th>
@@ -502,21 +512,21 @@ Let’s have a look at the same table after taking the logarithm and try the sam
 </tr>
 </tbody>
 </table>
-<p>Now, we add all log returns up and find the weekly log return to be <span class="math notranslate nohighlight">\( r_{0,7} = 0.05 \)</span>.
-To convert log returns to discrete returns, we simply take the exponent (the inverse of the logarithm) of the log return <strong>and subtract 1</strong>, which will also result in a value of <span class="math notranslate nohighlight">\(0.05\)</span>.</p>
-<p>Having a look at the math with logarithmised prices, we can unveil the characteristics of this additive behaviour:</p>
-<div class="math notranslate nohighlight">
-\[ r_{t=2}^{log} =\log{\frac{S_t}{S_{t-1}}} = \log{S_{t=2} - \log{S_{t=0}}} \]</div>
-<div class="math notranslate nohighlight">
-\[\downarrow \text{&quot;add zero&quot;: } - \log{S_{t=1}} + \log{S_{t=1}} = 0 \]</div>
-<div class="math notranslate nohighlight">
-\[ r_{0, t=2}^{log} =\log{S_{t=2} + 0 - \log{S_{t=0}}} \]</div>
-<div class="math notranslate nohighlight">
-\[ r_{0, t=2}^{log} = (\log{S_{t=2} - \log{S_{t=1}}) + (\log{S_{t=1}} - \log{S_{t=0}}}) \]</div>
-<div class="math notranslate nohighlight">
-\[ r_{0, t=2}^{log} = r_{1, t=2}^{log} + r_{0, t=1}^{log} \]</div>
-<p>One may notice that the log returns are very close to the discrete returns. This is due to the fact, the logarithm behaves almost linear for values close to zero. So for small values of the discrete return, the log returns are very similar. Note that this applies almost always for daily returns and even shorter time spans. For a monthly return (or quarterly, yearly) there “is more time for the value to develop” and we usually find higher returns for larger time spans.</p>
-<p>Let’s have a look at how we can calculate returns in python using the prices from the table above.</p>
+<p>Add all log returns to find weekly log return to be $<span class="math notranslate nohighlight">\( r_{0,7} = 0.05 \)</span>$.</p>
+<p>To convert log returns to discrete returns, take the exponent (inverse of the logarithm) of the log return <strong>and subtract 1</strong>.<br />
+Here, we also get a result of <span class="math notranslate nohighlight">\(0.05\)</span></p>
+<p>Having a look at the math with logarithmised prices, we can unveil the characteristics of this additive behaviour:
+$<span class="math notranslate nohighlight">\( r_{t=2}^{log} =\log{\frac{S_t}{S_{t-1}}} = \log{S_{t=2} - \log{S_{t=0}}} \)</span><span class="math notranslate nohighlight">\(  
+\)</span><span class="math notranslate nohighlight">\(\downarrow \text{&quot;add zero&quot;: } - \log{S_{t=1}} + \log{S_{t=1}} = 0 \)</span><span class="math notranslate nohighlight">\(  
+\)</span><span class="math notranslate nohighlight">\( r_{0, t=2}^{log} =\log{S_{t=2} + 0 - \log{S_{t=0}}} \)</span><span class="math notranslate nohighlight">\(  
+\)</span><span class="math notranslate nohighlight">\( r_{0, t=2}^{log} = (\log{S_{t=2} - \log{S_{t=1}}) + (\log{S_{t=1}} - \log{S_{t=0}}}) \)</span><span class="math notranslate nohighlight">\(  
+\)</span><span class="math notranslate nohighlight">\( r_{0, t=2}^{log} = r_{1, t=2}^{log} + r_{0, t=1}^{log} \)</span>$</p>
+<p>We notice that log returns are very close to the discrete returns.<br />
+This is due to the fact, the logarithm behaves almost linear for values close to zero.</p>
+<p><span class="math notranslate nohighlight">\(\rightarrow\)</span> for small values of the discrete return, the log returns are very similar.</p>
+<p>Note that this applies almost always for daily returns and even shorter time spans.</p>
+<p>For a monthly return (or quarterly, yearly) there “is more time for the value to develop”</p>
+<p>Let’s have a look at returns using python</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
@@ -588,86 +598,11 @@ To convert log returns to discrete returns, we simply take the exponent (the inv
 </div>
 <p>We can calculate discrete returns simply by using a method of a Series object: <code class="docutils literal notranslate"><span class="pre">.pct_change()</span></code>.<br />
 Note the <code class="docutils literal notranslate"><span class="pre">NaN</span></code> value for the first line.</p>
+<p>To calculate log returns with numpy’s <code class="docutils literal notranslate"><span class="pre">np.log()</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;discrete_returns&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">S</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span>
-<span class="n">df</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>S</th>
-      <th>discrete_returns</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>100</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>110</td>
-      <td>0.100000</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>121</td>
-      <td>0.100000</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>110</td>
-      <td>-0.090909</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>132</td>
-      <td>0.200000</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>105</td>
-      <td>-0.204545</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>112</td>
-      <td>0.066667</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>105</td>
-      <td>-0.062500</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<p>To calculate log returns with numpy’s <code class="docutils literal notranslate"><span class="pre">np.log()</span></code>, we can either utilise the prices, logarithmise them and calculate the difference using <code class="docutils literal notranslate"><span class="pre">.diff()</span></code> or use the discrete returns by adding one before taking the logarithm.
-For completeness, we also add a column with discrete returns calculated from the log returns.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># use prices and </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># use prices</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;discrete_returns&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">S</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;log_returns&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">S</span><span class="p">)</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;log_returns_alt&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">discrete_returns</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;discrete_returns_from_log&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">log_returns</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
@@ -772,6 +707,378 @@ For completeness, we also add a column with discrete returns calculated from the
 </div>
 </section>
 </section>
+<section id="portfolios-and-cross-sectional-additivity">
+<h3>Portfolios and cross sectional additivity<a class="headerlink" href="#portfolios-and-cross-sectional-additivity" title="Permalink to this heading">#</a></h3>
+<p>A portfolio (<span class="math notranslate nohighlight">\(PF\)</span>) is a collection of investments, e.g. stocks</p>
+<p>Portfolios are allocated differently, i.e. by a degree of risk</p>
+<p>We can describe a portfolio’s value by the sum of its constituents.<br />
+We define their value by a weight (fraction of total capital) <span class="math notranslate nohighlight">\(w_i\)</span> multiplied by the respective stock’s value <span class="math notranslate nohighlight">\(S_i\)</span>.
+$<span class="math notranslate nohighlight">\( P_i = w_i \cdot S_i\)</span><span class="math notranslate nohighlight">\(
+where \)</span>i$ indicates the company.</p>
+<p>Given the prices of single stocks in a PF, how can we calculate the portfolio’s performance over all stocks?
+<span class="math notranslate nohighlight">\(\rightarrow\)</span> calculate the performance from <span class="math notranslate nohighlight">\(t=0\)</span> to <span class="math notranslate nohighlight">\(t=1\)</span> for the entirety of stocks in our portfolio.</p>
+<p>Use returns!</p>
+<p>For the cross sectional portfolio return we <strong>must not use log returns</strong>.<br />
+Discrete returns already possess the desired cross sectional additivity.</p>
+<p>Looking at the portfolio return, we’ll use the price development of a single stock
+$<span class="math notranslate nohighlight">\( P_{t+1}^i = P_t^i (1 + r_{t+1}^i) \)</span>$</p>
+<p>It can now be derived, that discrete returns do indeed possess the cross sectional additivity
+$<span class="math notranslate nohighlight">\( r_{t+1}^{PF} = \sum_i P^i_t (1 + r_{t+1}^i) \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( = \sum_i{w_i S_t} + \sum_i{w_i S_t r_{t+1}^i} \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( = S_t \cdot (1 + \sum_i w_i r_{t+1}^i) \)</span><span class="math notranslate nohighlight">\(
+with \)</span>\sum_i w_i = 1$.</p>
+<p>Let’s have a look at the following data:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>time <span class="math notranslate nohighlight">\(t\)</span></p></th>
+<th class="head"><p>0</p></th>
+<th class="head"><p>1</p></th>
+<th class="head"><p>2</p></th>
+<th class="head"><p>3</p></th>
+<th class="head"><p>4</p></th>
+<th class="head"><p>5</p></th>
+<th class="head"><p>6</p></th>
+<th class="head"><p>7</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>company A <span class="math notranslate nohighlight">\(A_t\)</span></p></td>
+<td><p>100</p></td>
+<td><p>110</p></td>
+<td><p>121</p></td>
+<td><p>110</p></td>
+<td><p>132</p></td>
+<td><p>105</p></td>
+<td><p>112</p></td>
+<td><p>105</p></td>
+</tr>
+<tr class="row-odd"><td><p>company B <span class="math notranslate nohighlight">\(B_t\)</span></p></td>
+<td><p>100</p></td>
+<td><p>120</p></td>
+<td><p>124</p></td>
+<td><p>118</p></td>
+<td><p>117</p></td>
+<td><p>135</p></td>
+<td><p>128</p></td>
+<td><p>115</p></td>
+</tr>
+</tbody>
+</table>
+<p>For simplicity, we will assume to invest the same amount of money in both stocks.
+This gives initial portfolio weights <span class="math notranslate nohighlight">\(w_1=w_2=0.5\)</span>. For such a naive portfolio, we can then just apply the mean, i.e. the portfolio return on day <span class="math notranslate nohighlight">\(t\)</span> is just the mean of all returns <span class="math notranslate nohighlight">\(r_{i,t}\)</span> for all companies <span class="math notranslate nohighlight">\(i\)</span>.</p>
+<p>Calculate the daily returns of the portfolio using pandas:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="mi">121</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="mi">132</span><span class="p">,</span> <span class="mi">105</span><span class="p">,</span> <span class="mi">112</span><span class="p">,</span> <span class="mi">105</span><span class="p">],</span>
+    <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">124</span><span class="p">,</span> <span class="mi">118</span><span class="p">,</span> <span class="mi">117</span><span class="p">,</span> <span class="mi">135</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">115</span><span class="p">],</span>
+    <span class="p">},</span>
+<span class="n">index</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">)))</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>100</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>110</td>
+      <td>120</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>121</td>
+      <td>124</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>110</td>
+      <td>118</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>132</td>
+      <td>117</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>105</td>
+      <td>135</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>112</td>
+      <td>128</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>105</td>
+      <td>115</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;A_return&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">A</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;B_return&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">B</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span><span class="s1">&#39;naive_pf_return&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">:,[</span><span class="s1">&#39;A_return&#39;</span><span class="p">,</span> <span class="s1">&#39;B_return&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>A_return</th>
+      <th>B_return</th>
+      <th>naive_pf_return</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>100</td>
+      <td>100</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>110</td>
+      <td>120</td>
+      <td>0.100000</td>
+      <td>0.200000</td>
+      <td>0.150000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>121</td>
+      <td>124</td>
+      <td>0.100000</td>
+      <td>0.033333</td>
+      <td>0.066667</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>110</td>
+      <td>118</td>
+      <td>-0.090909</td>
+      <td>-0.048387</td>
+      <td>-0.069648</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>132</td>
+      <td>117</td>
+      <td>0.200000</td>
+      <td>-0.008475</td>
+      <td>0.095763</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>105</td>
+      <td>135</td>
+      <td>-0.204545</td>
+      <td>0.153846</td>
+      <td>-0.025350</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>112</td>
+      <td>128</td>
+      <td>0.066667</td>
+      <td>-0.051852</td>
+      <td>0.007407</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>105</td>
+      <td>115</td>
+      <td>-0.062500</td>
+      <td>-0.101562</td>
+      <td>-0.082031</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>What is the total portfolio return over the span of the 8 days above?
+Again, we can just transform the portfolio return to log returns and sum the whole column. The same rules apply, independent of whether it is portfolio returns or returns from a single asset:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;naive_pf_log_returns&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">naive_pf_return</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>A_return</th>
+      <th>B_return</th>
+      <th>naive_pf_return</th>
+      <th>naive_pf_log_returns</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>100</td>
+      <td>100</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>110</td>
+      <td>120</td>
+      <td>0.100000</td>
+      <td>0.200000</td>
+      <td>0.150000</td>
+      <td>0.139762</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>121</td>
+      <td>124</td>
+      <td>0.100000</td>
+      <td>0.033333</td>
+      <td>0.066667</td>
+      <td>0.064539</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>110</td>
+      <td>118</td>
+      <td>-0.090909</td>
+      <td>-0.048387</td>
+      <td>-0.069648</td>
+      <td>-0.072192</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>132</td>
+      <td>117</td>
+      <td>0.200000</td>
+      <td>-0.008475</td>
+      <td>0.095763</td>
+      <td>0.091451</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>105</td>
+      <td>135</td>
+      <td>-0.204545</td>
+      <td>0.153846</td>
+      <td>-0.025350</td>
+      <td>-0.025676</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>112</td>
+      <td>128</td>
+      <td>0.066667</td>
+      <td>-0.051852</td>
+      <td>0.007407</td>
+      <td>0.007380</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>105</td>
+      <td>115</td>
+      <td>-0.062500</td>
+      <td>-0.101562</td>
+      <td>-0.082031</td>
+      <td>-0.085592</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">log_return_total</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">naive_pf_log_returns</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;log return over the whole period: </span><span class="si">{</span><span class="n">log_return_total</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;log return over the whole period: </span><span class="si">{</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">log_return_total</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>log return over the whole period: 0.1197
+log return over the whole period: 0.1272
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 <section id="characteristics-of-returns">
 <h3>Characteristics of returns<a class="headerlink" href="#characteristics-of-returns" title="Permalink to this heading">#</a></h3>
 <p>Usually, returns exhibit the following:</p>
@@ -787,8 +1094,8 @@ For completeness, we also add a column with discrete returns calculated from the
 <li><p>skewness (if negative: left skewed)</p></li>
 <li><p>(excess) kurtosis (larger <span class="math notranslate nohighlight">\(\rightarrow\)</span> fat tails)</p></li>
 </ul>
-<p>The average return can be seen as an indicator on how profitable a long term investment may be. The volatility is interpreted as a risk measure, i.e. the higher the volatility, the higher the risk. Skewness, especially left-skewdness, can indicate a higher probability of being exposed to larger losses. Finally, kurtosis means how “fat tailed” a distribution is and thus how exposed the investment would be to extreme values, both positive and negative. If we talk about excess kurtosis, we subtract a value of 3. this reference value is the kurtosis of a standard normal distribution.</p>
-<p>In pandas, we can take a look at these moments by calling the appropriate methods. We will have a look at real-world data, downloading close prices using the yfinance package and calculating the returns.</p>
+<p>Use pandas, by calling the appropriate methods.</p>
+<p>We will have a look at real-world data, downloading close prices using the yfinance package and calculating the returns.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">yfinance</span> <span class="k">as</span> <span class="nn">yf</span>
@@ -831,7 +1138,7 @@ kurtosis 6.9091
 </div>
 </div>
 </div>
-<p>As we discussed before, it is always recommended to take a look at some charts.<br />
+<p>As we discussed in earlier chapter, it is always recommended to take a look at some charts.<br />
 We can plot returns over time as well as look at the distribution.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -843,17 +1150,17 @@ We can plot returns over time as well as look at the distribution.</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot: xlabel=&#39;Date&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/05be942b8a1625c4f157f81824d63c601401eba241418f9bc797ceaa2d18a7b6.png" src="_images/05be942b8a1625c4f157f81824d63c601401eba241418f9bc797ceaa2d18a7b6.png" />
+<img alt="_images/93a9128fb27b61b7ab16666c4a82b8b1ad3956a75d5668396aa569e54c0cd02e.png" src="_images/93a9128fb27b61b7ab16666c4a82b8b1ad3956a75d5668396aa569e54c0cd02e.png" />
 </div>
 </div>
-<p>Over time, we see that the volatility is far from constant, something that is often knowingly ignored/downplayed. Even though it is found  in almost every time series of returns given a sufficiently long observation period.</p>
+<p>Over time, we see that the volatility is far from constant.</p>
 <p>To look at the distribution, we already know which plot to utilise.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 
-<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">msft</span><span class="o">.</span><span class="n">daily_return</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;forestgreen&#39;</span><span class="p">,</span> <span class="n">kde</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">msft</span><span class="o">.</span><span class="n">daily_return</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;forestgreen&#39;</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -861,36 +1168,12 @@ We can plot returns over time as well as look at the distribution.</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot: xlabel=&#39;daily_return&#39;, ylabel=&#39;Count&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/7beb4e89a0c8925250615869673ef2553dc3e4c438d2f917248876e8e379f9db.png" src="_images/7beb4e89a0c8925250615869673ef2553dc3e4c438d2f917248876e8e379f9db.png" />
+<img alt="_images/48798033142c2c5f41b342328fcfcf3bda79d3fcfa74fdb2b26ea43e13cf2c31.png" src="_images/48798033142c2c5f41b342328fcfcf3bda79d3fcfa74fdb2b26ea43e13cf2c31.png" />
 </div>
 </div>
-<p>From the kernel density estimation (solid line), we can in fact see the left-skewedness of the distribution, meaning we find more negative returns of larger absolute values.</p>
+<p>From the kernel density estimation (solid line), we see the left-skewedness of the distribution.</p>
 </section>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="the-capm-factor-model-and-excess-returns">
-<h1>The CAPM factor-model and excess returns<a class="headerlink" href="#the-capm-factor-model-and-excess-returns" title="Permalink to this heading">#</a></h1>
-<p>The Captial Asset Pricing Model in its most simple form (Sharpe, Lintner) quantifies an assets risk with regard to non-diversifiable market risk. Risk can usually be attributed to two sources: idiosyncratic and systematic (market) risk. The former can be eliminated by constructing a diversified portfolio, the latter remains. In order to quantify how much an asset is subject to market risk, a ordinary least squares (OLS) model is used. The simplest case is a model with the asset returns as endogenous/dependent variable and the market return as exogenous/independent. The model equation for is as follows</p>
-<div class="math notranslate nohighlight">
-\[ r_{i,t} - r_{i,f} = \alpha + \beta \cdot (r_{M,t} - r_{i,f}) + \epsilon_{i,t}\]</div>
-<p>Where <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> are the regression coefficients, <span class="math notranslate nohighlight">\(r_{i,t}\)</span> is the return of asset i at time t, <span class="math notranslate nohighlight">\(r_{M,t}\)</span> is the market return at time t, <span class="math notranslate nohighlight">\(r_{i,f}\)</span> the risk-free rate at time t and <span class="math notranslate nohighlight">\(\epsilon_{i,t}\)</span> the residuals.
-If we assume a risk-free rate of <span class="math notranslate nohighlight">\(r_{f,t}=0\)</span>, this becomes</p>
-<div class="math notranslate nohighlight">
-\[ r_{i,t} = \alpha_i + \beta_i \cdot r_{M,t} + \epsilon_{i,t}\]</div>
-<p>After <span class="math notranslate nohighlight">\(\alpha_i\)</span> and <span class="math notranslate nohighlight">\(\beta_i\)</span> are estimated using OLS, what do they tell us? Usually, in order to check whether the model is appropiate, <span class="math notranslate nohighlight">\(\alpha_i\)</span> should not be statistically significant, i.e. the estimated p-value should be larger than usually 5%.</p>
-<p>Assuming it is, <span class="math notranslate nohighlight">\(\beta_i\)</span> tells us about the sensitivity of the asset with regard to market risk:</p>
-<ul class="simple">
-<li><p>for <span class="math notranslate nohighlight">\(\beta=1\)</span> an asset’s expected return is assumed to match the expected market return</p></li>
-<li><p>for <span class="math notranslate nohighlight">\(\beta &gt;1\)</span> an asset is more volatile than the market and thus considered more risky than the market</p></li>
-<li><p>for <span class="math notranslate nohighlight">\(\beta &lt;1\)</span> an asset is less volatile than the market and considered less risky than the market</p></li>
-</ul>
-<p>When we talk about this kind of risk sensitivity, we must keep the following in mind. We can never really know the market return which we use as a benchmark (as we use its returns in the model). So we need to use a proxy for the whole market, for example an index that includes the largest companies like the S&amp;P 500.</p>
-<p>Estimating <span class="math notranslate nohighlight">\(\beta_i\)</span> using OLS, we get the residuals <span class="math notranslate nohighlight">\(\epsilon_{i,t}\)</span> in the same process. These represent the idiosyncratic part of the returns, i.e. the part of the variation which is not explained by market movement. Having the time-series of asset returns <span class="math notranslate nohighlight">\(r_i\)</span> and <span class="math notranslate nohighlight">\(\epsilon_{i,t}\)</span>, we can calculate the idosyncratic part of the stocks volatility as the standard deviation of the residuals:</p>
-<div class="math notranslate nohighlight">
-\[\sigma(\epsilon_{i,t})\]</div>
-<p>Now, we can also calculate the systematic part of the returns volatility as</p>
-<div class="math notranslate nohighlight">
-\[ \rho_i = \frac{\sigma(r_{i,t}) - \sigma(\epsilon_{i,t})}{\sigma(r_{i,t})} \]</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -923,6 +1206,15 @@ If we assume a risk-free rate of <span class="math notranslate nohighlight">\(r_
                 <footer class="prev-next-footer">
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="12_sklearn_2024.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">SciKit Learn</p>
+      </div>
+    </a>
 </div>
                 </footer>
               
@@ -938,20 +1230,16 @@ If we assume a risk-free rate of <span class="math notranslate nohighlight">\(r_
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Introduction to Statistics and Indicators in Finance</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#returns">Returns</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additivity">Additivity</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#log-returns">log-returns</a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#portfolios-and-cross-sectional-additivity">Portfolios and cross sectional additivity</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristics-of-returns">Characteristics of returns</a></li>
 </ul>
 </li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#the-capm-factor-model-and-excess-returns">The CAPM factor-model and excess returns</a></li>
-</ul>
-
   </nav></div>
 
 </div></div>
