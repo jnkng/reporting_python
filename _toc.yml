@@ -8,8 +8,8 @@ sections:
 - file: 06_scraping
 - file: 07_graphics
 - file: 08_interactive_plots
-- file: 09_sklearn
 - file: 10_dash_I
 - file: 11_dash_II
 - file: 12_markdown
-- file: 13_financial_stats_CAPM
+- file: 12_sklearn_2024
+- file: 13_financial_stats_2024
