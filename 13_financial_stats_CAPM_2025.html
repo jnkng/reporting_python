@@ -734,13 +734,20 @@ Portfolios are allocated differently, i.e., by a degree of risk. We can describe
 <div class="math notranslate nohighlight">
 \[    P = \sum_i P_i = \sum_i N_i \cdot S_i\]</div>
 <ul class="simple">
-<li><p>The <strong>weight</strong> of company <span class="math notranslate nohighlight">\(i\)</span> in the portfolio is then
-$<span class="math notranslate nohighlight">\(  w_i = \frac{P_i}{P} = \frac{N_i \cdot S_i}{\sum_j N_j \cdot S_j},\)</span><span class="math notranslate nohighlight">\( with \)</span>\sum_i w_i = 1$.</p></li>
+<li><p>The <strong>weight</strong> of company <span class="math notranslate nohighlight">\(i\)</span> in the portfolio is then</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[  w_i = \frac{P_i}{P} = \frac{N_i \cdot S_i}{\sum_j N_j \cdot S_j},\]</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>where $\sum_i w_i = 1$.   
+</pre></div>
+</div>
+<ul class="simple">
 <li><p>With those weights, we can calculate the <strong>portfolio return</strong> (cross-sectional additivity) as weighted sum of the company returns <span class="math notranslate nohighlight">\(R_i\)</span>
 $<span class="math notranslate nohighlight">\(   R_p = \sum_i w_i \, R_i \)</span>$</p></li>
-<li><p>We talk about a <strong>naive portfolio</strong> of <span class="math notranslate nohighlight">\(J\)</span> stocks when all weights are equal <span class="math notranslate nohighlight">\(w = w_1 = w_2 = ... = w_J\)</span>. In this case, the weighted sum becomes the <strong>mean</strong> of all stock returns <span class="math notranslate nohighlight">\(R_i\)</span>, as <span class="math notranslate nohighlight">\(w = \frac{1}{J}\)</span> and the portfolio return ist
-$<span class="math notranslate nohighlight">\(R_p = \frac{1}{J} \sum_i^JR_i = mean(R_i)\)</span>$</p></li>
+<li><p>We talk about a <strong>naive portfolio</strong> of <span class="math notranslate nohighlight">\(J\)</span> stocks when all weights are equal <span class="math notranslate nohighlight">\(w = w_1 = w_2 = ... = w_J\)</span>. In this case, the weighted sum becomes the <strong>mean</strong> of all stock returns <span class="math notranslate nohighlight">\(R_i\)</span>, as <span class="math notranslate nohighlight">\(w = \frac{1}{J}\)</span> and the portfolio return is</p></li>
 </ul>
+<div class="math notranslate nohighlight">
+\[R_p = \frac{1}{J} \sum_i^JR_i = mean(R_i)\]</div>
 </div>
 <div class="section" id="portfolio-return-and-cross-sectional-additivity">
 <h3>Portfolio return and cross-sectional additivity<a class="headerlink" href="#portfolio-return-and-cross-sectional-additivity" title="Permalink to this headline">#</a></h3>
@@ -1049,7 +1056,7 @@ This gives initial portfolio weights <span class="math notranslate nohighlight">
   <tbody>
     <tr>
       <th>2020-01-02 00:00:00-05:00</th>
-      <td>153.042313</td>
+      <td>153.042328</td>
     </tr>
   </tbody>
 </table>
@@ -1096,7 +1103,7 @@ This gives initial portfolio weights <span class="math notranslate nohighlight">
     <tr>
       <th>0</th>
       <td>2020-01-02 00:00:00-05:00</td>
-      <td>153.042313</td>
+      <td>153.042328</td>
     </tr>
   </tbody>
 </table>
@@ -1148,13 +1155,13 @@ This gives initial portfolio weights <span class="math notranslate nohighlight">
   <tbody>
     <tr>
       <th>2020-01-03 00:00:00-05:00</th>
-      <td>151.136642</td>
+      <td>151.136673</td>
       <td>-0.012452</td>
     </tr>
     <tr>
       <th>2020-01-06 00:00:00-05:00</th>
-      <td>151.527298</td>
-      <td>0.002585</td>
+      <td>151.527283</td>
+      <td>0.002584</td>
     </tr>
   </tbody>
 </table>
@@ -1334,10 +1341,10 @@ We can plot returns over time as well as look at the distribution.</p>
     <tr>
       <th>0</th>
       <td>2020-01-02 00:00:00-05:00</td>
-      <td>151.289138</td>
-      <td>153.147139</td>
-      <td>150.860371</td>
-      <td>153.042328</td>
+      <td>151.289108</td>
+      <td>153.147108</td>
+      <td>150.860341</td>
+      <td>153.042297</td>
       <td>22622100</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1542,10 +1549,10 @@ dtype: int64
     <tr>
       <th>1</th>
       <td>2020-01-03 00:00:00-05:00</td>
-      <td>150.850807</td>
-      <td>152.403898</td>
-      <td>150.603064</td>
-      <td>151.136642</td>
+      <td>150.850823</td>
+      <td>152.403913</td>
+      <td>150.60308</td>
+      <td>151.136658</td>
       <td>21116200</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1630,7 +1637,7 @@ Dep. Variable:     daily_excess_return   R-squared:                       0.665
 Model:                             OLS   Adj. R-squared:                  0.665
 Method:                  Least Squares   F-statistic:                     2755.
 Date:                 Fri, 18 Jul 2025   Prob (F-statistic):               0.00
-Time:                         09:35:23   Log-Likelihood:                 4293.3
+Time:                         09:43:14   Log-Likelihood:                 4293.3
 No. Observations:                 1391   AIC:                            -8583.
 Df Residuals:                     1389   BIC:                            -8572.
 Df Model:                            1                                         
@@ -1642,7 +1649,7 @@ const                      0.0019      0.000      5.179      0.000       0.001  
 daily_excess_return_sp     1.1469      0.022     52.493      0.000       1.104       1.190
 ==============================================================================
 Omnibus:                      202.086   Durbin-Watson:                   1.974
-Prob(Omnibus):                  0.000   Jarque-Bera (JB):             2186.880
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             2186.879
 Skew:                           0.266   Prob(JB):                         0.00
 Kurtosis:                       9.120   Cond. No.                         73.7
 ==============================================================================
@@ -1675,7 +1682,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>const                     2.562784e-07
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>const                     2.562734e-07
 daily_excess_return_sp    0.000000e+00
 dtype: float64
 </pre></div>
