@@ -893,11 +893,12 @@ This gives initial portfolio weights <span class="math notranslate nohighlight">
 <p>When we want to calculate the returns for a naive portfolio, we simply calculate the mean over all returns. This give us the daily (naive) portfolio returns over time.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;A_return&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">A</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;B_return&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">B</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_prices_and_returns</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df_prices_and_returns</span><span class="p">[</span><span class="s1">&#39;A_return&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_prices_and_returns</span><span class="o">.</span><span class="n">A</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span>
+<span class="n">df_prices_and_returns</span><span class="p">[</span><span class="s1">&#39;B_return&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_prices_and_returns</span><span class="o">.</span><span class="n">B</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span>
 <span class="c1"># mean applied to axis=1, means we calculate the row mean (axis=0 will calculate the column mean)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span><span class="s1">&#39;naive_pf_return&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">:,[</span><span class="s1">&#39;A_return&#39;</span><span class="p">,</span> <span class="s1">&#39;B_return&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">df</span>
+<span class="n">df_prices_and_returns</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span><span class="s1">&#39;naive_pf_return&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_prices_and_returns</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">:,[</span><span class="s1">&#39;A_return&#39;</span><span class="p">,</span> <span class="s1">&#39;B_return&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df_prices_and_returns</span>
 </pre></div>
 </div>
 </div>
@@ -996,6 +997,83 @@ This gives initial portfolio weights <span class="math notranslate nohighlight">
 </table>
 </div></div></div>
 </div>
+<p>We can apply <code class="docutils literal notranslate"><span class="pre">.pct_change()</span></code> to the whole dataframe, to create a new one with the same column names.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_just_returns</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df_just_returns</span> <span class="o">=</span> <span class="n">df_just_returns</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span>
+<span class="n">df_just_returns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.100000</td>
+      <td>0.200000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.100000</td>
+      <td>0.033333</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-0.090909</td>
+      <td>-0.048387</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.200000</td>
+      <td>-0.008475</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>-0.204545</td>
+      <td>0.153846</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0.066667</td>
+      <td>-0.051852</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>-0.062500</td>
+      <td>-0.101562</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
 </div>
 <div class="section" id="characteristics-of-returns">
 <h3>Characteristics of returns<a class="headerlink" href="#characteristics-of-returns" title="Permalink to this headline">#</a></h3>
@@ -1061,7 +1139,7 @@ This gives initial portfolio weights <span class="math notranslate nohighlight">
   <tbody>
     <tr>
       <th>2020-01-02 00:00:00-05:00</th>
-      <td>153.042267</td>
+      <td>153.042252</td>
     </tr>
   </tbody>
 </table>
@@ -1108,7 +1186,7 @@ This gives initial portfolio weights <span class="math notranslate nohighlight">
     <tr>
       <th>0</th>
       <td>2020-01-02 00:00:00-05:00</td>
-      <td>153.042267</td>
+      <td>153.042252</td>
     </tr>
   </tbody>
 </table>
@@ -1160,12 +1238,12 @@ This gives initial portfolio weights <span class="math notranslate nohighlight">
   <tbody>
     <tr>
       <th>2020-01-03 00:00:00-05:00</th>
-      <td>151.136642</td>
-      <td>-0.012452</td>
+      <td>151.136673</td>
+      <td>-0.012451</td>
     </tr>
     <tr>
       <th>2020-01-06 00:00:00-05:00</th>
-      <td>151.527328</td>
+      <td>151.527313</td>
       <td>0.002585</td>
     </tr>
   </tbody>
@@ -1201,7 +1279,7 @@ We can plot returns over time as well as look at the distribution.</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;Date&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/13_financial_stats_CAPM_2025_26_1.png" src="_images/13_financial_stats_CAPM_2025_26_1.png" />
+<img alt="_images/13_financial_stats_CAPM_2025_28_1.png" src="_images/13_financial_stats_CAPM_2025_28_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1214,7 +1292,7 @@ We can plot returns over time as well as look at the distribution.</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
-<img alt="_images/13_financial_stats_CAPM_2025_27_1.png" src="_images/13_financial_stats_CAPM_2025_27_1.png" />
+<img alt="_images/13_financial_stats_CAPM_2025_29_1.png" src="_images/13_financial_stats_CAPM_2025_29_1.png" />
 </div>
 </div>
 </div>
@@ -1346,10 +1424,10 @@ We can plot returns over time as well as look at the distribution.</p>
     <tr>
       <th>0</th>
       <td>2020-01-02 00:00:00-05:00</td>
-      <td>151.289078</td>
-      <td>153.147078</td>
-      <td>150.860311</td>
-      <td>153.042267</td>
+      <td>151.289123</td>
+      <td>153.147124</td>
+      <td>150.860356</td>
+      <td>153.042313</td>
       <td>22622100</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1554,14 +1632,14 @@ dtype: int64
     <tr>
       <th>1</th>
       <td>2020-01-03 00:00:00-05:00</td>
-      <td>150.850838</td>
-      <td>152.403928</td>
-      <td>150.603095</td>
-      <td>151.136673</td>
+      <td>150.850823</td>
+      <td>152.403913</td>
+      <td>150.60308</td>
+      <td>151.136658</td>
       <td>21116200</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>-0.022451</td>
+      <td>-0.022452</td>
     </tr>
   </tbody>
 </table>
@@ -1607,7 +1685,7 @@ dtype: int64
     <tr>
       <th>0</th>
       <td>2020-01-03 00:00:00-05:00</td>
-      <td>-0.022451</td>
+      <td>-0.022452</td>
       <td>2020-01-03 00:00:00-05:00</td>
       <td>-0.017060</td>
     </tr>
@@ -1640,9 +1718,9 @@ dtype: int64
 ===============================================================================
 Dep. Variable:     daily_excess_return   R-squared:                       0.665
 Model:                             OLS   Adj. R-squared:                  0.665
-Method:                  Least Squares   F-statistic:                     2756.
+Method:                  Least Squares   F-statistic:                     2755.
 Date:                 Fri, 18 Jul 2025   Prob (F-statistic):               0.00
-Time:                         09:45:10   Log-Likelihood:                 4293.3
+Time:                         09:53:57   Log-Likelihood:                 4293.3
 No. Observations:                 1391   AIC:                            -8583.
 Df Residuals:                     1389   BIC:                            -8572.
 Df Model:                            1                                         
@@ -1654,7 +1732,7 @@ const                      0.0019      0.000      5.179      0.000       0.001  
 daily_excess_return_sp     1.1469      0.022     52.493      0.000       1.104       1.190
 ==============================================================================
 Omnibus:                      202.086   Durbin-Watson:                   1.974
-Prob(Omnibus):                  0.000   Jarque-Bera (JB):             2186.877
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             2186.887
 Skew:                           0.266   Prob(JB):                         0.00
 Kurtosis:                       9.120   Cond. No.                         73.7
 ==============================================================================
@@ -1687,7 +1765,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>const                     2.562592e-07
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>const                     2.562805e-07
 daily_excess_return_sp    0.000000e+00
 dtype: float64
 </pre></div>
