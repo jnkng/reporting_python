@@ -17,55 +17,80 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-proc = CrawlerProcess()
-proc.crawl(followSpider)
-proc.start()
+pd_df = pd.read_html(response.content)
+print(f'type: {type(pd_df)}, length: {len(pd_df)}')
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mReactorAlreadyInstalledError[0m              Traceback (most recent call last)
-Input [0;32mIn [32][0m, in [0;36m<cell line: 2>[0;34m()[0m
-[1;32m      1[0m proc [38;5;241m=[39m CrawlerProcess()
-[0;32m----> 2[0m [43mproc[49m[38;5;241;43m.[39;49m[43mcrawl[49m[43m([49m[43mfollowSpider[49m[43m)[49m
-[1;32m      3[0m proc[38;5;241m.[39mstart()
+[0;31mValueError[0m                                Traceback (most recent call last)
+Input [0;32mIn [26][0m, in [0;36m<cell line: 1>[0;34m()[0m
+[0;32m----> 1[0m pd_df [38;5;241m=[39m [43mpd[49m[38;5;241;43m.[39;49m[43mread_html[49m[43m([49m[43mresponse[49m[38;5;241;43m.[39;49m[43mcontent[49m[43m)[49m
+[1;32m      2[0m [38;5;28mprint[39m([38;5;124mf[39m[38;5;124m'[39m[38;5;124mtype: [39m[38;5;132;01m{[39;00m[38;5;28mtype[39m(pd_df)[38;5;132;01m}[39;00m[38;5;124m, length: [39m[38;5;132;01m{[39;00m[38;5;28mlen[39m(pd_df)[38;5;132;01m}[39;00m[38;5;124m'[39m)
 
-File [0;32m~/Desktop/Lehre/python_class/venv.nosync/lib/python3.8/site-packages/scrapy/crawler.py:205[0m, in [0;36mCrawlerRunner.crawl[0;34m(self, crawler_or_spidercls, *args, **kwargs)[0m
-[1;32m    201[0m [38;5;28;01mif[39;00m [38;5;28misinstance[39m(crawler_or_spidercls, Spider):
-[1;32m    202[0m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m(
-[1;32m    203[0m         [38;5;124m'[39m[38;5;124mThe crawler_or_spidercls argument cannot be a spider object, [39m[38;5;124m'[39m
-[1;32m    204[0m         [38;5;124m'[39m[38;5;124mit must be a spider class (or a Crawler object)[39m[38;5;124m'[39m)
-[0;32m--> 205[0m crawler [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mcreate_crawler[49m[43m([49m[43mcrawler_or_spidercls[49m[43m)[49m
-[1;32m    206[0m [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39m_crawl(crawler, [38;5;241m*[39margs, [38;5;241m*[39m[38;5;241m*[39mkwargs)
+File [0;32m~/Desktop/Lehre/python_class/venv.nosync/lib/python3.8/site-packages/pandas/util/_decorators.py:311[0m, in [0;36mdeprecate_nonkeyword_arguments.<locals>.decorate.<locals>.wrapper[0;34m(*args, **kwargs)[0m
+[1;32m    305[0m [38;5;28;01mif[39;00m [38;5;28mlen[39m(args) [38;5;241m>[39m num_allow_args:
+[1;32m    306[0m     warnings[38;5;241m.[39mwarn(
+[1;32m    307[0m         msg[38;5;241m.[39mformat(arguments[38;5;241m=[39marguments),
+[1;32m    308[0m         [38;5;167;01mFutureWarning[39;00m,
+[1;32m    309[0m         stacklevel[38;5;241m=[39mstacklevel,
+[1;32m    310[0m     )
+[0;32m--> 311[0m [38;5;28;01mreturn[39;00m [43mfunc[49m[43m([49m[38;5;241;43m*[39;49m[43margs[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
 
-File [0;32m~/Desktop/Lehre/python_class/venv.nosync/lib/python3.8/site-packages/scrapy/crawler.py:238[0m, in [0;36mCrawlerRunner.create_crawler[0;34m(self, crawler_or_spidercls)[0m
-[1;32m    236[0m [38;5;28;01mif[39;00m [38;5;28misinstance[39m(crawler_or_spidercls, Crawler):
-[1;32m    237[0m     [38;5;28;01mreturn[39;00m crawler_or_spidercls
-[0;32m--> 238[0m [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_create_crawler[49m[43m([49m[43mcrawler_or_spidercls[49m[43m)[49m
+File [0;32m~/Desktop/Lehre/python_class/venv.nosync/lib/python3.8/site-packages/pandas/io/html.py:1113[0m, in [0;36mread_html[0;34m(io, match, flavor, header, index_col, skiprows, attrs, parse_dates, thousands, encoding, decimal, converters, na_values, keep_default_na, displayed_only)[0m
+[1;32m   1109[0m validate_header_arg(header)
+[1;32m   1111[0m io [38;5;241m=[39m stringify_path(io)
+[0;32m-> 1113[0m [38;5;28;01mreturn[39;00m [43m_parse[49m[43m([49m
+[1;32m   1114[0m [43m    [49m[43mflavor[49m[38;5;241;43m=[39;49m[43mflavor[49m[43m,[49m
+[1;32m   1115[0m [43m    [49m[43mio[49m[38;5;241;43m=[39;49m[43mio[49m[43m,[49m
+[1;32m   1116[0m [43m    [49m[43mmatch[49m[38;5;241;43m=[39;49m[43mmatch[49m[43m,[49m
+[1;32m   1117[0m [43m    [49m[43mheader[49m[38;5;241;43m=[39;49m[43mheader[49m[43m,[49m
+[1;32m   1118[0m [43m    [49m[43mindex_col[49m[38;5;241;43m=[39;49m[43mindex_col[49m[43m,[49m
+[1;32m   1119[0m [43m    [49m[43mskiprows[49m[38;5;241;43m=[39;49m[43mskiprows[49m[43m,[49m
+[1;32m   1120[0m [43m    [49m[43mparse_dates[49m[38;5;241;43m=[39;49m[43mparse_dates[49m[43m,[49m
+[1;32m   1121[0m [43m    [49m[43mthousands[49m[38;5;241;43m=[39;49m[43mthousands[49m[43m,[49m
+[1;32m   1122[0m [43m    [49m[43mattrs[49m[38;5;241;43m=[39;49m[43mattrs[49m[43m,[49m
+[1;32m   1123[0m [43m    [49m[43mencoding[49m[38;5;241;43m=[39;49m[43mencoding[49m[43m,[49m
+[1;32m   1124[0m [43m    [49m[43mdecimal[49m[38;5;241;43m=[39;49m[43mdecimal[49m[43m,[49m
+[1;32m   1125[0m [43m    [49m[43mconverters[49m[38;5;241;43m=[39;49m[43mconverters[49m[43m,[49m
+[1;32m   1126[0m [43m    [49m[43mna_values[49m[38;5;241;43m=[39;49m[43mna_values[49m[43m,[49m
+[1;32m   1127[0m [43m    [49m[43mkeep_default_na[49m[38;5;241;43m=[39;49m[43mkeep_default_na[49m[43m,[49m
+[1;32m   1128[0m [43m    [49m[43mdisplayed_only[49m[38;5;241;43m=[39;49m[43mdisplayed_only[49m[43m,[49m
+[1;32m   1129[0m [43m[49m[43m)[49m
 
-File [0;32m~/Desktop/Lehre/python_class/venv.nosync/lib/python3.8/site-packages/scrapy/crawler.py:313[0m, in [0;36mCrawlerProcess._create_crawler[0;34m(self, spidercls)[0m
-[1;32m    311[0m [38;5;28;01mif[39;00m [38;5;28misinstance[39m(spidercls, [38;5;28mstr[39m):
-[1;32m    312[0m     spidercls [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mspider_loader[38;5;241m.[39mload(spidercls)
-[0;32m--> 313[0m [38;5;28;01mreturn[39;00m [43mCrawler[49m[43m([49m[43mspidercls[49m[43m,[49m[43m [49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43msettings[49m[43m,[49m[43m [49m[43minit_reactor[49m[38;5;241;43m=[39;49m[38;5;28;43;01mTrue[39;49;00m[43m)[49m
+File [0;32m~/Desktop/Lehre/python_class/venv.nosync/lib/python3.8/site-packages/pandas/io/html.py:939[0m, in [0;36m_parse[0;34m(flavor, io, match, attrs, encoding, displayed_only, **kwargs)[0m
+[1;32m    937[0m [38;5;28;01melse[39;00m:
+[1;32m    938[0m     [38;5;28;01massert[39;00m retained [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m  [38;5;66;03m# for mypy[39;00m
+[0;32m--> 939[0m     [38;5;28;01mraise[39;00m retained
+[1;32m    941[0m ret [38;5;241m=[39m []
+[1;32m    942[0m [38;5;28;01mfor[39;00m table [38;5;129;01min[39;00m tables:
 
-File [0;32m~/Desktop/Lehre/python_class/venv.nosync/lib/python3.8/site-packages/scrapy/crawler.py:82[0m, in [0;36mCrawler.__init__[0;34m(self, spidercls, settings, init_reactor)[0m
-[1;32m     80[0m     [38;5;28;01melse[39;00m:
-[1;32m     81[0m         [38;5;28;01mfrom[39;00m [38;5;21;01mtwisted[39;00m[38;5;21;01m.[39;00m[38;5;21;01minternet[39;00m [38;5;28;01mimport[39;00m default
-[0;32m---> 82[0m         [43mdefault[49m[38;5;241;43m.[39;49m[43minstall[49m[43m([49m[43m)[49m
-[1;32m     83[0m     log_reactor_info()
-[1;32m     84[0m [38;5;28;01mif[39;00m reactor_class:
+File [0;32m~/Desktop/Lehre/python_class/venv.nosync/lib/python3.8/site-packages/pandas/io/html.py:919[0m, in [0;36m_parse[0;34m(flavor, io, match, attrs, encoding, displayed_only, **kwargs)[0m
+[1;32m    916[0m p [38;5;241m=[39m parser(io, compiled_match, attrs, encoding, displayed_only)
+[1;32m    918[0m [38;5;28;01mtry[39;00m:
+[0;32m--> 919[0m     tables [38;5;241m=[39m [43mp[49m[38;5;241;43m.[39;49m[43mparse_tables[49m[43m([49m[43m)[49m
+[1;32m    920[0m [38;5;28;01mexcept[39;00m [38;5;167;01mValueError[39;00m [38;5;28;01mas[39;00m caught:
+[1;32m    921[0m     [38;5;66;03m# if `io` is an io-like object, check if it's seekable[39;00m
+[1;32m    922[0m     [38;5;66;03m# and try to rewind it before trying the next parser[39;00m
+[1;32m    923[0m     [38;5;28;01mif[39;00m [38;5;28mhasattr[39m(io, [38;5;124m"[39m[38;5;124mseekable[39m[38;5;124m"[39m) [38;5;129;01mand[39;00m io[38;5;241m.[39mseekable():
 
-File [0;32m~/Desktop/Lehre/python_class/venv.nosync/lib/python3.8/site-packages/twisted/internet/selectreactor.py:194[0m, in [0;36minstall[0;34m()[0m
-[1;32m    191[0m reactor [38;5;241m=[39m SelectReactor()
-[1;32m    192[0m [38;5;28;01mfrom[39;00m [38;5;21;01mtwisted[39;00m[38;5;21;01m.[39;00m[38;5;21;01minternet[39;00m[38;5;21;01m.[39;00m[38;5;21;01mmain[39;00m [38;5;28;01mimport[39;00m installReactor
-[0;32m--> 194[0m [43minstallReactor[49m[43m([49m[43mreactor[49m[43m)[49m
+File [0;32m~/Desktop/Lehre/python_class/venv.nosync/lib/python3.8/site-packages/pandas/io/html.py:239[0m, in [0;36m_HtmlFrameParser.parse_tables[0;34m(self)[0m
+[1;32m    231[0m [38;5;28;01mdef[39;00m [38;5;21mparse_tables[39m([38;5;28mself[39m):
+[1;32m    232[0m     [38;5;124;03m"""[39;00m
+[1;32m    233[0m [38;5;124;03m    Parse and return all tables from the DOM.[39;00m
+[1;32m    234[0m 
+[0;32m   (...)[0m
+[1;32m    237[0m [38;5;124;03m    list of parsed (header, body, footer) tuples from tables.[39;00m
+[1;32m    238[0m [38;5;124;03m    """[39;00m
+[0;32m--> 239[0m     tables [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_parse_tables[49m[43m([49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_build_doc[49m[43m([49m[43m)[49m[43m,[49m[43m [49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mmatch[49m[43m,[49m[43m [49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mattrs[49m[43m)[49m
+[1;32m    240[0m     [38;5;28;01mreturn[39;00m ([38;5;28mself[39m[38;5;241m.[39m_parse_thead_tbody_tfoot(table) [38;5;28;01mfor[39;00m table [38;5;129;01min[39;00m tables)
 
-File [0;32m~/Desktop/Lehre/python_class/venv.nosync/lib/python3.8/site-packages/twisted/internet/main.py:32[0m, in [0;36minstallReactor[0;34m(reactor)[0m
-[1;32m     29[0m [38;5;28;01mimport[39;00m [38;5;21;01mtwisted[39;00m[38;5;21;01m.[39;00m[38;5;21;01minternet[39;00m
-[1;32m     31[0m [38;5;28;01mif[39;00m [38;5;124m"[39m[38;5;124mtwisted.internet.reactor[39m[38;5;124m"[39m [38;5;129;01min[39;00m sys[38;5;241m.[39mmodules:
-[0;32m---> 32[0m     [38;5;28;01mraise[39;00m error[38;5;241m.[39mReactorAlreadyInstalledError([38;5;124m"[39m[38;5;124mreactor already installed[39m[38;5;124m"[39m)
-[1;32m     33[0m twisted[38;5;241m.[39minternet[38;5;241m.[39mreactor [38;5;241m=[39m reactor
-[1;32m     34[0m sys[38;5;241m.[39mmodules[[38;5;124m"[39m[38;5;124mtwisted.internet.reactor[39m[38;5;124m"[39m] [38;5;241m=[39m reactor
+File [0;32m~/Desktop/Lehre/python_class/venv.nosync/lib/python3.8/site-packages/pandas/io/html.py:569[0m, in [0;36m_BeautifulSoupHtml5LibFrameParser._parse_tables[0;34m(self, doc, match, attrs)[0m
+[1;32m    566[0m tables [38;5;241m=[39m doc[38;5;241m.[39mfind_all(element_name, attrs[38;5;241m=[39mattrs)
+[1;32m    568[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m tables:
+[0;32m--> 569[0m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m([38;5;124m"[39m[38;5;124mNo tables found[39m[38;5;124m"[39m)
+[1;32m    571[0m result [38;5;241m=[39m []
+[1;32m    572[0m unique_tables [38;5;241m=[39m [38;5;28mset[39m()
 
-[0;31mReactorAlreadyInstalledError[0m: reactor already installed
-ReactorAlreadyInstalledError: reactor already installed
+[0;31mValueError[0m: No tables found
+ValueError: No tables found
 

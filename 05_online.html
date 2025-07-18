@@ -1,60 +1,47 @@
 
-
 <!DOCTYPE html>
 
-
-<html lang="en" >
-
+<html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Online Data &#8212; Data Visualisation and Reporting with Python</title>
-  
-  
-  
-  <script data-cfasync="false">
-    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
-  </script>
-  
+    
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
-  
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -62,96 +49,58 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '05_online';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Web Scraping" href="06_scraping.html" />
     <link rel="prev" title="Working with Data" href="04_data.html" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
 
-  
-  
-  <a class="skip-link" href="#main-content">Skip to main content</a>
-  
-  <div id="pst-scroll-pixel-helper"></div>
+    
+    <div class="container-fluid" id="banner"></div>
 
-  
-  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    
 
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
-<form class="bd-search d-flex align-items-center"
-      action="search.html"
-      method="get">
-  <i class="fa-solid fa-magnifying-glass"></i>
-  <input type="search"
-         class="form-control"
-         name="q"
-         id="search-input"
-         placeholder="Search this book..."
-         aria-label="Search this book..."
-         autocomplete="off"
-         autocorrect="off"
-         autocapitalize="off"
-         spellcheck="false"/>
-  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
-  
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
-  
-  <div class="bd-container">
-    <div class="bd-container__inner bd-page-width">
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
       
-      <div class="bd-sidebar-primary bd-sidebar">
-        
-
-  
-  <div class="sidebar-header-items sidebar-primary__section">
-    
-    
-    
-    
-  </div>
-  
-    <div class="sidebar-primary-items__start sidebar-primary__section">
-        <div class="sidebar-primary-item">
-  
-
-<a class="navbar-brand logo" href="01_content.html">
-  
-  
-  
-  
-  
-    <p class="title logo__title">Data Visualisation and Reporting with Python</p>
-  
-</a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item navbar-nav active">
+      
+      
+      <h1 class="site-logo" id="site-title">Data Visualisation and Reporting with Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -161,250 +110,405 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="02_general.html">What is Python and why use it?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_python_basics.html">First steps</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="04_data.html">Working with Data</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Online Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="06_scraping.html">Web Scraping</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_graphics.html">Graphics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="08_interactive_plots.html">Interactive Graphics - Plotly</a></li>
-<li class="toctree-l1"><a class="reference internal" href="09_sklearn.html">SciKit Learn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10_dash_I.html">Dash - introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="11_dash_II.html">Dash - advanced interactivity</a></li>
-<li class="toctree-l1"><a class="reference internal" href="12_markdown.html">Notebook formatting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="13_financial_stats_CAPM.html">Introduction to Statistics and Indicators in Finance</a></li>
-
+ <li class="toctree-l1">
+  <a class="reference internal" href="02_general.html">
+   What is Python and why use it?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03_python_basics.html">
+   First steps
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04_data.html">
+   Working with Data
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Online Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06_scraping.html">
+   Web Scraping
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07_graphics.html">
+   Graphics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08_interactive_plots.html">
+   Interactive Graphics - Plotly
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10_dash_I.html">
+   Dash - introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_dash_II.html">
+   Dash - advanced interactivity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="12_markdown.html">
+   Notebook formatting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="12_sklearn_2024.html">
+   SciKit Learn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="13_financial_stats_CAPM.html">
+   Introduction to Statistics and Indicators in Finance
+  </a>
+ </li>
 </ul>
 
     </div>
 </nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
     </div>
-  
-  
-  <div class="sidebar-primary-items__end sidebar-primary__section">
-  </div>
-  
-  <div id="rtd-footer-container"></div>
+    <div id="rtd-footer-container"></div>
+</div>
 
 
-      </div>
-      
-      <main id="main-content" class="bd-main">
-        
-        
+          
 
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
 <div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
 
-          <div class="bd-content">
-            <div class="bd-article-container">
-              
-              <div class="bd-header-article">
-<div class="header-article-items header-article__inner">
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
   
-    <div class="header-article-items__start">
-      
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <span class="fa-solid fa-bars"></span>
-</label></div>
-      
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
     </div>
-  
-  
-    <div class="header-article-items__end">
-      
-        <div class="header-article-item">
-
-<div class="article-header-buttons">
-
-
-
-
-
-<div class="dropdown dropdown-source-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
-    <i class="fab fa-github"></i>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
   </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
-   class="btn btn-sm btn-source-repository-button dropdown-item"
-   title="Source repository"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="btn__text-container">Repository</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F05_online.html&body=Your%20issue%20content%20here." target="_blank"
-   class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Open an issue"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="btn__text-container">Open issue</span>
-</a>
-</li>
-      
-  </ul>
-</div>
-
-
-
-
-
-
-<div class="dropdown dropdown-download-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
-    <i class="fas fa-download"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="_sources/05_online.ipynb" target="_blank"
-   class="btn btn-sm btn-download-source-button dropdown-item"
-   title="Download source file"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="btn__text-container">.ipynb</span>
-</a>
-</li>
-      
-      
-      
-      
+  <div class="menu-dropdown__content">
+    <ul>
       <li>
-<button onclick="window.print()"
-  class="btn btn-sm btn-download-pdf-button dropdown-item"
-  title="Print to PDF"
-  data-bs-placement="left" data-bs-toggle="tooltip"
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/05_online.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
 >
   
 
-<span class="btn__icon-container">
-  <i class="fas fa-file-pdf"></i>
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
   </span>
-<span class="btn__text-container">.pdf</span>
-</button>
-</li>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
       
-  </ul>
+    </ul>
+  </div>
 </div>
-
-
-
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
-  title="Fullscreen mode"
-  data-bs-placement="bottom" data-bs-toggle="tooltip"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
 >
   
 
-<span class="btn__icon-container">
+<span class="headerbtn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
   </button>
-`);
-</script>
-
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
-</div></div>
-      
-    </div>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
   
-</div>
-</div>
-              
-              
 
-<div id="jb-print-docs-body" class="onlyprint">
-    <h1>Online Data</h1>
-    <!-- Table of contents -->
-    <div id="print-main-content">
-        <div id="jb-print-toc">
-            
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#website-basics">Website basics</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#http">HTTP</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#url">URL</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#html">HTML</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#json">JSON</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#api">API</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#website-content">Website content</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#back-to-apis">Back to APIs</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-            </nav>
-        </div>
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F05_online.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/05_online.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
     </div>
 </div>
 
-              
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#website-basics">
+   Website basics
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#http">
+     HTTP
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#url">
+     URL
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#html">
+     HTML
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#json">
+     JSON
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#api">
+   API
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#website-content">
+     Website content
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#back-to-apis">
+       Back to APIs
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Online Data</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#website-basics">
+   Website basics
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#http">
+     HTTP
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#url">
+     URL
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#html">
+     HTML
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#json">
+     JSON
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#api">
+   API
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#website-content">
+     Website content
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#back-to-apis">
+       Back to APIs
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
                 
-<div id="searchbox"></div>
-                <article class="bd-article" role="main">
-                  
-  <section class="tex2jax_ignore mathjax_ignore" id="online-data">
-<h1>Online Data<a class="headerlink" href="#online-data" title="Permalink to this heading">#</a></h1>
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="online-data">
+<h1>Online Data<a class="headerlink" href="#online-data" title="Permalink to this headline">#</a></h1>
 <p>The internet is probably the most common place to seek information. In fact, every homepage you browse and every article you read is data and, as long as there is no pay wall or other security feature, free to you. Most of the data in such form is unordered and cannot easily be analysed quantitatively, like text or video clips (especially text usually does carry a lot of information). Beside this unstructured data, there are files for free to download, e.g. in a .csv format. Yet, all this has to be done by hand: either click some ‘download’ button to acquire a file or, even worse, copy a text online and paste it into a document.</p>
 <p>In the next sections, we will at first briefly introduce some basic elements of online communication and then present different ways to access data online from our computer without loading and storing it manually (we will write code manually, though).</p>
-<section id="website-basics">
-<h2>Website basics<a class="headerlink" href="#website-basics" title="Permalink to this heading">#</a></h2>
-<section id="http">
-<h3>HTTP<a class="headerlink" href="#http" title="Permalink to this heading">#</a></h3>
+<div class="section" id="website-basics">
+<h2>Website basics<a class="headerlink" href="#website-basics" title="Permalink to this headline">#</a></h2>
+<div class="section" id="http">
+<h3>HTTP<a class="headerlink" href="#http" title="Permalink to this headline">#</a></h3>
 <p>The <strong>H</strong>yper<strong>T</strong>ext <strong>T</strong>ransfer <strong>P</strong>rotocol is used for online communication in the world wide web (www). The basic operations are <em>requests</em> and <em>response</em>. In the www, when trying to open a website, you are actually sending a request to a server asking to provide the information stored under that web address. The server will then hopefully respond to your request by sending the respective information to your machine which then will be rendered in your browser. This response information does contain additional meta data, like the time of the request, status/error codes, etc which we will see later. An extension is <strong>https</strong> (<strong>s</strong>ecure).</p>
-</section>
-<section id="url">
-<h3>URL<a class="headerlink" href="#url" title="Permalink to this heading">#</a></h3>
+</div>
+<div class="section" id="url">
+<h3>URL<a class="headerlink" href="#url" title="Permalink to this headline">#</a></h3>
 <p>The <strong>U</strong>niform <strong>R</strong>esource <strong>L</strong>ocator is the address your request is telling the server to look for information. It consists of several elements, <code class="docutils literal notranslate"><span class="pre">http://www.uni-passau.de</span></code>:</p>
 <ul class="simple">
 <li><p>the protocol: usually <code class="docutils literal notranslate"><span class="pre">http</span></code> or <code class="docutils literal notranslate"><span class="pre">https</span></code> in the www, followed by a colon and doube slash <code class="docutils literal notranslate"><span class="pre">://</span></code></p></li>
@@ -412,9 +516,9 @@ document.write(`
 <li><p>a path/query: appended with <code class="docutils literal notranslate"><span class="pre">/</span></code> or <code class="docutils literal notranslate"><span class="pre">?</span></code> to the hostname</p></li>
 </ul>
 <p>To know about these three separate parts enables us to automate navigation in the www using python.</p>
-</section>
-<section id="html">
-<h3>HTML<a class="headerlink" href="#html" title="Permalink to this heading">#</a></h3>
+</div>
+<div class="section" id="html">
+<h3>HTML<a class="headerlink" href="#html" title="Permalink to this headline">#</a></h3>
 <p>Information in the www is usually found in the <strong>H</strong>yper<strong>T</strong>ext <strong>M</strong>arkup <strong>L</strong>anguage for web browsers. HTML uses <strong>tags</strong> to structure hierarchical data, telling the browser how to display the single elements. Tags appear in pairs and are enclosed in angle brackets <code class="docutils literal notranslate"><span class="pre">&lt;tag&gt;</span></code> to open a respective section and <code class="docutils literal notranslate"><span class="pre">&lt;/tag&gt;</span></code> to close it.<br />
 Any HTML will be enclosed in the most outer <code class="docutils literal notranslate"><span class="pre">&lt;html&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;/html&gt;</span></code> tags. Inside this, the document is structured by various tags. To name just some:</p>
 <ul class="simple">
@@ -457,9 +561,9 @@ Any HTML will be enclosed in the most outer <code class="docutils literal notran
       </p> 
     </div> 
   </body>
-</html> </section>
-<section id="json">
-<h3>JSON<a class="headerlink" href="#json" title="Permalink to this heading">#</a></h3>
+</html> </div>
+<div class="section" id="json">
+<h3>JSON<a class="headerlink" href="#json" title="Permalink to this headline">#</a></h3>
 <p>The <strong>J</strong>ava<strong>S</strong>cript <strong>O</strong>bject <strong>N</strong>otation is a type of data format which you will frequently encounter when working with online data. For one, websites that offer a .scv download often also offer a .json file to download. Moreover, the json format is often used by APIs (see next secrtion) to transfer data. Its structure looks is very similar to a python dictionary, using curly and square brackets and key-value pairs as well as enabling nesting. Data is therefore stored in such objects. There are packages which can handle json files, for example pandas to transform it into a dataframe.</p>
 <p>Let’s see what a dataframe looks like when transformed into a json format:</p>
 <div class="cell docutils container">
@@ -569,10 +673,10 @@ Any HTML will be enclosed in the most outer <code class="docutils literal notran
 </table>
 </div></div></div>
 </div>
-</section>
-</section>
-<section id="api">
-<h2>API<a class="headerlink" href="#api" title="Permalink to this heading">#</a></h2>
+</div>
+</div>
+<div class="section" id="api">
+<h2>API<a class="headerlink" href="#api" title="Permalink to this headline">#</a></h2>
 <p>Instead of (or in addition to) any downloadable files, data providers may offer an <strong>API</strong> (<strong>A</strong>pplication <strong>P</strong>rogramming <strong>I</strong>nterface) to access data. An API constitutes a rather convenient way to getting information as it allows direct machine to machine transaction - meaning you can log in, select and download data directly with and into python. With reliable API access, it is thus not necessary to store the data on your hard drive permanently (you must however do so temporarily). <br />
 The two most basic operations when working with an API over http:</p>
 <ul class="simple">
@@ -704,7 +808,7 @@ To display a json file in a more readbale manner (indents, linebreaks), we can u
                 &quot;pageid&quot;: 409091,
                 &quot;ns&quot;: 0,
                 &quot;title&quot;: &quot;University of Passau&quot;,
-                &quot;extract&quot;: &quot;&lt;p class=\&quot;mw-empty-elt\&quot;&gt;\n&lt;/p&gt;\n\n&lt;p&gt;The &lt;b&gt;University of Passau&lt;/b&gt; (&lt;i&gt;Universit\u00e4t Passau&lt;/i&gt; in German) is a public research university located in Passau, Lower Bavaria, Germany. Founded in 1973, it is the youngest university in Bavaria and consequently has the most modern campus in the state. Nevertheless, its roots as the Institute for Catholic Studies dates back to the early 17th century.\n&lt;/p&gt;&lt;p&gt;Today it is home to four faculties and 39 different undergraduate and postgraduate degree programmes.&lt;/p&gt;\n\n\n&quot;
+                &quot;extract&quot;: &quot;&lt;p class=\&quot;mw-empty-elt\&quot;&gt;\n&lt;/p&gt;\n\n\n&lt;p&gt;The &lt;b&gt;University of Passau&lt;/b&gt; (&lt;i&gt;Universit\u00e4t Passau&lt;/i&gt; in German) is a public research university located in Passau, Lower Bavaria, Germany. Founded in 1973, it is the youngest university in Bavaria and consequently has the most modern campus in the state. Nevertheless, its roots as the Institute for Catholic Studies dates back to the early 17th century.\n&lt;/p&gt;&lt;p&gt;Today it is home to four faculties and 39 different undergraduate and postgraduate degree programmes.\n&lt;/p&gt;&quot;
             }
         }
     }
@@ -729,8 +833,10 @@ To display a json file in a more readbale manner (indents, linebreaks), we can u
 summary: &lt;p class=&quot;mw-empty-elt&quot;&gt;
 &lt;/p&gt;
 
+
 &lt;p&gt;The &lt;b&gt;University of Passau&lt;/b&gt; (&lt;i&gt;Universität Passau&lt;/i&gt; in German) is a public research university located in Passau, Lower Bavaria, Germany. Founded in 1973, it is the youngest university in Bavaria and consequently has the most modern campus in the state. Nevertheless, its roots as the Institute for Catholic Studies dates back to the early 17th century.
-&lt;/p&gt;&lt;p&gt;Today it is home to four faculties and 39 different undergraduate and postgraduate degree programmes.&lt;/p&gt;
+&lt;/p&gt;&lt;p&gt;Today it is home to four faculties and 39 different undergraduate and postgraduate degree programmes.
+&lt;/p&gt;
 </pre></div>
 </div>
 </div>
@@ -756,8 +862,8 @@ Today it is home to four faculties and 39 different undergraduate and postgradua
 </div>
 </div>
 </div>
-<section id="website-content">
-<h3>Website content<a class="headerlink" href="#website-content" title="Permalink to this heading">#</a></h3>
+<div class="section" id="website-content">
+<h3>Website content<a class="headerlink" href="#website-content" title="Permalink to this headline">#</a></h3>
 <p>BeautifulSoup can not only extract text from html, but, in analogy to the json <code class="docutils literal notranslate"><span class="pre">dumps()</span></code> method from before, print html files more readable. We will leverage BeautifulSoup’s functions now to extract again the same information, but now from the website directly, i.e. without an API.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -797,7 +903,8 @@ hide
 
 
 
-1History
+1
+History
 
 
 
@@ -805,7 +912,10 @@ hide
 
 
 
-2Campus
+
+2
+Campus
+
 
 
 
@@ -815,7 +925,8 @@ Toggle Campus subsection
 
 
 
-2.1Library
+2.1
+Library
 
 
 
@@ -825,7 +936,10 @@ Toggle Campus subsection
 
 
 
-3Organisation
+
+3
+Organisation
+
 
 
 
@@ -835,31 +949,8 @@ Toggle Organisation subsection
 
 
 
-3.1Governance
-
-
-
-
-
-
-
-3.2Faculties
-
-
-
-
-
-
-
-3.3Associated institutes
-
-
-
-
-
-
-
-3.4Research centres
+3.1
+Governance
 
 
 
@@ -868,16 +959,8 @@ Toggle Organisation subsection
 
 
 
-
-4Partnerships
-
-
-
-
-
-
-
-5Rankings
+3.2
+Faculties
 
 
 
@@ -885,7 +968,52 @@ Toggle Organisation subsection
 
 
 
-6Student life
+
+3.3
+Associated institutes
+
+
+
+
+
+
+
+
+3.4
+Research centres
+
+
+
+
+
+
+
+
+
+
+4
+Partnerships
+
+
+
+
+
+
+
+
+5
+Rankings
+
+
+
+
+
+
+
+
+6
+Student life
+
 
 
 
@@ -895,7 +1023,8 @@ Toggle Student life subsection
 
 
 
-6.1Student associations
+6.1
+Student associations
 
 
 
@@ -903,15 +1032,9 @@ Toggle Student life subsection
 
 
 
-6.2Sports
 
-
-
-
-
-
-
-6.3Frater
+6.2
+Sports
 </pre></div>
 </div>
 </div>
@@ -929,8 +1052,8 @@ Toggle Student life subsection
 </div>
 </div>
 <p>We can see, that we loaded the whole website as raw text. One can immediately see that it is not obvious how to extract the wanted summary only. We will later see some ways to extract text and leverage repeated structure across a website for its different pages to extract text sections like this.</p>
-<section id="back-to-apis">
-<h4>Back to APIs<a class="headerlink" href="#back-to-apis" title="Permalink to this heading">#</a></h4>
+<div class="section" id="back-to-apis">
+<h4>Back to APIs<a class="headerlink" href="#back-to-apis" title="Permalink to this headline">#</a></h4>
 <p>Now, the API we will mostly use in this course is from <a class="reference external" href="https://financialmodelingprep.com/developer/docs/">financialmodelingprep.com</a>, providing financial and company data. In contrast to the Wikipedia API, a registration by e-mail is required. Please register to get your API key.</p>
 <p>To access the data, the key must be submitted in the request. We can use the params statement as before, handing it the respective statements.</p>
 <p>(Note that the API key is already saved in “api_key”)</p>
@@ -957,13 +1080,13 @@ Toggle Student life subsection
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;symbol&#39;: &#39;GOOG&#39;,
-  &#39;price&#39;: 146.68,
-  &#39;beta&#39;: 1.058,
-  &#39;volAvg&#39;: 21805490,
-  &#39;mktCap&#39;: 1814736915447,
-  &#39;lastDiv&#39;: 0,
-  &#39;range&#39;: &#39;88.86-155.2&#39;,
-  &#39;changes&#39;: 1.27,
+  &#39;price&#39;: 184.7,
+  &#39;beta&#39;: 1.014,
+  &#39;volAvg&#39;: 27105255,
+  &#39;mktCap&#39;: 2235510371154,
+  &#39;lastDiv&#39;: 0.81,
+  &#39;range&#39;: &#39;142.66-208.7&#39;,
+  &#39;changes&#39;: 0.93,
   &#39;companyName&#39;: &#39;Alphabet Inc.&#39;,
   &#39;currency&#39;: &#39;USD&#39;,
   &#39;cik&#39;: &#39;0001652044&#39;,
@@ -972,20 +1095,20 @@ Toggle Student life subsection
   &#39;exchange&#39;: &#39;NASDAQ Global Select&#39;,
   &#39;exchangeShortName&#39;: &#39;NASDAQ&#39;,
   &#39;industry&#39;: &#39;Internet Content &amp; Information&#39;,
-  &#39;website&#39;: &#39;https://www.abc.xyz&#39;,
-  &#39;description&#39;: &#39;Alphabet Inc. provides various products and platforms in the United States, Europe, the Middle East, Africa, the Asia-Pacific, Canada, and Latin America. It operates through Google Services, Google Cloud, and Other Bets segments. The Google Services segment offers products and services, including ads, Android, Chrome, hardware, Gmail, Google Drive, Google Maps, Google Photos, Google Play, Search, and YouTube. It is also involved in the sale of apps and in-app purchases and digital content in the Google Play store; and Fitbit wearable devices, Google Nest home products, Pixel phones, and other devices, as well as in the provision of YouTube non-advertising services. The Google Cloud segment offers infrastructure, platform, and other services; Google Workspace that include cloud-based collaboration tools for enterprises, such as Gmail, Docs, Drive, Calendar, and Meet; and other services for enterprise customers. The Other Bets segment sells health technology and internet services. The company was founded in 1998 and is headquartered in Mountain View, California.&#39;,
-  &#39;ceo&#39;: &#39;Mr. Sundar  Pichai&#39;,
+  &#39;website&#39;: &#39;https://abc.xyz&#39;,
+  &#39;description&#39;: &#39;Alphabet Inc. offers various products and platforms in the United States, Europe, the Middle East, Africa, the Asia-Pacific, Canada, and Latin America. It operates through Google Services, Google Cloud, and Other Bets segments. The Google Services segment provides products and services, including ads, Android, Chrome, devices, Gmail, Google Drive, Google Maps, Google Photos, Google Play, Search, and YouTube. It is also involved in the sale of apps and in-app purchases and digital content in the Google Play and YouTube; and devices, as well as in the provision of YouTube consumer subscription services. The Google Cloud segment offers infrastructure, cybersecurity, databases, analytics, AI, and other services; Google Workspace that include cloud-based communication and collaboration tools for enterprises, such as Gmail, Docs, Drive, Calendar, and Meet; and other services for enterprise customers. The Other Bets segment sells healthcare-related and internet services. The company was incorporated in 1998 and is headquartered in Mountain View, California.&#39;,
+  &#39;ceo&#39;: &#39;Sundar Pichai&#39;,
   &#39;sector&#39;: &#39;Communication Services&#39;,
   &#39;country&#39;: &#39;US&#39;,
-  &#39;fullTimeEmployees&#39;: &#39;182502&#39;,
+  &#39;fullTimeEmployees&#39;: &#39;185719&#39;,
   &#39;phone&#39;: &#39;650 253 0000&#39;,
   &#39;address&#39;: &#39;1600 Amphitheatre Parkway&#39;,
   &#39;city&#39;: &#39;Mountain View&#39;,
   &#39;state&#39;: &#39;CA&#39;,
   &#39;zip&#39;: &#39;94043&#39;,
-  &#39;dcfDiff&#39;: -6.69929,
-  &#39;dcf&#39;: 153.3792907934912,
-  &#39;image&#39;: &#39;https://financialmodelingprep.com/image-stock/GOOG.png&#39;,
+  &#39;dcfDiff&#39;: -75.431,
+  &#39;dcf&#39;: 258.0810020765734,
+  &#39;image&#39;: &#39;https://images.financialmodelingprep.com/symbol/GOOG.png&#39;,
   &#39;ipoDate&#39;: &#39;2004-08-19&#39;,
   &#39;defaultImage&#39;: False,
   &#39;isEtf&#39;: False,
@@ -1019,15 +1142,20 @@ Toggle Student life subsection
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  symbol                          name       sector    subSector  \
-0   AMGN                    Amgen Inc.   Healthcare   Healthcare   
-1    CRM              Salesforce, Inc.   Technology   Technology   
-2    HON  Honeywell International Inc.  Industrials  Industrials   
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  symbol                        name             sector  \
+0   NVDA                      Nvidia         Technology   
+1    SHW            Sherwin-Williams    Basic Materials   
+2   AMZN  Amazon.com, Inc.amazon.com  Consumer Cyclical   
 
-         headQuarter dateFirstAdded         cik     founded  
-0  Thousand Oaks, CA     2020-08-31  0000318154  1980-04-08  
-1  San Francisco, CA     2020-08-31  0001108524  1999-02-03  
-2      Charlotte, NC     2020-08-31  0000773840  1906-01-01  
+               subSector      headQuarter dateFirstAdded         cik  \
+0         Semiconductors  Santa Clara, CA     2024-11-08  0001045810   
+1  Chemicals - Specialty    Cleveland, OH     2024-11-08  0000089800   
+2       Specialty Retail      Seattle, WA     2024-02-26  0001018724   
+
+      founded  
+0  1993-04-05  
+1  1866-01-01  
+2  1994-07-05  
 </pre></div>
 </div>
 </div>
@@ -1041,7 +1169,7 @@ Toggle Student life subsection
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;AMGN&#39;, &#39;CRM&#39;, &#39;HON&#39;, &#39;GS&#39;, &#39;WBA&#39;, &#39;AAPL&#39;, &#39;NKE&#39;, &#39;V&#39;, &#39;UNH&#39;, &#39;CSCO&#39;, &#39;TRV&#39;, &#39;CVX&#39;, &#39;VZ&#39;, &#39;HD&#39;, &#39;INTC&#39;, &#39;MSFT&#39;, &#39;JNJ&#39;, &#39;WMT&#39;, &#39;CAT&#39;, &#39;DIS&#39;, &#39;DOW&#39;, &#39;JPM&#39;, &#39;BA&#39;, &#39;KO&#39;, &#39;MCD&#39;, &#39;AXP&#39;, &#39;IBM&#39;, &#39;MRK&#39;, &#39;MMM&#39;, &#39;PG&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;NVDA&#39;, &#39;SHW&#39;, &#39;AMZN&#39;, &#39;AMGN&#39;, &#39;CRM&#39;, &#39;HON&#39;, &#39;GS&#39;, &#39;AAPL&#39;, &#39;NKE&#39;, &#39;V&#39;, &#39;UNH&#39;, &#39;CSCO&#39;, &#39;TRV&#39;, &#39;CVX&#39;, &#39;VZ&#39;, &#39;HD&#39;, &#39;MSFT&#39;, &#39;JNJ&#39;, &#39;WMT&#39;, &#39;CAT&#39;, &#39;DIS&#39;, &#39;JPM&#39;, &#39;BA&#39;, &#39;KO&#39;, &#39;MCD&#39;, &#39;AXP&#39;, &#39;IBM&#39;, &#39;MRK&#39;, &#39;MMM&#39;, &#39;PG&#39;]
 </pre></div>
 </div>
 </div>
@@ -1083,17 +1211,17 @@ Toggle Student life subsection
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AxesSubplot(0.125,0.11;0.775x0.77)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AxesSubplot(0.125,0.125;0.775x0.755)
 </pre></div>
 </div>
-<img alt="_images/b615518bfc617bb5441b36cb110e3d574e375101562917533e70a58279fc185e.png" src="_images/b615518bfc617bb5441b36cb110e3d574e375101562917533e70a58279fc185e.png" />
+<img alt="_images/05_online_37_1.png" src="_images/05_online_37_1.png" />
 </div>
 </div>
 <p>We now know how to retrieve data from an API or the whole html content from a normal website. The next chapter will look at how we can extract information displayed on websites in a more directed manner than downloading just all of the website’s content.</p>
-</section>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -1107,7 +1235,7 @@ Toggle Student life subsection
             mode: "python"
         },
         kernelOptions: {
-            name: "python3",
+            kernelName: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -1115,114 +1243,50 @@ Toggle Student life subsection
     </script>
     <script>kernelName = 'python3'</script>
 
-                </article>
+              </div>
               
-
-              
-              
-              
-              
-                <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
-<div class="prev-next-area">
-    <a class="left-prev"
-       href="04_data.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Working with Data</p>
-      </div>
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="04_data.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Working with Data</p>
+        </div>
     </a>
-    <a class="right-next"
-       href="06_scraping.html"
-       title="next page">
-      <div class="prev-next-info">
+    <a class='right-next' id="next-link" href="06_scraping.html" title="next page">
+    <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Web Scraping</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
-                </footer>
-              
-            </div>
-            
-            
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#website-basics">Website basics</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#http">HTTP</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#url">URL</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#html">HTML</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#json">JSON</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#api">API</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#website-content">Website content</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#back-to-apis">Back to APIs</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-  </nav></div>
-
-</div></div>
-              
-            
-          </div>
-          <footer class="bd-footer-content">
-            
-<div class="bd-footer-content__inner container">
-  
-  <div class="footer-item">
-    
-<p class="component-author">
-By Jan König
-</p>
-
-  </div>
-  
-  <div class="footer-item">
-    
-  <p class="copyright">
-    
-      © Copyright 2022.
-      <br/>
-    
-  </p>
-
-  </div>
-  
-  <div class="footer-item">
-    
-  </div>
-  
-  <div class="footer-item">
-    
-  </div>
-  
-</div>
-          </footer>
-        
-
-      </main>
+            </footer>
+        </div>
     </div>
-  </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jan König<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
-  <footer class="bd-footer">
-  </footer>
+
   </body>
 </html>
