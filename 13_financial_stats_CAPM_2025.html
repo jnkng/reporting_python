@@ -1,47 +1,60 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Introduction to Statistics in Finance &#8212; Data Visualisation and Reporting with Python</title>
-    
-  <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    <title>Introduction to Statistics in Finance &#8212; Data Visualisation and Reporting with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -51,55 +64,95 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"ignoreHtmlClass": "never-ignore", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}, "tex2jax": {"ignoreClass": "never-ignore"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '13_financial_stats_CAPM_2025';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="prev" title="SciKit Learn" href="12_sklearn_2024.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
     
-    <div class="container-fluid" id="banner"></div>
-
     
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
-      
-      
-      
-      <h1 class="site-logo" id="site-title">Data Visualisation and Reporting with Python</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+<a class="navbar-brand logo" href="01_content.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Data Visualisation and Reporting with Python</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -109,393 +162,239 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="02_general.html">
-   What is Python and why use it?
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="03_python_basics.html">
-   First steps
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="04_data.html">
-   Working with Data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="05_online.html">
-   Online Data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="06_scraping.html">
-   Web Scraping
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="07_graphics.html">
-   Graphics
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="08_interactive_plots.html">
-   Interactive Graphics - Plotly
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="10_dash_I.html">
-   Dash - introduction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="11_dash_II.html">
-   Dash - advanced interactivity
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="12_markdown.html">
-   Notebook formatting
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="12_sklearn_2024.html">
-   SciKit Learn
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Introduction to Statistics in Finance
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="02_general.html">What is Python and why use it?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_python_basics.html">First steps</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="04_data.html">Working with Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_online.html">Online Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_scraping.html">Web Scraping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_graphics.html">Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_interactive_plots.html">Interactive Graphics - Plotly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_dash_I.html">Dash - introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_dash_II.html">Dash - advanced interactivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_markdown.html">Notebook formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_sklearn_2024.html">SciKit Learn</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Introduction to Statistics in Finance</a></li>
+
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/13_financial_stats_CAPM_2025.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
-  
-    <img src="_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
+  <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F13_financial_stats_CAPM_2025.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
 </div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/13_financial_stats_CAPM_2025.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
 
 <button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/executablebooks/jupyter-book"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F13_financial_stats_CAPM_2025.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="_sources/13_financial_stats_CAPM_2025.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Introduction to Statistics in Finance
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#returns">
-     Returns
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#additivity">
-       Additivity
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#portfolios-and-cross-sectional-additivity">
-       Portfolios and cross-sectional additivity
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#portfolio-return-and-cross-sectional-additivity">
-       Portfolio return and cross-sectional additivity
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#characteristics-of-returns">
-       Characteristics of returns
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-capm-factor-model-and-excess-returns">
-   The CAPM factor-model and excess returns
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#about-the-coefficients">
-     about the coefficients
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Introduction to Statistics in Finance</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Introduction to Statistics in Finance
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#returns">
-     Returns
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#additivity">
-       Additivity
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#portfolios-and-cross-sectional-additivity">
-       Portfolios and cross-sectional additivity
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#portfolio-return-and-cross-sectional-additivity">
-       Portfolio return and cross-sectional additivity
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#characteristics-of-returns">
-       Characteristics of returns
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-capm-factor-model-and-excess-returns">
-   The CAPM factor-model and excess returns
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#about-the-coefficients">
-     about the coefficients
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introduction to Statistics in Finance</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Introduction to Statistics in Finance</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#returns">Returns</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additivity">Additivity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#portfolios-and-cross-sectional-additivity">Portfolios and cross-sectional additivity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#portfolio-return-and-cross-sectional-additivity">Portfolio return and cross-sectional additivity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristics-of-returns">Characteristics of returns</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#the-capm-factor-model-and-excess-returns">The CAPM factor-model and excess returns</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-the-coefficients">about the coefficients</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -504,8 +403,8 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<div class="tex2jax_ignore mathjax_ignore section" id="introduction-to-statistics-in-finance">
-<h1>Introduction to Statistics in Finance<a class="headerlink" href="#introduction-to-statistics-in-finance" title="Permalink to this headline">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="introduction-to-statistics-in-finance">
+<h1>Introduction to Statistics in Finance<a class="headerlink" href="#introduction-to-statistics-in-finance" title="Permalink to this heading">#</a></h1>
 <p>Many fields in finance rely on some sort of data analysis</p>
 <ul class="simple">
 <li><p>For example fundamental analysis of a business:</p>
@@ -518,21 +417,21 @@ title="Print to PDF"
 <p>Results drive decisions, e.g. for an investement</p>
 <p>There are many well established techniques and statistics for pricing financial products.</p>
 <p>Some techniques more prominent since the dawn of powerful algorithms and artificial intelligence</p>
-<div class="section" id="returns">
-<h2>Returns<a class="headerlink" href="#returns" title="Permalink to this headline">#</a></h2>
+<section id="returns">
+<h2>Returns<a class="headerlink" href="#returns" title="Permalink to this heading">#</a></h2>
 <p>In order for an investment to be profitable, the money it yields must be higher than the inital investment made (plus transaction costs).</p>
 <p>Assess so called return, usually discrete: relative change in investment value <span class="math notranslate nohighlight">\(S\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[ r_t = \frac{S_t - S_{t-1}}{S_{t-1}} =\frac{S_t}{S_{t-1}} - 1 \]</div>
 <p>Note here that one time step <span class="math notranslate nohighlight">\(t\)</span> is of arbitrary length, e.g. daily or monthly</p>
-<div class="section" id="additivity">
-<h3>Additivity<a class="headerlink" href="#additivity" title="Permalink to this headline">#</a></h3>
+<section id="additivity">
+<h3>Additivity<a class="headerlink" href="#additivity" title="Permalink to this heading">#</a></h3>
 <p>Returns my be based on different time spans <span class="math notranslate nohighlight">\(\rightarrow\)</span> aggreagte somehow</p>
 <p>The property we are looking for is called addititvity: sum shorter-scale returns to get the larger-scale returns</p>
 <p>Note that we can’t just split monthly returns into daily returns, this requires making assumptions on the distribution</p>
 <p>Daily and weekly returns:<br />
 To calculate weekly returns from daily returns, we mustn’t use the daily return as is.</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>time <span class="math notranslate nohighlight">\(t\)</span></p></th>
 <th class="head"><p>0</p></th>
@@ -718,9 +617,9 @@ Note the <code class="docutils literal notranslate"><span class="pre">NaN</span>
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="portfolios-and-cross-sectional-additivity">
-<h3>Portfolios and cross-sectional additivity<a class="headerlink" href="#portfolios-and-cross-sectional-additivity" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="portfolios-and-cross-sectional-additivity">
+<h3>Portfolios and cross-sectional additivity<a class="headerlink" href="#portfolios-and-cross-sectional-additivity" title="Permalink to this heading">#</a></h3>
 <p>A portfolio is a collection of investments, e.g. stocks.
 Portfolios are allocated differently, i.e., by a degree of risk. We can describe a portfolio’s value by the sum of the value of its constituents.</p>
 <ul class="simple">
@@ -732,12 +631,12 @@ Portfolios are allocated differently, i.e., by a degree of risk. We can describe
 <li><p>The <strong>Total portfolio value</strong> is the sum of all position values:</p></li>
 </ul>
 <div class="math notranslate nohighlight">
-\[    P = \sum_i P_i = \sum_i N_i \cdot S_i\]</div>
+\[    P = \sum_i P_i = \sum_i N_i \cdot S_i \]</div>
 <ul class="simple">
 <li><p>The <strong>weight</strong> of company <span class="math notranslate nohighlight">\(i\)</span> in the portfolio is then</p></li>
 </ul>
 <div class="math notranslate nohighlight">
-\[  w_i = \frac{P_i}{P} = \frac{N_i \cdot S_i}{\sum_j N_j \cdot S_j}, \sum_i w_i = 1\]</div>
+\[  w_i = \frac{P_i}{P} = \frac{N_i \cdot S_i}{\sum_j N_j \cdot S_j}, \sum_i w_i = 1 \]</div>
 <ul class="simple">
 <li><p>With those weights, we can calculate the <strong>portfolio return</strong> (cross-sectional additivity) as weighted sum of the company returns <span class="math notranslate nohighlight">\(R_i\)</span>:</p></li>
 </ul>
@@ -748,9 +647,9 @@ Portfolios are allocated differently, i.e., by a degree of risk. We can describe
 </ul>
 <div class="math notranslate nohighlight">
 \[R_p = \frac{1}{J} \sum_i^JR_i = mean(R_i)\]</div>
-</div>
-<div class="section" id="portfolio-return-and-cross-sectional-additivity">
-<h3>Portfolio return and cross-sectional additivity<a class="headerlink" href="#portfolio-return-and-cross-sectional-additivity" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="portfolio-return-and-cross-sectional-additivity">
+<h3>Portfolio return and cross-sectional additivity<a class="headerlink" href="#portfolio-return-and-cross-sectional-additivity" title="Permalink to this heading">#</a></h3>
 <p>We can show that property using the definitons from above</p>
 <ul>
 <li><p><strong>Price evolution for single stock</strong> <span class="math notranslate nohighlight">\(i\)</span>:</p>
@@ -772,7 +671,7 @@ Portfolios are allocated differently, i.e., by a degree of risk. We can describe
     = \sum_i w_i\,(1 + r_{t+1}^i) - 1
     = \sum_i w_i\,r_{t+1}^i \]</div>
 <p>Let’s have a look at the following data:</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>time <span class="math notranslate nohighlight">\(t\)</span></p></th>
 <th class="head"><p>0</p></th>
@@ -1074,9 +973,9 @@ This gives initial portfolio weights <span class="math notranslate nohighlight">
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="characteristics-of-returns">
-<h3>Characteristics of returns<a class="headerlink" href="#characteristics-of-returns" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="characteristics-of-returns">
+<h3>Characteristics of returns<a class="headerlink" href="#characteristics-of-returns" title="Permalink to this heading">#</a></h3>
 <p>Usually, returns exhibit the following:</p>
 <ul class="simple">
 <li><p>expected returns are close to zero (the shorter the time span, the smaller the expected return)</p></li>
@@ -1092,39 +991,105 @@ This gives initial portfolio weights <span class="math notranslate nohighlight">
 <p>We will have a look at real-world data, downloading close prices using the yfinance package and calculating the returns.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">yfinance</span> <span class="k">as</span> <span class="nn">yf</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./data/historical_data.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)[[</span><span class="s1">&#39;MSFT_Adj Close&#39;</span><span class="p">,</span> <span class="s1">&#39;BA_Adj Close&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 
-<span class="n">msft</span> <span class="o">=</span> <span class="n">yf</span><span class="o">.</span><span class="n">Ticker</span><span class="p">(</span><span class="s1">&#39;MSFT&#39;</span><span class="p">)</span>
-<span class="n">msft</span> <span class="o">=</span> <span class="n">msft</span><span class="o">.</span><span class="n">history</span><span class="p">(</span>
-    <span class="n">start</span><span class="o">=</span><span class="s1">&#39;2020-01-01&#39;</span><span class="p">,</span>
-    <span class="n">period</span><span class="o">=</span><span class="kc">None</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msft</span> <span class="o">=</span> <span class="n">msft</span><span class="p">[[</span><span class="s1">&#39;Close&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">msft</span><span class="p">[</span><span class="s1">&#39;daily_disc_return&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">msft</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span>
-<span class="n">msft</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">avg_return</span> <span class="o">=</span> <span class="n">msft</span><span class="o">.</span><span class="n">daily_disc_return</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="n">vola</span> <span class="o">=</span> <span class="n">msft</span><span class="o">.</span><span class="n">daily_disc_return</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;average return </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">avg_return</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;volatility </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">vola</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;daily_discrete_return_msft&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;MSFT_Adj Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;daily_discrete_return_ba&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;BA_Adj Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span>
+<span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;Date&#39;</span><span class="p">,</span> <span class="s1">&#39;daily_discrete_return_msft&#39;</span><span class="p">,</span> <span class="s1">&#39;daily_discrete_return_ba&#39;</span><span class="p">]]</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>average return 0.0011
-volatility 0.0191
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2016-06-15 2021-06-11
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Date</th>
+      <th>daily_discrete_return_msft</th>
+      <th>daily_discrete_return_ba</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>2016-06-15</td>
+      <td>-0.002810</td>
+      <td>-0.002605</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2016-06-16</td>
+      <td>0.014087</td>
+      <td>-0.006070</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2016-06-17</td>
+      <td>-0.005160</td>
+      <td>0.003479</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">avg_return</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;daily_discrete_return_msft&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">vola</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;daily_discrete_return_msft&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;MSFT: average return </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">avg_return</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;MSFT: volatility </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">vola</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MSFT: average return 0.0015
+MSFT: volatility 0.0173
+</pre></div>
+</div>
+</div>
+</div>
+<p>When investing in stocks, it is quite clear that we prefer a higher return to a lower (or even negative) return. However “There ain’t no such thing as a free lunch”, meaning that there is always a trade-off when looking for ever higher returns: the risk associated with these investments. We can also look this the other way round, namely that an investor would expect a higher return from investing in a more risky asset. A simple proxy used for risk in the stock market is how much a stock’s price moves up and down over time, since the classic framework weighs a loss in stock price heavier than an increase due to a non-linear utility function. Now, for historical data, we can measure this type of risk as the standard deviation. When taking the ratio of the historical average return over the standard deviation, we can calculate the so-called Sharpe ratio:
+$<span class="math notranslate nohighlight">\( SR = \frac{\bar{r_t}}{\sigma_t} .\)</span>$</p>
+<p>When comparing two companies, we would choose the one with the higher Sharpe ratio, as it would yield (or rather has yielded) higher returns in relation to the associated risk.<br />
+Consider, for example, two companies <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> with returns <span class="math notranslate nohighlight">\(\bar{r_A}\)</span> and <span class="math notranslate nohighlight">\(\bar{r_B}\)</span>, standard deviations <span class="math notranslate nohighlight">\(\sigma_A\)</span> and <span class="math notranslate nohighlight">\(\sigma_B\)</span>, and sharpe ratios <span class="math notranslate nohighlight">\(SR_A &gt; SR_B\)</span>:</p>
+<ul class="simple">
+<li><p>If <span class="math notranslate nohighlight">\(\bar{r_A}\)</span> = <span class="math notranslate nohighlight">\(\bar{r_B}\)</span>, it follows that <span class="math notranslate nohighlight">\(\sigma_A &lt; \sigma_B\)</span>: while yielding the same return, company <span class="math notranslate nohighlight">\(A\)</span> was less risky.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(\sigma_A = \sigma_B\)</span>, it follows that <span class="math notranslate nohighlight">\(\bar{r_A} &gt; \bar{r_B}\)</span>: while the risk of investing was the same for <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, company <span class="math notranslate nohighlight">\(A\)</span> yielded higher returns.</p></li>
+</ul>
+<p>We can caluclate the Sharpe ratios from return data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sharpe_msft</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;daily_discrete_return_msft&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">/</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;daily_discrete_return_ba&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="n">sharpe_ba</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;daily_discrete_return_ba&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">/</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;daily_discrete_return_ba&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Sharpe ratio </span><span class="si">{</span><span class="n">sharpe_msft</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Sharpe ratio </span><span class="si">{</span><span class="n">sharpe_ba</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sharpe ratio 0.0524
+Sharpe ratio 0.0345
 </pre></div>
 </div>
 </div>
@@ -1133,35 +1098,35 @@ volatility 0.0191
 We can plot returns over time as well as look at the distribution.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msft</span><span class="o">.</span><span class="n">daily_disc_return</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;daily_discrete_return_msft&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;Date&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot: &gt;
 </pre></div>
 </div>
-<img alt="_images/13_financial_stats_CAPM_2025_24_1.png" src="_images/13_financial_stats_CAPM_2025_24_1.png" />
+<img alt="_images/0f3f56ae8290d4dde1551b7607bf2daaf7b60e75cac2a9f7748a46ea03e5935b.png" src="_images/0f3f56ae8290d4dde1551b7607bf2daaf7b60e75cac2a9f7748a46ea03e5935b.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msft</span><span class="o">.</span><span class="n">daily_disc_return</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">41</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;daily_discrete_return_msft&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">41</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot: &gt;
 </pre></div>
 </div>
-<img alt="_images/13_financial_stats_CAPM_2025_25_1.png" src="_images/13_financial_stats_CAPM_2025_25_1.png" />
+<img alt="_images/a700cfdb0cc7ff37fc89e23d87bbabb6cbd4fb482c5319510b97058e1274cb6b.png" src="_images/a700cfdb0cc7ff37fc89e23d87bbabb6cbd4fb482c5319510b97058e1274cb6b.png" />
 </div>
 </div>
-</div>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="the-capm-factor-model-and-excess-returns">
-<h1>The CAPM factor-model and excess returns<a class="headerlink" href="#the-capm-factor-model-and-excess-returns" title="Permalink to this headline">#</a></h1>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="the-capm-factor-model-and-excess-returns">
+<h1>The CAPM factor-model and excess returns<a class="headerlink" href="#the-capm-factor-model-and-excess-returns" title="Permalink to this heading">#</a></h1>
 <p>The Captial Asset Pricing Model in its most simple form (Sharpe, Lintner) quantifies an assets risk with regard to non-diversifiable market risk.</p>
 <p>Risk can usually be attributed to two sources: idiosyncratic and systematic (market) risk</p>
 <p>Idiosyncratic risk can be eliminated by constructing a diversified portfolio, systematic risk remains</p>
@@ -1171,8 +1136,8 @@ We can plot returns over time as well as look at the distribution.</p>
 <p>assume a risk-free rate of <span class="math notranslate nohighlight">\(r_{f,t}=0\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[ r_{i,t} = \alpha_i + \beta_i \cdot r_{M,t} + \epsilon_{i,t}\]</div>
-<div class="section" id="about-the-coefficients">
-<h2>about the coefficients<a class="headerlink" href="#about-the-coefficients" title="Permalink to this headline">#</a></h2>
+<section id="about-the-coefficients">
+<h2>about the coefficients<a class="headerlink" href="#about-the-coefficients" title="Permalink to this heading">#</a></h2>
 <p>In general <span class="math notranslate nohighlight">\(\alpha_i\)</span> should not be statistically significant for the model to be valid</p>
 <p>Assuming it in fact isn’t, <span class="math notranslate nohighlight">\(\beta_i\)</span> tells us about the sensitivity of the asset with regard to market risk:</p>
 <ul class="simple">
@@ -1186,19 +1151,10 @@ We can plot returns over time as well as look at the distribution.</p>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">yfinance</span> <span class="k">as</span> <span class="nn">yf</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-
-<span class="n">msft</span> <span class="o">=</span> <span class="n">yf</span><span class="o">.</span><span class="n">Ticker</span><span class="p">(</span><span class="s1">&#39;MSFT&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">history</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="s2">&quot;2020-01-01&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-<span class="n">sp_500</span> <span class="o">=</span> <span class="n">yf</span><span class="o">.</span><span class="n">Ticker</span><span class="p">(</span><span class="s1">&#39;^GSPC&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">history</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="s2">&quot;2020-01-01&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-<span class="n">rf</span> <span class="o">=</span> <span class="mf">0.01</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sp_500</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sp_500</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./data/SP500.csv&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">200</span><span class="p">:]</span>
+<span class="n">sp_500</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">sp_500</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">])</span>
+<span class="n">sp_500</span> <span class="o">=</span> <span class="n">sp_500</span><span class="p">[[</span><span class="s1">&#39;Date&#39;</span><span class="p">,</span> <span class="s1">&#39;close&#39;</span><span class="p">]]</span>
+<span class="n">sp_500</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1222,26 +1178,14 @@ We can plot returns over time as well as look at the distribution.</p>
     <tr style="text-align: right;">
       <th></th>
       <th>Date</th>
-      <th>Open</th>
-      <th>High</th>
-      <th>Low</th>
-      <th>Close</th>
-      <th>Volume</th>
-      <th>Dividends</th>
-      <th>Stock Splits</th>
+      <th>close</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>2020-01-02 00:00:00-05:00</td>
-      <td>3244.669922</td>
-      <td>3258.139893</td>
-      <td>3235.530029</td>
-      <td>3257.850098</td>
-      <td>3459930000</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <th>1077</th>
+      <td>2020-08-25</td>
+      <td>3443.620117</td>
     </tr>
   </tbody>
 </table>
@@ -1249,7 +1193,9 @@ We can plot returns over time as well as look at the distribution.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msft</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msft</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;Date&#39;</span><span class="p">,</span> <span class="s1">&#39;daily_discrete_return_msft&#39;</span><span class="p">]][</span><span class="o">-</span><span class="mi">200</span><span class="p">:]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">msft</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">msft</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">])</span>
+<span class="n">msft</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1273,26 +1219,14 @@ We can plot returns over time as well as look at the distribution.</p>
     <tr style="text-align: right;">
       <th></th>
       <th>Date</th>
-      <th>Open</th>
-      <th>High</th>
-      <th>Low</th>
-      <th>Close</th>
-      <th>Volume</th>
-      <th>Dividends</th>
-      <th>Stock Splits</th>
+      <th>daily_discrete_return_msft</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>2020-01-02 00:00:00-05:00</td>
-      <td>151.289108</td>
-      <td>153.147108</td>
-      <td>150.860341</td>
-      <td>153.042297</td>
-      <td>22622100</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <th>1058</th>
+      <td>2020-08-26</td>
+      <td>0.02162</td>
     </tr>
   </tbody>
 </table>
@@ -1303,9 +1237,11 @@ We can plot returns over time as well as look at the distribution.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># excess returns by subtracting r_f</span>
 <span class="c1"># if r_f is not constant, but changing over time, we would merge the r_f column to the discrete returns  </span>
 <span class="c1"># to match the days, then subtract it from the returns to get excess returns</span>
+<span class="c1"># assume</span>
+<span class="n">rf</span> <span class="o">=</span> <span class="mf">0.0</span>
 
-<span class="n">msft</span><span class="p">[</span><span class="s1">&#39;daily_excess_return&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">msft</span><span class="o">.</span><span class="n">Close</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span> <span class="o">-</span> <span class="n">rf</span>
-<span class="n">sp_500</span><span class="p">[</span><span class="s1">&#39;daily_excess_return&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sp_500</span><span class="o">.</span><span class="n">Close</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span> <span class="o">-</span> <span class="n">rf</span>
+<span class="n">msft</span><span class="p">[</span><span class="s1">&#39;daily_excess_return&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">msft</span><span class="p">[</span><span class="s1">&#39;daily_discrete_return_msft&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">rf</span>
+<span class="n">sp_500</span><span class="p">[</span><span class="s1">&#39;daily_excess_return&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sp_500</span><span class="p">[</span><span class="s1">&#39;close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span> <span class="o">-</span> <span class="n">rf</span>
 </pre></div>
 </div>
 </div>
@@ -1318,13 +1254,7 @@ We can plot returns over time as well as look at the distribution.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Date                   0
-Open                   0
-High                   0
-Low                    0
-Close                  0
-Volume                 0
-Dividends              0
-Stock Splits           0
+close                  0
 daily_excess_return    1
 dtype: int64
 </pre></div>
@@ -1338,59 +1268,6 @@ dtype: int64
 </pre></div>
 </div>
 </div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sp_500</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Date</th>
-      <th>Open</th>
-      <th>High</th>
-      <th>Low</th>
-      <th>Close</th>
-      <th>Volume</th>
-      <th>Dividends</th>
-      <th>Stock Splits</th>
-      <th>daily_excess_return</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>1</th>
-      <td>2020-01-03 00:00:00-05:00</td>
-      <td>3226.360107</td>
-      <td>3246.149902</td>
-      <td>3222.340088</td>
-      <td>3234.850098</td>
-      <td>3484700000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>-0.01706</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1427,28 +1304,16 @@ dtype: int64
     <tr style="text-align: right;">
       <th></th>
       <th>Date_sp</th>
-      <th>Open_sp</th>
-      <th>High_sp</th>
-      <th>Low_sp</th>
-      <th>Close_sp</th>
-      <th>Volume_sp</th>
-      <th>Dividends_sp</th>
-      <th>Stock Splits_sp</th>
+      <th>close_sp</th>
       <th>daily_excess_return_sp</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>1</th>
-      <td>2020-01-03 00:00:00-05:00</td>
-      <td>3226.360107</td>
-      <td>3246.149902</td>
-      <td>3222.340088</td>
-      <td>3234.850098</td>
-      <td>3484700000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>-0.01706</td>
+      <th>1078</th>
+      <td>2020-08-26</td>
+      <td>3478.72998</td>
+      <td>0.010196</td>
     </tr>
   </tbody>
 </table>
@@ -1480,28 +1345,16 @@ dtype: int64
     <tr style="text-align: right;">
       <th></th>
       <th>Date</th>
-      <th>Open</th>
-      <th>High</th>
-      <th>Low</th>
-      <th>Close</th>
-      <th>Volume</th>
-      <th>Dividends</th>
-      <th>Stock Splits</th>
+      <th>daily_discrete_return_msft</th>
       <th>daily_excess_return</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>1</th>
-      <td>2020-01-03 00:00:00-05:00</td>
-      <td>150.850838</td>
-      <td>152.403928</td>
-      <td>150.603095</td>
-      <td>151.136673</td>
-      <td>21116200</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>-0.022452</td>
+      <th>1058</th>
+      <td>2020-08-26</td>
+      <td>0.02162</td>
+      <td>0.02162</td>
     </tr>
   </tbody>
 </table>
@@ -1513,7 +1366,6 @@ dtype: int64
                     <span class="n">sp_500</span><span class="p">[[</span><span class="s1">&#39;Date_sp&#39;</span><span class="p">,</span> <span class="s1">&#39;daily_excess_return_sp&#39;</span><span class="p">]],</span>
                     <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;Date&#39;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;Date_sp&#39;</span><span class="p">)</span> <span class="c1">#on=[&#39;Date&#39;]</span>
 <span class="n">msft_reg</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Date_sp&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="c1"># msft_reg = msft_reg[[&#39;Date&#39;, &#39;daily_excess_return&#39;, &#39;daily_excess_return_sp&#39;]]</span>
 <span class="n">msft_reg</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1545,15 +1397,15 @@ dtype: int64
   <tbody>
     <tr>
       <th>0</th>
-      <td>2020-01-03 00:00:00-05:00</td>
-      <td>-0.022452</td>
-      <td>-0.017060</td>
+      <td>2020-08-26</td>
+      <td>0.021620</td>
+      <td>0.010196</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>2020-01-06 00:00:00-05:00</td>
-      <td>-0.007415</td>
-      <td>-0.006467</td>
+      <td>2020-08-27</td>
+      <td>0.024553</td>
+      <td>0.001673</td>
     </tr>
   </tbody>
 </table>
@@ -1564,7 +1416,6 @@ dtype: int64
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
 
 <span class="n">X</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">msft_reg</span><span class="p">[</span><span class="s1">&#39;daily_excess_return_sp&#39;</span><span class="p">])</span>
-<span class="c1">#X = msft_reg[&#39;daily_excess_return_sp&#39;]</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">msft_reg</span><span class="p">[</span><span class="s1">&#39;daily_excess_return&#39;</span><span class="p">]</span>
 
 <span class="n">lr_msft</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
@@ -1575,25 +1426,25 @@ dtype: int64
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                             OLS Regression Results                            
 ===============================================================================
-Dep. Variable:     daily_excess_return   R-squared:                       0.665
-Model:                             OLS   Adj. R-squared:                  0.665
-Method:                  Least Squares   F-statistic:                     2755.
-Date:                 Fri, 18 Jul 2025   Prob (F-statistic):               0.00
-Time:                         13:31:11   Log-Likelihood:                 4293.3
-No. Observations:                 1391   AIC:                            -8583.
-Df Residuals:                     1389   BIC:                            -8572.
+Dep. Variable:     daily_excess_return   R-squared:                       0.602
+Model:                             OLS   Adj. R-squared:                  0.599
+Method:                  Least Squares   F-statistic:                     297.4
+Date:                 Thu, 29 Jan 2026   Prob (F-statistic):           3.19e-41
+Time:                         11:27:44   Log-Likelihood:                 622.62
+No. Observations:                  199   AIC:                            -1241.
+Df Residuals:                      197   BIC:                            -1235.
 Df Model:                            1                                         
 Covariance Type:             nonrobust                                         
 ==========================================================================================
                              coef    std err          t      P&gt;|t|      [0.025      0.975]
 ------------------------------------------------------------------------------------------
-const                      0.0019      0.000      5.179      0.000       0.001       0.003
-daily_excess_return_sp     1.1469      0.022     52.493      0.000       1.104       1.190
+const                     -0.0004      0.001     -0.480      0.632      -0.002       0.001
+daily_excess_return_sp     1.2858      0.075     17.245      0.000       1.139       1.433
 ==============================================================================
-Omnibus:                      202.085   Durbin-Watson:                   1.974
-Prob(Omnibus):                  0.000   Jarque-Bera (JB):             2186.855
-Skew:                           0.266   Prob(JB):                         0.00
-Kurtosis:                       9.120   Cond. No.                         73.7
+Omnibus:                        8.032   Durbin-Watson:                   1.867
+Prob(Omnibus):                  0.018   Jarque-Bera (JB):               13.905
+Skew:                          -0.122   Prob(JB):                     0.000956
+Kurtosis:                       4.272   Cond. No.                         98.8
 ==============================================================================
 
 Notes:
@@ -1609,8 +1460,8 @@ Notes:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>const                     0.001870
-daily_excess_return_sp    1.146926
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>const                    -0.000365
+daily_excess_return_sp    1.285826
 dtype: float64
 </pre></div>
 </div>
@@ -1624,16 +1475,16 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>const                     2.562551e-07
-daily_excess_return_sp    0.000000e+00
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>const                     6.315295e-01
+daily_excess_return_sp    3.185757e-41
 dtype: float64
 </pre></div>
 </div>
 </div>
 </div>
 <p><span class="math notranslate nohighlight">\(\rightarrow\)</span> In accordance with the CAPM, <span class="math notranslate nohighlight">\(\alpha\)</span> is not significant, i.e. its p-value is larger than 5%</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1647,7 +1498,7 @@ dtype: float64
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -1655,43 +1506,106 @@ dtype: float64
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="12_sklearn_2024.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">SciKit Learn</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="12_sklearn_2024.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">SciKit Learn</p>
+      </div>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Introduction to Statistics in Finance</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#returns">Returns</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additivity">Additivity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#portfolios-and-cross-sectional-additivity">Portfolios and cross-sectional additivity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#portfolio-return-and-cross-sectional-additivity">Portfolio return and cross-sectional additivity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristics-of-returns">Characteristics of returns</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#the-capm-factor-model-and-excess-returns">The CAPM factor-model and excess returns</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-the-coefficients">about the coefficients</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By Jan König<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
+<p class="component-author">
+By Jan König
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
 </div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

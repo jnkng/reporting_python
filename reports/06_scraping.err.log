@@ -17,45 +17,81 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-proc = CrawlerProcess()
-proc.crawl(followSpider)
-proc.start()
+pd_df = pd.read_html(response.content)
+print(f'type: {type(pd_df)}, length: {len(pd_df)}')
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mReactorNotRestartable[0m                     Traceback (most recent call last)
-Cell [0;32mIn [32], line 3[0m
-[1;32m      1[0m proc [38;5;241m=[39m CrawlerProcess()
-[1;32m      2[0m proc[38;5;241m.[39mcrawl(followSpider)
-[0;32m----> 3[0m [43mproc[49m[38;5;241;43m.[39;49m[43mstart[49m[43m([49m[43m)[49m
+[0;31mValueError[0m                                Traceback (most recent call last)
+Cell [0;32mIn [26], line 1[0m
+[0;32m----> 1[0m pd_df [38;5;241m=[39m [43mpd[49m[38;5;241;43m.[39;49m[43mread_html[49m[43m([49m[43mresponse[49m[38;5;241;43m.[39;49m[43mcontent[49m[43m)[49m
+[1;32m      2[0m [38;5;28mprint[39m([38;5;124mf[39m[38;5;124m'[39m[38;5;124mtype: [39m[38;5;132;01m{[39;00m[38;5;28mtype[39m(pd_df)[38;5;132;01m}[39;00m[38;5;124m, length: [39m[38;5;132;01m{[39;00m[38;5;28mlen[39m(pd_df)[38;5;132;01m}[39;00m[38;5;124m'[39m)
 
-File [0;32m~/Desktop/Lehre/python_class/venv_3_8.nosync/lib/python3.8/site-packages/scrapy/crawler.py:363[0m, in [0;36mCrawlerProcess.start[0;34m(self, stop_after_crawl, install_signal_handlers)[0m
-[1;32m    361[0m tp[38;5;241m.[39madjustPoolsize(maxthreads[38;5;241m=[39m[38;5;28mself[39m[38;5;241m.[39msettings[38;5;241m.[39mgetint([38;5;124m'[39m[38;5;124mREACTOR_THREADPOOL_MAXSIZE[39m[38;5;124m'[39m))
-[1;32m    362[0m reactor[38;5;241m.[39maddSystemEventTrigger([38;5;124m'[39m[38;5;124mbefore[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mshutdown[39m[38;5;124m'[39m, [38;5;28mself[39m[38;5;241m.[39mstop)
-[0;32m--> 363[0m [43mreactor[49m[38;5;241;43m.[39;49m[43mrun[49m[43m([49m[43minstallSignalHandlers[49m[38;5;241;43m=[39;49m[38;5;28;43;01mFalse[39;49;00m[43m)[49m
+File [0;32m~/Desktop/Lehre/python_class/venv_3_8.nosync/lib/python3.8/site-packages/pandas/util/_decorators.py:331[0m, in [0;36mdeprecate_nonkeyword_arguments.<locals>.decorate.<locals>.wrapper[0;34m(*args, **kwargs)[0m
+[1;32m    325[0m [38;5;28;01mif[39;00m [38;5;28mlen[39m(args) [38;5;241m>[39m num_allow_args:
+[1;32m    326[0m     warnings[38;5;241m.[39mwarn(
+[1;32m    327[0m         msg[38;5;241m.[39mformat(arguments[38;5;241m=[39m_format_argument_list(allow_args)),
+[1;32m    328[0m         [38;5;167;01mFutureWarning[39;00m,
+[1;32m    329[0m         stacklevel[38;5;241m=[39mfind_stack_level(),
+[1;32m    330[0m     )
+[0;32m--> 331[0m [38;5;28;01mreturn[39;00m [43mfunc[49m[43m([49m[38;5;241;43m*[39;49m[43margs[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
 
-File [0;32m~/Desktop/Lehre/python_class/venv_3_8.nosync/lib/python3.8/site-packages/twisted/internet/base.py:1317[0m, in [0;36m_SignalReactorMixin.run[0;34m(self, installSignalHandlers)[0m
-[1;32m   1316[0m [38;5;28;01mdef[39;00m [38;5;21mrun[39m([38;5;28mself[39m, installSignalHandlers: [38;5;28mbool[39m [38;5;241m=[39m [38;5;28;01mTrue[39;00m) [38;5;241m-[39m[38;5;241m>[39m [38;5;28;01mNone[39;00m:
-[0;32m-> 1317[0m     [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mstartRunning[49m[43m([49m[43minstallSignalHandlers[49m[38;5;241;43m=[39;49m[43minstallSignalHandlers[49m[43m)[49m
-[1;32m   1318[0m     [38;5;28mself[39m[38;5;241m.[39mmainLoop()
+File [0;32m~/Desktop/Lehre/python_class/venv_3_8.nosync/lib/python3.8/site-packages/pandas/io/html.py:1205[0m, in [0;36mread_html[0;34m(io, match, flavor, header, index_col, skiprows, attrs, parse_dates, thousands, encoding, decimal, converters, na_values, keep_default_na, displayed_only, extract_links)[0m
+[1;32m   1201[0m validate_header_arg(header)
+[1;32m   1203[0m io [38;5;241m=[39m stringify_path(io)
+[0;32m-> 1205[0m [38;5;28;01mreturn[39;00m [43m_parse[49m[43m([49m
+[1;32m   1206[0m [43m    [49m[43mflavor[49m[38;5;241;43m=[39;49m[43mflavor[49m[43m,[49m
+[1;32m   1207[0m [43m    [49m[43mio[49m[38;5;241;43m=[39;49m[43mio[49m[43m,[49m
+[1;32m   1208[0m [43m    [49m[43mmatch[49m[38;5;241;43m=[39;49m[43mmatch[49m[43m,[49m
+[1;32m   1209[0m [43m    [49m[43mheader[49m[38;5;241;43m=[39;49m[43mheader[49m[43m,[49m
+[1;32m   1210[0m [43m    [49m[43mindex_col[49m[38;5;241;43m=[39;49m[43mindex_col[49m[43m,[49m
+[1;32m   1211[0m [43m    [49m[43mskiprows[49m[38;5;241;43m=[39;49m[43mskiprows[49m[43m,[49m
+[1;32m   1212[0m [43m    [49m[43mparse_dates[49m[38;5;241;43m=[39;49m[43mparse_dates[49m[43m,[49m
+[1;32m   1213[0m [43m    [49m[43mthousands[49m[38;5;241;43m=[39;49m[43mthousands[49m[43m,[49m
+[1;32m   1214[0m [43m    [49m[43mattrs[49m[38;5;241;43m=[39;49m[43mattrs[49m[43m,[49m
+[1;32m   1215[0m [43m    [49m[43mencoding[49m[38;5;241;43m=[39;49m[43mencoding[49m[43m,[49m
+[1;32m   1216[0m [43m    [49m[43mdecimal[49m[38;5;241;43m=[39;49m[43mdecimal[49m[43m,[49m
+[1;32m   1217[0m [43m    [49m[43mconverters[49m[38;5;241;43m=[39;49m[43mconverters[49m[43m,[49m
+[1;32m   1218[0m [43m    [49m[43mna_values[49m[38;5;241;43m=[39;49m[43mna_values[49m[43m,[49m
+[1;32m   1219[0m [43m    [49m[43mkeep_default_na[49m[38;5;241;43m=[39;49m[43mkeep_default_na[49m[43m,[49m
+[1;32m   1220[0m [43m    [49m[43mdisplayed_only[49m[38;5;241;43m=[39;49m[43mdisplayed_only[49m[43m,[49m
+[1;32m   1221[0m [43m    [49m[43mextract_links[49m[38;5;241;43m=[39;49m[43mextract_links[49m[43m,[49m
+[1;32m   1222[0m [43m[49m[43m)[49m
 
-File [0;32m~/Desktop/Lehre/python_class/venv_3_8.nosync/lib/python3.8/site-packages/twisted/internet/base.py:1299[0m, in [0;36m_SignalReactorMixin.startRunning[0;34m(self, installSignalHandlers)[0m
-[1;32m   1290[0m [38;5;124;03m"""[39;00m
-[1;32m   1291[0m [38;5;124;03mExtend the base implementation in order to remember whether signal[39;00m
-[1;32m   1292[0m [38;5;124;03mhandlers should be installed later.[39;00m
+File [0;32m~/Desktop/Lehre/python_class/venv_3_8.nosync/lib/python3.8/site-packages/pandas/io/html.py:1006[0m, in [0;36m_parse[0;34m(flavor, io, match, attrs, encoding, displayed_only, extract_links, **kwargs)[0m
+[1;32m   1004[0m [38;5;28;01melse[39;00m:
+[1;32m   1005[0m     [38;5;28;01massert[39;00m retained [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m  [38;5;66;03m# for mypy[39;00m
+[0;32m-> 1006[0m     [38;5;28;01mraise[39;00m retained
+[1;32m   1008[0m ret [38;5;241m=[39m []
+[1;32m   1009[0m [38;5;28;01mfor[39;00m table [38;5;129;01min[39;00m tables:
+
+File [0;32m~/Desktop/Lehre/python_class/venv_3_8.nosync/lib/python3.8/site-packages/pandas/io/html.py:986[0m, in [0;36m_parse[0;34m(flavor, io, match, attrs, encoding, displayed_only, extract_links, **kwargs)[0m
+[1;32m    983[0m p [38;5;241m=[39m parser(io, compiled_match, attrs, encoding, displayed_only, extract_links)
+[1;32m    985[0m [38;5;28;01mtry[39;00m:
+[0;32m--> 986[0m     tables [38;5;241m=[39m [43mp[49m[38;5;241;43m.[39;49m[43mparse_tables[49m[43m([49m[43m)[49m
+[1;32m    987[0m [38;5;28;01mexcept[39;00m [38;5;167;01mValueError[39;00m [38;5;28;01mas[39;00m caught:
+[1;32m    988[0m     [38;5;66;03m# if `io` is an io-like object, check if it's seekable[39;00m
+[1;32m    989[0m     [38;5;66;03m# and try to rewind it before trying the next parser[39;00m
+[1;32m    990[0m     [38;5;28;01mif[39;00m [38;5;28mhasattr[39m(io, [38;5;124m"[39m[38;5;124mseekable[39m[38;5;124m"[39m) [38;5;129;01mand[39;00m io[38;5;241m.[39mseekable():
+
+File [0;32m~/Desktop/Lehre/python_class/venv_3_8.nosync/lib/python3.8/site-packages/pandas/io/html.py:262[0m, in [0;36m_HtmlFrameParser.parse_tables[0;34m(self)[0m
+[1;32m    254[0m [38;5;28;01mdef[39;00m [38;5;21mparse_tables[39m([38;5;28mself[39m):
+[1;32m    255[0m     [38;5;124;03m"""[39;00m
+[1;32m    256[0m [38;5;124;03m    Parse and return all tables from the DOM.[39;00m
+[1;32m    257[0m 
 [0;32m   (...)[0m
-[1;32m   1296[0m [38;5;124;03m    installed during startup.[39;00m
-[1;32m   1297[0m [38;5;124;03m"""[39;00m
-[1;32m   1298[0m [38;5;28mself[39m[38;5;241m.[39m_installSignalHandlers [38;5;241m=[39m installSignalHandlers
-[0;32m-> 1299[0m [43mReactorBase[49m[38;5;241;43m.[39;49m[43mstartRunning[49m[43m([49m[43mcast[49m[43m([49m[43mReactorBase[49m[43m,[49m[43m [49m[38;5;28;43mself[39;49m[43m)[49m[43m)[49m
+[1;32m    260[0m [38;5;124;03m    list of parsed (header, body, footer) tuples from tables.[39;00m
+[1;32m    261[0m [38;5;124;03m    """[39;00m
+[0;32m--> 262[0m     tables [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_parse_tables[49m[43m([49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_build_doc[49m[43m([49m[43m)[49m[43m,[49m[43m [49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mmatch[49m[43m,[49m[43m [49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mattrs[49m[43m)[49m
+[1;32m    263[0m     [38;5;28;01mreturn[39;00m ([38;5;28mself[39m[38;5;241m.[39m_parse_thead_tbody_tfoot(table) [38;5;28;01mfor[39;00m table [38;5;129;01min[39;00m tables)
 
-File [0;32m~/Desktop/Lehre/python_class/venv_3_8.nosync/lib/python3.8/site-packages/twisted/internet/base.py:843[0m, in [0;36mReactorBase.startRunning[0;34m(self)[0m
-[1;32m    841[0m     [38;5;28;01mraise[39;00m error[38;5;241m.[39mReactorAlreadyRunning()
-[1;32m    842[0m [38;5;28;01mif[39;00m [38;5;28mself[39m[38;5;241m.[39m_startedBefore:
-[0;32m--> 843[0m     [38;5;28;01mraise[39;00m error[38;5;241m.[39mReactorNotRestartable()
-[1;32m    844[0m [38;5;28mself[39m[38;5;241m.[39m_started [38;5;241m=[39m [38;5;28;01mTrue[39;00m
-[1;32m    845[0m [38;5;28mself[39m[38;5;241m.[39m_stopped [38;5;241m=[39m [38;5;28;01mFalse[39;00m
+File [0;32m~/Desktop/Lehre/python_class/venv_3_8.nosync/lib/python3.8/site-packages/pandas/io/html.py:618[0m, in [0;36m_BeautifulSoupHtml5LibFrameParser._parse_tables[0;34m(self, doc, match, attrs)[0m
+[1;32m    615[0m tables [38;5;241m=[39m doc[38;5;241m.[39mfind_all(element_name, attrs[38;5;241m=[39mattrs)
+[1;32m    617[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m tables:
+[0;32m--> 618[0m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m([38;5;124m"[39m[38;5;124mNo tables found[39m[38;5;124m"[39m)
+[1;32m    620[0m result [38;5;241m=[39m []
+[1;32m    621[0m unique_tables [38;5;241m=[39m [38;5;28mset[39m()
 
-[0;31mReactorNotRestartable[0m: 
-ReactorNotRestartable: 
+[0;31mValueError[0m: No tables found
+ValueError: No tables found
 

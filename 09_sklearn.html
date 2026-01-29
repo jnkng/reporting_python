@@ -1,47 +1,60 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SciKit Learn &#8212; Data Visualisation and Reporting with Python</title>
-    
-  <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    <title>SciKit Learn &#8212; Data Visualisation and Reporting with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -49,58 +62,96 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"ignoreHtmlClass": "never-ignore", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}, "tex2jax": {"ignoreClass": "never-ignore"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '09_sklearn';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
     
-    <div class="container-fluid" id="banner"></div>
-
     
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
-      
-      
-      
-      <h1 class="site-logo" id="site-title">Data Visualisation and Reporting with Python</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+<a class="navbar-brand logo" href="01_content.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Data Visualisation and Reporting with Python</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -110,357 +161,233 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="02_general.html">
-   What is Python and why use it?
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="03_python_basics.html">
-   First steps
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="04_data.html">
-   Working with Data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="05_online.html">
-   Online Data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="06_scraping.html">
-   Web Scraping
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="07_graphics.html">
-   Graphics
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="08_interactive_plots.html">
-   Interactive Graphics - Plotly
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="10_dash_I.html">
-   Dash - introduction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="11_dash_II.html">
-   Dash - advanced interactivity
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="12_markdown.html">
-   Notebook formatting
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="12_sklearn_2024.html">
-   SciKit Learn
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="13_financial_stats_CAPM.html">
-   Introduction to Statistics and Indicators in Finance
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="02_general.html">What is Python and why use it?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_python_basics.html">First steps</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="04_data.html">Working with Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_online.html">Online Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_scraping.html">Web Scraping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_graphics.html">Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_interactive_plots.html">Interactive Graphics - Plotly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_dash_I.html">Dash - introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_dash_II.html">Dash - advanced interactivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_markdown.html">Notebook formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_sklearn_2024.html">SciKit Learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_financial_stats_CAPM_2025.html">Introduction to Statistics in Finance</a></li>
+
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/09_sklearn.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
-  
-    <img src="_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
+  <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F09_sklearn.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
 </div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/09_sklearn.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
 
 <button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/executablebooks/jupyter-book"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F09_sklearn.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="_sources/09_sklearn.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-manipulation">
-   Data manipulation
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#regression">
-   Regression
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#linear-regression">
-     Linear Regression
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#digression-statsmodels">
-     Digression: statsmodels
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#supervised-learning-random-forests">
-   Supervised learning: Random Forests
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>SciKit Learn</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-manipulation">
-   Data manipulation
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#regression">
-   Regression
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#linear-regression">
-     Linear Regression
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#digression-statsmodels">
-     Digression: statsmodels
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#supervised-learning-random-forests">
-   Supervised learning: Random Forests
-  </a>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>SciKit Learn</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-manipulation">Data manipulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regression">Regression</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-regression">Linear Regression</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#digression-statsmodels">Digression: statsmodels</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supervised-learning-random-forests">Supervised learning: Random Forests</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
-  <div class="tex2jax_ignore mathjax_ignore section" id="scikit-learn">
-<h1>SciKit Learn<a class="headerlink" href="#scikit-learn" title="Permalink to this headline">#</a></h1>
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="scikit-learn">
+<h1>SciKit Learn<a class="headerlink" href="#scikit-learn" title="Permalink to this heading">#</a></h1>
 <p>The <a class="reference external" href="https://scikit-learn.org/stable/">sklearn package</a> provides a broad collection of data analysis and machine learning tools. These tools basically cover the whole process from data manipulation over fitting different models to the data and evaluating the results. Sklearn is based on <strong>numpy</strong> and may thus require that the data to analyse is provided as an numpy array. Results will also be returned as such arrays.</p>
 <p>The respective modules, i.e. classes and functions of different algorithms, are provided in an API which allows easy application basically without requiring knowledge about how the algorithm itself works. It goes without mentioning, that you should have some basic understanding about the particular strengths of an algorithm and any caveats when fitting a model to extract meaningful results.</p>
 <p>In this course, we will present only a small portion of sklearn’s functionality and refer to the <a class="reference external" href="https://scikit-learn.org/stable/modules/classes.html">API’s documentation</a>.</p>
@@ -472,8 +399,8 @@ title="Print to PDF"
 </ul>
 <p>We will now look at some basic procedures for analysing data using different methods.</p>
 <p>To load our modules, we import them specifically from the <code class="docutils literal notranslate"><span class="pre">skikit-learn</span></code> (name for installation) package instead of importing the whole package.</p>
-<div class="section" id="data-manipulation">
-<h2>Data manipulation<a class="headerlink" href="#data-manipulation" title="Permalink to this headline">#</a></h2>
+<section id="data-manipulation">
+<h2>Data manipulation<a class="headerlink" href="#data-manipulation" title="Permalink to this heading">#</a></h2>
 <p>When working with real data, the scale of your variables may differ dramatically. However, some algorithms work numerically more stable when the feature values are set in the same range. Some types of regression for example even require rescaling in order to work properly.</p>
 <p>Sklearn provides several scaler classes to map all values to a desired range. Note however, that such rescaling may affect the interpretation of the results.</p>
 <p>Let’s have a look at the <code class="docutils literal notranslate"><span class="pre">StandardScaler</span></code> which is part of the <code class="docutils literal notranslate"><span class="pre">Preprocessing</span></code> module.<br />
@@ -512,11 +439,11 @@ It assumes a normal distribution of features. The rescaling is done by subtracti
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x: mean = 1.9990193132987077, std = 5.000727355765545
-x rescaled: mean = 2.1471961986208043e-16, std = 1.0000000000000004
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x: mean = 2.000428248479022, std = 4.998895179792754
+x rescaled: mean = 1.7141346120297386e-16, std = 0.9999999999999998
 </pre></div>
 </div>
-<img alt="_images/09_sklearn_4_1.png" src="_images/09_sklearn_4_1.png" />
+<img alt="_images/49879bcdbe1d611f5bf3e696898a590459f725b9ab58226508032842a8efe87c.png" src="_images/49879bcdbe1d611f5bf3e696898a590459f725b9ab58226508032842a8efe87c.png" />
 </div>
 </div>
 <p>We see the results printed above, with a mean of zero and a standard deviation of 1 (with a slight numerical deviation). From the histograms, we can also see that the transformed distribution on the right hand side is centered around zero, i.e. the mean is indeed shifted to zero.</p>
@@ -536,7 +463,7 @@ x rescaled: mean = 2.1471961986208043e-16, std = 1.0000000000000004
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x_alt: mean = 0.00015929034880714013, std = 1.0004111723476614
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x_alt: mean = -0.00011253839363646259, std = 1.000022166945309
 </pre></div>
 </div>
 </div>
@@ -556,7 +483,7 @@ The mean of our calculation here reproduces the mean from the cell using the <co
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.00015929034880714013
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.00011253839363646259
 </pre></div>
 </div>
 </div>
@@ -570,20 +497,20 @@ The mean of our calculation here reproduces the mean from the cell using the <co
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x_alt: mean = 2.1471961986208043e-16, std = 1.0000000000000004
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x_alt: mean = 1.7141346120297386e-16, std = 0.9999999999999998
 </pre></div>
 </div>
 </div>
 </div>
 <p>There are more scalers available in sklearn which can be applied using the same syntax as shown here.</p>
-</div>
-<div class="section" id="regression">
-<h2>Regression<a class="headerlink" href="#regression" title="Permalink to this headline">#</a></h2>
-<div class="section" id="linear-regression">
-<h3>Linear Regression<a class="headerlink" href="#linear-regression" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="regression">
+<h2>Regression<a class="headerlink" href="#regression" title="Permalink to this heading">#</a></h2>
+<section id="linear-regression">
+<h3>Linear Regression<a class="headerlink" href="#linear-regression" title="Permalink to this heading">#</a></h3>
 <p>A popular and widely used tool in data analysis is linear regression where we model the the influence of some independent numerical variables on the value of a dependent numerical variable (the target).</p>
 <p>We find the ordinary least squares regression readily available in sklearn’s module <code class="docutils literal notranslate"><span class="pre">linear_model</span></code> as the <code class="docutils literal notranslate"><span class="pre">LinearRegression</span></code> class. An important note here is that by default, sklearn will fit an intercept. To exclude the intercept, set <code class="docutils literal notranslate"><span class="pre">fit_intercept=False</span></code> when instantiating the <code class="docutils literal notranslate"><span class="pre">LinearRegression</span></code> object.</p>
-<p>We will use a <a class="reference external" href="https://www.kaggle.com/mirichoi0218/insurance/version/1">health insurance data set</a> with several variables, which we will use to try to explain the charges taken for the policy. We do have some categorical variables, for which we would need to create dummy variables to use in the regression directly.</p>
+<p>We will use a <a class="reference external" href="https://www.kaggle.com/mirichoi0218/insurance/version/1#">health insurance data set</a> with several variables, which we will use to try to explain the charges taken for the policy. We do have some categorical variables, for which we would need to create dummy variables to use in the regression directly.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -683,7 +610,7 @@ The mean of our calculation here reproduces the mean from the cell using the <co
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>intercept: 1192.9372089611497, coefficient: 393.87303079739524
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>intercept: 1192.937208961137, coefficient: 393.87303079739564
 </pre></div>
 </div>
 </div>
@@ -701,7 +628,7 @@ The mean of our calculation here reproduces the mean from the cell using the <co
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/09_sklearn_20_0.png" src="_images/09_sklearn_20_0.png" />
+<img alt="_images/d56c7a0cf5764be5f14c4bee29378088a8e6aa4c23de8c6b54d0e223a636af9d.png" src="_images/d56c7a0cf5764be5f14c4bee29378088a8e6aa4c23de8c6b54d0e223a636af9d.png" />
 </div>
 </div>
 <p>In the case above, we used the data “seen” for prediction. We can easily extrapolate this to unseen data, by simply predicting for a larger value range.</p>
@@ -717,7 +644,7 @@ The mean of our calculation here reproduces the mean from the cell using the <co
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/09_sklearn_22_0.png" src="_images/09_sklearn_22_0.png" />
+<img alt="_images/d2d610aabaec6700df03f6e6c472e6d1f3d7bf38924cc257cf9d593dd9c31313.png" src="_images/d2d610aabaec6700df03f6e6c472e6d1f3d7bf38924cc257cf9d593dd9c31313.png" />
 </div>
 </div>
 <p>While we can clearly identify the trend of higher charges for older customers we can also see what appears to be three different groups. We will try to go into a little more detail about this later.</p>
@@ -754,7 +681,7 @@ A quite common one is the coefficient of determination:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/09_sklearn_26_0.png" src="_images/09_sklearn_26_0.png" />
+<img alt="_images/8368f0808ecc5b8a96bd011a237ace68e7ccee8d33274b40aebe27c57a397dc0.png" src="_images/8368f0808ecc5b8a96bd011a237ace68e7ccee8d33274b40aebe27c57a397dc0.png" />
 </div>
 </div>
 <p>In fact, we see a rather clear distinction between smokers and non-smokers indicating that you will be charged higher in general when you smoke. It also appears that for smokers, the increase in charges is steeper for an increasing bmi than it is for non-smokers</p>
@@ -803,7 +730,7 @@ intercept: [5879.42408187], coefficient: [[83.35055766]]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/09_sklearn_30_0.png" src="_images/09_sklearn_30_0.png" />
+<img alt="_images/f664a73d486f154a946f46ebf0ff6909271107fd67a46052e627b7bc07af5620.png" src="_images/f664a73d486f154a946f46ebf0ff6909271107fd67a46052e627b7bc07af5620.png" />
 </div>
 </div>
 <p>Finally, the <span class="math notranslate nohighlight">\(R^2\)</span></p>
@@ -822,9 +749,9 @@ non-smokers: 0.007062140580960441
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="digression-statsmodels">
-<h3>Digression: statsmodels<a class="headerlink" href="#digression-statsmodels" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="digression-statsmodels">
+<h3>Digression: statsmodels<a class="headerlink" href="#digression-statsmodels" title="Permalink to this heading">#</a></h3>
 <p>At this point, we shortly look at an important point when it comes to regression: significance. We skipped this above, because sklearn has its shortcomings when it comes to this kind of ‘classical statistics’. The calculation of p-values for example is not included and must be implemented by oneself.</p>
 <p>For such purposes, we can switch to the <a class="reference external" href="https://www.statsmodels.org/stable/index.html">statsmodels package</a> which may be a better choice to do all types of regression modelling as it comes with a broad output of test statistics and performance metrics.</p>
 <p>Below, an example is given for the regression from above with the just slightly different statsmodels syntax. We see that using the <code class="docutils literal notranslate"><span class="pre">.summary()</span></code> method automatically outputs a table of information about the model. We can now, for example, look at the significance of the coefficients.</p>
@@ -847,8 +774,8 @@ non-smokers: 0.007062140580960441
 Dep. Variable:                      y   R-squared:                       0.650
 Model:                            OLS   Adj. R-squared:                  0.649
 Method:                 Least Squares   F-statistic:                     506.1
-Date:                Fri, 18 Jul 2025   Prob (F-statistic):           5.02e-64
-Time:                        09:23:16   Log-Likelihood:                -2807.2
+Date:                Thu, 29 Jan 2026   Prob (F-statistic):           5.02e-64
+Time:                        11:27:11   Log-Likelihood:                -2807.2
 No. Observations:                 274   AIC:                             5618.
 Df Residuals:                     272   BIC:                             5626.
 Df Model:                           1                                         
@@ -886,10 +813,10 @@ Notes:
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="supervised-learning-random-forests">
-<h2>Supervised learning: Random Forests<a class="headerlink" href="#supervised-learning-random-forests" title="Permalink to this headline">#</a></h2>
+</section>
+</section>
+<section id="supervised-learning-random-forests">
+<h2>Supervised learning: Random Forests<a class="headerlink" href="#supervised-learning-random-forests" title="Permalink to this heading">#</a></h2>
 <p>The broad field of machine learning can be subdivided into supervised learning, unsupervised learning and reinforcement learning. For the first two, sklearn offers a variety of algorithms as plug and play functions. We will look at one example of supervised learning while introducing some basic concepts.</p>
 <p>We will train a classifier, i.e. a model that will predict a class for each observation. As we saw above, smokers and non smokers are separated quite well in the data. We would thus expect a model to learn to distinguish between those two classes.</p>
 <p>We will use a <a class="reference external" href="https://link.springer.com/content/pdf/10.1023/A:1010933404324.pdf">Random Forest</a> model which basically consists of a collection of randomized, decorrelated decision trees. It is a powerful algorithm for classification and can be used out of the box in sklearn.</p>
@@ -962,11 +889,11 @@ Notes:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/09_sklearn_44_0.png" src="_images/09_sklearn_44_0.png" />
+<img alt="_images/c7039d86bca1cae3650da05bf53282597e08686f35a603ae2919d0d95fba0523.png" src="_images/c7039d86bca1cae3650da05bf53282597e08686f35a603ae2919d0d95fba0523.png" />
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -980,7 +907,7 @@ Notes:
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -988,36 +915,89 @@ Notes:
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-manipulation">Data manipulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regression">Regression</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-regression">Linear Regression</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#digression-statsmodels">Digression: statsmodels</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supervised-learning-random-forests">Supervised learning: Random Forests</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By Jan König<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
+<p class="component-author">
+By Jan König
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
 </div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
