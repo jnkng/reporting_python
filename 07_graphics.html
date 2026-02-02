@@ -1,60 +1,47 @@
 
-
 <!DOCTYPE html>
 
-
-<html lang="en" >
-
+<html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Graphics &#8212; Data Visualisation and Reporting with Python</title>
-  
-  
-  
-  <script data-cfasync="false">
-    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
-  </script>
-  
+    
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
-  
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -62,101 +49,60 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"ignoreHtmlClass": "never-ignore", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}, "tex2jax": {"ignoreClass": "never-ignore"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script type="application/vnd.jupyter.widget-state+json">{"state": {"41ab7eba04dd475ca74b5740defe38d5": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "77bc09aa4847458290f03d117978b758": {"model_name": "SliderStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "85e0d6af95cb4d0488a71f8dffbd004d": {"model_name": "IntSliderModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "IntSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "IntSliderView", "behavior": "drag-tap", "continuous_update": true, "description": "h_neg", "description_allow_html": false, "disabled": false, "layout": "IPY_MODEL_41ab7eba04dd475ca74b5740defe38d5", "max": 359, "min": 0, "orientation": "horizontal", "readout": true, "readout_format": "d", "step": 1, "style": "IPY_MODEL_77bc09aa4847458290f03d117978b758", "tabbable": null, "tooltip": null, "value": 220}}, "4af571a6d28442f6932b80d20f50bcc1": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "3c31984f2e514af3ae6f80df386ce5a1": {"model_name": "SliderStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "cb5718dbfb164617a32de893eea64dd5": {"model_name": "IntSliderModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "IntSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "IntSliderView", "behavior": "drag-tap", "continuous_update": true, "description": "h_pos", "description_allow_html": false, "disabled": false, "layout": "IPY_MODEL_4af571a6d28442f6932b80d20f50bcc1", "max": 359, "min": 0, "orientation": "horizontal", "readout": true, "readout_format": "d", "step": 1, "style": "IPY_MODEL_3c31984f2e514af3ae6f80df386ce5a1", "tabbable": null, "tooltip": null, "value": 10}}, "2da52cab712b4fa19b8436d88136e679": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "b1e71ffdcef34e42a01e29d82a7593f9": {"model_name": "SliderStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "fff698a5b37d4493bc80fec32d274541": {"model_name": "IntSliderModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "IntSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "IntSliderView", "behavior": "drag-tap", "continuous_update": true, "description": "s", "description_allow_html": false, "disabled": false, "layout": "IPY_MODEL_2da52cab712b4fa19b8436d88136e679", "max": 99, "min": 0, "orientation": "horizontal", "readout": true, "readout_format": "d", "step": 1, "style": "IPY_MODEL_b1e71ffdcef34e42a01e29d82a7593f9", "tabbable": null, "tooltip": null, "value": 74}}, "61a16126c1534519b93e176477185cbb": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "530bc4d635884f119d4ccfcb0f314eb1": {"model_name": "SliderStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "f4b66e13c6b84c1f8820a6807e238ef1": {"model_name": "IntSliderModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "IntSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "IntSliderView", "behavior": "drag-tap", "continuous_update": true, "description": "l", "description_allow_html": false, "disabled": false, "layout": "IPY_MODEL_61a16126c1534519b93e176477185cbb", "max": 99, "min": 0, "orientation": "horizontal", "readout": true, "readout_format": "d", "step": 1, "style": "IPY_MODEL_530bc4d635884f119d4ccfcb0f314eb1", "tabbable": null, "tooltip": null, "value": 50}}, "4c08ffc4744d49e19e5b36c27ba0c7ab": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "d8acf3ecbf6443b5a602b9da32196ad5": {"model_name": "SliderStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "7e49ea489c6e4e2eafc550bffb895e59": {"model_name": "IntSliderModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "IntSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "IntSliderView", "behavior": "drag-tap", "continuous_update": true, "description": "sep", "description_allow_html": false, "disabled": false, "layout": "IPY_MODEL_4c08ffc4744d49e19e5b36c27ba0c7ab", "max": 50, "min": 1, "orientation": "horizontal", "readout": true, "readout_format": "d", "step": 1, "style": "IPY_MODEL_d8acf3ecbf6443b5a602b9da32196ad5", "tabbable": null, "tooltip": null, "value": 10}}, "266a127a5c204223b0408efb5e661804": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "f24eee51ff87452a88fdc551cbc460c0": {"model_name": "VBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": ["widget-interact"], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "VBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "VBoxView", "box_style": "", "children": ["IPY_MODEL_85e0d6af95cb4d0488a71f8dffbd004d", "IPY_MODEL_cb5718dbfb164617a32de893eea64dd5", "IPY_MODEL_fff698a5b37d4493bc80fec32d274541", "IPY_MODEL_f4b66e13c6b84c1f8820a6807e238ef1", "IPY_MODEL_7e49ea489c6e4e2eafc550bffb895e59", "IPY_MODEL_ccf1a4b51b84415cb0b13deb9f2989bd", "IPY_MODEL_9f4e1326003547eb8d97019a020e83ad", "IPY_MODEL_1dd7e462f1d14ea7be1831d7cb6bd9c6"], "layout": "IPY_MODEL_266a127a5c204223b0408efb5e661804", "tabbable": null, "tooltip": null}}, "a036ec1b761748959cc3c1e5dd3ed3a7": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "05d0c6a48f674efea615915fb5da290f": {"model_name": "SliderStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "ccf1a4b51b84415cb0b13deb9f2989bd": {"model_name": "IntSliderModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "IntSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "IntSliderView", "behavior": "drag-tap", "continuous_update": true, "description": "n", "description_allow_html": false, "disabled": false, "layout": "IPY_MODEL_a036ec1b761748959cc3c1e5dd3ed3a7", "max": 16, "min": 2, "orientation": "horizontal", "readout": true, "readout_format": "d", "step": 1, "style": "IPY_MODEL_05d0c6a48f674efea615915fb5da290f", "tabbable": null, "tooltip": null, "value": 9}}, "ad38d3debd0f4b7c9ca263f53479f1ca": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "cbf835145d534f28a5046acc6920cd2c": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "description_width": ""}}, "9f4e1326003547eb8d97019a020e83ad": {"model_name": "DropdownModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "DropdownModel", "_options_labels": ["light", "dark"], "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "DropdownView", "description": "center", "description_allow_html": false, "disabled": false, "index": 0, "layout": "IPY_MODEL_ad38d3debd0f4b7c9ca263f53479f1ca", "style": "IPY_MODEL_cbf835145d534f28a5046acc6920cd2c", "tabbable": null, "tooltip": null}}, "f1c25b69472a48329ded12b83b33ece4": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "1dd7e462f1d14ea7be1831d7cb6bd9c6": {"model_name": "OutputModel", "model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_f1c25b69472a48329ded12b83b33ece4", "msg_id": "", "outputs": [{"output_type": "display_data", "metadata": {}, "data": {"text/plain": "<Figure size 900x100 with 1 Axes>", "image/png": "iVBORw0KGgoAAAANSUhEUgAAAtIAAABlCAYAAABgOgROAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90bGliIHZlcnNpb24zLjYuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8o6BhiAAAACXBIWXMAAA9hAAAPYQGoP6dpAAAD5klEQVR4nO3cwWqiVxzG4aPIfJMmKoTCDKKrLLqYG+iu19QrCL20XkBXU0qHQhYRvIBommpCvi7a6abFyfcy5czB51mr/HkDyQ/RjPq+7wsAADDIuPYBAADQIiENAAABIQ0AAAEhDQAAASENAAABIQ0AAAEhDQAAgUn6xOfn57LZbMp0Oi2j0ehz3gQAAFX0fV+2221ZLBZlPD7+nnMc0pvNpqxWq/TpAADwxVqv12W5XB59TBzS0+m0lFLKt9//UCbd6/RlTs675dvaJzTJbsO9W76pfUKTvnn7de0TmvT44bfaJzTn8P6X2ic0aW+3wR5//rX2CU3ZPT2V73768Z/WPSYO6Y8f55h0r8ukO0tf5uR0Z1/VPqFJZ+fntU9ozsXFp38B8G+z2az2CU06nF/UPqE5hzN/OxOvXnW1T2jOYRLn3kl7yUeXfdkQAAACQhoAAAJCGgAAAkIaAAACQhoAAAJCGgAAAkIaAAACQhoAAAJCGgAAAkIaAAACQhoAAAJCGgAAAkIaAAACQhoAAAJCGgAAAkIaAAACQhoAAAJCGgAAAkIaAAACQhoAAAJCGgAAAkIaAAACQhoAAAJCGgAAAkIaAAACQhoAAAJCGgAAAkIaAAACQhoAAAJCGgAAAkIaAAACQhoAAAJCGgAAAkIaAAACQhoAAAJCGgAAAkIaAAACQhoAAAJCGgAAAkIaAAACQhoAAAJCGgAAAkIaAAACQhoAAAJCGgAAAkIaAAACQhoAAAJCGgAAAkIaAAACQhoAAAJCGgAAAkIaAAACQhoAAAJCGgAAAkIaAAACQhoAAAJCGgAAAkIaAAACQhoAAAJCGgAAAkIaAAACQhoAAAJCGgAAAkIaAAACQhoAAAJCGgAAAkIaAAACQhoAAAJCGgAAAkIaAAACQhoAAAJCGgAAAkIaAAACk/SJfd+XUkp52v/x2Y45BfuH32uf0KSH+/vaJzRnt9vWPqFJd3dd7ROa9Hi/q31Ccw4PD7VPaNL+sK99QnMen55qn9CU3d97fWzdY0b9Sx71H25ubsrV1VXyVAAA+KKt1+uyXC6PPiZ+R/ry8rKUUsrt7W2Zz+fpy5yUu7u7slqtynq9LrPZrPY5zbDbcDbL2G04m2XsNpzNMnYbru/7st1uy2Kx+ORj45Aej//6ePV8PveDGWg2m9ksYLfhbJax23A2y9htOJtl7DbMS98k9mVDAAAICGkAAAjEId11Xbm+vi5d5xvuL2WzjN2Gs1nGbsPZLGO34WyWsdv/K/6vHQAAcMp8tAMAAAJCGgAAAkIaAAACQhoAAAJCGgAAAkIaAAACQhoAAAJCGgAAAn8CS1OoRpCB2KkAAAAASUVORK5CYII=\n"}}], "tabbable": null, "tooltip": null}}}, "version_major": 2, "version_minor": 0}</script>
-    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script crossorigin="anonymous" data-jupyter-widgets-cdn="https://cdn.jsdelivr.net/npm/" src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@1.0.6/dist/embed-amd.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '07_graphics';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Interactive Graphics - Plotly" href="08_interactive_plots.html" />
     <link rel="prev" title="Web Scraping" href="06_scraping.html" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
 
-  
-  
-  <a class="skip-link" href="#main-content">Skip to main content</a>
-  
-  <div id="pst-scroll-pixel-helper"></div>
+    
+    <div class="container-fluid" id="banner"></div>
 
-  
-  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    
 
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
-<form class="bd-search d-flex align-items-center"
-      action="search.html"
-      method="get">
-  <i class="fa-solid fa-magnifying-glass"></i>
-  <input type="search"
-         class="form-control"
-         name="q"
-         id="search-input"
-         placeholder="Search this book..."
-         aria-label="Search this book..."
-         autocomplete="off"
-         autocorrect="off"
-         autocapitalize="off"
-         spellcheck="false"/>
-  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
-  
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
-  
-  <div class="bd-container">
-    <div class="bd-container__inner bd-page-width">
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
       
-      <div class="bd-sidebar-primary bd-sidebar">
-        
-
-  
-  <div class="sidebar-header-items sidebar-primary__section">
-    
-    
-    
-    
-  </div>
-  
-    <div class="sidebar-primary-items__start sidebar-primary__section">
-        <div class="sidebar-primary-item">
-  
-
-<a class="navbar-brand logo" href="01_content.html">
-  
-  
-  
-  
-  
-    <p class="title logo__title">Data Visualisation and Reporting with Python</p>
-  
-</a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item navbar-nav active">
+      
+      
+      <h1 class="site-logo" id="site-title">Data Visualisation and Reporting with Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -166,251 +112,444 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="02_general.html">What is Python and why use it?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_python_basics.html">First steps</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="04_data.html">Working with Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_online.html">Online Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="06_scraping.html">Web Scraping</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Graphics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="08_interactive_plots.html">Interactive Graphics - Plotly</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10_dash_I.html">Dash - introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="11_dash_II.html">Dash - advanced interactivity</a></li>
-<li class="toctree-l1"><a class="reference internal" href="12_markdown.html">Notebook formatting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="12_sklearn_2024.html">SciKit Learn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="13_financial_stats_CAPM_2025.html">Introduction to Statistics in Finance</a></li>
-
+ <li class="toctree-l1">
+  <a class="reference internal" href="02_general.html">
+   What is Python and why use it?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03_python_basics.html">
+   First steps
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04_data.html">
+   Working with Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05_online.html">
+   Online Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06_scraping.html">
+   Web Scraping
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Graphics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08_interactive_plots.html">
+   Interactive Graphics - Plotly
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10_dash_I.html">
+   Dash - introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_dash_II.html">
+   Dash - advanced interactivity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="12_markdown.html">
+   Notebook formatting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="12_sklearn_2024.html">
+   SciKit Learn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="13_financial_stats_CAPM_2025.html">
+   Introduction to Statistics in Finance
+  </a>
+ </li>
 </ul>
 
     </div>
 </nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
     </div>
-  
-  
-  <div class="sidebar-primary-items__end sidebar-primary__section">
-  </div>
-  
-  <div id="rtd-footer-container"></div>
+    <div id="rtd-footer-container"></div>
+</div>
 
 
-      </div>
-      
-      <main id="main-content" class="bd-main">
-        
-        
+          
 
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
 <div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
 
-          <div class="bd-content">
-            <div class="bd-article-container">
-              
-              <div class="bd-header-article">
-<div class="header-article-items header-article__inner">
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
   
-    <div class="header-article-items__start">
-      
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <span class="fa-solid fa-bars"></span>
-</label></div>
-      
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
     </div>
-  
-  
-    <div class="header-article-items__end">
-      
-        <div class="header-article-item">
-
-<div class="article-header-buttons">
-
-
-
-
-
-<div class="dropdown dropdown-source-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
-    <i class="fab fa-github"></i>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
   </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
-   class="btn btn-sm btn-source-repository-button dropdown-item"
-   title="Source repository"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="btn__text-container">Repository</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F07_graphics.html&body=Your%20issue%20content%20here." target="_blank"
-   class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Open an issue"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="btn__text-container">Open issue</span>
-</a>
-</li>
-      
-  </ul>
-</div>
-
-
-
-
-
-
-<div class="dropdown dropdown-download-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
-    <i class="fas fa-download"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="_sources/07_graphics.ipynb" target="_blank"
-   class="btn btn-sm btn-download-source-button dropdown-item"
-   title="Download source file"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="btn__text-container">.ipynb</span>
-</a>
-</li>
-      
-      
-      
-      
+  <div class="menu-dropdown__content">
+    <ul>
       <li>
-<button onclick="window.print()"
-  class="btn btn-sm btn-download-pdf-button dropdown-item"
-  title="Print to PDF"
-  data-bs-placement="left" data-bs-toggle="tooltip"
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/07_graphics.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
 >
   
 
-<span class="btn__icon-container">
-  <i class="fas fa-file-pdf"></i>
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
   </span>
-<span class="btn__text-container">.pdf</span>
-</button>
-</li>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
       
-  </ul>
+    </ul>
+  </div>
 </div>
-
-
-
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
-  title="Fullscreen mode"
-  data-bs-placement="bottom" data-bs-toggle="tooltip"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
 >
   
 
-<span class="btn__icon-container">
+<span class="headerbtn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
   </button>
-`);
-</script>
-
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
-</div></div>
-      
-    </div>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
   
-</div>
-</div>
-              
-              
 
-<div id="jb-print-docs-body" class="onlyprint">
-    <h1>Graphics</h1>
-    <!-- Table of contents -->
-    <div id="print-main-content">
-        <div id="jb-print-toc">
-            
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib">Matplotlib</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#categories">Categories</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bar-charts">Bar Charts</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#histograms">Histograms</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#subplots">Subplots</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-data">Numerical Data</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#scatter-plots">Scatter Plots</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#line-plots">Line plots</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seaborn">Seaborn</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#heatmaps">Heatmaps</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boxplot">Boxplot</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#violin-plot">Violin Plot</a></li>
-</ul>
-            </nav>
-        </div>
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F07_graphics.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/07_graphics.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
     </div>
 </div>
 
-              
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matplotlib">
+   Matplotlib
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#categories">
+     Categories
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#bar-charts">
+       Bar Charts
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#histograms">
+       Histograms
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#subplots">
+       Subplots
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#numerical-data">
+     Numerical Data
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#scatter-plots">
+       Scatter Plots
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#line-plots">
+       Line plots
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#seaborn">
+   Seaborn
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#heatmaps">
+     Heatmaps
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#boxplot">
+     Boxplot
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#violin-plot">
+   Violin Plot
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Graphics</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matplotlib">
+   Matplotlib
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#categories">
+     Categories
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#bar-charts">
+       Bar Charts
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#histograms">
+       Histograms
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#subplots">
+       Subplots
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#numerical-data">
+     Numerical Data
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#scatter-plots">
+       Scatter Plots
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#line-plots">
+       Line plots
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#seaborn">
+   Seaborn
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#heatmaps">
+     Heatmaps
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#boxplot">
+     Boxplot
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#violin-plot">
+   Violin Plot
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
                 
-<div id="searchbox"></div>
-                <article class="bd-article" role="main">
-                  
-  <section class="tex2jax_ignore mathjax_ignore" id="graphics">
-<h1>Graphics<a class="headerlink" href="#graphics" title="Permalink to this heading">#</a></h1>
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="graphics">
+<h1>Graphics<a class="headerlink" href="#graphics" title="Permalink to this headline">#</a></h1>
 <p><span style="font-family:Apple Chancery"><font size="4"> - A graph is worth a thousand records (and more) -</font></span></p>
 <p>Graphics provide an easy way to display information extracted from data to the beholder. While graphics are a major tool for reporting purposes, reporting may already mark the endpoint of your journey with the data. Instead of creating graphics only as a final step, they should also be considered at the very beginning of a project: when exploring a dataset for the first time. While creating different plots for a dataset, we will therefor try to explain any oddities we find.</p>
 <p>Python offers several packages, which allow a quick look at your data using basic plot types. The respective functions to build these plots in a basic fashion using the default preferences are highly customizable.</p>
-<section id="matplotlib">
-<h2>Matplotlib<a class="headerlink" href="#matplotlib" title="Permalink to this heading">#</a></h2>
+<div class="section" id="matplotlib">
+<h2>Matplotlib<a class="headerlink" href="#matplotlib" title="Permalink to this headline">#</a></h2>
 <p>A popular library for graphics in python is <span class="xref myst">matplotlib</span>. Its functionality is accessed by importing its <strong>API</strong> (commonly under the alias <em>plt</em>) <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span> <span class="pre">as</span> <span class="pre">plt</span></code>. It works seamlessly with numpy arrays and pandas objects, making it the library of choice here.</p>
 <p>In general, when creating a plot, we create a <em>figure</em> to which we add <em>axes</em> objects.</p>
 <p><code class="docutils literal notranslate"><span class="pre">pyplot</span></code> functions then specify which part of the figure is adressed and adds objects to it. Such parts include for example the axes, title or drawing area. In order to customize a plot, you can stack these function calls, since the invoked states will be preserved until the concluding <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code> statement creates the graph.</p>
@@ -491,12 +630,12 @@ memory usage: 1.4+ MB
 </div>
 </div>
 <p>In order to create a meaningful plot, the type must be chosen depending on the type of the variables.</p>
-<section id="categories">
-<h3>Categories<a class="headerlink" href="#categories" title="Permalink to this heading">#</a></h3>
+<div class="section" id="categories">
+<h3>Categories<a class="headerlink" href="#categories" title="Permalink to this headline">#</a></h3>
 <p>Such variables are usually (but not necessarily) of type string. After identifying a variable to be categorical, one must decide whether it is of ordinal - the levels can be ranked - or nominal scale - they cannot be ranked. Examples from our dataset are <strong>Income_Category</strong> for ordinal and <strong>Martial_Status</strong> for nominal scale.</p>
 <p>For categorical variables, bar charts and histograms are maybe the first plot type you should consider. The difference however, is only the order and visualisation: ordinal data uses histograms, which appear column to column in a defined order, nominal data uses barcharts iwth spacing between the columns and no specific order. To build the standard plots, we need not do more than call the <code class="docutils literal notranslate"><span class="pre">hist()</span></code> or <code class="docutils literal notranslate"><span class="pre">bar</span></code> function with the respective data.</p>
-<section id="bar-charts">
-<h4>Bar Charts<a class="headerlink" href="#bar-charts" title="Permalink to this heading">#</a></h4>
+<div class="section" id="bar-charts">
+<h4>Bar Charts<a class="headerlink" href="#bar-charts" title="Permalink to this headline">#</a></h4>
 <p>We need to provide the categories and the height of the variable. With the <code class="docutils literal notranslate"><span class="pre">.unique()</span></code> method, we get all levels present in the variable, with <code class="docutils literal notranslate"><span class="pre">.calue_counts()</span></code> we get the number of occurrences.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -510,7 +649,7 @@ memory usage: 1.4+ MB
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;BarContainer object of 4 artists&gt;
 </pre></div>
 </div>
-<img alt="_images/44583efc0f0ed81e0bb6f7d8663e16ed0d6ae3a163a1c99bcb6c270e341374a8.png" src="_images/44583efc0f0ed81e0bb6f7d8663e16ed0d6ae3a163a1c99bcb6c270e341374a8.png" />
+<img alt="_images/07_graphics_9_1.png" src="_images/07_graphics_9_1.png" />
 </div>
 </div>
 <div class="admonition-warning admonition">
@@ -526,12 +665,12 @@ memory usage: 1.4+ MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/44583efc0f0ed81e0bb6f7d8663e16ed0d6ae3a163a1c99bcb6c270e341374a8.png" src="_images/44583efc0f0ed81e0bb6f7d8663e16ed0d6ae3a163a1c99bcb6c270e341374a8.png" />
+<img alt="_images/07_graphics_11_0.png" src="_images/07_graphics_11_0.png" />
 </div>
 </div>
-</section>
-<section id="histograms">
-<h4>Histograms<a class="headerlink" href="#histograms" title="Permalink to this heading">#</a></h4>
+</div>
+<div class="section" id="histograms">
+<h4>Histograms<a class="headerlink" href="#histograms" title="Permalink to this headline">#</a></h4>
 <p>Histograms are used, when the distribution of a numerical variable should be displayed</p>
 <p>The default number of bins in matplotlib is 10 with equal spacing. For a more detailed look or further processing, we can use the <code class="docutils literal notranslate"><span class="pre">hist()</span></code> function to get the number of samples in each bin, the borders of the bins and the patches, i.e.the displayed parts of the histogram.</p>
 <p>Let’s change the number of bins to 5 and view these unpacked parts. (Note that jupyter will print the plot any way)</p>
@@ -549,7 +688,7 @@ bin borders: [ 1438.3   8053.84 14669.38 21284.92 27900.46 34516.  ]
 patches: Rectangle(xy=(1934.47, 0), width=5623.21, height=6735, angle=0) Rectangle(xy=(8550.01, 0), width=5623.21, height=1520, angle=0)
 </pre></div>
 </div>
-<img alt="_images/94a4438ea979dd251717fc546cf938efaa8160bc63f5b7b3f6331d1067958b14.png" src="_images/94a4438ea979dd251717fc546cf938efaa8160bc63f5b7b3f6331d1067958b14.png" />
+<img alt="_images/07_graphics_13_1.png" src="_images/07_graphics_13_1.png" />
 </div>
 </div>
 <p>We see that the ticks are not automatically matching the bars. To solve this, we can use the bin borders, <code class="docutils literal notranslate"><span class="pre">bins</span></code> from above, to set the ticks and labels on the x axis.</p>
@@ -563,12 +702,12 @@ patches: Rectangle(xy=(1934.47, 0), width=5623.21, height=6735, angle=0) Rectang
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/4d02f508448ecd4d99d3c10f4a2be5730a34a7ae48efb5afd7c6d120e15979e8.png" src="_images/4d02f508448ecd4d99d3c10f4a2be5730a34a7ae48efb5afd7c6d120e15979e8.png" />
+<img alt="_images/07_graphics_15_0.png" src="_images/07_graphics_15_0.png" />
 </div>
 </div>
-</section>
-<section id="subplots">
-<h4>Subplots<a class="headerlink" href="#subplots" title="Permalink to this heading">#</a></h4>
+</div>
+<div class="section" id="subplots">
+<h4>Subplots<a class="headerlink" href="#subplots" title="Permalink to this headline">#</a></h4>
 <p>We can compare two results side by side, using the <code class="docutils literal notranslate"><span class="pre">subplot(nrow,</span> <span class="pre">ncol,</span> <span class="pre">index)</span></code> function.
 We specify how many plots to show by the number of rows and columns in the parentheses. To make one cell of the figure the current subplot, call the subplot function before.</p>
 <ul class="simple">
@@ -599,7 +738,7 @@ We specify how many plots to show by the number of rows and columns in the paren
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/fc12b2897d16cfc34cb70365e3f3ab8218b313a132f79e614d51c2fa8d62a172.png" src="_images/fc12b2897d16cfc34cb70365e3f3ab8218b313a132f79e614d51c2fa8d62a172.png" />
+<img alt="_images/07_graphics_17_0.png" src="_images/07_graphics_17_0.png" />
 </div>
 </div>
 <p>The rightmost bar strikes the eye as it interrupts the decreasing trend seen towards higher values. If we check for the occurence of the maximum value by <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">len(df[df.Credit_Limit</span> <span class="pre">==</span> <span class="pre">max(df.Credit_Limit)])</span></code>, we find it occurs 508 times. This is in indication, that the dataset has been clipped. Meaning that values higher or lower than some critical values are overwritten by these values.</p>
@@ -680,7 +819,7 @@ We specify how many plots to show by the number of rows and columns in the paren
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/181300713658fb4e77ea28a8c352f6619e286af990ee052bd06252a9dde73f22.png" src="_images/181300713658fb4e77ea28a8c352f6619e286af990ee052bd06252a9dde73f22.png" />
+<img alt="_images/07_graphics_24_0.png" src="_images/07_graphics_24_0.png" />
 </div>
 </div>
 <p>We can see that we basically built the same plot (middle and right) by using a bar plot and a histogram.</p>
@@ -718,7 +857,7 @@ We specify how many plots to show by the number of rows and columns in the paren
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/376c26e20c484b3c9ca421c22fa05aba1cbb4d5387995df79ec7354d6c25c59b.png" src="_images/376c26e20c484b3c9ca421c22fa05aba1cbb4d5387995df79ec7354d6c25c59b.png" />
+<img alt="_images/07_graphics_26_0.png" src="_images/07_graphics_26_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -736,17 +875,17 @@ We specify how many plots to show by the number of rows and columns in the paren
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7e44bad2cb920b8d074b47fe83b2f2b4849bc8937d65b91785ad10d1618ef79a.png" src="_images/7e44bad2cb920b8d074b47fe83b2f2b4849bc8937d65b91785ad10d1618ef79a.png" />
+<img alt="_images/07_graphics_27_0.png" src="_images/07_graphics_27_0.png" />
 </div>
 </div>
 <p>The basic framework stays the same for all other plots that can be created using matplotlib. We will have a look at two more examples before switching to a different library more specific for statistical plots.</p>
-</section>
-</section>
-<section id="numerical-data">
-<h3>Numerical Data<a class="headerlink" href="#numerical-data" title="Permalink to this heading">#</a></h3>
+</div>
+</div>
+<div class="section" id="numerical-data">
+<h3>Numerical Data<a class="headerlink" href="#numerical-data" title="Permalink to this headline">#</a></h3>
 <p>Beside categorical data, we often deal with numerical data. We have already used <strong>Credit_Limit</strong> for a histogram so far.</p>
-<section id="scatter-plots">
-<h4>Scatter Plots<a class="headerlink" href="#scatter-plots" title="Permalink to this heading">#</a></h4>
+<div class="section" id="scatter-plots">
+<h4>Scatter Plots<a class="headerlink" href="#scatter-plots" title="Permalink to this headline">#</a></h4>
 <p>This kind of plot uses uses variables from the dataset on both axes, unlike before where we saw the count on the y-axis. Scatter plots are particularly useful for checking relationships between two variables. To create a scatterplot, use <code class="docutils literal notranslate"><span class="pre">plt.scatter()</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -757,7 +896,7 @@ We specify how many plots to show by the number of rows and columns in the paren
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6d7d925fa3b64c4e056b83e36ac8fc85745ad2a973cde786f08af0a076d49f3f.png" src="_images/6d7d925fa3b64c4e056b83e36ac8fc85745ad2a973cde786f08af0a076d49f3f.png" />
+<img alt="_images/07_graphics_30_0.png" src="_images/07_graphics_30_0.png" />
 </div>
 </div>
 <p>We clearly see a positive linear correlation between the two variables. We also see, that one value of Months_on_Book appears throughout all ages. This is likely from imputing missing values, i.e. if this information is not available, the system instantly or some data engineer later set the value to the mean or some other statistical indicator.</p>
@@ -769,7 +908,7 @@ We specify how many plots to show by the number of rows and columns in the paren
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.788912358993053
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7889123589930522
 </pre></div>
 </div>
 </div>
@@ -826,7 +965,7 @@ mean without 36 months at all: 35.905401878914404
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/832f65e44e292dfc12a0f65a53a07022d3cd53674821cada39694783d27b4394.png" src="_images/832f65e44e292dfc12a0f65a53a07022d3cd53674821cada39694783d27b4394.png" />
+<img alt="_images/07_graphics_36_0.png" src="_images/07_graphics_36_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -866,12 +1005,12 @@ silver
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7d44e976629f45623b8e5d08e49cca15fc62279752078508ebd7a4178ddc6034.png" src="_images/7d44e976629f45623b8e5d08e49cca15fc62279752078508ebd7a4178ddc6034.png" />
+<img alt="_images/07_graphics_39_0.png" src="_images/07_graphics_39_0.png" />
 </div>
 </div>
-</section>
-<section id="line-plots">
-<h4>Line plots<a class="headerlink" href="#line-plots" title="Permalink to this heading">#</a></h4>
+</div>
+<div class="section" id="line-plots">
+<h4>Line plots<a class="headerlink" href="#line-plots" title="Permalink to this headline">#</a></h4>
 <p>The ‘most standard’ type of plot may be the <strong>line plot</strong>. It is used for example to display the evolution of a variable over time like in stock charts. Another example would be the visualisation of a fit curve or some distribution in a histogram.</p>
 <p>To create a lineplot, use the <code class="docutils literal notranslate"><span class="pre">plot()</span></code> function. We will at first look at how to plot a normal distribution and then simulate random variables accordingly to compare them in a histogram.</p>
 <div class="cell docutils container">
@@ -908,16 +1047,16 @@ silver
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/09ea2002b1d217b4ef7241718fd012c2482d7cc7aa274b48e4f15da30305d661.png" src="_images/09ea2002b1d217b4ef7241718fd012c2482d7cc7aa274b48e4f15da30305d661.png" />
+<img alt="_images/07_graphics_41_0.png" src="_images/07_graphics_41_0.png" />
 </div>
 </div>
-<p>Matplotlib includes many useful shortcuts in customizing the graphics: colors (simply ‘blue’ instead of an rgb code), the markers (e.g. ‘^’ for triangles) and the linestyle (’–’ for a dashed line). They can be found in the documentation of the respective function. In general, it is always useful to check the documentation when creating a graph that should be beyond the standard, because of the mutltitude of built-in keywords.</p>
+<p>Matplotlib includes many useful shortcuts in customizing the graphics: colors (simply ‘blue’ instead of an rgb code), the markers (e.g. ‘^’ for triangles) and the linestyle (‘–’ for a dashed line). They can be found in the documentation of the respective function. In general, it is always useful to check the documentation when creating a graph that should be beyond the standard, because of the mutltitude of built-in keywords.</p>
 <p>While Matplotlib offers the possibility to create and customize plots almost at will, it sometimes does not quite have the right plot readily availabe. For statistical plots and graphics, another library includes more predefinded functions for a wide variety of plot types.</p>
-</section>
-</section>
-</section>
-<section id="seaborn">
-<h2>Seaborn<a class="headerlink" href="#seaborn" title="Permalink to this heading">#</a></h2>
+</div>
+</div>
+</div>
+<div class="section" id="seaborn">
+<h2>Seaborn<a class="headerlink" href="#seaborn" title="Permalink to this headline">#</a></h2>
 <p><a class="reference external" href="https://seaborn.pydata.org">Seaborn</a> is a library for statistical plots and graphs. It is based on matplotlib and thus works neatly with pandas and numpy as well. The advantage is the many plot types which are available which may be tiresome to build ourselves using matplotlib. Beside more available default plot types than in matplotlib, seaborn includes composite graphics, where one command automatically renders a set of graphics. This makes exploring of a dataset even quicker. In the following, we will show some of the above plots and new kinds of standard statistical plots in seaborn.</p>
 <p>The syntax is slightly different to matplotlib: The <code class="docutils literal notranslate"><span class="pre">data</span></code> argument specifies the dataframe/array and the variables are selected as strings. Note however, that since seaborn is built upon the matplotlib framework, we can still use the syntax used above. Furthermore, we can utilise some functions we have learned before. We would then just need to import matplotlib as well.</p>
 <p>At first, we <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">seaborn</span> <span class="pre">as</span> <span class="pre">sns</span></code></p>
@@ -964,7 +1103,7 @@ silver
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/8bff805e290afa4c96e45ef458357fef2ced1eee75bf90b385e7d109bfe62c33.png" src="_images/8bff805e290afa4c96e45ef458357fef2ced1eee75bf90b385e7d109bfe62c33.png" />
+<img alt="_images/07_graphics_48_0.png" src="_images/07_graphics_48_0.png" />
 </div>
 </div>
 <p>For histograms additional functionality is readily available. The <code class="docutils literal notranslate"><span class="pre">displot()</span></code> function builds the basic histogram. In seaborn, we only need single keywords to build more advanced plots:</p>
@@ -990,15 +1129,15 @@ silver
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/afc39cea148905549d5fd720a897193ef9829710dbce04ee1149f49d388644f5.png" src="_images/afc39cea148905549d5fd720a897193ef9829710dbce04ee1149f49d388644f5.png" />
-<img alt="_images/6ccb786faca1a890c01756b74bb0894bfb2e7548fc613257d808631c94d904b5.png" src="_images/6ccb786faca1a890c01756b74bb0894bfb2e7548fc613257d808631c94d904b5.png" />
-<img alt="_images/aa60d25389008de3b886be5b7f92695d486e58d587d621d3a1c095cb03c9a282.png" src="_images/aa60d25389008de3b886be5b7f92695d486e58d587d621d3a1c095cb03c9a282.png" />
+<img alt="_images/07_graphics_50_0.png" src="_images/07_graphics_50_0.png" />
+<img alt="_images/07_graphics_50_1.png" src="_images/07_graphics_50_1.png" />
+<img alt="_images/07_graphics_50_2.png" src="_images/07_graphics_50_2.png" />
 </div>
 </div>
 <p>At this point, we will no longer repeat the plot types we have seen in the previous chapter. However, you are advised to check how to create them using seaborn and learn about the additional possibilities.</p>
 <p>We will now look at some other plots which come with seaborn by default and may not be built so quickly using pyplot. A more complete set of available plot types can be found <a class="reference external" href="https://seaborn.pydata.org/examples/index.html">here</a></p>
-<section id="heatmaps">
-<h3>Heatmaps<a class="headerlink" href="#heatmaps" title="Permalink to this heading">#</a></h3>
+<div class="section" id="heatmaps">
+<h3>Heatmaps<a class="headerlink" href="#heatmaps" title="Permalink to this headline">#</a></h3>
 <p>This is a special kind of plot, that is often used to visualize correlation matrices. It shows variables (or categories) on the axes and rectangles in the plot which are usually coloured with respect to some value.</p>
 <p>For a correlation matrix, we first have to calculate it using numpy. The resulting matrix can then be passed to seaborn.</p>
 <p>To compute the correlation, we need to either omit the categorical variables or use one-hot encoding. For this example, we will only look at numerical variables and use the usual Pearson correlation.</p>
@@ -1122,10 +1261,10 @@ silver
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot: &gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
-<img alt="_images/dc25f464d57ae8fdcb3b42f1a940289cac60b56484f7193b1da27bae61ed19d1.png" src="_images/dc25f464d57ae8fdcb3b42f1a940289cac60b56484f7193b1da27bae61ed19d1.png" />
+<img alt="_images/07_graphics_55_1.png" src="_images/07_graphics_55_1.png" />
 </div>
 </div>
 <p>The high correlation between ‘Months_on_Book’ and ‘Customer_Age’ we found earlier can now clearly be seen by the light field corresponding to a high correlation.</p>
@@ -1147,7 +1286,7 @@ At last, we use a custom colour map to try and get a better contrast for the low
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/985ac5c338fd0a783ca66fe19d74380b424a21e8392b95d8e6efb7ab951080df.png" src="_images/985ac5c338fd0a783ca66fe19d74380b424a21e8392b95d8e6efb7ab951080df.png" />
+<img alt="_images/07_graphics_57_0.png" src="_images/07_graphics_57_0.png" />
 </div>
 </div>
 <p>With Jupyter notebook, the colours can even be chosen from an interactive interface. (<code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code> must be installed)</p>
@@ -1158,7 +1297,9 @@ At last, we use a custom colour map to try and get a better contrast for the low
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "f24eee51ff87452a88fdc551cbc460c0"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "1cc656bc97194eeeb015e2afac6f369e"}
+</script></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1169,12 +1310,12 @@ At last, we use a custom colour map to try and get a better contrast for the low
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/19e01b5ad278d1ed4e56cbc5f84f54a8856894c0335e17de41886860f229e7ad.png" src="_images/19e01b5ad278d1ed4e56cbc5f84f54a8856894c0335e17de41886860f229e7ad.png" />
+<img alt="_images/07_graphics_60_0.png" src="_images/07_graphics_60_0.png" />
 </div>
 </div>
-</section>
-<section id="boxplot">
-<h3>Boxplot<a class="headerlink" href="#boxplot" title="Permalink to this heading">#</a></h3>
+</div>
+<div class="section" id="boxplot">
+<h3>Boxplot<a class="headerlink" href="#boxplot" title="Permalink to this headline">#</a></h3>
 <p>Boxplots are used to depict several descriptive statistics of a numerical variable at once. The usually contain the following elements:</p>
 <ul class="simple">
 <li><p>a box, stretching from the first to the third quartile</p></li>
@@ -1210,13 +1351,13 @@ In this configuration, outliers, i.e. data points above or beyond the respective
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/3edfd9e53dad3a71892a7f8b2b1b4221b1705b1d93257f4d1913c65a87f8d584.png" src="_images/3edfd9e53dad3a71892a7f8b2b1b4221b1705b1d93257f4d1913c65a87f8d584.png" />
+<img alt="_images/07_graphics_62_0.png" src="_images/07_graphics_62_0.png" />
 </div>
 </div>
-</section>
-</section>
-<section id="violin-plot">
-<h2>Violin Plot<a class="headerlink" href="#violin-plot" title="Permalink to this heading">#</a></h2>
+</div>
+</div>
+<div class="section" id="violin-plot">
+<h2>Violin Plot<a class="headerlink" href="#violin-plot" title="Permalink to this headline">#</a></h2>
 <p>A plot showing similar information (and is maybe more aesthetic) is the violin plot. It includes a kernel density estimation which is shown on both sides of the middle axis. This adds visual information beyond the quartiles and outliers, by displaying the distribution of values.</p>
 <p>Specifying <code class="docutils literal notranslate"><span class="pre">inner=&quot;quartile&quot;</span></code> introduces respective lines for the 1st, 2nd and 3rd quartile.</p>
 <div class="cell docutils container">
@@ -1227,7 +1368,7 @@ In this configuration, outliers, i.e. data points above or beyond the respective
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d8e589b6b86a78e85b0329bffe969026089038688ca2f4aff73bee65c4ecb201.png" src="_images/d8e589b6b86a78e85b0329bffe969026089038688ca2f4aff73bee65c4ecb201.png" />
+<img alt="_images/07_graphics_64_0.png" src="_images/07_graphics_64_0.png" />
 </div>
 </div>
 <p>We can display the distribution of one variable with respect to the (customized order) levels of a second variable. Furthermore, we can also use a ‘hue’ for a third variable. For dichotomous variables, setting <code class="docutils literal notranslate"><span class="pre">split=True</span></code> makes use of both sides of a violinplot, instead of creating sets of two violinplots.</p>
@@ -1252,11 +1393,17 @@ In this configuration, outliers, i.e. data points above or beyond the respective
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/4ce139f3f9a84c949a58a0b9210c872f85876a753f5df50215619c2cb3d86b20.png" src="_images/4ce139f3f9a84c949a58a0b9210c872f85876a753f5df50215619c2cb3d86b20.png" />
+<img alt="_images/07_graphics_66_0.png" src="_images/07_graphics_66_0.png" />
 </div>
 </div>
-</section>
-</section>
+</div>
+</div>
+
+
+<script type="application/vnd.jupyter.widget-state+json">
+{"state": {"6d8c8f66ac964b6da131afc15c50aaab": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "99fa8ab3ff334597bd240d84af27a932": {"model_name": "SliderStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "ffed6f628ca24dd281a914d4889af480": {"model_name": "IntSliderModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "IntSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "IntSliderView", "continuous_update": true, "description": "h_neg", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_6d8c8f66ac964b6da131afc15c50aaab", "max": 359, "min": 0, "orientation": "horizontal", "readout": true, "readout_format": "d", "step": 1, "style": "IPY_MODEL_99fa8ab3ff334597bd240d84af27a932", "value": 220}}, "ae2eddca90d747eaad9c80db46e59322": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "87fc5c04b68e4e1fb488933acd41dfa9": {"model_name": "SliderStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "a4aa3632116d4eec8458a492a2360c1e": {"model_name": "IntSliderModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "IntSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "IntSliderView", "continuous_update": true, "description": "h_pos", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_ae2eddca90d747eaad9c80db46e59322", "max": 359, "min": 0, "orientation": "horizontal", "readout": true, "readout_format": "d", "step": 1, "style": "IPY_MODEL_87fc5c04b68e4e1fb488933acd41dfa9", "value": 10}}, "b23ce7480abd41578d824597cf7936a6": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "8d2a906094664dfdb2f605a33f8befca": {"model_name": "SliderStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "1b3480c5aeb84132ac1b0b0f3ec58833": {"model_name": "IntSliderModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "IntSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "IntSliderView", "continuous_update": true, "description": "s", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_b23ce7480abd41578d824597cf7936a6", "max": 99, "min": 0, "orientation": "horizontal", "readout": true, "readout_format": "d", "step": 1, "style": "IPY_MODEL_8d2a906094664dfdb2f605a33f8befca", "value": 74}}, "4f2614314caf4d979c2e184cfded78f9": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "7ae4d99a83694107a32e7e28c6d82297": {"model_name": "SliderStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "37112925ea83403db90a0ab166dcb417": {"model_name": "IntSliderModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "IntSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "IntSliderView", "continuous_update": true, "description": "l", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_4f2614314caf4d979c2e184cfded78f9", "max": 99, "min": 0, "orientation": "horizontal", "readout": true, "readout_format": "d", "step": 1, "style": "IPY_MODEL_7ae4d99a83694107a32e7e28c6d82297", "value": 50}}, "d812c6b761df4d7c85dc735e854801f6": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "dd1558d956b1400a8cc08a4343a6237f": {"model_name": "SliderStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "25dd6af1f066489a9dae2de52d06b5d4": {"model_name": "IntSliderModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "IntSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "IntSliderView", "continuous_update": true, "description": "sep", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_d812c6b761df4d7c85dc735e854801f6", "max": 50, "min": 1, "orientation": "horizontal", "readout": true, "readout_format": "d", "step": 1, "style": "IPY_MODEL_dd1558d956b1400a8cc08a4343a6237f", "value": 10}}, "8b0f040c82234b9a9fdb8ae845729997": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "1cc656bc97194eeeb015e2afac6f369e": {"model_name": "VBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": ["widget-interact"], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "VBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "VBoxView", "box_style": "", "children": ["IPY_MODEL_ffed6f628ca24dd281a914d4889af480", "IPY_MODEL_a4aa3632116d4eec8458a492a2360c1e", "IPY_MODEL_1b3480c5aeb84132ac1b0b0f3ec58833", "IPY_MODEL_37112925ea83403db90a0ab166dcb417", "IPY_MODEL_25dd6af1f066489a9dae2de52d06b5d4", "IPY_MODEL_9e3909bfbd374178b25e083fe0409292", "IPY_MODEL_b91b0dd88a524b1da549e48bb4b167ef", "IPY_MODEL_7a249259a0474cc88d56db612ac1e983"], "layout": "IPY_MODEL_8b0f040c82234b9a9fdb8ae845729997"}}, "38c7cf5e8cc5436684e59778de59423b": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "ee7c087f20344c6abef3806c2cada8b5": {"model_name": "SliderStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "9e3909bfbd374178b25e083fe0409292": {"model_name": "IntSliderModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "IntSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "IntSliderView", "continuous_update": true, "description": "n", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_38c7cf5e8cc5436684e59778de59423b", "max": 16, "min": 2, "orientation": "horizontal", "readout": true, "readout_format": "d", "step": 1, "style": "IPY_MODEL_ee7c087f20344c6abef3806c2cada8b5", "value": 9}}, "f5f660b816d549d8802733ac0557a716": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "9f156ee05f32465eb0e3707d01ffaa07": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "b91b0dd88a524b1da549e48bb4b167ef": {"model_name": "DropdownModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DropdownModel", "_options_labels": ["light", "dark"], "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "DropdownView", "description": "center", "description_tooltip": null, "disabled": false, "index": 0, "layout": "IPY_MODEL_f5f660b816d549d8802733ac0557a716", "style": "IPY_MODEL_9f156ee05f32465eb0e3707d01ffaa07"}}, "fba8badde24649908fb356f7e36033e9": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "7a249259a0474cc88d56db612ac1e983": {"model_name": "OutputModel", "model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_fba8badde24649908fb356f7e36033e9", "msg_id": "", "outputs": [{"output_type": "display_data", "metadata": {"needs_background": "light"}, "data": {"text/plain": "<Figure size 648x72 with 1 Axes>", "image/png": "iVBORw0KGgoAAAANSUhEUgAAAggAAABICAYAAACTOw0mAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90bGliIHZlcnNpb24zLjUuMSwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy/YYfK9AAAACXBIWXMAAAsTAAALEwEAmpwYAAACRklEQVR4nO3aP2pUURjG4e9KIjFYhGAKBbW2MFVW4iLcgZtxQzYWMf6BLMBOsBASM0KOrfAm4kAOZ+b4PO0dhu9lmh/cWVprBQDwp3ujDwAANo9AAACCQAAAgkAAAIJAAACCQAAAws46H97df9j2Dg573TLc/v3d0Sd09cC+rTXztqqq68ufo0/oql1cjD6hqzb573d9cTn6hG6+Xl3W91+r5aZnawXC3sFhnbx+czdXbaDjZ49Hn9DVy8n3HT+dd9+LJ0ejT+hq9eV89AldrT58HH1CV1enn0af0NXq7PPoE7p5dfru1mdeMQAAQSAAAEEgAABBIAAAQSAAAEEgAABBIAAAQSAAAEEgAABBIAAAQSAAAEEgAABBIAAAQSAAAEEgAABBIAAAQSAAAEEgAABBIAAAQSAAAEEgAABBIAAAQSAAAEEgAABBIAAAQSAAAEEgAABBIAAAQSAAAEEgAABBIAAAQSAAAEEgAABBIAAAQSAAAEEgAABBIAAAQSAAAEEgAABBIAAAQSAAAEEgAABBIAAAQSAAAEEgAABBIAAAQSAAAEEgAABBIAAAQSAAAEEgAABBIAAAYWmt/fuHl+VHVZ33O2e4R1X1bfQRncy8rcq+bWff9pp5W9X8+5631o5uerCz5hedt9ZO7uCgjbQsy/tZ9828rcq+bWff9pp5W9X8+/7GKwYAIAgEACCsGwhvu1yxOWbeN/O2Kvu2nX3ba+ZtVfPvu9Vaf1IEAP4PXjEAAEEgAABBIAAAQSAAAEEgAADhN8nhYisz5qb4AAAAAElFTkSuQmCC\n"}}]}}}, "version_major": 2, "version_minor": 0}
+</script>
+
 
     <script type="text/x-thebe-config">
     {
@@ -1270,7 +1417,7 @@ In this configuration, outliers, i.e. data points above or beyond the respective
             mode: "python"
         },
         kernelOptions: {
-            name: "python3",
+            kernelName: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -1278,120 +1425,50 @@ In this configuration, outliers, i.e. data points above or beyond the respective
     </script>
     <script>kernelName = 'python3'</script>
 
-                </article>
+              </div>
               
-
-              
-              
-              
-              
-                <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
-<div class="prev-next-area">
-    <a class="left-prev"
-       href="06_scraping.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Web Scraping</p>
-      </div>
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="06_scraping.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Web Scraping</p>
+        </div>
     </a>
-    <a class="right-next"
-       href="08_interactive_plots.html"
-       title="next page">
-      <div class="prev-next-info">
+    <a class='right-next' id="next-link" href="08_interactive_plots.html" title="next page">
+    <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Interactive Graphics - Plotly</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
-                </footer>
-              
-            </div>
-            
-            
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib">Matplotlib</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#categories">Categories</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bar-charts">Bar Charts</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#histograms">Histograms</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#subplots">Subplots</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-data">Numerical Data</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#scatter-plots">Scatter Plots</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#line-plots">Line plots</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seaborn">Seaborn</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#heatmaps">Heatmaps</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boxplot">Boxplot</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#violin-plot">Violin Plot</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
-              
-            
-          </div>
-          <footer class="bd-footer-content">
-            
-<div class="bd-footer-content__inner container">
-  
-  <div class="footer-item">
-    
-<p class="component-author">
-By Jan König
-</p>
-
-  </div>
-  
-  <div class="footer-item">
-    
-  <p class="copyright">
-    
-      © Copyright 2022.
-      <br/>
-    
-  </p>
-
-  </div>
-  
-  <div class="footer-item">
-    
-  </div>
-  
-  <div class="footer-item">
-    
-  </div>
-  
-</div>
-          </footer>
-        
-
-      </main>
+            </footer>
+        </div>
     </div>
-  </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jan König<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
-  <footer class="bd-footer">
-  </footer>
+
   </body>
 </html>

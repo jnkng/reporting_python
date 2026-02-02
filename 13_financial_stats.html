@@ -1,60 +1,47 @@
 
-
 <!DOCTYPE html>
 
-
-<html lang="en" >
-
+<html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Introduction to Statistics and Indicators in Finance &#8212; Data Visualisation and Reporting with Python</title>
-  
-  
-  
-  <script data-cfasync="false">
-    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
-  </script>
-  
+    
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
-  
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -62,96 +49,58 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"ignoreHtmlClass": "never-ignore", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}, "tex2jax": {"ignoreClass": "never-ignore"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '13_financial_stats';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
 
-  
-  
-  <a class="skip-link" href="#main-content">Skip to main content</a>
-  
-  <div id="pst-scroll-pixel-helper"></div>
+    
+    <div class="container-fluid" id="banner"></div>
 
-  
-  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    
 
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
-<form class="bd-search d-flex align-items-center"
-      action="search.html"
-      method="get">
-  <i class="fa-solid fa-magnifying-glass"></i>
-  <input type="search"
-         class="form-control"
-         name="q"
-         id="search-input"
-         placeholder="Search this book..."
-         aria-label="Search this book..."
-         autocomplete="off"
-         autocorrect="off"
-         autocapitalize="off"
-         spellcheck="false"/>
-  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
-  
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
-  
-  <div class="bd-container">
-    <div class="bd-container__inner bd-page-width">
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
       
-      <div class="bd-sidebar-primary bd-sidebar">
-        
-
-  
-  <div class="sidebar-header-items sidebar-primary__section">
-    
-    
-    
-    
-  </div>
-  
-    <div class="sidebar-primary-items__start sidebar-primary__section">
-        <div class="sidebar-primary-item">
-  
-
-<a class="navbar-brand logo" href="01_content.html">
-  
-  
-  
-  
-  
-    <p class="title logo__title">Data Visualisation and Reporting with Python</p>
-  
-</a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item navbar-nav active">
+      
+      
+      <h1 class="site-logo" id="site-title">Data Visualisation and Reporting with Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -161,237 +110,383 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="02_general.html">What is Python and why use it?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_python_basics.html">First steps</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="04_data.html">Working with Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_online.html">Online Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="06_scraping.html">Web Scraping</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_graphics.html">Graphics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="08_interactive_plots.html">Interactive Graphics - Plotly</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10_dash_I.html">Dash - introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="11_dash_II.html">Dash - advanced interactivity</a></li>
-<li class="toctree-l1"><a class="reference internal" href="12_markdown.html">Notebook formatting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="12_sklearn_2024.html">SciKit Learn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="13_financial_stats_CAPM_2025.html">Introduction to Statistics in Finance</a></li>
-
+ <li class="toctree-l1">
+  <a class="reference internal" href="02_general.html">
+   What is Python and why use it?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03_python_basics.html">
+   First steps
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04_data.html">
+   Working with Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05_online.html">
+   Online Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06_scraping.html">
+   Web Scraping
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07_graphics.html">
+   Graphics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08_interactive_plots.html">
+   Interactive Graphics - Plotly
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10_dash_I.html">
+   Dash - introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_dash_II.html">
+   Dash - advanced interactivity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="12_markdown.html">
+   Notebook formatting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="12_sklearn_2024.html">
+   SciKit Learn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="13_financial_stats_CAPM_2025.html">
+   Introduction to Statistics in Finance
+  </a>
+ </li>
 </ul>
 
     </div>
 </nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
     </div>
-  
-  
-  <div class="sidebar-primary-items__end sidebar-primary__section">
-  </div>
-  
-  <div id="rtd-footer-container"></div>
+    <div id="rtd-footer-container"></div>
+</div>
 
 
-      </div>
-      
-      <main id="main-content" class="bd-main">
-        
-        
+          
 
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
 <div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
 
-          <div class="bd-content">
-            <div class="bd-article-container">
-              
-              <div class="bd-header-article">
-<div class="header-article-items header-article__inner">
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
   
-    <div class="header-article-items__start">
-      
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <span class="fa-solid fa-bars"></span>
-</label></div>
-      
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
     </div>
-  
-  
-    <div class="header-article-items__end">
-      
-        <div class="header-article-item">
-
-<div class="article-header-buttons">
-
-
-
-
-
-<div class="dropdown dropdown-source-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
-    <i class="fab fa-github"></i>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
   </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
-   class="btn btn-sm btn-source-repository-button dropdown-item"
-   title="Source repository"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="btn__text-container">Repository</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F13_financial_stats.html&body=Your%20issue%20content%20here." target="_blank"
-   class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Open an issue"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="btn__text-container">Open issue</span>
-</a>
-</li>
-      
-  </ul>
-</div>
-
-
-
-
-
-
-<div class="dropdown dropdown-download-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
-    <i class="fas fa-download"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="_sources/13_financial_stats.ipynb" target="_blank"
-   class="btn btn-sm btn-download-source-button dropdown-item"
-   title="Download source file"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="btn__text-container">.ipynb</span>
-</a>
-</li>
-      
-      
-      
-      
+  <div class="menu-dropdown__content">
+    <ul>
       <li>
-<button onclick="window.print()"
-  class="btn btn-sm btn-download-pdf-button dropdown-item"
-  title="Print to PDF"
-  data-bs-placement="left" data-bs-toggle="tooltip"
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/13_financial_stats.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
 >
   
 
-<span class="btn__icon-container">
-  <i class="fas fa-file-pdf"></i>
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
   </span>
-<span class="btn__text-container">.pdf</span>
-</button>
-</li>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
       
-  </ul>
+    </ul>
+  </div>
 </div>
-
-
-
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
-  title="Fullscreen mode"
-  data-bs-placement="bottom" data-bs-toggle="tooltip"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
 >
   
 
-<span class="btn__icon-container">
+<span class="headerbtn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
   </button>
-`);
-</script>
-
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
-</div></div>
-      
-    </div>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
   
-</div>
-</div>
-              
-              
 
-<div id="jb-print-docs-body" class="onlyprint">
-    <h1>Introduction to Statistics and Indicators in Finance</h1>
-    <!-- Table of contents -->
-    <div id="print-main-content">
-        <div id="jb-print-toc">
-            
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#returns">Returns</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additivity">Additivity</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#log-returns">log-returns</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#portfolios-and-cross-sectional-additivity">Portfolios and cross sectional additivity</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristics-of-returns">Characteristics of returns</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indicators">Indicators</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#technical-indicators">Technical indicators</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-            </nav>
-        </div>
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F13_financial_stats.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/13_financial_stats.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
     </div>
 </div>
 
-              
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#returns">
+   Returns
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#additivity">
+     Additivity
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#log-returns">
+       log-returns
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#portfolios-and-cross-sectional-additivity">
+     Portfolios and cross sectional additivity
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#characteristics-of-returns">
+     Characteristics of returns
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#indicators">
+     Indicators
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#technical-indicators">
+       Technical indicators
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Introduction to Statistics and Indicators in Finance</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#returns">
+   Returns
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#additivity">
+     Additivity
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#log-returns">
+       log-returns
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#portfolios-and-cross-sectional-additivity">
+     Portfolios and cross sectional additivity
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#characteristics-of-returns">
+     Characteristics of returns
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#indicators">
+     Indicators
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#technical-indicators">
+       Technical indicators
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
                 
-<div id="searchbox"></div>
-                <article class="bd-article" role="main">
-                  
+              <div>
+                
   <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -400,22 +495,22 @@ document.write(`
 </div>
 </div>
 </div>
-<section class="tex2jax_ignore mathjax_ignore" id="introduction-to-statistics-and-indicators-in-finance">
-<h1>Introduction to Statistics and Indicators in Finance<a class="headerlink" href="#introduction-to-statistics-and-indicators-in-finance" title="Permalink to this heading">#</a></h1>
+<div class="tex2jax_ignore mathjax_ignore section" id="introduction-to-statistics-and-indicators-in-finance">
+<h1>Introduction to Statistics and Indicators in Finance<a class="headerlink" href="#introduction-to-statistics-and-indicators-in-finance" title="Permalink to this headline">#</a></h1>
 <p>Most fields in finance rely on some sort of data analysis given their respective objective. For example in fundamental analysis of a business, various numbers from the company itself (i.e. from the balance sheet) and such indicators representing the overall market are used in order to price the companies stock. The results from such analyses are utilised in making decisions regarding for example an investement in said company. There are many well established techniques and statistics for pricing financial products. Yet, the search for indicators or ways in generel to foresee an investement’s future performance is ever ongoing. Especially since the dawn of more powerful algorithms and artificial intelligence being more readily available for the public.</p>
 <p>In this chapter, we will take a look at statistics, that are the very basis of such analyses and examine some examples that would lead the way to more sophisticated procedures.</p>
-<section id="returns">
-<h2>Returns<a class="headerlink" href="#returns" title="Permalink to this heading">#</a></h2>
+<div class="section" id="returns">
+<h2>Returns<a class="headerlink" href="#returns" title="Permalink to this headline">#</a></h2>
 <p>In order for an investment to be profitable, the money it yields must be higher than the inital investment made (plus some transaction costs which is the amount paid to make the investment, e.g. the money you’d pay a bank so that they buy some stocks for you). If we want to assess how much the value of an investment increased (or decreased), we look at the so called return. The usual, i.e. discrete, return is defined as the relative change in value <span class="math notranslate nohighlight">\(S\)</span>. In mathematical terms, we look at the ratio of the past and the present value and subtract one:</p>
 <div class="math notranslate nohighlight">
 \[ r_t = \frac{S_t - S_{t-1}}{S_{t-1}} =\frac{S_t}{S_{t-1}} - 1 \]</div>
 <p>Note here that one time step <span class="math notranslate nohighlight">\(t\)</span> is of arbitrary length. Two examples: daily returns imply that the price of two successive days are used. Monthly returns would be calculated by using prices that are separated by the time span of one month.</p>
-<section id="additivity">
-<h3>Additivity<a class="headerlink" href="#additivity" title="Permalink to this heading">#</a></h3>
+<div class="section" id="additivity">
+<h3>Additivity<a class="headerlink" href="#additivity" title="Permalink to this headline">#</a></h3>
 <p>One may be confronted with returns based on different time spans, that need to be taken into account or that somehow need to be compared to each other. This could require a means of aggregating these returns in order to bring them to the same time scale. The property we are looking for is called addititvity, i.e. the sum of the shorter-scale returns should be equal to the larger-scale return. Working with the example above, we could face the need to aggregate the daily returns to get monthly returns. We thus wish to be able to add all daily returns of one month in order to get the monthly return. Note while this is possible, as explained in the following, we can’t just split monthly returns into daily returns without making assumptions on the distribution of these artificial daily returns.<br />
 We’ll now choose a slightly different example of daily and weekly returns (in this example, we assume seven trading days). To calculate weekly returns from daily returns, we mustn’t use the daily return as is.<br />
 Let’s consider the following values:</p>
-<table class="table">
+<table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>time <span class="math notranslate nohighlight">\(t\)</span></p></th>
 <th class="head"><p>0</p></th>
@@ -455,8 +550,8 @@ Let’s consider the following values:</p>
 <div class="math notranslate nohighlight">
 \[ r_{0,7} = \frac{S_7}{S_{0}} - 1 = \frac{105}{100} - 1  = 0.05 \]</div>
 <p>and conclude that indeed daily returns cannot simply be added up in order to yield the weekly return.</p>
-<section id="log-returns">
-<h4>log-returns<a class="headerlink" href="#log-returns" title="Permalink to this heading">#</a></h4>
+<div class="section" id="log-returns">
+<h4>log-returns<a class="headerlink" href="#log-returns" title="Permalink to this headline">#</a></h4>
 <p>With a single transformation however, we can can establish the desired additivity over time. The transformation needed is taking the logarithm. There are basically two ways of seeing the calculation of these so called log returns, which are equivalent. Either logarithmise the (daily) <strong>prices</strong> and simply get the difference between sucessive values. Or logarithmise the ratio of the past and current price:</p>
 <div class="math notranslate nohighlight">
 \[ r_t^{log} = \log{\frac{S_t}{S_{t-1}}} \]</div>
@@ -466,7 +561,7 @@ Let’s consider the following values:</p>
 \[ = \log{S_t} - \log{S_{t-1}} \]</div>
 <p>These log returns, or continuous returns, now exhibit the qualities the discrete returns from the example above lacked.<br />
 Let’s have a look at the same table after taking the logarithm and try the same aggregation from above.</p>
-<table class="table">
+<table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>time <span class="math notranslate nohighlight">\(t\)</span></p></th>
 <th class="head"><p>0</p></th>
@@ -770,10 +865,10 @@ For completeness, we also add a column with discrete returns calculated from the
 </table>
 </div></div></div>
 </div>
-</section>
-</section>
-<section id="portfolios-and-cross-sectional-additivity">
-<h3>Portfolios and cross sectional additivity<a class="headerlink" href="#portfolios-and-cross-sectional-additivity" title="Permalink to this heading">#</a></h3>
+</div>
+</div>
+<div class="section" id="portfolios-and-cross-sectional-additivity">
+<h3>Portfolios and cross sectional additivity<a class="headerlink" href="#portfolios-and-cross-sectional-additivity" title="Permalink to this headline">#</a></h3>
 <p>So far, we established a way to track a single investment’s performance over time using (log) returns. Now, we would also like to track the performance of a portfolio over time. A portfolio (<span class="math notranslate nohighlight">\(PF\)</span>) is a collection of investments. So if you had bought one share each from two different companies, these would form your portfolio. Portfolios can in general have different ways of being allocated, i.e. by the criteria the stocks are selected into the portfolio. Without loss of generality, we can describe a portfolio’s value by the sum of its constituents. These are defined as the weight (fraction of total capital) of each single stock <span class="math notranslate nohighlight">\(w_i\)</span> multiplied by the respective stock’s value <span class="math notranslate nohighlight">\(S_i\)</span>.
 $<span class="math notranslate nohighlight">\( P_i = w_i \cdot S_i\)</span><span class="math notranslate nohighlight">\(
 where \)</span>i$ indicates the company.</p>
@@ -786,7 +881,7 @@ $<span class="math notranslate nohighlight">\( r_{t+1}^{PF} = \sum_i P^i_t (1 + 
 \)</span><span class="math notranslate nohighlight">\( = S_t \cdot (1 + \sum_i w_i r_{t+1}^i) \)</span><span class="math notranslate nohighlight">\(
 with \)</span>\sum_i w_i = 1$.</p>
 <p>Let’s have a look at the following data:</p>
-<table class="table">
+<table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>time <span class="math notranslate nohighlight">\(t\)</span></p></th>
 <th class="head"><p>0</p></th>
@@ -1030,9 +1125,9 @@ We will now calculate the dauily returns of the portfolio using pandas:</p>
 </ul>
 </li>
 </ul>
-</section>
-<section id="characteristics-of-returns">
-<h3>Characteristics of returns<a class="headerlink" href="#characteristics-of-returns" title="Permalink to this heading">#</a></h3>
+</div>
+<div class="section" id="characteristics-of-returns">
+<h3>Characteristics of returns<a class="headerlink" href="#characteristics-of-returns" title="Permalink to this headline">#</a></h3>
 <p>Usually, returns exhibit the following:</p>
 <ul class="simple">
 <li><p>expected returns are close to zero (the shorter the time span, the smaller the expected return)</p></li>
@@ -1083,9 +1178,9 @@ We will now calculate the dauily returns of the portfolio using pandas:</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>average return 0.0009
-volatility 0.0186
-skewness 0.1077
-kurtosis 7.4997
+volatility 0.0187
+skewness 0.0139
+kurtosis 7.6671
 </pre></div>
 </div>
 </div>
@@ -1099,10 +1194,10 @@ We can plot returns over time as well as look at the distribution.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot: xlabel=&#39;Date&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;Date&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/cffc1c6654a6ebb6b8237574d52fa696d4cb3a17dc393e5b9fc4340783d4bc51.png" src="_images/cffc1c6654a6ebb6b8237574d52fa696d4cb3a17dc393e5b9fc4340783d4bc51.png" />
+<img alt="_images/13_financial_stats_20_1.png" src="_images/13_financial_stats_20_1.png" />
 </div>
 </div>
 <p>Over time, we see that the volatility is far from constant, something that is often knowingly ignored/downplayed. Even though it is found  in almost every time series of returns given a sufficiently long observation period.</p>
@@ -1117,20 +1212,20 @@ We can plot returns over time as well as look at the distribution.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot: xlabel=&#39;daily_return&#39;, ylabel=&#39;Count&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;daily_return&#39;, ylabel=&#39;Count&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/ddb674e34a155bee8fd024312d5e0605ba2175f3e3e4c1667ecf5a5994c1bcca.png" src="_images/ddb674e34a155bee8fd024312d5e0605ba2175f3e3e4c1667ecf5a5994c1bcca.png" />
+<img alt="_images/13_financial_stats_22_1.png" src="_images/13_financial_stats_22_1.png" />
 </div>
 </div>
 <p>From the kernel density estimation (solid line), we can in fact see the left-skewedness of the distribution, meaning we find more negative returns of larger values.</p>
-</section>
-<section id="indicators">
-<h3>Indicators<a class="headerlink" href="#indicators" title="Permalink to this heading">#</a></h3>
+</div>
+<div class="section" id="indicators">
+<h3>Indicators<a class="headerlink" href="#indicators" title="Permalink to this headline">#</a></h3>
 <p>In order to determine the performance, different indicators can be consulted. When it comes to trading, a whole universe of technical indocators exiists, all seeking to predict future performance.</p>
 <p>A classic example of a performance measure is the Sharpe ratio. It is a rather simple measure to indicate the (excess) return of an investment in relation to the risk to which it was exposed, where the risk is measured by the volatility of the (excess) return.</p>
-<section id="technical-indicators">
-<h4>Technical indicators<a class="headerlink" href="#technical-indicators" title="Permalink to this heading">#</a></h4>
+<div class="section" id="technical-indicators">
+<h4>Technical indicators<a class="headerlink" href="#technical-indicators" title="Permalink to this headline">#</a></h4>
 <p>Technical indicators are used in technical analysis and calculated using historical stock prices and/or the trading volume. Technical analysis in general aims at forecasting prices or market movements in order to generate revenue by trading. Note however, on average it is not possible to outperform the market using these very commonly known indicators. Technical indicators are usually designed to capture patterns of price movements, like long term development or short term returns. It is these patterns that are then meant to be exploited.</p>
 <p>Usually, some sort of chart is produced for the indicator in order to identify patterns as the “rules”
 for indicators may vary from trader to trader. These rules are defined as indicator specific signals, e.g. critical values or sub-patterns, which tell the trader to sell or buy the stock.</p>
@@ -1152,7 +1247,7 @@ for indicators may vary from trader to trader. These rules are defined as indica
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/04f288d011c71402dcaf3979a1d2cd714e2bf9723941f2ad90715d63321c7f6f.png" src="_images/04f288d011c71402dcaf3979a1d2cd714e2bf9723941f2ad90715d63321c7f6f.png" />
+<img alt="_images/13_financial_stats_25_0.png" src="_images/13_financial_stats_25_0.png" />
 </div>
 </div>
 <p>In the graph, we can see one golden crossing, where the blue line crosses above the orange line (only after a short drop below).
@@ -1224,7 +1319,7 @@ This would indicate to buy the stock at the time of the crossing. A strategy tha
     </tr>
     <tr>
       <th>33</th>
-      <td>-2.841624</td>
+      <td>-2.841616</td>
     </tr>
     <tr>
       <th>34</th>
@@ -1248,10 +1343,10 @@ This would indicate to buy the stock at the time of the crossing. A strategy tha
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot: &gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
-<img alt="_images/d7a3df544f3d5341fb3a6543e97003fea39633878c52c5746d365a944f798317.png" src="_images/d7a3df544f3d5341fb3a6543e97003fea39633878c52c5746d365a944f798317.png" />
+<img alt="_images/13_financial_stats_30_1.png" src="_images/13_financial_stats_30_1.png" />
 </div>
 </div>
 <p>The standard graph for the awesome oscillator is a bar plot in red and green, where the color captures the price movement from one increment to the next: red for a lower price, green for a higher price.</p>
@@ -1270,13 +1365,13 @@ This would indicate to buy the stock at the time of the crossing. A strategy tha
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7fa8238edfc25158970c0da04d7f2c5c35b1d2f8ead0308b58a3bcec0e79ab67.png" src="_images/7fa8238edfc25158970c0da04d7f2c5c35b1d2f8ead0308b58a3bcec0e79ab67.png" />
+<img alt="_images/13_financial_stats_32_0.png" src="_images/13_financial_stats_32_0.png" />
 </div>
 </div>
-</section>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -1290,7 +1385,7 @@ This would indicate to buy the stock at the time of the crossing. A strategy tha
             mode: "python"
         },
         kernelOptions: {
-            name: "python3",
+            kernelName: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -1298,95 +1393,36 @@ This would indicate to buy the stock at the time of the crossing. A strategy tha
     </script>
     <script>kernelName = 'python3'</script>
 
-                </article>
+              </div>
               
-
-              
-              
-              
-              
-                <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
-<div class="prev-next-area">
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
 </div>
-                </footer>
-              
-            </div>
-            
-            
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#returns">Returns</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additivity">Additivity</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#log-returns">log-returns</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#portfolios-and-cross-sectional-additivity">Portfolios and cross sectional additivity</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristics-of-returns">Characteristics of returns</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indicators">Indicators</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#technical-indicators">Technical indicators</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-  </nav></div>
-
-</div></div>
-              
-            
-          </div>
-          <footer class="bd-footer-content">
-            
-<div class="bd-footer-content__inner container">
-  
-  <div class="footer-item">
-    
-<p class="component-author">
-By Jan König
-</p>
-
-  </div>
-  
-  <div class="footer-item">
-    
-  <p class="copyright">
-    
-      © Copyright 2022.
-      <br/>
-    
-  </p>
-
-  </div>
-  
-  <div class="footer-item">
-    
-  </div>
-  
-  <div class="footer-item">
-    
-  </div>
-  
-</div>
-          </footer>
-        
-
-      </main>
+            </footer>
+        </div>
     </div>
-  </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jan König<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
-  <footer class="bd-footer">
-  </footer>
+
   </body>
 </html>

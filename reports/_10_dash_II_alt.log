@@ -17,14 +17,55 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-say_whee()
+from dash.dependencies import Input, Output
+
+app = JupyterDash()
+
+app.layout = html.Div([
+    html.Div(["Enter first and last name: ",
+    dcc.Input(id='fname_i', value='otto', type='text'),
+    dcc.Input(id='lname_i', value='renner', type='text')]),
+    html.Br(),
+    html.Div([html.P(id='fname_o', style={'float': 'left'}),
+    html.P(id='lname_o', style={'float': 'left','marginLeft': 4})] )
+])
+    
+@app.callback(
+    Output(component_id='fname_o', component_property='children'),
+    Output(component_id='lname_o', component_property='children'),
+    Input(component_id='fname_i', component_property='value'),
+    Input(component_id='lname_i', component_property='value')
+)
+def div_outext(fname, lname):
+    if fname:
+        return fname[::-1], lname[::-1]
+    
+app.run_server(mode='inline')
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mNameError[0m                                 Traceback (most recent call last)
-Input [0;32mIn [21][0m, in [0;36m<cell line: 1>[0;34m()[0m
-[0;32m----> 1[0m [43msay_whee[49m()
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+Input [0;32mIn [3][0m, in [0;36m<cell line: 24>[0;34m()[0m
+[1;32m     21[0m     [38;5;28;01mif[39;00m fname:
+[1;32m     22[0m         [38;5;28;01mreturn[39;00m fname[::[38;5;241m-[39m[38;5;241m1[39m], lname[::[38;5;241m-[39m[38;5;241m1[39m]
+[0;32m---> 24[0m [43mapp[49m[38;5;241;43m.[39;49m[43mrun_server[49m[43m([49m[43mmode[49m[38;5;241;43m=[39;49m[38;5;124;43m'[39;49m[38;5;124;43minline[39;49m[38;5;124;43m'[39;49m[43m)[49m
 
-[0;31mNameError[0m: name 'say_whee' is not defined
-NameError: name 'say_whee' is not defined
+File [0;32m~/Desktop/Lehre/python_class/venv.nosync/lib/python3.8/site-packages/jupyter_dash/jupyter_app.py:222[0m, in [0;36mJupyterDash.run_server[0;34m(self, mode, width, height, inline_exceptions, **kwargs)[0m
+[1;32m    220[0m old_server [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39m_server_threads[38;5;241m.[39mget((host, port))
+[1;32m    221[0m [38;5;28;01mif[39;00m old_server:
+[0;32m--> 222[0m     [43mold_server[49m[38;5;241;43m.[39;49m[43mkill[49m[43m([49m[43m)[49m
+[1;32m    223[0m     old_server[38;5;241m.[39mjoin()
+[1;32m    224[0m     [38;5;28;01mdel[39;00m [38;5;28mself[39m[38;5;241m.[39m_server_threads[(host, port)]
+
+File [0;32m~/Desktop/Lehre/python_class/venv.nosync/lib/python3.8/site-packages/jupyter_dash/_stoppable_thread.py:16[0m, in [0;36mStoppableThread.kill[0;34m(self)[0m
+[1;32m     13[0m [38;5;28;01mdef[39;00m [38;5;21mkill[39m([38;5;28mself[39m):
+[1;32m     14[0m     thread_id [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mget_id()
+[1;32m     15[0m     res [38;5;241m=[39m ctypes[38;5;241m.[39mpythonapi[38;5;241m.[39mPyThreadState_SetAsyncExc(
+[0;32m---> 16[0m         [43mctypes[49m[38;5;241;43m.[39;49m[43mc_long[49m[43m([49m[43mthread_id[49m[43m)[49m, ctypes[38;5;241m.[39mpy_object([38;5;167;01mSystemExit[39;00m)
+[1;32m     17[0m     )
+[1;32m     18[0m     [38;5;28;01mif[39;00m res [38;5;241m==[39m [38;5;241m0[39m:
+[1;32m     19[0m         [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m([38;5;124mf[39m[38;5;124m"[39m[38;5;124mInvalid thread id: [39m[38;5;132;01m{[39;00mthread_id[38;5;132;01m}[39;00m[38;5;124m"[39m)
+
+[0;31mTypeError[0m: an integer is required (got type NoneType)
+TypeError: an integer is required (got type NoneType)
 
