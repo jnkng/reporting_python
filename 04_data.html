@@ -49,8 +49,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"ignoreHtmlClass": "never-ignore", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}, "tex2jax": {"ignoreClass": "never-ignore"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -885,32 +883,127 @@ dtype: int64
 <span class="p">{</span><span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">44</span><span class="p">],</span>
  <span class="s1">&#39;weight&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">83</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">98</span><span class="p">,</span>  <span class="mi">50</span><span class="p">,</span> <span class="mi">77</span><span class="p">]</span>
 <span class="p">})</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;10.</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">my_df</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df2</span><span class="p">))</span>
 <span class="n">my_df</span> <span class="o">=</span> <span class="n">my_df</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df2</span><span class="p">)</span>
+<span class="n">my_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="c1"># correlation matrix</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;11.</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">my_df</span><span class="o">.</span><span class="n">corr</span><span class="p">())</span>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-<span class="c1"># adding new columns</span>
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>height</th>
+      <th>weight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>20.0</td>
+      <td>183.0</td>
+      <td>83</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>34.0</td>
+      <td>179.0</td>
+      <td>63</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>56.0</td>
+      <td>175.0</td>
+      <td>98</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>44.0</td>
+      <td>175.0</td>
+      <td>77</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># correlation matrix</span>
+<span class="n">my_df</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>height</th>
+      <th>weight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>age</th>
+      <td>1.000000</td>
+      <td>-0.946549</td>
+      <td>0.481176</td>
+    </tr>
+    <tr>
+      <th>height</th>
+      <td>-0.946549</td>
+      <td>1.000000</td>
+      <td>-0.282126</td>
+    </tr>
+    <tr>
+      <th>weight</th>
+      <td>0.481176</td>
+      <td>-0.282126</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># adding new columns</span>
 <span class="n">my_df</span> <span class="o">=</span> <span class="n">my_df</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">bmi</span> <span class="o">=</span> <span class="n">my_df</span><span class="o">.</span><span class="n">weight</span><span class="o">/</span><span class="p">(</span><span class="n">my_df</span><span class="o">.</span><span class="n">height</span><span class="o">/</span><span class="mi">100</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">my_df</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10.
-     age  height  weight
-0  20.0   183.0      83
-1  34.0   179.0      63
-2  56.0   175.0      98
-3  44.0   175.0      77
-11.
-              age    height    weight
-age     1.000000 -0.946549  0.481176
-height -0.946549  1.000000 -0.282126
-weight  0.481176 -0.282126  1.000000
-</pre></div>
-</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1143,7 +1236,7 @@ weight  0.481176 -0.282126  1.000000
         &lt;AxesSubplot:title={&#39;center&#39;:&#39;bmi&#39;}&gt;]], dtype=object)
 </pre></div>
 </div>
-<img alt="_images/04_data_19_1.png" src="_images/04_data_19_1.png" />
+<img alt="_images/04_data_21_1.png" src="_images/04_data_21_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1157,7 +1250,7 @@ weight  0.481176 -0.282126  1.000000
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;age&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/04_data_20_1.png" src="_images/04_data_20_1.png" />
+<img alt="_images/04_data_22_1.png" src="_images/04_data_22_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1171,7 +1264,7 @@ weight  0.481176 -0.282126  1.000000
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;age&#39;, ylabel=&#39;weight&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/04_data_21_1.png" src="_images/04_data_21_1.png" />
+<img alt="_images/04_data_23_1.png" src="_images/04_data_23_1.png" />
 </div>
 </div>
 </div>
@@ -1338,7 +1431,7 @@ makes a total of 0 missing values
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;Datetime&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/04_data_35_1.png" src="_images/04_data_35_1.png" />
+<img alt="_images/04_data_37_1.png" src="_images/04_data_37_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
