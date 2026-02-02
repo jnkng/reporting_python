@@ -49,8 +49,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"ignoreHtmlClass": "never-ignore", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}, "tex2jax": {"ignoreClass": "never-ignore"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -481,7 +479,7 @@ title="Print to PDF"
 <h1>Dash - advanced interactivity<a class="headerlink" href="#dash-advanced-interactivity" title="Permalink to this headline">#</a></h1>
 <p>To provide advanced interactivity and reactivity, that is to let new input trigger modified output, we need to provide the content as the result of a function.
 We can have several functions, each modifying one specific element of the UI. To reference elements in the UI and the server part, we give a unique <strong>id</strong> to each element. This id is handed to the respective function to tell it that this is the <strong>input</strong> to be used. The same applies in the reversed direction: by specifying the id of the desired UI element as a function’s <strong>output</strong>, the created result is passed to the right address to be displayed.
-The declaration of what is input and output is done using <a class="reference internal" href="_10_dash_II_alt.html#decorators"><span class="std std-ref">decorators</span></a> and callbacks. This decorator takes the input and output ids as arguments.</p>
+The declaration of what is input and output is done using <a class="reference internal" href="#decorators"><span class="std std-ref">decorators</span></a> and callbacks. This decorator takes the input and output ids as arguments.</p>
 <p>The structure for building an advanced reactive app becomes:</p>
 <ul class="simple">
 <li><p>create a JupyterDash object</p></li>
@@ -523,12 +521,12 @@ The respective ids must be identical to the ones used in the UI. The properties 
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jupyter_dash</span> <span class="kn">import</span> <span class="n">JupyterDash</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jupyter_dash</span> <span class="kn">import</span> <span class="n">Dash</span> 
 <span class="kn">from</span> <span class="nn">dash</span> <span class="kn">import</span> <span class="n">dcc</span>
 <span class="kn">from</span> <span class="nn">dash</span> <span class="kn">import</span> <span class="n">html</span>
 <span class="kn">from</span> <span class="nn">dash.dependencies</span> <span class="kn">import</span> <span class="n">Input</span><span class="p">,</span> <span class="n">Output</span>
 
-<span class="n">app</span> <span class="o">=</span> <span class="n">JupyterDash</span><span class="p">(</span><span class="s1">&#39;myFirstReactive&#39;</span><span class="p">)</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">Dash</span><span class="p">(</span><span class="s1">&#39;myFirstReactive&#39;</span><span class="p">)</span>
 
 <span class="n">app</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">([</span>
     <span class="n">html</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="s2">&quot;Input: &quot;</span><span class="p">),</span>
@@ -543,15 +541,19 @@ The respective ids must be identical to the ones used in the UI. The properties 
 <span class="k">def</span> <span class="nf">div_outext</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
     <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;times two: </span><span class="si">{</span><span class="n">num</span><span class="o">*</span><span class="mi">2</span><span class="si">}</span><span class="s1">&#39;</span>
 
-<span class="c1">#app.run_server(mode=&#39;inline&#39;)</span>
+<span class="c1">#app.run()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/uni/Desktop/Lehre/python_class/venv.nosync/lib/python3.8/site-packages/dash/dash.py:538: UserWarning:
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ImportError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
+<span class="nn">Input In [1],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">jupyter_dash</span> <span class="kn">import</span> <span class="n">Dash</span> 
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">dash</span> <span class="kn">import</span> <span class="n">dcc</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">dash</span> <span class="kn">import</span> <span class="n">html</span>
 
-JupyterDash is deprecated, use Dash instead.
-See https://dash.plotly.com/dash-in-jupyter for more details.
+<span class="ne">ImportError</span>: cannot import name &#39;Dash&#39; from &#39;jupyter_dash&#39; (/Users/uni/Desktop/Lehre/python_class/venv.nosync/lib/python3.8/site-packages/jupyter_dash/__init__.py)
 </pre></div>
 </div>
 </div>
@@ -577,9 +579,7 @@ See https://dash.plotly.com/dash-in-jupyter for more details.
 <p>We will slightly alter the first example above to demonstrate that several inputs and outputs can be used by one function. The syntax is the same, we just add more <code class="docutils literal notranslate"><span class="pre">Input()</span></code> and <code class="docutils literal notranslate"><span class="pre">Output()</span></code> to the decorator call.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dash.dependencies</span> <span class="kn">import</span> <span class="n">Input</span><span class="p">,</span> <span class="n">Output</span>
-
-<span class="n">app</span> <span class="o">=</span> <span class="n">JupyterDash</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">app</span> <span class="o">=</span> <span class="n">Dash</span><span class="p">()</span>
 
 <span class="n">app</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">([</span>
     <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">([</span><span class="s2">&quot;Enter first and last name: &quot;</span><span class="p">,</span>
@@ -600,7 +600,7 @@ See https://dash.plotly.com/dash-in-jupyter for more details.
     <span class="k">if</span> <span class="n">fname</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">fname</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">lname</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
     
-<span class="c1">#app.run_server(mode=&#39;inline&#39;)</span>
+<span class="c1">#app.run()</span>
 </pre></div>
 </div>
 </div>
@@ -636,7 +636,7 @@ See https://dash.plotly.com/dash-in-jupyter for more details.
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">app</span> <span class="o">=</span> <span class="n">JupyterDash</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">app</span> <span class="o">=</span> <span class="n">Dash</span><span class="p">()</span>
 
 <span class="n">app</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">([</span>
     <span class="n">dcc</span><span class="o">.</span><span class="n">Slider</span><span class="p">(</span>
@@ -663,15 +663,7 @@ See https://dash.plotly.com/dash-in-jupyter for more details.
     <span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">dftemp</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;open&#39;</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">fig</span>
 
-<span class="c1">#app.run_server(mode=&#39;inline)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/uni/Desktop/Lehre/python_class/venv.nosync/lib/python3.8/site-packages/dash/dash.py:538: UserWarning:
-
-JupyterDash is deprecated, use Dash instead.
-See https://dash.plotly.com/dash-in-jupyter for more details.
+<span class="c1">#app.run()</span>
 </pre></div>
 </div>
 </div>
@@ -689,7 +681,7 @@ See https://dash.plotly.com/dash-in-jupyter for more details.
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dash.dependencies</span> <span class="kn">import</span> <span class="n">State</span>
 
-<span class="n">app</span> <span class="o">=</span> <span class="n">JupyterDash</span><span class="p">()</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">Dash</span><span class="p">()</span>
 
 <span class="n">white_button_style</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;background-color&#39;</span><span class="p">:</span> <span class="s1">&#39;grey&#39;</span><span class="p">,</span>
                       <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;white&#39;</span><span class="p">,</span>
@@ -725,7 +717,7 @@ See https://dash.plotly.com/dash-in-jupyter for more details.
     <span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">dftemp</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;open&#39;</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">fig</span>
 
-<span class="c1">#app.run_server(mode=&#39;inline&#39;)</span>
+<span class="c1">#app.run()</span>
 </pre></div>
 </div>
 </div>
@@ -740,7 +732,7 @@ See https://dash.plotly.com/dash-in-jupyter for more details.
 <p>We will display two dropdowns, the lower one with conditional options and no further output for simplicity.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">app</span> <span class="o">=</span> <span class="n">JupyterDash</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">app</span> <span class="o">=</span> <span class="n">Dash</span><span class="p">()</span>
 
 <span class="n">app</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">([</span>
     <span class="n">dcc</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;sector_dd&#39;</span><span class="p">,</span>
@@ -764,7 +756,7 @@ See https://dash.plotly.com/dash-in-jupyter for more details.
 <span class="k">def</span> <span class="nf">set_default_company_dd</span><span class="p">(</span><span class="n">ops</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">ops</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;value&#39;</span><span class="p">]</span>
     
-<span class="c1">#app.run_server(mode=&#39;inline&#39;)</span>
+<span class="c1">#app.run()</span>
 </pre></div>
 </div>
 </div>
@@ -795,7 +787,7 @@ See https://dash.plotly.com/dash-in-jupyter for more details.
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">app</span> <span class="o">=</span> <span class="n">JupyterDash</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">app</span> <span class="o">=</span> <span class="n">Dash</span><span class="p">()</span>
 
 
 <span class="k">def</span> <span class="nf">build_figure</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
@@ -834,7 +826,7 @@ See https://dash.plotly.com/dash-in-jupyter for more details.
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">dash</span><span class="o">.</span><span class="n">callback_context</span><span class="o">.</span><span class="n">triggered</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">data</span>
 
-<span class="c1">#app.run_server(mode=&#39;inline&#39;)</span>
+<span class="c1">#app.run()</span>
 </pre></div>
 </div>
 </div>
