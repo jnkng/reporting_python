@@ -49,8 +49,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Working with Data" href="04_data.html" />
@@ -1395,15 +1393,44 @@ list_2: [[0, 0, 0, 0, 0], [0, 1, 2, 3, 4]]
 For example from the list above:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dict_1</span> <span class="o">=</span> <span class="p">{</span><span class="nb">str</span><span class="p">(</span><span class="n">k</span><span class="p">):</span> <span class="n">k</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">list_1</span><span class="p">}</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dict_1</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;key_&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">k</span><span class="p">):</span> <span class="n">k</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">list_1</span><span class="p">}</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">dict_1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dict_1</span><span class="p">[</span><span class="s1">&#39;3&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dict_1</span><span class="p">[</span><span class="s1">&#39;key_3&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;0&#39;: 0, &#39;1&#39;: 1, &#39;2&#39;: 4, &#39;3&#39;: 9, &#39;4&#39;: 16}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;key_0&#39;: 0, &#39;key_1&#39;: 1, &#39;key_2&#39;: 4, &#39;key_3&#39;: 9, &#39;key_4&#39;: 16}
 9
+</pre></div>
+</div>
+</div>
+</div>
+<p>To iterate over keys and values, use the <code class="docutils literal notranslate"><span class="pre">.items()</span></code> method to access key and value in a tuple and unpack into two variables:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># swap key and value</span>
+<span class="n">dict_2</span> <span class="o">=</span> <span class="p">{</span><span class="n">v</span><span class="p">:</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">dict_1</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+<span class="n">dict_2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{0: &#39;key_0&#39;, 1: &#39;key_1&#39;, 4: &#39;key_2&#39;, 9: &#39;key_3&#39;, 16: &#39;key_4&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># filter keys by values:</span>
+<span class="n">larger_5_values</span> <span class="o">=</span> <span class="p">[</span><span class="n">key</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">dict_1</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">value</span><span class="o">&gt;</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">larger_5_values</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;key_3&#39;, &#39;key_4&#39;]
 </pre></div>
 </div>
 </div>
@@ -1530,7 +1557,7 @@ With branching, several return statements may appear in one function.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;generator object yield_list at 0x7fd2b08d4f90&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;generator object yield_list at 0x7faf0888a040&gt;
 </pre></div>
 </div>
 </div>
@@ -1937,11 +1964,11 @@ Tina: Physics
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.30067115 0.27252514 1.36038135 0.08576703 0.35055875]
- [1.52455829 0.40561635 0.17693664 0.22028484 0.0894476 ]
- [0.28122164 0.50596251 1.14457764 0.15737679 0.83232977]
- [0.94080934 0.04735431 0.12172481 0.01479766 0.32102069]
- [0.76481065 0.2716415  0.11718865 0.12488265 0.17945995]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.01945523 0.36459195 0.26237412 0.18478414 0.24974753]
+ [1.98186044 0.6506832  0.08868631 0.17071639 1.46859809]
+ [0.10156953 0.37614195 0.1465132  0.0629614  0.32977028]
+ [0.42847743 0.45848941 0.42189608 0.0841176  0.1755879 ]
+ [0.03777388 0.00349489 0.57337388 1.1818359  0.16542954]]
 </pre></div>
 </div>
 </div>
