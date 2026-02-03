@@ -943,6 +943,122 @@ dtype: int64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># drop rows where all columns show duplicate values</span>
+<span class="n">my_df_no_dup</span> <span class="o">=</span> <span class="n">my_df</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+<span class="n">my_df_no_dup</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>height</th>
+      <th>weight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>20.0</td>
+      <td>183.0</td>
+      <td>83</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>34.0</td>
+      <td>179.0</td>
+      <td>63</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>56.0</td>
+      <td>175.0</td>
+      <td>98</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>44.0</td>
+      <td>175.0</td>
+      <td>77</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># drop rows where specific columns show duplicate values with subset=</span>
+<span class="n">my_df_no_dup_height</span> <span class="o">=</span> <span class="n">my_df</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">])</span>
+<span class="n">my_df_no_dup_height</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>height</th>
+      <th>weight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>20.0</td>
+      <td>183.0</td>
+      <td>83</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>34.0</td>
+      <td>179.0</td>
+      <td>63</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>56.0</td>
+      <td>175.0</td>
+      <td>98</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># correlation matrix</span>
 <span class="n">my_df</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
 </pre></div>
@@ -1236,7 +1352,7 @@ dtype: int64
         &lt;AxesSubplot:title={&#39;center&#39;:&#39;bmi&#39;}&gt;]], dtype=object)
 </pre></div>
 </div>
-<img alt="_images/04_data_21_1.png" src="_images/04_data_21_1.png" />
+<img alt="_images/04_data_23_1.png" src="_images/04_data_23_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1250,7 +1366,7 @@ dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;age&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/04_data_22_1.png" src="_images/04_data_22_1.png" />
+<img alt="_images/04_data_24_1.png" src="_images/04_data_24_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1264,7 +1380,7 @@ dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;age&#39;, ylabel=&#39;weight&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/04_data_23_1.png" src="_images/04_data_23_1.png" />
+<img alt="_images/04_data_25_1.png" src="_images/04_data_25_1.png" />
 </div>
 </div>
 </div>
@@ -1431,7 +1547,7 @@ makes a total of 0 missing values
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;Datetime&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/04_data_37_1.png" src="_images/04_data_37_1.png" />
+<img alt="_images/04_data_39_1.png" src="_images/04_data_39_1.png" />
 </div>
 </div>
 <div class="cell docutils container">

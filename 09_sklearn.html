@@ -49,8 +49,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"ignoreHtmlClass": "never-ignore", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}, "tex2jax": {"ignoreClass": "never-ignore"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -512,8 +510,8 @@ It assumes a normal distribution of features. The rescaling is done by subtracti
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x: mean = 1.9986445361274217, std = 5.000816295034873
-x rescaled: mean = -4.1211762891180115e-16, std = 0.9999999999999997
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x: mean = 2.001640655576341, std = 4.9994451875967565
+x rescaled: mean = -4.681396603700704e-16, std = 0.9999999999999983
 </pre></div>
 </div>
 <img alt="_images/09_sklearn_4_1.png" src="_images/09_sklearn_4_1.png" />
@@ -536,7 +534,7 @@ x rescaled: mean = -4.1211762891180115e-16, std = 0.9999999999999997
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x_alt: mean = 0.00027298987448624574, std = 0.9999193820308766
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x_alt: mean = -0.00026581075249881213, std = 0.9996627429788233
 </pre></div>
 </div>
 </div>
@@ -556,7 +554,7 @@ The mean of our calculation here reproduces the mean from the cell using the <co
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.00027298987448624574
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.00026581075249881213
 </pre></div>
 </div>
 </div>
@@ -570,7 +568,7 @@ The mean of our calculation here reproduces the mean from the cell using the <co
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x_alt: mean = -4.1211762891180115e-16, std = 0.9999999999999997
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x_alt: mean = -4.681396603700704e-16, std = 0.9999999999999983
 </pre></div>
 </div>
 </div>
@@ -847,8 +845,8 @@ non-smokers: 0.007062140580960441
 Dep. Variable:                      y   R-squared:                       0.650
 Model:                            OLS   Adj. R-squared:                  0.649
 Method:                 Least Squares   F-statistic:                     506.1
-Date:                Mon, 02 Feb 2026   Prob (F-statistic):           5.02e-64
-Time:                        14:32:34   Log-Likelihood:                -2807.2
+Date:                Tue, 03 Feb 2026   Prob (F-statistic):           5.02e-64
+Time:                        10:27:43   Log-Likelihood:                -2807.2
 No. Observations:                 274   AIC:                             5618.
 Df Residuals:                     272   BIC:                             5626.
 Df Model:                           1                                         
