@@ -1435,6 +1435,20 @@ For example from the list above:</p>
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># filter keys by values:</span>
+<span class="n">smaller_5_values</span> <span class="o">=</span> <span class="p">[</span><span class="n">key</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">dict_1</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">value</span><span class="o">&gt;</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">smaller_5_values</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;key_0&#39;, &#39;key_1&#39;, &#39;key_2&#39;]
+</pre></div>
+</div>
+</div>
+</div>
 <div class="section" id="break-and-continue">
 <h3>break and continue<a class="headerlink" href="#break-and-continue" title="Permalink to this headline">#</a></h3>
 <p>For more control over a loop, the <code class="docutils literal notranslate"><span class="pre">break</span></code>and <code class="docutils literal notranslate"><span class="pre">continue</span></code> statements can be engaged. Used with a condition, <code class="docutils literal notranslate"><span class="pre">break</span></code> will terminate the loop when satisfied while <code class="docutils literal notranslate"><span class="pre">continue</span></code> will stop and skip the current iteration to jump to the next.</p>
@@ -1557,7 +1571,7 @@ With branching, several return statements may appear in one function.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;generator object yield_list at 0x7faf0888a040&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;generator object yield_list at 0x7fe04076f120&gt;
 </pre></div>
 </div>
 </div>
@@ -1964,11 +1978,11 @@ Tina: Physics
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.01945523 0.36459195 0.26237412 0.18478414 0.24974753]
- [1.98186044 0.6506832  0.08868631 0.17071639 1.46859809]
- [0.10156953 0.37614195 0.1465132  0.0629614  0.32977028]
- [0.42847743 0.45848941 0.42189608 0.0841176  0.1755879 ]
- [0.03777388 0.00349489 0.57337388 1.1818359  0.16542954]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.2729707  0.32472033 0.86888687 0.39134032 0.27102453]
+ [0.98539431 0.15262591 0.10690284 0.41411923 1.01559107]
+ [0.56448595 0.87040846 1.11544771 0.60898568 0.41795167]
+ [0.55291156 0.44464453 0.50580321 1.90351476 0.71923979]
+ [0.56563789 0.24518158 0.37565288 0.07318485 0.72388047]]
 </pre></div>
 </div>
 </div>
